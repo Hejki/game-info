@@ -1,11 +1,179 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My Board Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        .hero {
+            height: 30vh;
+            width: 100%;
+            background-position: center;
+            background-size: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            padding: 0.4rem 1rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+
+        .basic-info .card {
+            padding: 0.5rem 1rem;
+            width: 20vw;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .basic-info .card .bi {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>My Board Game Info</h1>
-  <p>This is a description of the board game.</p>
+    <div id="hero" class="hero">
+    </div>
+    <div id="sticky-title" class="sticky-header text-center shadow">
+        <strong id="game-title" class="fs-2"></strong>
+    </div>
+
+    <div class="container-sm mt-3">
+
+        <div class="d-flex basic-info justify-content-center">
+            <div id="players" class="card mx-1">
+                <i class="bi bi-person-standing"></i>
+                <span id="players-value"></span>
+            </div>
+            <div id="playtime" class="card mx-1">
+                <i class="bi bi-hourglass-split"></i>
+                <span id="playtime-value"></span>
+            </div>
+            <div id="weight" class="card mx-1">
+                <i class="bi bi-speedometer2"></i>
+                <span id="weight-value"></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+        <!-- Obsah, který překrývá spodní část obrázku -->
+        <div class="container text-center mt-n5 z-1 position-relative">
+            <h1 class="fw-bold mb-4">Title text</h1>
+
+            <div class="card mx-auto" style="max-width: 600px;">
+                <div class="card-body">
+                    <p class="card-text">Card content goes here. Description, players, playtime, etc.</p>
+                </div>
+            </div>
+        </div>
+
+        <img alt="" />
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+
+
+
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/game-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script>
+        const hero = document.getElementById("hero")
+        const sticky = document.getElementById("sticky-title")
+
+        window.addEventListener("scroll", () => {
+            const heroBottom = hero.getBoundingClientRect().bottom
+            if (heroBottom <= 0) {
+                sticky.classList.add("visible")
+            } else {
+                sticky.classList.remove("visible")
+            }
+        });
+    </script>
 </body>
+
 </html>
