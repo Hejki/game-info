@@ -1,0 +1,14 @@
+{
+  "name": "game-info",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.js"
+  },
+  "author": "Hejki",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "yaml": "^2.8.0"
+  }
+}

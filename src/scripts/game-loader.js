@@ -3,7 +3,7 @@ async function loadGame() {
     const gameId = window.location.hash.substring(1)
 
     if (!gameId) {
-        document.body.innerHTML = "<p>No game ID provided.</p>"
+        await publishGameIndex()
         return
     }
 
@@ -23,9 +23,37 @@ async function loadGame() {
         fillWeight(game)
         fillLinks(game)
     } catch (err) {
-        document.body.innerHTML = "<p>Error loading game data.</p>"
         console.error(err)
+        await publishGameIndex()
     }
+}
+
+async function publishGameIndex() {
+    const res = await fetch("games/index.json")
+    if (!res.ok) throw new Error("Index not found")
+
+    const gamesArray = await res.json()
+    const games = 
+
+    document.body.innerHTML = `<div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Games Index</h1>
+        <div class="mx-auto">
+        <ul id="game-index" class="list-unstyled"></ul>
+        </div>
+        </div>
+        `
+
+    gamesArray.forEach(gameId => {
+        let li = document.createElement("li")
+
+        id("game-index").appendChild(li)
+        li.innerHTML = `<a href="#${gameId}" onclick="reloadGame('${gameId}')">${gameId}</a>`
+    })
+}
+
+function reloadGame(gameId) {
+    window.location.hash = `#${gameId}`
+    window.location.reload()
 }
 
 function fillPlayers(game) {
@@ -106,7 +134,7 @@ function id(elementId) {
 }
 
 function startPlay(game) {
-alert(game.bgg)
+    alert(game.bgg)
 }
 
 loadGame()

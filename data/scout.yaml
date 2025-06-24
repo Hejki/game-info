@@ -1,0 +1,46 @@
+name: Cirkus
+bgg: 291453
+zh: cirkus-12559
+players: "2-5"
+playtime: "20"
+age: 9+
+weight: 1.37
+color: "#3E0099"
+description: |
+  **Cirkus**, neboli **Scout** je svižná abstraktní kombinační karetní hra zasazená do cirkusového prostředí.
+
+  ### Příprava hry:
+
+  V každém kole každý hráč dostane do ruky 9–12 karet (podle počtu hráčů). Tyto karty nesmí jakkoliv přemisťovat a
+  musí být zachováno jejich pořadí. Jediné, co může hráč na začátku kola (a pouze tehdy) udělat, je otočit počáteční
+  karty vzhůru nohama. Každá karta totiž má různá dvě čísla; jedno nahoře a druhé dole.
+
+  ### Průběh hry:
+
+  V každém kole se hráči střídají v tazích, v rámci nichž si vyberou jednu ze dvou možností:
+
+  * ___Vyložit kartu či kombinaci více sousedících karet z ruky.___
+  Kombinací je buď postupka (např. 2+3+4 nebo 7+6+5), nebo stejná hodnota karet (3+3).
+  Přitom je třeba vždy vyložit vyšší hodnotu, než leží na stole. Platí, že kombinace karet o stejné hodnotě (3+3)
+  je víc, než postupka (7+8) tvořená stejným počtem karet.
+  Samozřejmě se počítá i bodová hodnota: tři pětky jsou více než tři dvojky.
+  A kombinace karet vždy přebíjí jakoukoli kombinaci složenou z menšího počtu karet (nebo samostatnou kartu).
+  Jako odměnu za přebití si hráč vezme karty, které ležely na stole před jeho výnosem, a na konci kola si je započítá jako body.
+  
+  * ___Vzít si krajní kartu z tahu předchozího hráče___ a umístit ji na jakoukoliv pozici v ruce
+  (kartu lze převrátit na druhou hodnotu). Např. pokud na stole leží postupka 7+8+9, lze si vzít kartu
+  s hodnotou 7 nebo 9. Hráč, který karty položil, získá žeton vítězného bodu.
+
+  Jednou za hru může hráč zahrát obě akce najednou (použít svůj žeton autíčka).
+
+  ### Konec hry:
+
+  Kolo končí, když někomu dojdou karty, nebo pokud všichni hráči z sebou v řadě využijí druhou možnost:
+  vzít kartu ze stolu. Pak se sečtou/odečtou body, zapíšete a následuje další kolo – těch se odehraje tolik,
+  kolik hraje hráčů. A vyhrává překvapivě ten, jehož součet bodů na konci hry je… nejvyšší.
+
+  Hra obsahuje také **upravenou variantu pro dva hráče**.
+
+  **Shrnutí:** Hra má malou krabičku, jednoduchá pravidla, pár komponent a hráč vybírá z nemnoha možností,
+  co zahrát. Přesto nabízí překvapivě velkou strategickou hloubku, neboť je důležité připravit silné kombinace
+  vhodným odkládáním i přidáváním karet do/z ruky. A zároveň hráč musí průběžně nasbírat dostatek karet pro bodování. 
