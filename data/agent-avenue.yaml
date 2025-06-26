@@ -7,12 +7,61 @@ age: 8+
 weight: 1.35
 color: "#347860"
 description: |
-  **Můj soused špion** je závodní hra využívající mechaniky set-collection a I
-  cut ‒ you choose. Hráči v ní představují dva špiony na odpočinku žijící ve
-  stejné ulici, kteří si najímají své sousedy, aby s jejich pomocí odhalili
-  soupeřovu identitu dříve, než se to podaří jemu. Hráč, kterému se jako prvnímu
-  podaří svého soupeře doběhnout a odhalit jeho identitu, se stane vítězem hry.
+  _Vítejte v Oakfieldu! Zdejší Špionská ulice je něčím víc než jen poklidnou ulicí – jedná se o tajné dějiště špionáže.
+  Dva agenti, žijící jako sousedé, neznají skutečnou identitu toho druhého; začínají však vidět známky toho, že to nejsou
+  jen obyčejní místní. Motivováni těmito stopami využívají své špionské dovednosti, aby zjistili
+  pravdu o tom, kdo bydlí v sousedství._
 
-  Hru lze hrát v základní, nebo v pokročilé podobě; herní prvky pouze pro
-  pokročilou hru jsou popsány v kurzívě. Kromě hry jednoho proti jednomu lze
-  utvořit i jeden či dva dvoučlenné týmy a hrát tak až ve čtyřech hráčích.
+  **Můj soused špion** je závodní hra využívající mechaniky set-collection a _I cut ‒ you choose_.
+  Hráči v ní představují dva špiony na odpočinku žijící ve stejné ulici, kteří si najímají své sousedy,
+  aby s jejich pomocí odhalili soupeřovu identitu dříve, než se to podaří jemu. Hráč, kterému se jako prvnímu podaří
+  svého soupeře doběhnout a odhalit jeho identitu, se stane vítězem hry.
+
+  Hru lze hrát v základní, nebo v pokročilé podobě; _herní prvky pouze pro pokročilou hru jsou popsány v kurzívě_.
+  Kromě hry jednoho proti jednomu lze utvořit i jeden či dva dvoučlenné týmy a hrát tak až ve čtyřech hráčích.
+  O týmové variantě vizte konec popisu.
+
+  ### Příprava hry:
+
+  Hráči umístí mezi sebe ___dvojstrannou herní desku___ s drahou pro pohyb figurek po obvodu; viditelnou nechají
+  buď stranu pro základní hru, _anebo stranu pro pokročilou hru, na níž jsou některá políčka označena ikonou černého trhu._
+  Poté umístí každý svoji figurku na startovní políčka na dráze. Ta jsou na desce umístěna zrcadlově naproti sobě a
+  figurky tak nestartují ze stejného místa. Každého hráče tak od toho druhého dělí stejný počet polí. 
+
+  Dále hráči zamíchají ___karty agentů___ a vytvoří z nich dobírací balíček. Tyto karty představují sousedy a
+  jsou celkem 8 různých typů odlišených vizuální podobou karty a jejím názvem. Každá karta má na sobě uvedený efekt,
+  který většinou závisí na počtu karet stejného typu vyložených hráčem. Například Enforcer má 1 pohyb kupředu při 1 kartě,
+  2 pohybu kupředu pro 2 tyto karty a 3 pole kupředu pro 3+ těchto karet. Jiné typy karet ale mohou mít efekty složitější a
+  existují i typy karty agentů, které při vyložení třetí karty ukončí hru vítězství (nebo prohrou) hráče.
+
+  _V případě pokročilé varianty hráči ještě **připraví balíček karet černého trhu** a vyloží z něj nabídku tří karet._
+  Část těchto karet má okamžitý efekt, který hráč provede jednou ihned po jejím vyložení.
+  Druhá část karet pak od svého vyložení ovlivňuje hru až do jejího konce.
+
+  ### Průběh hry:
+
+  Hráči se střídají v tazích, přičemž každý tah má celkem tři fáze:
+
+  1. _Vynesení karty_: Hráč na tahu zahraje z ruky dvě různé karty agentů. Jednu lícem vzhůru a druhou lícem dolů.
+  Poté si dobere karty tak, aby měl opět čtyři.
+  2. _Najmutí agenta_: Soupeř hráče na tahu si vybere jednu z karet zahraných v předchozím kroku a přesune si ji před sebe.
+  Zbylou kartu se před sebou nechá aktivní hráč. Karta, která byla lícem dolů se odkryje a nyní oba hráči vyhodnotí efekt
+  získané karty agenta.<br>
+  Karty agentů stejného typu se přitom kladou do sloupečků pod sebe a podle toho, kolikátá karta stejného typu získaná karta je,
+  se určí její efekt. Většinou posunou své figurky o tolik polí, kolik karta agenta udává.
+  3. _Konec tahu_: Hráči ověří, zda nedošlo k naplnění podmínky vítězství či prohry.
+
+  _Pokud hráč ukončí svůj pohyb na políčku černého trhu, vezme si jednu z karet černého trhu v nabídce a buď provedou
+  její okamžitý efekt, nebo od té doby uplatňují její trvalý efekt._
+
+  ### Konec hry:
+
+  Partie hry **Můj soused špion** končí na konci kola, kdy buďto figurka jednoho z hráčů dostihla či předstihla soupeřovu
+  figurku (takový hráč se stane vítězem hry), nebo byl spuštěn efekt agentů ukončující hru vítězstvím či prohrou hráče.
+
+  ### Týmová varianta hry:
+
+  Pro hru tří či čtyř hráčů je utvořen jeden, resp. dva dvoučlenné týmy. V rámci týmu každý hráč disponuje vlastními kartami,
+  celý tým však sdílí jednu figurku a oblast zahraných karet, _případně též karty černého trhu_.
+  Během hry se střídají v tazích celé týmy, v každém tahu potom oba hráč zahraje po jedné kartě.
+  Další postup i podmínky konce hry jsou beze změny.

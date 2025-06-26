@@ -1,0 +1,43 @@
+name: Vúdú
+bgg: 154880
+zh: vudu-2-edice-17645
+players: "2-8"
+playtime: "30"
+age: 8+
+weight: 1.15
+color: "#1A4C5D"
+description: |
+  _Už zase stojím na jedné noze a mluvím fistulí. Ale já mu to vrátím. Prokleju ho a bude mít hlavu na stole.
+  A ještě nohy nad zemí. Cože? Jak to, že sesílání černé magie má následky? Tak to se s nimi budu muset popasovat!_
+
+  **Vúdú** je párty hra až pro osm hráčů. Používá kostky a karty a hraje se na body.
+  Princip spočívá v tom, že hráč, který je na tahu, získá vůdů panenku (označení aktivního hráče a symbol ukončení tahu).
+  Poté hodí pěti kostkami s ingrediencemi (netopír, dýně, lebka...) a buď:
+
+  * Se schodují ingredience s požadavkem na kartách kletby, kterou má v ruce, a tak ji může seslat 
+  * Nebo za cenu jedné ingredience (kostky) může libovolný počet kostek přehodit
+  * Nebo za cenu dvou libovolných ingrediencí nakupuje z nabídky karty kleteb či artefaktů.
+
+  Když hráči kostky dojdou, jeho tah končí a předá vůdů panenku. Může tedy udělat i více akcí ve svém tahu. 
+
+  Karty jsou tří typů:
+
+  1. Kletby – pomocí nich hráč sesílá kletby a získává body. Body získá za seslání kletby.
+  Pokud postižený protihráč kletbu nedodrží a hráč si toho všimne, rozdávají se i body za její prolomení.
+  V tom případě kletba končí.
+  2. Trvalé kletby – ty hráč získá během hry po dosažení určitého počtu bodů na stupnici.
+  Způsobí mu kletbu a její dodržování hlídají všichni protihráči. Nedodržení způsobuje nějaký postih. 
+  3. Karty artefaktů. Karty s předměty, které většinou umožní hráči nějaké ohnutí pravidel či dají nějakou herní výhodu.
+  Pokud některý z hráčů dosáhne na stupnici konečného počtu bodů, vyhrál. 
+
+  A v čem je ta párty? Právě v popsaných kletbách. Jako příklad uvádím zahrání karty kletby „tančí s vlkem“.
+  Na její seslání potřebujete hodit ingredienci vránu a hvězdu. Poté můžete seslat na některého protihráče kletbu
+  s tímto efektem: než hodí kostkami, musí prokletý zavýt jako vlk. Získáte na stupnici jeden bod a kartu si položíte před sebe.
+  A čekáte, až to onen prokletý zapomene udělat, a vy získáte bod další. Tímhle způsobem hra pokračuje a za chvíli
+  je u stolu člověk vyjící, s nohou na stole, mluvící fistulí, s hlavou na stole… Postupně je toho tolik, že něco nedodržíte.
+  Nikdo se prokletí nevyhne, neb používání kleteb přináší následky v podobě kledeb trvalých.
+
+  Ještě doplním, že na bodové stupnici se pohybují stylové lebky a hra obsahuje kartu cíle. Ta zabraňuje útoku na osobu,
+  která byla cílem útoku jako poslední. 
+
+  Pak jsou tu ještě pravidla pro hru dvou hráčů a zrychlená varianta. 
