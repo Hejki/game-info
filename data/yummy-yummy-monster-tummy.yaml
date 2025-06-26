@@ -1,0 +1,40 @@
+name: Hladové příšerky
+bgg: 344254
+zh: hladove-priserky-13033
+players: "2-4"
+playtime: "15-30"
+age: 6+
+weight: 1.16
+color: "#F6A53F"
+description: |
+  _Z půdy dědečkovy chaty se ozývají podivné zvuky. Když vyjdete po schodech nahoru,
+  všude pobíhají barevné chlupaté příšerky. Vypadají přátelsky, ale jsou opravdu hladové.
+  Musíte je něčím nakrmit, čímkoli. Nejvíce je ale zajímají barvy. A vitamíny opravdu nesnáší..._
+
+  **Hladové příšerky** je kooperativní karetní hra o míchání barev, která se hraje v kombinaci s aplikací.
+  Cílem je nakrmit všechny příšerky jejich oblíbeným jídlem. Je možné ji hrát buď jako příběh, nebo jako párty variantu. 
+
+  ### Příprava hry:
+
+  Stáhněte si a spusťte aplikaci „Hladové příšerky“ na vašem zařízení. Položte zařízení doprostřed stolu tak, aby všichni hráči dobře viděli na obrazovku. Vezměte balíček 38 karet se symbolem „domečku“. Ostatní karty vraťte do krabičky. Těchto 38 karet zamíchejte a balíček položte lícem dolů vedle zařízení. Postupujte podle aplikace, která vám poví, kolik karet máte rozdat každému hráči.
+
+  Průběh hry:
+
+  V každé úrovni je třeba nakrmit určitý počet příšerek. Jakmile příšerka otevře tlamičku, je připravena jíst.
+  Hráči hrají v libovolném pořadí. Každý hráč si vybere jednu kartu předmětu z ruky a naskenuje QR kód na její zadní straně,
+  aby příšerku nakrmil. Pokud hráč naskenuje předmět se zvláštní schopností, spustí se okamžitě. 
+
+  Aplikace hráčům oznámí, zda se jim podařilo nasytit příšerku správnou barevnou kombinací předmětů.
+  Bude-li příšerka spokojená, každý hráč si dobere jednu novou kartu z balíčku. 
+
+  Po dokončení některých úrovní se odemknou nové lokace a příběhy. V takovém případě dá aplikace hráčům pokyn,
+  aby otevřeli nový balíček karet a všechny karty z něj přidali do balíčku pro všechny ostatní hry.
+  Karty ze stejného balíčku mají na sobě stejný symbol (celkem jsou 4 různé symboly), aby byly snadno rozlišitelné.
+
+  ### Konec hry:
+
+  Pokud se hráčům podaří nakrmit všechny tvory, zvítězí. Dokončení úrovně odemkne následující úroveň.
+  Hráči mohou pokračovat okamžitě, nebo nově odemčenou úroveň odehrát kdykoliv později.
+
+  Pokud příšerku hráči nakrmí předměty, jejichž kombinací nevznikne barva odpovídající barvě srsti dané příšerky,
+  hráči společně prohrají a budou muset danou úroveň hrát od začátku. 
