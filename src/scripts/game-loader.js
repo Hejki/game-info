@@ -33,7 +33,9 @@ async function publishGameIndex() {
     if (!res.ok) throw new Error("Index not found")
 
     const gamesArray = await res.json()
-    const games = 
+    const getName = (id) => {
+        return capitalizeWords(id.replaceAll("_", ": ").replaceAll("-", " "))
+    }
 
     document.body.innerHTML = `<div class="px-4 py-5 my-5 text-center">
         <h1 class="display-5 fw-bold text-body-emphasis">Games Index</h1>
@@ -47,8 +49,16 @@ async function publishGameIndex() {
         let li = document.createElement("li")
 
         id("game-index").appendChild(li)
-        li.innerHTML = `<a href="#${gameId}" onclick="reloadGame('${gameId}')">${gameId}</a>`
+        li.innerHTML = `<a href="#${gameId}" onclick="reloadGame('${gameId}')">${getName(gameId)}</a>`
     })
+}
+
+function capitalizeWords(str) {
+  if (!str) return ''
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
 }
 
 function reloadGame(gameId) {
