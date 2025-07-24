@@ -54,11 +54,16 @@ async function publishGameIndex() {
 }
 
 function capitalizeWords(str) {
-  if (!str) return ''
-  return str
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
+    if (!str) return ''
+    const extraWords = new Set(["a", "the"])
+
+    return str
+        .split(' ')
+        .map(word => {
+            if (extraWords.has(word)) return word
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        })
+        .join(' ')
 }
 
 function reloadGame(gameId) {
@@ -148,3 +153,7 @@ function startPlay(game) {
 }
 
 loadGame()
+
+window.addEventListener('hashchange', function () {
+    loadGame()
+})

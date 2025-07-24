@@ -9,13 +9,13 @@ color: "#3E0099"
 description: |
   **Cirkus**, neboli **Scout** je svižná abstraktní kombinační karetní hra zasazená do cirkusového prostředí.
 
-  ### Příprava hry:
+  ### Příprava hry
 
   V každém kole každý hráč dostane do ruky 9–12 karet (podle počtu hráčů). Tyto karty nesmí jakkoliv přemisťovat a
   musí být zachováno jejich pořadí. Jediné, co může hráč na začátku kola (a pouze tehdy) udělat, je otočit počáteční
   karty vzhůru nohama. Každá karta totiž má různá dvě čísla; jedno nahoře a druhé dole.
 
-  ### Průběh hry:
+  ### Průběh hry
 
   V každém kole se hráči střídají v tazích, v rámci nichž si vyberou jednu ze dvou možností:
 
@@ -33,7 +33,7 @@ description: |
 
   Jednou za hru může hráč zahrát obě akce najednou (použít svůj žeton autíčka).
 
-  ### Konec hry:
+  ### Konec hry
 
   Kolo končí, když někomu dojdou karty, nebo pokud všichni hráči z sebou v řadě využijí druhou možnost:
   vzít kartu ze stolu. Pak se sečtou/odečtou body, zapíšete a následuje další kolo – těch se odehraje tolik,

@@ -1,0 +1,43 @@
+name: Pixies
+bgg: 411875
+zh: pixies-15940
+players: "2-5"
+playtime: "30"
+age: 8+
+weight: 1.21
+color: "#4D5937"
+description: |
+  **Pixies** je karetní hra, při níž hráči během tří kol vykládají do mřížky 3×3 karty o hodnotě 1–9
+  a v jedné ze čtyř barev. Na konci každého kola hráči obdrží, popř.
+  ztratí body a hráč s nejvíce body na konci hry se stane vítězem.
+
+  ### Příprava hry
+
+  Hráči zamíchají všechny karty a utvoří z nich balíček.
+
+  ### Průběh hry
+
+  Hra trvá po tři kola, v každém z nich se hráči střídají v tazích, během nichž vždy proběhnou následující kroky:
+
+  1. Začínající hráč odhalí určitý počet karet na základě počtu hráčů.
+  2. Hráči si postupně rozeberou karty v nabídce a umístí je do své mřížky 3×3. Pozice v mřížce,
+  kam může hráč kartu vyložit, je dána hodnotou karty (např. pro kartu s č. 4 je to na místo zcela vlevo v prostřední řadě mřížky),
+  záleží však na tom, zda sem již byla umístěna jiná karta. Pokud se na určeném místě:
+
+      - nenachází karta lícem vzhůru (tj. buď je místo prázdné, nebo se zde nachází karta lícem dolů),
+      hráč sem umístí vybranou kartu lícem vzhůru;
+      - nachází karta lícem vzhůru, hráč sem umístí vybranou kartu a rozhodne se,
+      kterou z obou karet ponechá lícem dolů a kterou na ni položí lícem nahoru;
+      - nachází dvojice karet (jedna lícem dolů, druhá lícem nahoru), hráč umístí vybranou kartu lícem dolů
+      na jakékoli prázdné místo v mřížce.
+  
+  3. Začínajícím hráčem pro další tah se stává hráč, který si bral poslední kartu za nabídky.
+
+  Takto hráči pokračují, dokud některý z nich nemá zaplněno všech devět míst ve své mřížce.
+  V tu chvíli kolo končí a hráči získají (či ztratí) body za potvrzené karty (tj. karty, pod nimiž se nachází lícem dolů
+  jiná karta), za největší spojitou oblast karet stejné barvy v mřížce a za symboly na kartách.
+  V případě 1. a 2. kola se opět zamíchají všechny karty a připraví se další kolo.
+
+  ### Konec hry
+
+  Partie hry Pixies končí po 3. kole. Hráč s nejvyšším celkovým počtem bodů se stane vítězem hry.

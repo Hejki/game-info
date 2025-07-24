@@ -21,7 +21,7 @@ description: |
   Kromě hry jednoho proti jednomu lze utvořit i jeden či dva dvoučlenné týmy a hrát tak až ve čtyřech hráčích.
   O týmové variantě vizte konec popisu.
 
-  ### Příprava hry:
+  ### Příprava hry
 
   Hráči umístí mezi sebe ___dvojstrannou herní desku___ s drahou pro pohyb figurek po obvodu; viditelnou nechají
   buď stranu pro základní hru, _anebo stranu pro pokročilou hru, na níž jsou některá políčka označena ikonou černého trhu._
@@ -38,7 +38,7 @@ description: |
   Část těchto karet má okamžitý efekt, který hráč provede jednou ihned po jejím vyložení.
   Druhá část karet pak od svého vyložení ovlivňuje hru až do jejího konce.
 
-  ### Průběh hry:
+  ### Průběh hry
 
   Hráči se střídají v tazích, přičemž každý tah má celkem tři fáze:
 
@@ -54,12 +54,12 @@ description: |
   _Pokud hráč ukončí svůj pohyb na políčku černého trhu, vezme si jednu z karet černého trhu v nabídce a buď provedou
   její okamžitý efekt, nebo od té doby uplatňují její trvalý efekt._
 
-  ### Konec hry:
+  ### Konec hry
 
   Partie hry **Můj soused špion** končí na konci kola, kdy buďto figurka jednoho z hráčů dostihla či předstihla soupeřovu
   figurku (takový hráč se stane vítězem hry), nebo byl spuštěn efekt agentů ukončující hru vítězstvím či prohrou hráče.
 
-  ### Týmová varianta hry:
+  ### Týmová varianta hry
 
   Pro hru tří či čtyř hráčů je utvořen jeden, resp. dva dvoučlenné týmy. V rámci týmu každý hráč disponuje vlastními kartami,
   celý tým však sdílí jednu figurku a oblast zahraných karet, _případně též karty černého trhu_.

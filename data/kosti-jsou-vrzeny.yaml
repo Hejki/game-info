@@ -1,0 +1,69 @@
+name: Kosti jsou vrženy
+bgg: 192135
+zh: kosti-jsou-vrzeny-5730
+players: "1-4"
+playtime: "60-120"
+age: 12+
+weight: 3.86
+color: "#343533"
+description: |
+  _Nastal čas, aby s nimi někdo zatočil. Řeč je o padouších, kteří tyranizují okolí již dlouhou řadu let.
+  Jenže: Jak je najít? Kde po nich pátrat? V teple domova to nezjistíme, proto hurá na cestu, verglové!_
+
+  Hráči ve hře **Kosti jsou vrženy** představují hrdiny, jejichž cílem je porazit hlavního padoucha (tyrana).
+  Každé dobrodružství má v sobě 8 - 12 událostí, které hráči musí vyřešit. Někdy je to rozhodnutí,
+  které ovlivní další události ve hře (přidává se karta s novými událostmi), většinou však vede k bitvě.
+  Hráč si volí jednu z možností a podle toho jsou nastaveny podmínky bitvy a po ní následující odměna.
+  Události jsou zčásti pojaty vážně a zčásti s příjemnou nadsázkou, u které se všichni dobře pobaví.
+
+  ### Příprava hry
+
+  Na začátku hry je nutné si vybrat svého hrdinu (vergla). Každý z verglů je úplně jiný a je nutné se dobře seznámit s tím,
+  jak fungují jeho vlastnosti. V úvodu si hráči vezmou svého vergla a k němu odpovídající sadu kostek.
+  Někteří dostávají kostky schopností hned do začátku, jiní si je dobírají postupně s každým vylepšením.
+  Všichni verglové mají společné základní vlastnosti: zdraví, útok, obranu a šikovnost
+  (ta udává, kolika kostkami hráč může házet v jednom bitevním kole). Dále se připraví karty hlavního padoucha a
+  balíček karet událostí - do něj jsou namíchány obyčejné karty setkání,
+  společně s kartami speciálních setkání a karta setkání s vybraným tyranem.
+  Poslední je příprava nepřátel (zlounů). Každé dobrodružství zahrnuje jiný typ zlounů a o jaký druh se jedná,
+  se hráči dočtou na kartě tyrana. Pak hra může začít.
+
+  ### Průběh hry
+
+  1. ***Setkání:*** Hráči si z připraveného balíčku táhnou kartu setkání. Přečtou si situaci a rozhodují se,
+  jak na ni zareagují. Většinou dojde k boji, někdy však karta nabízí i jiné možnosti a hráči se boji mohou vyhnout
+  (s tím, že je čeká boj v budoucnu, protože tato možnost přidá do balíčku další kartu setkání).
+
+  2. ***Bitva:*** V případě, že nastává boj, jsou vybráni nepřátelé z připravené zásoby zlounů.
+  Počet zlounů je určen počtem hráčů a počtem dnů, který uběhl od začátku dobrodružství
+  (čím více času uběhlo, tím více nepřátel hráči potkávají a také se zvedá jejich síla).
+
+      - Nejprve hráči umístí na bitevní podložku nejsilnější zlouny. Poté všechny další podle jejich síly.
+      Maximální počet zlounů v jednom okamžiku na bojišti jsou 4, ostatní čekají, až na ně přijde řada.
+      Zlouni se umísťují podle druhu útoku (zblízka nebo na dálku) a podle pořadí, jak přicházejí do hry.
+      - Pak umísťují své postavy hráči - volí si podle druhu útoku a dále tak, aby to pro ně bylo co nejvýhodnější.
+      - Pak nastává určení iniciativy. Zlouni ji mají danou, hráči si ji nahazují na kostce.
+      První útočí ten, kdo má nejvyšší iniciativu. Pokud nemůže útočit, pohybuje se.
+      Takto se vystřídají všichni přítomní na desce.
+      - Následně se přidávají na desku další zlouni (pokud již nebyli přidáni všichni).
+      - Bitva končí, jakmile jsou eliminováni všichni zlouni nebo verglové.
+
+  3. ***Po bitvě:*** Hráči si rozdělují získanou odměnu (její výše je stanovena na kartě setkání).
+  Většinou získávají i body zdokonalení a vylepšují si svého vergla, léčí se, hledají lepší kořist nebo
+  zkoumají zlouny před nimi. Zároveň mohou otevírat poklad, který již získali.
+  Jedná se o samostatnou minihru a získaný poklad výrazně pomáhá verglům.
+  V této fázi si hráči také mohou mezi sebou vyměňovat získané předměty.
+
+  ### Konec hry
+
+  Hra může skončit dvěma způsoby:
+
+  1. Hráči získali dostatek bodů postupu k tomu, aby našli tyrana a zaútočili na něj: Bitva s tyranem je
+  obzvláště tvrdá a hráčům pomáhá, pokud se jim podařilo splnit událost, která se přímo váže na daného tyrana.
+  Tyran má speciální kostku, která mu dává silné schopnosti a za určitých okolností ji hráči mohou získat.
+
+  2. Hráči nenašli bodů postupu v určeném čase a tyrana nenašli.
+
+  V případě, že jsou všichni hráči v průběhu bitvy eliminováni, hra nekončí.
+  Nastává další den, hráči si odpočinou si a mohou pokračovat v dobrodružství.
+  Bohužel bez zisku bodů postupu nebo tolik potřebných dalších odměn.
