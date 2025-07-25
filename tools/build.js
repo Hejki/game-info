@@ -28,7 +28,10 @@ async function processDataFile(filePath) {
     const gameData = YAML.parse(yamlText)
     const gameId = path.basename(filePath, ".yaml")
 
-    gamesIndex.push(gameId)
+    gamesIndex.push({
+        id: gameId,
+        name: gameData.name,
+    })
     await fs.mkdir(`${gamesDataDir}/${gameId}`, { recursive: true })
     await fs.writeFile(`${gamesDataDir}/${gameId}/data.json`, JSON.stringify(gameData), { encoding: "utf8" })
     await fs.cp(`./data/${gameId}.jpg`, `${gamesDataDir}/${gameId}/title.jpg`)
