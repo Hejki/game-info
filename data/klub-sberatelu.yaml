@@ -1,0 +1,63 @@
+name: Klub sběratelů
+bgg: 395375
+zh: klub-sberatelu-15622
+players: "2-4"
+playtime: "30-60"
+age: 10+
+weight: 1.86
+color: "#324E69"
+description: |
+  _Každý správný sběratel umění tráví hodně času na aukcích. Hledá tam ta nejlepší umělecká díla a snaží se je získat do svých sbírek.
+  Škoda jen, že mu to komplikují jeho konkurenti a také muzea. Když se ale zadaří a úchvatné dílo vydraží pro svou sbírku...
+  Kolegové puknou závistí. Jen pozor na to, aby se vkus celé společnosti nezměnil, a co včera bylo dílo hodné obdivu, je dnes pouhou mazanicí zabírající místo jiným kouskům._
+
+  Ve hře **Klub sběratelů** se hráči vtělí do rolí sběratelů obrazů a budou soupeřit o získání nejhodnotnějších děl,
+  které se objeví v nabídce aukčních domů. Jen pozor, obrazy, které hráči nevydraží, poputují do muzea a ovlivní tak vnímání hodnoty podobných obrazů (pozitivním způsobem).
+  Cílem hry je mít na jejím konci sbírku obrazů s nejvyšší hodnotou.
+
+  ### Příprava hry
+
+  Každý hráč si vezme ___desku své sbírky___, která obsahuje oblast pro obrazy rozdělenou mřížkou a také vyznačenou částí,
+  ve které mají umístěné obrazy vyšší bodovou hodnotu. Hráči budou při hře do této oblasti umisťovat vydražené obrazy.
+
+  Dále se zamíchají a připraví ___žetony obrazů___, které mají různé velikosti (tomu odpovídá i číslo na jejich rubové straně nabývající hodnot 3 až 9).
+  Na lícové straně pak je samotná ilustrace obrazu se dvěma podstatnými informacemi. První je typ obrazu (život ve městě, portrét, zátiší a krajina)
+  a na konci hry určí bodovou hodnotu obrazu. A také typ rámu, který může přinést doplňující dekorace do sbírky. Žetony se rozdělí do hromádek dle své velikosti rubem nahoru.
+
+  Kromě toho si hráči ještě vezmou ___karty nabídek___, které na sobě mají různá čísla (při hře budou určovat pořadí hráčů při výběru obrazů)
+  a také náhodný obraz z žetonů startovních obrazů (malé obrazy o rozměrech 2x3 pole s hvězdičkou). Tento pak umístí na desku své sbírky.
+
+  Připraví se ještě ___deska muzea___, ke které se připraví ___4 žetony prestiže___ odpovídající 4 typům obrazů.
+
+  ### Průběh hry
+
+  Partie Klubu sběratelů se hraje na jednotlivá kola a ta se skládají z 5 fází:
+
+  1. **Příprava aukce** – Dražitel (= aktivní hráč) vybere žetony obrazů, které budou draženy v tomto kole.
+  Vybere jich o jeden více, než kolik hráčů se partie účastní. Po jejich výběru je otočí lícovou stranou vzhůru.
+  
+  2. **Dražba a získání obrazů** – Všichni hráči (vč. dražitele) zvolí jednu ze svých karet nabídky a umístí je před sebe opět rubovou stranou.
+  Když mají všichni vybráno, tyto karty se otočí a určí pořadí hráčů, v jakém si budou vybírat obrazy z nabídky (začíná hráč s nejvyšším číslem).
+  Hráči si takto postupně vyberou obrazy až na jeden, který zůstane muzeu (viz fáze č. 4).
+
+  3. **Umístění obrazů** – V této fázi mohou všichni hráči přemýšlet, kam s obrazem.
+  Musí ho umístit na desku své sbírky při dodržení různých pravidel.
+  Obrazy se musí vždy aspoň částí strany dotýkat, ale neměly by se dotýkat obrazy stejného typu (je to povoleno, ale hodnota takových obrazů je rovna nula,
+  je to sběratelské faux-pas). Každý hráč si může jeden obraz umístit ke svému asistentovi a umístit ho do sbírky v pozdějších kolech (právě aby se například vyhnul faux-pas).
+  Ale pozor, asistent může podržet pouze jeden obraz.
+
+  4. **Zvýšení prestiže obrazů** – Obraz, který zůstal muzeu (žádný hráč ho nevydražil), určí, který žeton prestiže se na stupnici hodnoty
+  (na desce muzea) posune, a také o kolik polí. Typ obrazu = typ posouvaného žetonu prestiže. A počet polí určí velikost obrazu uvedená na jeho rubové straně.
+
+  5. **Konec kola** – Fáze spočívající pouze v předání kladívka aktivního hráče po směru hodinových ručiček dále.
+
+  ## Konec hry
+
+  Partie Klubu sběratelů končí v situaci, že některý z hráčů zaplní svou desku sbírky, případně hráčům dojdou karty nabídky.
+  Nebo ještě když nějaký hráč získá druhý nadbytečný obraz (obraz je nadbytečný, pokud ho hráč nedokáže vměstnat do své sbírky a asistent již drží jiný obraz).
+
+  Poté hráči dohrají aktuální kolo a spočítají si body prestiže za obrazy ve svých sbírkách (= vyložené na deskách).
+  Každý obraz má hodnotu uvedenou odpovídajícím žetonem prestiže na desce muzea (hodnota obrazu není nijak závislá na jeho velikosti).
+
+  Bonusové body je možné získat za umístění obrazu do speciální sekce na desce sbírky (tzv. „ve výšce očí“), za zaplnění všech polí na své desce sbírky.
+  A naopak za nějaké situace může body ztrácet (např. za nadbytečné obrazy).

@@ -1,0 +1,45 @@
+name: Nálepkáři
+bgg: 413533
+zh: nalepkari-16647
+players: "2-4"
+playtime: "15-30"
+age: 8+
+weight: 1.33
+color: "#D6A342"
+description: |
+  Ve hře **Nálepkáři** se hráči snaží nasbírat co nejpočetnější sady od jednotlivých typů karet: za každý druh získají body
+  dva hráči, kteří mají od příslušného druhu nejvíce karet. Vzácnost jednotlivých druhů, jíž je určena jejich bodová hodnota,
+  je dána losem na počátku hry, v jejím průběhu s ní však lze manipulovat.
+
+  Nálepkáři jsou legacy hrou a postupně se tak vyvíjí: po každé odehrané partii si hráči přidají do hry pomocí samolepek nová
+  pravidla a herní prvky. 
+
+  ### Příprava hry:
+
+  Hráči rozloží víko krabice tvořící herní plán. Poté zamíchají žetony všech druhů a rozmístí je na pole desky vzácnosti
+  na herním plánu. Následně vytvoří balíček karet druhů, z nějž vytvoří balíček zásoby, vyloží nabídku 6 karet a rozdají
+  každému hráči 6 karet na ruku.
+
+  ### Průběh hry:
+
+  Hráči se střídají v tazích do vyčerpání karet v balíčku. Ve svém tahu hráč postupně provede následující kroky:
+
+  1. Vybere si kartu z nabídky a vezmou si ji do ruky.
+
+  2. Vyloží jednu či více karet stejného druhu, a to tak, aby se částečně překrývaly a utvořily sloupec,
+  v němž bude z každé karty pod vrchní kartou vidět pouze její horní okraj. Pokud již hráči mají vyložené
+  karty tohoto druhu, přiloží nové karty k nim. Poté hráč vyhodnotí všechny efekty právě vyložených karet ‒ mj.
+  takto mohou navzájem vyměnit dva žetony na desce vzácnosti a tím změnit jejich bodovou hodnotu.
+
+  3. Dobere si do ruky tolik karet, aby jich měl opět 6. Poté doplní nabídku. Karty bere nejprve z balíčku,
+  po jeho dobrání ze zásoby.
+
+  ### Konec hry:
+
+  Konec partie hry **Nálepkáři** je spuštěn poté, co dojdou karty v balíčku. Hráči ještě vynesou svoji poslední kartu
+  (již bez následného provedení efektů) a nastane závěrečné bodování. Hráči si spočítají, kdo má od každého druhu nejvyšší a
+  druhý nejvyšší počet karet; tito hráči získají body, a to v počtu daném umístěním příslušného žetonu na desce vzácnosti.
+  Dále hráči obdrží po jednom bodu za každou hvězdu na vyložených kartách. Hráč s nejvíce body se stane vítězem.
+
+  Po odehrání hry si hráči zaznemanají svůj postup v kampani a otevřou balíček s nálepkami, které si hráči buďto vlepí
+  do pravidel, nebo rozdělí rovnoměrně mezi sebe a nalepí na karty ve své herní oblasti.
