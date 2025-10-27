@@ -121,9 +121,11 @@ function fillLinks(game) {
         .map(l => `<li class="list-inline-item"><img src="${l.i}"/> <a href="${l.u}" target="_blank">${l.t}</a></li>`)
         .join("")
 
+    const trollLink = game.zh ? `<li class="list-inline-item ms-2"><img src="https://www.zatrolene-hry.cz/graphics/favicon.cz.svg" class="me-1"/><a href="https://www.zatrolene-hry.cz/spolecenska-hra/${game.zh}" target="_blank">Zatrolené hry</a></li>` : ''
+
     id("game-links").innerHTML = `<ul class="list-unstyled">
         <li class="list-inline-item"><img src="https://cf.geekdo-static.com/icons/favicon2.ico" class="me-1"/><a href="https://boardgamegeek.com/boardgame/${game.bgg}" target="_blank">BGG</a></li>
-        <li class="list-inline-item ms-2"><img src="https://www.zatrolene-hry.cz/graphics/favicon.cz.svg" class="me-1"/><a href="https://www.zatrolene-hry.cz/spolecenska-hra/${game.zh}" target="_blank">Zatrolené hry</a></li>
+        ${trollLink}
         ${linksHtml}
     </ul>`
 }

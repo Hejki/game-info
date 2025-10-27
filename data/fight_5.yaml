@@ -1,0 +1,15 @@
+name: Fight 5
+bgg: 448488
+# zh: 
+players: "2-5"
+playtime: "10-15"
+age: 14+
+weight: 1.0
+color: "#AF772C"
+description: |
+  Be the first to 200 points, or have the most points after 3 bouts.
+
+  ### Scoring
+  * 5 pts for each card 10+
+  * 10 pts for each ★
+  * 15 pts to the player with the most cards (if tie all those players score 15 pts)
