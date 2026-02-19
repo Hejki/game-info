@@ -31,6 +31,9 @@ async function processDataFile(filePath) {
     gamesIndex.push({
         id: gameId,
         name: gameData.name,
+        p: gameData.players,
+        t: gameData.playtime,
+        w: gameData.weight,
     })
     await fs.mkdir(`${gamesDataDir}/${gameId}`, { recursive: true })
     await fs.writeFile(`${gamesDataDir}/${gameId}/data.json`, JSON.stringify(gameData), { encoding: "utf8" })

@@ -34,19 +34,33 @@ async function publishGameIndex() {
 
     const gamesArray = await res.json()
 
-    document.body.innerHTML = `<div class="px-4 py-5 my-5 text-center">
+    document.body.innerHTML = `<div class="px-4 py-5">
         <h1 class="display-5 fw-bold text-body-emphasis">Games Index</h1>
-        <div class="mx-auto">
-        <ul id="game-index" class="list-unstyled"></ul>
+        <div class="mx-auto table-responsive">
+        <table class="table">
+        <thead><tr>
+        <th></th>
+        <th class="text-center"><t class="bi bi-person-standing"/></th>
+        <th class="text-center"><t class="bi bi-hourglass-split"/></th>
+        <th class="text-center"><t class="bi bi-speedometer2"/></th>
+        </thead>
+        <tbody id="game-index">
+        </tbody>
+        </table>
         </div>
         </div>
         `
 
     gamesArray.forEach(game => {
-        let li = document.createElement("li")
+        let tr = document.createElement("tr")
 
-        id("game-index").appendChild(li)
-        li.innerHTML = `<a href="#${game.id}" onclick="reloadGame('${game.id}')">${game.name}</a>`
+        id("game-index").appendChild(tr)
+        tr.innerHTML = `
+            <th class="text-nowrap"><a href="#${game.id}" onclick="reloadGame('${game.id}')">${game.name}</a></th>
+            <td class="text-center text-nowrap">${game.p}</td>
+            <td class="text-center text-nowrap">${game.t}</td>
+            <td class="text-center text-nowrap">${game.w}</td>
+        `
     })
 }
 
