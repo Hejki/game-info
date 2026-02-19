@@ -1,0 +1,16 @@
+name: Gazebo
+bgg: 440023
+zh: gazebo-19447
+players: "2-4"
+playtime: "30"
+age: 8+
+weight: 2.00
+color: "#b4582b"
+description: |
+  Fill the botanical gardens with fragrant flowers, lush foliage, and soothing waters as you erect your gazebos among
+  the tranquil features and atop prized patios.
+
+  In **Gazebo**, players take turns placing dominos on the shared garden map to establish nooks — that is,
+  two or more contiguous terrain spaces of the same type: flower, foliage, or water. When a player creates a nook,
+  they place one of their gazebos on top of it, and by connecting their nook to a patio, they can claim the patio and place
+  a gazebo on it.

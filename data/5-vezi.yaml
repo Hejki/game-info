@@ -1,0 +1,52 @@
+name: 5 věží
+bgg: 400205
+zh: 5-vezi-15983
+players: "2-5"
+playtime: "15-30"
+age: 7+
+weight: 1.25
+color: "#3f6b8c"
+description: |
+  **5 věží** je karetní hra, ve které se hráči stávají architekty soupeřící ve stavbě co nejvyšších věží.
+  Každý z nich staví pětici různých věží – lesní, šrotovou, pískovou, strašidelnou a dortovou.
+  Během hry postupně získávají karty představující věžová patra, které vykládají před sebe a skládají z nich jednotlivé věže.
+  Za ty pak hráči na konci hry obdrží body a hráč, který jich získá nejvíce, se stane vítězem hry.
+
+  ### Příprava hry:
+  
+  Hráči zamíchají karty věžových pater a utvoří z nich na dosah všech hráčů dobírací balíček. Tyto karty určují typ věže
+  (lesní, šrotová, ...), do které je možné kartu použít. A také uvádí číslo 0-15, které pak určuje její umístění v rámci věže
+  (vyšší patro věže musí mít nižší číslo než patro nižší).
+
+  Vedle dobíracího balíčku ponechají prostor pro nabídku pěti karet a odkládací hromádku.
+
+  ### Průběh hry:
+
+  Hra probíhá po určitý počet kol, přičemž na začátku každého z nich se vyloží nabídka pěti karet.
+  Dále hráči provedou následující tři kroky:
+
+  1. **Nabídka:** začínající hráč řekne, o kolik karet z nabídky má zájem; další hráči poté musí buďto navýšit nabídku
+  (tj. projevit zájem o více karet), nebo pasovat. Takto se pokračuje, dokud se nevyjádří všichni hráči,
+  nebo dokud některý z nich neřekne maximální počet 5; poté si hráč, který zahlásil nejvyšší nabídku, vezme z
+  nabídky odpovídající počet karet dle vlastní volby.
+
+  2. **Stavba:** hráč, který získal karty, smí nejprve zbourat jednu kartu z jedné své věže a umístit ji na svoji hromádku trosek.
+  Poté přiloží ke svým rozestavěným věžím všechny získané karty za dodržení několika pravidel:
+
+  * hráč smí stavět pouze jednu věž od každého druhu
+  * v každé věži musí být karty pouze jednoho druhu
+  * každá karta musí nést nižší číslo, než karta v patře pod ním – zde jsou dvě výjimky: na kartu č. 8 lze umístit jakoukoli kartu a kartu s č. 9 lze umístit na jakoukoli kartu (kromě č. 0)
+  * karta č. 0 celou věž zastřešuje – nelze na ni přiložit žádnou kartu, ani ji zbourat.
+
+  3. **Úklid:** nevybrané karty se odloží na odkládací hromádku. Začínajícím hráčem se stane hráč po levici hráče,
+  který ve skončeném kole stavěl, a začíná další kolo.
+
+  Poté, co se poprvé doberou všechny karty z dobíracího balíčku, hráči vytvoří nový z karet v odhazovací hromádce.
+
+  ### Konec hry:
+
+  Partie hry 5 věží končí na konci kola, v němž je podruhé dobrán dobírací balíček. Hráči si poté spočítají vítězné body:
+  za každou kartu ve svých věžích dostanou po jednom bodu, věže uzavřené kartou s č. 0 a nejvyšší věž se obodují ještě jednou
+  (je-li tedy nejvyšší věž zastřešena kartou č. 0, hráči získají po třech bodech za každou kartu v ní).
+  Poté si odečtou body za zbouraná patra věží: za jednu kartu ztratí 1 bod, každá další karta potom stojí vždy
+  o jeden trestný bod více. Hráč s nejvyšším celkovým počtem bodů se stává vítězem.
