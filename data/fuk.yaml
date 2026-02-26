@@ -1,0 +1,34 @@
+name: FUK
+bgg: 370130
+zh: fuk-15401
+players: "2-6"
+playtime: "10"
+age: 7+
+weight: 1.20
+color: "#aa3080"
+description: |
+  Hru **FUK** tvoří pět sad karet s hodnotami od 0 do 9. Během hry hráči vynášejí karty z ruky, a to tak,
+  aby získali karty z řady karet vyložených uprostřed stolu. Na konci každého kola hráči získají,
+  resp. ztrácejí body za karty určitých barev. Cílem hráčů je jako první získat určený počet bodů.
+
+  ### Příprava hry:
+  Každý hráč obdrží (v závislosti na jejich počtu) 5 či 6 karet, další čtyři se vyloží z do řady uprostřed stolu.
+  Zbylé karty tvoří odkládací balíček. Hráči se dohodnou na cílovém počtu bodů. (15, 30 nebo 70)
+  
+  ### Průběh hry:
+  Hra trvá po několik kol, v nichž se hráči střídají v tazích. V každém z nich hráči vynesou jednu kartu z ruky.
+  Další postup se odvíjí od porovnání hodnoty této karty s kartami vyloženými uprostřed stolu:
+  
+  * pokud se mezi vyloženými kartami nachází alespoň jedna stejné hodnoty, jako právě vynesená karta,
+  hráč si vezme všechny takové karty a spolu s vynesenou kartou je rozloží před sebe dle jednotlivých sad
+  * pokud se mezi vyloženými kartami nenachází žádná karta stejné hodnoty, hráč si vezme po jedné kartě s hodnotou o 1 _vyšší_ a _nižší_,
+  než vynesená karta, a spolu s ní je rozloží před sebe
+  * pokud se mezi vyloženými kartami nenachází žádná karta stejné ani „sousední“ hodnoty, hráč zařadí vynesenou kartu mezi vyložené karty.
+
+  Pokud jsou po odehrání tahu vyložené méně než 4 karty, doplní se další do tohoto počtu. Hráči pokračují v tazích,
+  dokud všichni neodehrají všechny své karty z ruky. Poté si hráči spočítají, kolik mají před sebou karet od jednotlivých sad.
+  Za nejpočetnější sadu (či sady) získají po jednom bodu za každou kartu, za nejméně početnou sadu (či sady) si po jednom bodu za každou kartu odečtou.
+  Není-li dosaženo cílového počtu bodů, připraví se další kolo. 
+  
+  ### Konec hry:
+  Hra končí poté, co některý z hráčů dosáhne počtu bodů, který byl před začátkem hry stanoven jako cílový. Hráč s největším počtem získaných bodů se stává vítězem.
