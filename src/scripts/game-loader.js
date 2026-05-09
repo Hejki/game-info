@@ -53,10 +53,15 @@ async function publishGameIndex() {
 
     gamesArray.forEach(game => {
         let tr = document.createElement("tr")
+        let tools = ""
+
+        if (game.tools) {
+            tools = game.tools.map(tool => ` <a href="${tool.link}"><i class="${tool.icon}"></i></a>`)
+        }
 
         id("game-index").appendChild(tr)
         tr.innerHTML = `
-            <th class="text-nowrap"><a href="#${game.id}" onclick="reloadGame('${game.id}')">${game.name}</a></th>
+            <th class="text-nowrap"><a href="#${game.id}" onclick="reloadGame('${game.id}')">${game.name}</a>${tools}</th>
             <td class="text-center text-nowrap">${game.p}</td>
             <td class="text-center text-nowrap">${game.t}</td>
             <td class="text-center text-nowrap">${game.w}</td>

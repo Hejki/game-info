@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krvavá hodina odbyla — Záznam partie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blood: #8b1a1a;
+    --blood-bright: #c0392b;
+    --gold: #c9a84c;
+    --gold-dim: #7a6030;
+    --stone: #0d0d0d;
+    --text: #e8d9b8;
+    --text-dim: #9a8a6a;
+    --border: #3a2e1a;
+    --good: #3a6ea8;
+    --good-bright: #5a9fd4;
+    --evil-bright: #c0392b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--stone);
+    background-image: radial-gradient(ellipse at 50% 0%, #1a0a0a 0%, transparent 60%);
+    color: var(--text);
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+  header {
+    text-align: center;
+    padding: 48px 20px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blood), var(--gold), var(--blood), transparent);
+  }
+  .clock-icon { font-size: 42px; display: block; margin-bottom: 8px; animation: drip 4s ease-in-out infinite; }
+  @keyframes drip {
+    0%, 100% { filter: drop-shadow(0 0 8px #8b1a1a66); }
+    50% { filter: drop-shadow(0 0 20px #c0392b99); }
+  }
+  h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(18px, 4vw, 32px);
+    color: var(--gold);
+    text-shadow: 0 0 30px #c9a84c44, 0 2px 4px #000;
+    letter-spacing: 0.05em; line-height: 1.2;
+  }
+  .subtitle {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--text-dim); letter-spacing: 0.3em;
+    text-transform: uppercase; margin-top: 8px;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  .section {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, #150f06 0%, #0d0d0d 100%);
+    position: relative;
+  }
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); padding: 14px 20px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-body { padding: 24px 20px; }
+
+  .field-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .field-row.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .field-row.single { grid-template-columns: 1fr; }
+
+  label {
+    display: block; font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px;
+  }
+
+  input[type="text"], input[type="date"], input[type="time"], select, textarea {
+    width: 100%; background: #0a0a0a;
+    border: 1px solid var(--border);
+    color: var(--text); font-family: 'Crimson Text', serif;
+    font-size: 17px; padding: 10px 12px; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none; -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 0 1px #7a603044, inset 0 0 20px #c9a84c08;
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%237a6030'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px center;
+    padding-right: 32px; cursor: pointer;
+  }
+  select option, select optgroup { background: #150f06; color: var(--text); }
+  textarea { resize: vertical; min-height: 70px; }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.6) sepia(1) saturate(2); cursor: pointer;
+  }
+
+  .duration-display {
+    display: flex; align-items: center;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    background: #060606;
+    color: var(--gold);
+    font-family: 'Cinzel', serif; font-size: 15px;
+    letter-spacing: 0.08em; min-height: 44px;
+  }
+
+  /* Storyteller pills */
+  .st-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .st-pill {
+    padding: 8px 22px; border: 1px solid var(--border);
+    background: #0a0a0a; color: var(--text-dim);
+    font-family: 'Crimson Text', serif; font-size: 17px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .st-pill:hover { border-color: var(--gold-dim); color: var(--text); }
+  .st-pill.active {
+    border-color: var(--gold); color: var(--gold);
+    background: #15100a; box-shadow: 0 0 12px #c9a84c22;
+  }
+  .st-other-wrap { display: none; margin-top: 14px; }
+  .st-other-wrap.visible { display: block; }
+
+  /* Script pills */
+  .script-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .script-pill {
+    padding: 7px 16px; border: 1px solid var(--border);
+    background: #0a0a0a; color: var(--text-dim);
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .script-pill:hover { border-color: var(--gold-dim); color: var(--text); }
+  .script-pill.active {
+    border-color: var(--gold); color: var(--gold);
+    box-shadow: 0 0 10px #c9a84c22;
+  }
+
+  /* Winner */
+  .winner-toggle { display: flex; border: 1px solid var(--border); }
+  .winner-btn {
+    flex: 1; padding: 14px 10px; border: none;
+    background: #0a0a0a; color: var(--text-dim);
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.25s;
+  }
+  .winner-btn:first-child { border-right: 1px solid var(--border); }
+  .winner-btn.active-good { background: linear-gradient(135deg, #0a1a2a, #0d1e30); color: var(--good-bright); box-shadow: inset 0 0 20px #3a6ea822; }
+  .winner-btn.active-evil { background: linear-gradient(135deg, #1a0808, #200d0d); color: var(--evil-bright); box-shadow: inset 0 0 20px #8b1a1a22; }
+  .winner-btn .team-icon { display: block; font-size: 22px; margin-bottom: 4px; }
+
+  /* Players */
+  #summary-bar {
+    background: #0d0a05; border-bottom: 1px solid var(--border);
+    padding: 10px 20px; display: flex; gap: 20px;
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.2em; color: var(--text-dim);
+  }
+  #summary-bar span { color: var(--gold); }
+
+  #players-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .player-header {
+    display: grid;
+    grid-template-columns: 28px 1fr 165px 100px 36px;
+    gap: 8px; padding: 0 12px 8px;
+  }
+  .player-header span {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: #4a3a1a;
+  }
+
+  .player-row {
+    display: grid;
+    grid-template-columns: 28px 1fr 165px 100px 36px;
+    gap: 8px; align-items: center;
+    background: #0a0a0a; border: 1px solid var(--border);
+    padding: 10px 12px; transition: border-color 0.2s;
+  }
+  .player-row:hover { border-color: #4a3a1a; }
+  .player-row.is-good { border-left: 3px solid var(--good); }
+  .player-row.is-evil { border-left: 3px solid var(--blood); }
+
+  .player-num { font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-dim); text-align: center; }
+
+  /* inline selects inside player rows */
+  .player-row select, .player-row input[type="text"] {
+    background: transparent; border: none;
+    border-bottom: 1px solid #2a2010;
+    color: var(--text); font-family: 'Crimson Text', serif;
+    font-size: 16px; padding: 4px 20px 4px 0; width: 100%;
+    outline: none; cursor: pointer; transition: border-color 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a6030'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 2px center;
+    appearance: none; -webkit-appearance: none;
+    box-shadow: none;
+  }
+  .player-row input[type="text"] {
+    background-image: none; cursor: text; color: var(--text-dim);
+    font-size: 15px;
+  }
+  .player-row input[type="text"]::placeholder { color: #3a3020; font-style: italic; }
+  .player-row select:focus, .player-row input[type="text"]:focus { border-color: var(--gold-dim); box-shadow: none; }
+
+  .player-team-toggle { display: flex; border: 1px solid #2a2010; height: 34px; }
+  .team-btn {
+    flex: 1; border: none; background: transparent;
+    color: var(--text-dim); font-size: 13px;
+    cursor: pointer; transition: all 0.2s; padding: 0;
+  }
+  .team-btn.good.active { background: #0a1520; color: var(--good-bright); }
+  .team-btn.evil.active { background: #1a0808; color: var(--evil-bright); }
+  .team-btn:first-child { border-right: 1px solid #2a2010; }
+
+  .remove-btn {
+    background: none; border: none; color: #3a2020;
+    font-size: 18px; cursor: pointer; transition: color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+  }
+  .remove-btn:hover { color: var(--evil-bright); }
+
+  .players-controls { display: flex; gap: 12px; margin-top: 14px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border: 1px solid;
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .btn-ghost { background: transparent; border-color: var(--border); color: var(--text-dim); }
+  .btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .btn-gold { background: linear-gradient(135deg, #1e1608, #2a1e0a); border-color: var(--gold-dim); color: var(--gold); }
+  .btn-gold:hover { border-color: var(--gold); box-shadow: 0 0 20px #c9a84c33; }
+  .btn-blood { background: linear-gradient(135deg, #1a0808, #220a0a); border-color: var(--blood); color: #e88; }
+  .btn-blood:hover { border-color: var(--evil-bright); box-shadow: 0 0 20px #8b1a1a55; }
+
+  #output-section { margin-top: 40px; display: none; }
+  #output-section.visible { display: block; }
+  .json-preview {
+    padding: 16px 20px; font-family: 'Courier New', monospace;
+    font-size: 12px; color: #6a8a5a; background: #050505;
+    max-height: 220px; overflow-y: auto; white-space: pre;
+    border-top: 1px solid var(--border); line-height: 1.5;
+  }
+  .output-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    padding: 20px; border-top: 1px solid var(--border); background: #0d0a05;
+  }
+  .ornament { text-align: center; color: var(--gold-dim); font-size: 18px; letter-spacing: 12px; margin: 6px 0; user-select: none; }
+
+  @media (max-width: 620px) {
+    .field-row.four { grid-template-columns: 1fr 1fr; }
+    .player-row, .player-header { grid-template-columns: 22px 1fr 36px; }
+    .player-row .player-role-cell { grid-column: 1 / 3; }
+    .player-team-toggle { grid-column: 3; grid-row: 1 / 3; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="clock-icon">🕰️</span>
+  <h1>Krvavá hodina odbyla</h1>
+  <div class="subtitle">Záznam partie pro BGStats</div>
+</header>
+
+<div class="container">
+
+  <!-- METADATA -->
+  <div class="section">
+    <div class="section-title"><span>📜</span> Údaje o partii</div>
+    <div class="section-body">
+      <div class="field-row four">
+        <div>
+          <label>Datum</label>
+          <input type="date" id="play-date">
+        </div>
+        <div>
+          <label>Začátek</label>
+          <input type="time" id="play-start" oninput="calcDuration()">
+        </div>
+        <div>
+          <label>Konec</label>
+          <input type="time" id="play-end" oninput="calcDuration()">
+        </div>
+        <div>
+          <label>Délka partie</label>
+          <div class="duration-display" id="duration-display">—</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label>Místo</label>
+          <input type="text" id="play-location" placeholder="Doma, hospoda…">
+        </div>
+        <div></div>
+      </div>
+      <div class="field-row single">
+        <div>
+          <label>Poznámky</label>
+          <textarea id="play-comment" placeholder="Zvláštní momenty, zajímavé tahy…"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLER -->
+  <div class="section">
+    <div class="section-title"><span>🎭</span> Vypravěč</div>
+    <div class="section-body">
+      <label style="margin-bottom:10px">Kdo vedl hru jako Vypravěč?</label>
+      <div class="st-pills">
+        <button class="st-pill" data-name="Hejki" data-uuid="88649452-76BB-4912-8271-25C1CF6C8B21" onclick="selectST(this)">Hejki</button>
+        <button class="st-pill" data-name="Amos"  data-uuid="03A51045-50EC-4B7F-9C16-E4D11C81138B" onclick="selectST(this)">Amos</button>
+        <button class="st-pill" data-name="" data-uuid="" onclick="selectST(this)">Jiný…</button>
+      </div>
+      <div class="st-other-wrap" id="st-other-wrap">
+        <label>Jméno vypravěče</label>
+        <input type="text" id="st-other-name" placeholder="Jméno…" oninput="storyteller.name=this.value.trim()">
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <div class="section">
+    <div class="section-title"><span>📖</span> Skript</div>
+    <div class="section-body">
+      <label style="margin-bottom:12px">Vyber skript — určí dostupné role</label>
+      <div class="script-pills">
+        <button class="script-pill" data-script="trouble-brewing" onclick="selectScript(this)">Trouble Brewing</button>
+        <button class="script-pill" data-script="sects-violets" onclick="selectScript(this)">Sects &amp; Violets</button>
+        <button class="script-pill" data-script="bad-moon-rising" onclick="selectScript(this)">Bad Moon Rising</button>
+        <button class="script-pill" data-script="custom" onclick="selectScript(this)">Vlastní / mix</button>
+      </div>
+      <div id="script-hint" style="margin-top:12px; font-size:14px; color:var(--text-dim); font-style:italic;"></div>
+    </div>
+  </div>
+
+  <!-- WINNER -->
+  <div class="section">
+    <div class="section-title"><span>⚔️</span> Vítězný tým</div>
+    <div class="section-body">
+      <label style="margin-bottom:10px">Kdo zvítězil v Ravenswood Bluff?</label>
+      <div class="winner-toggle">
+        <button class="winner-btn" id="btn-good" onclick="setWinner('good')">
+          <span class="team-icon">☀️</span>
+          Dobří zvítězili
+          <div style="font-size:11px; margin-top:4px; opacity:0.6">Démon byl popraven</div>
+        </button>
+        <button class="winner-btn" id="btn-evil" onclick="setWinner('evil')">
+          <span class="team-icon">🩸</span>
+          Zlo triumfovalo
+          <div style="font-size:11px; margin-top:4px; opacity:0.6">Démon přežil</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYERS -->
+  <div class="section">
+    <div class="section-title"><span>👥</span> Hráči</div>
+    <div id="summary-bar">
+      Celkem: <span id="sum-total">0</span> &nbsp;·&nbsp;
+      Dobří: <span id="sum-good">0</span> &nbsp;·&nbsp;
+      Zlí: <span id="sum-evil">0</span>
+    </div>
+    <div class="section-body">
+      <div class="player-header">
+        <span>#</span><span>Hráč</span><span>Role</span><span>Tým</span><span></span>
+      </div>
+      <div id="players-list"></div>
+      <div class="players-controls">
+        <button class="btn btn-ghost" onclick="addPlayer()">＋ Přidat hráče</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:12px; margin-top:32px;">
+    <button class="btn btn-gold" style="flex:1; justify-content:center;" onclick="generate()">⚙️ &nbsp;Vygenerovat soubor</button>
+  </div>
+
+  <!-- OUTPUT -->
+  <div id="output-section" class="section">
+    <div class="section-title"><span>💾</span> Výstup — připraveno k importu</div>
+    <div class="json-preview" id="json-preview"></div>
+    <div class="output-actions">
+      <button class="btn btn-gold" onclick="downloadBgsplay()">⬇️ &nbsp;Stáhnout .bgsplay</button>
+      <button class="btn btn-blood" onclick="openInApp()">📱 &nbsp;Otevřít v BGStats</button>
+      <div style="font-size:13px; color:var(--text-dim); align-self:center; font-style:italic;">
+        Import: Nastavení → Import v BGStats.<br>
+        Tlačítko "Otevřít" zkusí spustit appku přímo.
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament" style="margin-top:60px">✦ ✦ ✦</div>
+</div>
+
+<script>
+const KNOWN_PLAYERS = [
+  { name: 'Anonym',  uuid: "38A09A80-5355-4C4B-BCBB-73CE62E6C780" },
+  { name: 'Amos',    uuid: '03A51045-50EC-4B7F-9C16-E4D11C81138B' },
+  { name: 'Carlos',  uuid: '1583F0FD-4E59-4B0B-8C4A-4C77F6255131' },
+  { name: 'Daniela', uuid: '176545AE-2C9D-4B6B-919C-43F32022BEA7' },
+  { name: 'Hejki',   uuid: '88649452-76BB-4912-8271-25C1CF6C8B21' },
+  { name: 'Honza',   uuid: '3599F903-5175-4B6D-AA52-F1DCACA8486D' },
+  { name: 'Jonas',   uuid: '4FF8B82A-5D1A-46F6-A5EB-B9BF52CBC9DC' },
+  { name: 'Pavel',   uuid: 'F377CE5C-8264-4074-BE60-C8C3ED1B1406' },
+];
+
+const ROLES = {
+  'trouble-brewing': {
+    townsfolk: ['Empat','Hrobník','Knihovník','Kuchař','Mnich','Panna','Pradlena','Starosta','Strážkyně krkavců','Vědma','Voják','Vyšetřovatel','Zabiják'],
+    outsider: ['Sluha','Opilec','Samotář','Světec'],
+    minion: ['Travič','Špeh','Šarlatová žena','Baron'],
+    demon: ['Čert']
+  },
+  'sects-violets': {
+    townsfolk: ['Filosof','Hodinář','Kejklíř','Květinářka','Matematik','Městský vyvolávač','Mudrc','Snílek','Švadlena','Učenec','Umělec','Věštec','Zaklínač hadů'],
+    outsider: ['Mutant','Zlatíčko','Holič','Nešika'],
+    minion: ['Zlé dvojče','Čarodějnice','Cerenovus','Ježibaba'],
+    demon: ['Fang Gu','Vigormortis','No Dashii','Vortox']
+  },
+  'bad-moon-rising': {
+    townsfolk: ['Babička','Čajová dáma','Drbna','Exorcista','Gambler','Hostinský','Komorná','Lichotník','Námořník','Pacifista','Pěvec','Profesor','Šašek'],
+    outsider: ['Blázen','Dítě měsíce','Dráteník','Hňup'],
+    minion: ['Nájemný vrah','Ďáblův advokát','Kmotr','Strůjce'],
+    demon: ['Shabaloth','Pó','Zombuul','Pukka']
+  },
+  'custom': { townsfolk:[], outsider:[], minion:[], demon:[] }
+};
+
+const ROLE_LABELS = {
+  townsfolk: '⚔️ Townsfolk (Dobří)',
+  outsider:  '🌫️ Outsider (Dobří)',
+  minion:    '🗡️ Minion (Zlí)',
+  demon:     '👁️ Démon (Zlí)'
+};
+
+let currentScript = null;
+let winnerTeam = null;
+let players = [];
+let playerIdCounter = 0;
+let generatedData = null;
+let storyteller = { name: '', uuid: '' };
+let computedDurationMin = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('play-date').value = new Date().toISOString().split('T')[0];
+  for (let i = 0; i < 5; i++) addPlayer();
+});
+
+// ── DURATION ──
+function calcDuration() {
+  const s = document.getElementById('play-start').value;
+  const e = document.getElementById('play-end').value;
+  const d = document.getElementById('duration-display');
+  if (!s || !e) { d.textContent = '—'; computedDurationMin = null; return; }
+  const [sh, sm] = s.split(':').map(Number);
+  const [eh, em] = e.split(':').map(Number);
+  let mins = (eh * 60 + em) - (sh * 60 + sm);
+  if (mins < 0) mins += 1440;
+  computedDurationMin = mins;
+  const h = Math.floor(mins / 60), m = mins % 60;
+  d.textContent = h > 0 ? `${h} h ${m} min` : `${m} min`;
+}
+
+// ── STORYTELLER ──
+function selectST(btn) {
+  document.querySelectorAll('.st-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const isOther = btn.dataset.name === '';
+  document.getElementById('st-other-wrap').classList.toggle('visible', isOther);
+  if (!isOther) {
+    storyteller = { name: btn.dataset.name, uuid: btn.dataset.uuid };
+    document.getElementById('st-other-name').value = '';
+  } else {
+    storyteller = { name: 'Anonym', uuid: '' };
+  }
+}
+
+// ── SCRIPT ──
+function selectScript(el) {
+  document.querySelectorAll('.script-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  currentScript = el.dataset.script;
+  const hints = {
+    'trouble-brewing': 'Začátečnický skript — 13 Townsfolk, 4 Outsider, 4 Minion, 1 Démon (Imp).',
+    'sects-violets':   'Pokročilý skript — komplexní schopnosti, falešné informace.',
+    'bad-moon-rising': 'Alternativní démon-hunt — důraz na schopnosti po smrti.',
+    'custom':          'Vlastní mix — roli zadávej ručně textově.'
+  };
+  document.getElementById('script-hint').textContent = hints[currentScript] || '';
+  players.forEach(p => rebuildRoleCell(p.id));
+}
+
+function getRoleOptions(key) {
+  if (!key || key === 'custom') return '';
+  const s = ROLES[key]; if (!s) return '';
+  let html = '<option value="">— bez role —</option>';
+  for (const [type, roles] of Object.entries(s)) {
+    if (!roles.length) continue;
+    html += `<optgroup label="${ROLE_LABELS[type]}">`;
+    roles.forEach(r => { html += `<option value="${r}">${r}</option>`; });
+    html += '</optgroup>';
+  }
+  return html;
+}
+
+function rebuildRoleCell(pid) {
+  const row = document.getElementById(`player-${pid}`);
+  if (!row) return;
+  const cell = row.querySelector('.player-role-cell');
+  if (!cell) return;
+  if (currentScript === 'custom') {
+    cell.innerHTML = `<input type="text" placeholder="Název role…">`;
+  } else if (currentScript) {
+    cell.innerHTML = `<select>${getRoleOptions(currentScript)}</select>`;
+  } else {
+    cell.innerHTML = `<input type="text" placeholder="Vyber skript…" disabled style="opacity:0.35">`;
+  }
+}
+
+// ── WINNER ──
+function setWinner(team) {
+  winnerTeam = team;
+  document.getElementById('btn-good').className = 'winner-btn' + (team === 'good' ? ' active-good' : '');
+  document.getElementById('btn-evil').className = 'winner-btn' + (team === 'evil' ? ' active-evil' : '');
+  updateSummary();
+}
+
+// ── PLAYERS ──
+function playerOptionsHTML() {
+  return KNOWN_PLAYERS.map(p =>
+    `<option value="${p.uuid || ''}">${p.name}</option>`
+  ).join('');
+}
+
+function addPlayer() {
+  const id = ++playerIdCounter;
+  players.push({ id });
+  const row = document.createElement('div');
+  row.className = 'player-row';
+  row.id = `player-${id}`;
+
+  let roleCell;
+  if (!currentScript) {
+    roleCell = `<input type="text" placeholder="Vyber skript…" disabled style="opacity:0.35">`;
+  } else if (currentScript === 'custom') {
+    roleCell = `<input type="text" placeholder="Název role…">`;
+  } else {
+    roleCell = `<select>${getRoleOptions(currentScript)}</select>`;
+  }
+
+  row.innerHTML = `
+    <div class="player-num">${players.length}</div>
+    <select class="player-name-sel">${playerOptionsHTML()}</select>
+    <div class="player-role-cell">${roleCell}</div>
+    <div class="player-team-toggle">
+      <button class="team-btn good" onclick="setPlayerTeam(${id},'good',this)" title="Dobří">☀️</button>
+      <button class="team-btn evil" onclick="setPlayerTeam(${id},'evil',this)" title="Zlí">🩸</button>
+    </div>
+    <button class="remove-btn" onclick="removePlayer(${id})" title="Odebrat">✕</button>
+  `;
+  document.getElementById('players-list').appendChild(row);
+  updateNumbers();
+  updateSummary();
+}
+
+function removePlayer(id) {
+  players = players.filter(p => p.id !== id);
+  document.getElementById(`player-${id}`)?.remove();
+  updateNumbers(); updateSummary();
+}
+
+function setPlayerTeam(id, team, btn) {
+  const row = document.getElementById(`player-${id}`);
+  row.classList.remove('is-good','is-evil');
+  row.classList.add(team === 'good' ? 'is-good' : 'is-evil');
+  row.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateSummary();
+}
+
+function updateNumbers() {
+  document.querySelectorAll('.player-row').forEach((r, i) => {
+    r.querySelector('.player-num').textContent = i + 1;
+  });
+}
+
+function updateSummary() {
+  const rows = document.querySelectorAll('.player-row');
+  let g = 0, e = 0;
+  rows.forEach(r => { if (r.classList.contains('is-good')) g++; else if (r.classList.contains('is-evil')) e++; });
+  document.getElementById('sum-total').textContent = rows.length;
+  document.getElementById('sum-good').textContent = g;
+  document.getElementById('sum-evil').textContent = e;
+}
+
+// ── GENERATE ──
+function getPlayerData() {
+  return [{
+    idx: 0,
+    name: storyteller.name,
+    uuid: storyteller.uuid == '' ? null : storyteller.uuid,
+    isAnon: storyteller.uuid == '',
+    role: 'Vypravěč',
+    team: "0",
+    winner: false,
+    metaData: "{\"isNpc\":1}",
+  }].concat([...document.querySelectorAll('.player-row')].map((row, i) => {
+    const sel  = row.querySelector('.player-name-sel');
+    const name = sel.options[sel.selectedIndex]?.text || 'Anonym';
+    const uuid = sel.value || null;
+    const isAnon = name === 'Anonym';
+
+    const roleEl = row.querySelector('.player-role-cell select') || row.querySelector('.player-role-cell input');
+    const teamRole = roleEl?.value?.trim() || '';
+
+    const isGood = row.classList.contains('is-good');
+    const isEvil = row.classList.contains('is-evil');
+    const role = isGood ? 'Dobro' : (isEvil ? 'Zlo' : '');
+    const team = isGood ? '1' : (isEvil ? '2' : '0');
+    const winner = !!(winnerTeam && team === winnerTeam);
+
+    return { idx: i+2, name: isAnon ? `Anonymní hráč` : name, uuid, isAnon, role, team, teamRole, winner };
+  }));
+}
+
+function generate() {
+  if (!winnerTeam) { alert('Vyber vítězný tým před generováním.'); return; }
+  if (!players.length) { alert('Přidej alespoň jednoho hráče.'); return; }
+
+  const date     = document.getElementById('play-date').value || new Date().toISOString().split('T')[0];
+  const location = document.getElementById('play-location').value.trim();
+  const comment  = document.getElementById('play-comment').value.trim();
+  const start    = document.getElementById('play-start').value || '20:00';
+  const playDate = `${date} ${start}:00`;
+
+  const scriptName = currentScript
+    ? { 'trouble-brewing':'Trouble Brewing','sects-violets':'Sects & Violets','bad-moon-rising':'Bad Moon Rising','custom':'Vlastní skript' }[currentScript]
+    : '';
+
+  const pd = getPlayerData();
+
+  const bgsPlayers = pd.map((p, i) => ({
+    id: i+1,
+    uuid: p.uuid || generateUUID(),
+    name: p.name,
+    isAnonymous: p.isAnon
+  }));
+
+  const comments = [
+    scriptName ? `Skript: ${scriptName}` : '',
+    `Vítěz: ${winnerTeam === 'good' ? 'Dobří' : 'Zlí'}`,
+    storyteller.name ? `Vypravěč: ${storyteller.name}` : '',
+    comment
+  ].filter(Boolean).join('\n');
+
+  const bgsplay = {
+    games: [{ id:1, uuid:'botc-bgg-240980', name:'Blood on the Clocktower', bggId:240980, noPoints:true, highestWins:false, cooperative:false }],
+    players: bgsPlayers,
+    locations: location ? [{ id:1, uuid:generateUUID(), name:location }] : [],
+    plays: [{
+      id:1, uuid:generateUUID(), gameRefId:1,
+      locationRefId: location ? 1 : null,
+      playDate, durationMin: computedDurationMin || null,
+      comments,
+      playerScores: pd.map((p, i) => ({
+        playerRefId: i+1, 
+        winner: p.winner,
+        role: p.role || null,
+        team: p.team,
+        teamRole: p.teamRole,
+        startPlayer: false,
+        metaData: p.metaData,
+      }))
+    }]
+  };
+
+  const createPlay = {
+    game: { bggId:240980, name:'Blood on the Clocktower', noPoints:true, highestWins:false },
+    playDate, durationMin: computedDurationMin || undefined,
+    location: location || undefined,
+    board: scriptName || undefined,
+    players: pd.map(p => ({
+      name: p.name, winner: p.winner,
+      role: p.role || undefined,
+      score: null,
+      ...(p.uuid ? { sourcePlayerId: p.uuid } : {})
+    })),
+    sourceName: 'BotC Recorder'
+  };
+
+  generatedData = { ...bgsplay, _createPlay: createPlay };
+
+  const preview = JSON.stringify(bgsplay, null, 2);
+  document.getElementById('json-preview').textContent =
+    preview.length > 3000 ? preview.slice(0, 3000) + '\n… (zkráceno)' : preview;
+
+  const out = document.getElementById('output-section');
+  out.classList.add('visible');
+  out.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function downloadBgsplay() {
+  if (!generatedData) return;
+  const { _createPlay, ...clean } = generatedData;
+  const json = JSON.stringify(clean, null, 2);
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([json], { type:'application/json' }));
+  a.download = `botc-${document.getElementById('play-date').value || 'partie'}.bgsplay`;
+  a.click();
+}
+
+function openInApp() {
+  if (!generatedData) return;
+  const enc = encodeURIComponent(JSON.stringify(generatedData._createPlay));
+  window.location.href = `bgstats://app.bgstatsapp.com/createPlay.html?data=${enc}`;
+  setTimeout(() => {
+    if (confirm('BGStats se neotevřela automaticky?\n\nChceš zkusit webový odkaz?')) {
+      window.open(`https://app.bgstatsapp.com/createPlay.html?data=${enc}`, '_blank');
+    }
+  }, 1500);
+}
+
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0;
+    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+}
+</script>
+</body>
+</html>

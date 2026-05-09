@@ -6,6 +6,9 @@ playtime: "30-120"
 age: 15+
 weight: 3.04
 color: "#33164C"
+tools:
+  - icon: bi bi-journal-bookmark
+    link: /botc-play.html
 description: |
   ### Před začátkem hry
 
