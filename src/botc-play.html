@@ -694,6 +694,7 @@ function generate() {
       locationRefId: location ? 1 : null,
       playDate, durationMin: computedDurationMin || null,
       comments,
+      usesTeams : true,
       playerScores: pd.map((p, i) => ({
         playerRefId: i+1, 
         winner: p.winner,
