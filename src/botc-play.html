@@ -4,425 +4,161 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Krvavá hodina odbyla — Záznam partie</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --blood: #8b1a1a;
-    --blood-bright: #c0392b;
-    --gold: #c9a84c;
-    --gold-dim: #7a6030;
-    --stone: #0d0d0d;
-    --text: #e8d9b8;
-    --text-dim: #9a8a6a;
-    --border: #3a2e1a;
-    --good: #3a6ea8;
-    --good-bright: #5a9fd4;
-    --evil-bright: #c0392b;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background-color: var(--stone);
-    background-image: radial-gradient(ellipse at 50% 0%, #1a0a0a 0%, transparent 60%);
-    color: var(--text);
-    font-family: 'Crimson Text', serif;
-    font-size: 18px;
-    min-height: 100vh;
-    padding: 0 0 80px;
-  }
-  header {
-    text-align: center;
-    padding: 48px 20px 32px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--blood), var(--gold), var(--blood), transparent);
-  }
-  .clock-icon { font-size: 42px; display: block; margin-bottom: 8px; animation: drip 4s ease-in-out infinite; }
-  @keyframes drip {
-    0%, 100% { filter: drop-shadow(0 0 8px #8b1a1a66); }
-    50% { filter: drop-shadow(0 0 20px #c0392b99); }
-  }
-  h1 {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: clamp(18px, 4vw, 32px);
-    color: var(--gold);
-    text-shadow: 0 0 30px #c9a84c44, 0 2px 4px #000;
-    letter-spacing: 0.05em; line-height: 1.2;
-  }
-  .subtitle {
-    font-family: 'Cinzel', serif; font-size: 13px;
-    color: var(--text-dim); letter-spacing: 0.3em;
-    text-transform: uppercase; margin-top: 8px;
-  }
-  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
-
-  .section {
-    margin-top: 40px;
-    border: 1px solid var(--border);
-    background: linear-gradient(135deg, #150f06 0%, #0d0d0d 100%);
-    position: relative;
-  }
-  .section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-  }
-  .section-title {
-    font-family: 'Cinzel', serif; font-size: 11px;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); padding: 14px 20px 12px;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-body { padding: 24px 20px; }
-
-  .field-row {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 16px; margin-bottom: 16px;
-  }
-  .field-row.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
-  .field-row.single { grid-template-columns: 1fr; }
-
-  label {
-    display: block; font-family: 'Cinzel', serif;
-    font-size: 10px; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px;
-  }
-
-  input[type="text"], input[type="date"], input[type="time"], select, textarea {
-    width: 100%; background: #0a0a0a;
-    border: 1px solid var(--border);
-    color: var(--text); font-family: 'Crimson Text', serif;
-    font-size: 17px; padding: 10px 12px; outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    appearance: none; -webkit-appearance: none;
-  }
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--gold-dim);
-    box-shadow: 0 0 0 1px #7a603044, inset 0 0 20px #c9a84c08;
-  }
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%237a6030'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 12px center;
-    padding-right: 32px; cursor: pointer;
-  }
-  select option, select optgroup { background: #150f06; color: var(--text); }
-  textarea { resize: vertical; min-height: 70px; }
-  input[type="date"]::-webkit-calendar-picker-indicator,
-  input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.6) sepia(1) saturate(2); cursor: pointer;
-  }
-
-  .duration-display {
-    display: flex; align-items: center;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    background: #060606;
-    color: var(--gold);
-    font-family: 'Cinzel', serif; font-size: 15px;
-    letter-spacing: 0.08em; min-height: 44px;
-  }
-
-  /* Storyteller pills */
-  .st-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-  .st-pill {
-    padding: 8px 22px; border: 1px solid var(--border);
-    background: #0a0a0a; color: var(--text-dim);
-    font-family: 'Crimson Text', serif; font-size: 17px;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .st-pill:hover { border-color: var(--gold-dim); color: var(--text); }
-  .st-pill.active {
-    border-color: var(--gold); color: var(--gold);
-    background: #15100a; box-shadow: 0 0 12px #c9a84c22;
-  }
-  .st-other-wrap { display: none; margin-top: 14px; }
-  .st-other-wrap.visible { display: block; }
-
-  /* Script pills */
-  .script-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .script-pill {
-    padding: 7px 16px; border: 1px solid var(--border);
-    background: #0a0a0a; color: var(--text-dim);
-    font-family: 'Cinzel', serif; font-size: 10px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .script-pill:hover { border-color: var(--gold-dim); color: var(--text); }
-  .script-pill.active {
-    border-color: var(--gold); color: var(--gold);
-    box-shadow: 0 0 10px #c9a84c22;
-  }
-
-  /* Winner */
-  .winner-toggle { display: flex; border: 1px solid var(--border); }
-  .winner-btn {
-    flex: 1; padding: 14px 10px; border: none;
-    background: #0a0a0a; color: var(--text-dim);
-    font-family: 'Cinzel', serif; font-size: 12px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.25s;
-  }
-  .winner-btn:first-child { border-right: 1px solid var(--border); }
-  .winner-btn.active-good { background: linear-gradient(135deg, #0a1a2a, #0d1e30); color: var(--good-bright); box-shadow: inset 0 0 20px #3a6ea822; }
-  .winner-btn.active-evil { background: linear-gradient(135deg, #1a0808, #200d0d); color: var(--evil-bright); box-shadow: inset 0 0 20px #8b1a1a22; }
-  .winner-btn .team-icon { display: block; font-size: 22px; margin-bottom: 4px; }
-
-  /* Players */
-  #summary-bar {
-    background: #0d0a05; border-bottom: 1px solid var(--border);
-    padding: 10px 20px; display: flex; gap: 20px;
-    font-family: 'Cinzel', serif; font-size: 10px;
-    letter-spacing: 0.2em; color: var(--text-dim);
-  }
-  #summary-bar span { color: var(--gold); }
-
-  #players-list { display: flex; flex-direction: column; gap: 8px; }
-
-  .player-header {
-    display: grid;
-    grid-template-columns: 28px 1fr 165px 100px 36px;
-    gap: 8px; padding: 0 12px 8px;
-  }
-  .player-header span {
-    font-family: 'Cinzel', serif; font-size: 9px;
-    letter-spacing: 0.3em; text-transform: uppercase; color: #4a3a1a;
-  }
-
-  .player-row {
-    display: grid;
-    grid-template-columns: 28px 1fr 165px 100px 36px;
-    gap: 8px; align-items: center;
-    background: #0a0a0a; border: 1px solid var(--border);
-    padding: 10px 12px; transition: border-color 0.2s;
-  }
-  .player-row:hover { border-color: #4a3a1a; }
-  .player-row.is-good { border-left: 3px solid var(--good); }
-  .player-row.is-evil { border-left: 3px solid var(--blood); }
-
-  .player-num { font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-dim); text-align: center; }
-
-  /* inline selects inside player rows */
-  .player-row select, .player-row input[type="text"] {
-    background: transparent; border: none;
-    border-bottom: 1px solid #2a2010;
-    color: var(--text); font-family: 'Crimson Text', serif;
-    font-size: 16px; padding: 4px 20px 4px 0; width: 100%;
-    outline: none; cursor: pointer; transition: border-color 0.2s;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a6030'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 2px center;
-    appearance: none; -webkit-appearance: none;
-    box-shadow: none;
-  }
-  .player-row input[type="text"] {
-    background-image: none; cursor: text; color: var(--text-dim);
-    font-size: 15px;
-  }
-  .player-row input[type="text"]::placeholder { color: #3a3020; font-style: italic; }
-  .player-row select:focus, .player-row input[type="text"]:focus { border-color: var(--gold-dim); box-shadow: none; }
-
-  .player-team-toggle { display: flex; border: 1px solid #2a2010; height: 34px; }
-  .team-btn {
-    flex: 1; border: none; background: transparent;
-    color: var(--text-dim); font-size: 13px;
-    cursor: pointer; transition: all 0.2s; padding: 0;
-  }
-  .team-btn.good.active { background: #0a1520; color: var(--good-bright); }
-  .team-btn.evil.active { background: #1a0808; color: var(--evil-bright); }
-  .team-btn:first-child { border-right: 1px solid #2a2010; }
-
-  .remove-btn {
-    background: none; border: none; color: #3a2020;
-    font-size: 18px; cursor: pointer; transition: color 0.2s;
-    display: flex; align-items: center; justify-content: center;
-    width: 36px; height: 36px;
-  }
-  .remove-btn:hover { color: var(--evil-bright); }
-
-  .players-controls { display: flex; gap: 12px; margin-top: 14px; }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 22px; border: 1px solid;
-    font-family: 'Cinzel', serif; font-size: 11px;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .btn-ghost { background: transparent; border-color: var(--border); color: var(--text-dim); }
-  .btn-ghost:hover { border-color: var(--gold-dim); color: var(--gold); }
-  .btn-gold { background: linear-gradient(135deg, #1e1608, #2a1e0a); border-color: var(--gold-dim); color: var(--gold); }
-  .btn-gold:hover { border-color: var(--gold); box-shadow: 0 0 20px #c9a84c33; }
-  .btn-blood { background: linear-gradient(135deg, #1a0808, #220a0a); border-color: var(--blood); color: #e88; }
-  .btn-blood:hover { border-color: var(--evil-bright); box-shadow: 0 0 20px #8b1a1a55; }
-
-  #output-section { margin-top: 40px; display: none; }
-  #output-section.visible { display: block; }
-  .json-preview {
-    padding: 16px 20px; font-family: 'Courier New', monospace;
-    font-size: 12px; color: #6a8a5a; background: #050505;
-    max-height: 220px; overflow-y: auto; white-space: pre;
-    border-top: 1px solid var(--border); line-height: 1.5;
-  }
-  .output-actions {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    padding: 20px; border-top: 1px solid var(--border); background: #0d0a05;
-  }
-  .ornament { text-align: center; color: var(--gold-dim); font-size: 18px; letter-spacing: 12px; margin: 6px 0; user-select: none; }
-
-  @media (max-width: 620px) {
-    .field-row.four { grid-template-columns: 1fr 1fr; }
-    .player-row, .player-header { grid-template-columns: 22px 1fr 36px; }
-    .player-row .player-role-cell { grid-column: 1 / 3; }
-    .player-team-toggle { grid-column: 3; grid-row: 1 / 3; }
-  }
-</style>
+<script src="scripts/color-mode.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
+<nav class="navbar bg-1 border-bottom px-3 py-3" aria-label="Hlavní navigace">
+  <a href="game.html?id=krvava-hodina" class="btn-text"><i class="bi bi-chevron-left" aria-hidden="true"></i> Zpět na hru</a>
+  <div class="ms-auto">
+    <button id="color-mode-toggle" type="button" class="btn-text" data-bs-toggle="menu"
+        data-bs-placement="bottom-end" aria-expanded="false" aria-controls="color-mode-menu"
+        aria-label="Barevný režim: Podle systému">
+      <i id="color-mode-icon" class="bi bi-circle-half" aria-hidden="true"></i>
+      <i class="bi bi-chevron-expand" aria-hidden="true"></i>
+    </button>
+    <div id="color-mode-menu" class="menu" aria-labelledby="color-mode-toggle">
+      <button type="button" class="menu-item" data-bs-theme-value="light" aria-pressed="false">
+        <i class="bi bi-sun-fill" aria-hidden="true"></i> Světlý
+        <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
+      </button>
+      <button type="button" class="menu-item" data-bs-theme-value="dark" aria-pressed="false">
+        <i class="bi bi-moon-stars-fill" aria-hidden="true"></i> Tmavý
+        <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
+      </button>
+      <button type="button" class="menu-item active" data-bs-theme-value="auto" aria-pressed="true">
+        <i class="bi bi-circle-half" aria-hidden="true"></i> Podle systému
+        <i class="bi bi-check2 ms-auto" data-theme-check aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</nav>
 
-<header>
-  <span class="clock-icon">🕰️</span>
-  <h1>Krvavá hodina odbyla</h1>
-  <div class="subtitle">Záznam partie pro BGStats</div>
+<header class="container text-center py-10">
+  <span class="d-block fs-4xl mb-3" aria-hidden="true">🕰️</span>
+  <h1 class="fs-3xl">Krvavá hodina odbyla</h1>
+  <p class="fg-3 mb-0">Záznam partie pro BGStats</p>
 </header>
 
-<div class="container">
+<main class="container pb-12 d-flex flex-column gap-7">
 
   <!-- METADATA -->
-  <div class="section">
-    <div class="section-title"><span>📜</span> Údaje o partii</div>
-    <div class="section-body">
-      <div class="field-row four">
-        <div>
-          <label>Datum</label>
-          <input type="date" id="play-date">
+  <section class="card" aria-labelledby="metadata-title">
+    <h2 id="metadata-title" class="card-header fs-lg mb-0">📜 Údaje o partii</h2>
+    <div class="card-body">
+      <div class="row g-5">
+        <div class="col-6 md:col-3">
+          <label for="play-date" class="d-block mb-3">Datum</label>
+          <input class="form-control" type="date" id="play-date">
         </div>
-        <div>
-          <label>Začátek</label>
-          <input type="time" id="play-start" oninput="calcDuration()">
+        <div class="col-6 md:col-3">
+          <label for="play-start" class="d-block mb-3">Začátek</label>
+          <input class="form-control" type="time" id="play-start" oninput="calcDuration()">
         </div>
-        <div>
-          <label>Konec</label>
-          <input type="time" id="play-end" oninput="calcDuration()">
+        <div class="col-6 md:col-3">
+          <label for="play-end" class="d-block mb-3">Konec</label>
+          <input class="form-control" type="time" id="play-end" oninput="calcDuration()">
         </div>
-        <div>
-          <label>Délka partie</label>
-          <div class="duration-display" id="duration-display">—</div>
+        <div class="col-6 md:col-3">
+          <label for="duration-display" class="d-block mb-3">Délka partie</label>
+          <output class="form-control bg-1" id="duration-display" for="play-start play-end" aria-live="polite">—</output>
         </div>
-      </div>
-      <div class="field-row">
-        <div>
-          <label>Místo</label>
-          <input type="text" id="play-location" placeholder="Doma, hospoda…">
+        <div class="col-12 md:col-6">
+          <label for="play-location" class="d-block mb-3">Místo</label>
+          <input class="form-control" type="text" id="play-location" placeholder="Doma, hospoda…">
         </div>
-        <div></div>
-      </div>
-      <div class="field-row single">
-        <div>
-          <label>Poznámky</label>
-          <textarea id="play-comment" placeholder="Zvláštní momenty, zajímavé tahy…"></textarea>
+        <div class="col-12">
+          <label for="play-comment" class="d-block mb-3">Poznámky</label>
+          <textarea class="form-control" id="play-comment" rows="3" placeholder="Zvláštní momenty, zajímavé tahy…"></textarea>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- STORYTELLER -->
-  <div class="section">
-    <div class="section-title"><span>🎭</span> Vypravěč</div>
-    <div class="section-body">
-      <label style="margin-bottom:10px">Kdo vedl hru jako Vypravěč?</label>
-      <div class="st-pills">
-        <button class="st-pill" data-name="Hejki" data-uuid="88649452-76BB-4912-8271-25C1CF6C8B21" onclick="selectST(this)">Hejki</button>
-        <button class="st-pill" data-name="Amos"  data-uuid="03A51045-50EC-4B7F-9C16-E4D11C81138B" onclick="selectST(this)">Amos</button>
-        <button class="st-pill" data-name="" data-uuid="" onclick="selectST(this)">Jiný…</button>
+  <section class="card" aria-labelledby="storyteller-title">
+    <h2 id="storyteller-title" class="card-header fs-lg mb-0">🎭 Vypravěč</h2>
+    <div class="card-body">
+      <p id="storyteller-label">Kdo vedl hru jako Vypravěč?</p>
+      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="storyteller-label">
+        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="Hejki" data-uuid="88649452-76BB-4912-8271-25C1CF6C8B21" onclick="selectST(this)">Hejki</button>
+        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="Amos" data-uuid="03A51045-50EC-4B7F-9C16-E4D11C81138B" onclick="selectST(this)">Amos</button>
+        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="" data-uuid="" onclick="selectST(this)">Jiný…</button>
       </div>
-      <div class="st-other-wrap" id="st-other-wrap">
-        <label>Jméno vypravěče</label>
-        <input type="text" id="st-other-name" placeholder="Jméno…" oninput="storyteller.name=this.value.trim()">
+      <div id="st-other-wrap" hidden>
+        <label for="st-other-name" class="d-block mb-3">Jméno vypravěče</label>
+        <input class="form-control" type="text" id="st-other-name" placeholder="Jméno…" oninput="storyteller.name=this.value.trim()">
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- SCRIPT -->
-  <div class="section">
-    <div class="section-title"><span>📖</span> Skript</div>
-    <div class="section-body">
-      <label style="margin-bottom:12px">Vyber skript — určí dostupné role</label>
-      <div class="script-pills">
-        <button class="script-pill" data-script="trouble-brewing" onclick="selectScript(this)">Trouble Brewing</button>
-        <button class="script-pill" data-script="sects-violets" onclick="selectScript(this)">Sects &amp; Violets</button>
-        <button class="script-pill" data-script="bad-moon-rising" onclick="selectScript(this)">Bad Moon Rising</button>
-        <button class="script-pill" data-script="custom" onclick="selectScript(this)">Vlastní / mix</button>
+  <section class="card" aria-labelledby="script-title">
+    <h2 id="script-title" class="card-header fs-lg mb-0">📖 Skript</h2>
+    <div class="card-body">
+      <p id="script-label">Vyber skript — určí dostupné role</p>
+      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="script-label">
+        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="trouble-brewing" onclick="selectScript(this)">Trouble Brewing</button>
+        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="sects-violets" onclick="selectScript(this)">Sects &amp; Violets</button>
+        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="bad-moon-rising" onclick="selectScript(this)">Bad Moon Rising</button>
+        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="custom" onclick="selectScript(this)">Vlastní / mix</button>
       </div>
-      <div id="script-hint" style="margin-top:12px; font-size:14px; color:var(--text-dim); font-style:italic;"></div>
+      <p id="script-hint" class="fs-sm fg-3" role="status"></p>
     </div>
-  </div>
+  </section>
 
   <!-- WINNER -->
-  <div class="section">
-    <div class="section-title"><span>⚔️</span> Vítězný tým</div>
-    <div class="section-body">
-      <label style="margin-bottom:10px">Kdo zvítězil v Ravenswood Bluff?</label>
-      <div class="winner-toggle">
-        <button class="winner-btn" id="btn-good" onclick="setWinner('good')">
-          <span class="team-icon">☀️</span>
-          Dobří zvítězili
-          <div style="font-size:11px; margin-top:4px; opacity:0.6">Démon byl popraven</div>
+  <section class="card" aria-labelledby="winner-title">
+    <h2 id="winner-title" class="card-header fs-lg mb-0">⚔️ Vítězný tým</h2>
+    <div class="card-body">
+      <p id="winner-label">Kdo zvítězil v Ravenswood Bluff?</p>
+      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="winner-label">
+        <button type="button" class="btn-outline theme-info flex-fill py-5" id="btn-good" aria-pressed="false" onclick="setWinner('good')">
+          ☀️ Dobří zvítězili
         </button>
-        <button class="winner-btn" id="btn-evil" onclick="setWinner('evil')">
-          <span class="team-icon">🩸</span>
-          Zlo triumfovalo
-          <div style="font-size:11px; margin-top:4px; opacity:0.6">Démon přežil</div>
+        <button type="button" class="btn-outline theme-danger flex-fill py-5" id="btn-evil" aria-pressed="false" onclick="setWinner('evil')">
+          🩸 Zlo triumfovalo
         </button>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- PLAYERS -->
-  <div class="section">
-    <div class="section-title"><span>👥</span> Hráči</div>
-    <div id="summary-bar">
+  <section class="card" aria-labelledby="players-title">
+    <h2 id="players-title" class="card-header fs-lg mb-0">👥 Hráči</h2>
+    <div id="summary-bar" class="d-flex flex-wrap gap-3 p-5 bg-1 border-bottom fs-sm" role="status">
       Celkem: <span id="sum-total">0</span> &nbsp;·&nbsp;
       Dobří: <span id="sum-good">0</span> &nbsp;·&nbsp;
       Zlí: <span id="sum-evil">0</span>
     </div>
-    <div class="section-body">
-      <div class="player-header">
-        <span>#</span><span>Hráč</span><span>Role</span><span>Tým</span><span></span>
-      </div>
-      <div id="players-list"></div>
-      <div class="players-controls">
-        <button class="btn btn-ghost" onclick="addPlayer()">＋ Přidat hráče</button>
+    <div class="card-body">
+      <div id="players-list" class="d-flex flex-column gap-5"></div>
+      <div>
+        <button type="button" class="btn-outline theme-secondary" onclick="addPlayer()">＋ Přidat hráče</button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div style="display:flex; gap:12px; margin-top:32px;">
-    <button class="btn btn-gold" style="flex:1; justify-content:center;" onclick="generate()">⚙️ &nbsp;Vygenerovat soubor</button>
+  <div class="d-flex">
+    <button type="button" class="btn-solid theme-primary flex-fill" onclick="generate()">⚙️ &nbsp;Vygenerovat soubor</button>
   </div>
 
   <!-- OUTPUT -->
-  <div id="output-section" class="section">
-    <div class="section-title"><span>💾</span> Výstup — připraveno k importu</div>
-    <div class="json-preview" id="json-preview"></div>
-    <div class="output-actions">
-      <button class="btn btn-gold" onclick="downloadBgsplay()">⬇️ &nbsp;Stáhnout .bgsplay</button>
-      <button class="btn btn-blood" onclick="openInApp()">📱 &nbsp;Otevřít v BGStats</button>
-      <div style="font-size:13px; color:var(--text-dim); align-self:center; font-style:italic;">
+  <section id="output-section" class="card" aria-labelledby="output-title" hidden>
+    <h2 id="output-title" class="card-header fs-lg mb-0">💾 Výstup — připraveno k importu</h2>
+    <pre class="overflow-auto p-5 bg-1 fs-sm mb-0" id="json-preview"></pre>
+    <div class="card-footer d-flex flex-wrap align-items-center gap-3">
+      <button type="button" class="btn-solid theme-primary" onclick="downloadBgsplay()">⬇️ &nbsp;Stáhnout .bgsplay</button>
+      <button type="button" class="btn-outline theme-primary" onclick="openInApp()">📱 &nbsp;Otevřít v BGStats</button>
+      <div class="fs-sm fg-3">
         Import: Nastavení → Import v BGStats.<br>
         Tlačítko "Otevřít" zkusí spustit appku přímo.
       </div>
     </div>
-  </div>
-
-  <div class="ornament" style="margin-top:60px">✦ ✦ ✦</div>
-</div>
+  </section>
+</main>
 
 <script>
 const KNOWN_PLAYERS = [
@@ -495,10 +231,12 @@ function calcDuration() {
 
 // ── STORYTELLER ──
 function selectST(btn) {
-  document.querySelectorAll('.st-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelectorAll('.st-pill').forEach(p => {
+    p.classList.toggle('active', p === btn);
+    p.setAttribute('aria-pressed', String(p === btn));
+  });
   const isOther = btn.dataset.name === '';
-  document.getElementById('st-other-wrap').classList.toggle('visible', isOther);
+  document.getElementById('st-other-wrap').hidden = !isOther;
   if (!isOther) {
     storyteller = { name: btn.dataset.name, uuid: btn.dataset.uuid };
     document.getElementById('st-other-name').value = '';
@@ -509,8 +247,10 @@ function selectST(btn) {
 
 // ── SCRIPT ──
 function selectScript(el) {
-  document.querySelectorAll('.script-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
+  document.querySelectorAll('.script-pill').forEach(p => {
+    p.classList.toggle('active', p === el);
+    p.setAttribute('aria-pressed', String(p === el));
+  });
   currentScript = el.dataset.script;
   const hints = {
     'trouble-brewing': 'Začátečnický skript — 13 Townsfolk, 4 Outsider, 4 Minion, 1 Démon (Imp).',
@@ -541,19 +281,22 @@ function rebuildRoleCell(pid) {
   const cell = row.querySelector('.player-role-cell');
   if (!cell) return;
   if (currentScript === 'custom') {
-    cell.innerHTML = `<input type="text" placeholder="Název role…">`;
+    cell.innerHTML = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
   } else if (currentScript) {
-    cell.innerHTML = `<select>${getRoleOptions(currentScript)}</select>`;
+    cell.innerHTML = `<select class="form-control" aria-label="Role hráče">${getRoleOptions(currentScript)}</select>`;
   } else {
-    cell.innerHTML = `<input type="text" placeholder="Vyber skript…" disabled style="opacity:0.35">`;
+    cell.innerHTML = `<input class="form-control" type="text" placeholder="Vyber skript…" aria-label="Role hráče" disabled>`;
   }
 }
 
 // ── WINNER ──
 function setWinner(team) {
   winnerTeam = team;
-  document.getElementById('btn-good').className = 'winner-btn' + (team === 'good' ? ' active-good' : '');
-  document.getElementById('btn-evil').className = 'winner-btn' + (team === 'evil' ? ' active-evil' : '');
+  for (const value of ['good', 'evil']) {
+    const button = document.getElementById(`btn-${value}`);
+    button.classList.toggle('active', team === value);
+    button.setAttribute('aria-pressed', String(team === value));
+  }
   updateSummary();
 }
 
@@ -568,27 +311,31 @@ function addPlayer() {
   const id = ++playerIdCounter;
   players.push({ id });
   const row = document.createElement('div');
-  row.className = 'player-row';
+  row.className = 'player-row row g-3 align-items-center border rounded-5 p-3 mx-0';
   row.id = `player-${id}`;
 
   let roleCell;
   if (!currentScript) {
-    roleCell = `<input type="text" placeholder="Vyber skript…" disabled style="opacity:0.35">`;
+    roleCell = `<input class="form-control" type="text" placeholder="Vyber skript…" aria-label="Role hráče" disabled>`;
   } else if (currentScript === 'custom') {
-    roleCell = `<input type="text" placeholder="Název role…">`;
+    roleCell = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
   } else {
-    roleCell = `<select>${getRoleOptions(currentScript)}</select>`;
+    roleCell = `<select class="form-control" aria-label="Role hráče">${getRoleOptions(currentScript)}</select>`;
   }
 
   row.innerHTML = `
-    <div class="player-num">${players.length}</div>
-    <select class="player-name-sel">${playerOptionsHTML()}</select>
-    <div class="player-role-cell">${roleCell}</div>
-    <div class="player-team-toggle">
-      <button class="team-btn good" onclick="setPlayerTeam(${id},'good',this)" title="Dobří">☀️</button>
-      <button class="team-btn evil" onclick="setPlayerTeam(${id},'evil',this)" title="Zlí">🩸</button>
+    <div class="player-num col-1 text-center fg-3">${players.length}</div>
+    <div class="col-11 md:col-4">
+      <select class="player-name-sel form-control" aria-label="Hráč">${playerOptionsHTML()}</select>
     </div>
-    <button class="remove-btn" onclick="removePlayer(${id})" title="Odebrat">✕</button>
+    <div class="player-role-cell col-12 md:col-3">${roleCell}</div>
+    <div class="col-10 md:col-3 d-flex gap-3" role="group" aria-label="Tým hráče">
+      <button type="button" class="team-btn btn-outline btn-sm theme-info flex-fill" onclick="setPlayerTeam(${id},'good',this)" aria-label="Dobří" aria-pressed="false" title="Dobří">☀️</button>
+      <button type="button" class="team-btn btn-outline btn-sm theme-danger flex-fill" onclick="setPlayerTeam(${id},'evil',this)" aria-label="Zlí" aria-pressed="false" title="Zlí">🩸</button>
+    </div>
+    <div class="col-2 md:col-1 text-center">
+      <button type="button" class="btn-text btn-sm theme-danger" onclick="removePlayer(${id})" aria-label="Odebrat hráče" title="Odebrat">✕</button>
+    </div>
   `;
   document.getElementById('players-list').appendChild(row);
   updateNumbers();
@@ -603,10 +350,13 @@ function removePlayer(id) {
 
 function setPlayerTeam(id, team, btn) {
   const row = document.getElementById(`player-${id}`);
-  row.classList.remove('is-good','is-evil');
+  row.classList.remove('is-good','is-evil','border-info','border-danger');
   row.classList.add(team === 'good' ? 'is-good' : 'is-evil');
-  row.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  row.classList.add(team === 'good' ? 'border-info' : 'border-danger');
+  row.querySelectorAll('.team-btn').forEach(b => {
+    b.classList.toggle('active', b === btn);
+    b.setAttribute('aria-pressed', String(b === btn));
+  });
   updateSummary();
 }
 
@@ -649,7 +399,7 @@ function getPlayerData() {
     const isEvil = row.classList.contains('is-evil');
     const role = isGood ? 'Dobro' : (isEvil ? 'Zlo' : '');
     const team = isGood ? '1' : (isEvil ? '2' : '0');
-    const winner = !!(winnerTeam && team === winnerTeam);
+    const winner = (winnerTeam === 'good' && isGood) || (winnerTeam === 'evil' && isEvil);
 
     return { idx: i+2, name: isAnon ? `Anonymní hráč` : name, uuid, isAnon, role, team, teamRole, winner };
   }));
@@ -728,7 +478,7 @@ function generate() {
     preview.length > 3000 ? preview.slice(0, 3000) + '\n… (zkráceno)' : preview;
 
   const out = document.getElementById('output-section');
-  out.classList.add('visible');
+  out.hidden = false;
   out.scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
@@ -760,5 +510,8 @@ function generateUUID() {
   });
 }
 </script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+    crossorigin="anonymous"></script>
 </body>
 </html>

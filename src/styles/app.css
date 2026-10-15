@@ -1,0 +1,67 @@
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-color: var(--bs-border-color);
+}
+
+table th,
+table td {
+    border-bottom-width: 1px;
+    padding: .5rem;
+}
+
+table th[align="center"] {
+    text-align: center;
+}
+
+.navbar-overlay {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 1030;
+    background-color: transparent;
+    border-bottom: 0;
+}
+
+.navbar-overlay #color-mode-toggle,
+.navbar-overlay .navbar-back {
+    --bs-btn-color: white;
+    --bs-btn-hover-color: white;
+    --bs-btn-bg: transparent;
+    --bs-btn-hover-bg: rgb(0 0 0 / 25%);
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: rgb(0 0 0 / 35%);
+    text-shadow: 0 1px 4px rgb(0 0 0 / 80%);
+}
+
+.hero {
+    height: 30vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    padding: 0.4rem 1rem;
+    color: white;
+}
+
+.basic-info .card {
+    padding: 0.5rem 1rem;
+    width: 6rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.basic-info .card .bi {
+    font-size: 1.5rem;
+}
+
+#game-links img {
+    height: 1.2rem;
+}
