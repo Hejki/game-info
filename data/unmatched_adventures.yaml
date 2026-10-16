@@ -6,6 +6,19 @@ playtime: "20-60"
 age: 9+
 weight: 2.32
 color: "#794834"
+links:
+  - type: rules
+    title: Česká pravidla kooperativního režimu (ALBI, Zatrolené hry)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/unmatched-dobrodruzstvi-uzasne-pribehy-14675/k-stazeni/pravidla-hry-albi-cz-15474/
+  - type: rules
+    title: Česká základní pravidla Unmatched (ALBI, Zatrolené hry)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/unmatched-dobrodruzstvi-uzasne-pribehy-14675/k-stazeni/zakladni-pravidla-albi-cz-15475/
+  - type: rules
+    title: Česká speciální pravidla hrdinů (ALBI, Zatrolené hry)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/unmatched-dobrodruzstvi-uzasne-pribehy-14675/k-stazeni/pravidla-setu-albi-cz-15476/
+  - type: video
+    title: Videonávod – Úžasné příběhy (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=eI89n7PDYKI
 description: |
   **Unmatched Dobrodružství** navazuje na sérii her **Unmatched**, a přináší do hry nový kooperativní prvek.
 

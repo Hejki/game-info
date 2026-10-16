@@ -9,6 +9,13 @@ color: "#33164C"
 tools:
   - icon: bi bi-journal-bookmark
     link: /botc-play.html
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box / Old Dawg)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/BotCT_Rulebook%20-%20Main_CZ.pdf
+  - type: video
+    title: Videonávod – základy (CZ, Erzebeth)
+    url: https://www.youtube.com/watch?v=6tjIxRNuHf8
 description: |
   ### Před začátkem hry
 

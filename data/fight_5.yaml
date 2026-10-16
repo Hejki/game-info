@@ -6,6 +6,13 @@ playtime: "10-15"
 age: 14+
 weight: 1.0
 color: "#AF772C"
+links:
+  - type: rules
+    title: Oficiální pravidla (EN, Neon Knight Games; Dropbox)
+    url: https://www.dropbox.com/scl/fi/tb2fh870wp08azdnhibsr/NK-F5_Rules.pdf?rlkey=evjsj6rutabdpc693zi9b7vs1&st=k2k86zzf&dl=0
+  - type: video
+    title: Videonávod (EN, Chip Theory Games)
+    url: https://www.youtube.com/watch?v=qrcgK059P10
 description: |
   Be the first to 200 points, or have the most points after 3 bouts.
 

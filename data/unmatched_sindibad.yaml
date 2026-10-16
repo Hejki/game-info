@@ -14,6 +14,19 @@ description: |
   Při vyhodnocení akce "manéver" můžeš přesunout své bojovníky navíc až o tolik polí,
   kolik karet **CESTY** se nachází ve tvém odhazovacím balíčku.
 
-  * [BGG: Battle of Legends, Volume One](https://boardgamegeek.com/boardgame/274637)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/sinbad)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/sinbad)
+links:
+  - type: rules
+    title: Česká pravidla Souboje legend (PDF, ALBI)
+    url: https://albi.cz/data/files/products/40136/1612428609-albi-unmatched-souboj-legend-pravidla-hry.pdf
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Battle of Legends, Volume One"
+    url: https://boardgamegeek.com/boardgame/274637
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/sinbad
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/sinbad

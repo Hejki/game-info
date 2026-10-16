@@ -15,6 +15,19 @@ description: |
   DURING COMBAT: If you have 2 or fewer cards in your hand, you may BLIND BOOST your attack or defense.
   (If you have other DURING COMBAT effects, choose the order.)
 
-  * [BGG: Hell's Kitchen](https://boardgamegeek.com/boardgame/326934)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/daredevil)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/daredevil)
+links:
+  - type: rules
+    title: Pravidla Hell's Kitchen (EN, BGG – ke stažení)
+    url: https://boardgamegeek.com/filepage/240150/unmatched-marvel-hells-kitchen-rulebook-en-v1
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Hell's Kitchen"
+    url: https://boardgamegeek.com/boardgame/326934
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/daredevil
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/daredevil

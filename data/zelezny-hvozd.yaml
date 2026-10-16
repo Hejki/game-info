@@ -6,6 +6,13 @@ playtime: "30-60"
 age: 12+
 weight: 2.85
 color: "#174447"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg)
+    url: https://www.old-dawg.cz/user/related_files/zelezny-hnozd-pravidla-cz-web.pdf
+  - type: video
+    title: Ukázková partie (CZ, Old Dawg)
+    url: https://www.youtube.com/watch?v=r_TotCjf8Yg
 description: |
   **Železný hvozd** je taktická **asymetrická desková** hra pro 1–2 hráče, ve které se proti sobě postaví
   **dvě zcela odlišné frakce: Strážci lesa**, snažící se chránit rovnováhu a prastaré totemy,

@@ -1,0 +1,32 @@
+# Zdroje a rozhodnutí: .agents/skills/add-board-game/references/dorfromantik-sakura.md
+name: "Dorfromantik: Sakura"
+bgg: 424774
+zh: dorfromantik-sakura-16621
+players: "1-6"
+playtime: "30-90"
+age: 10+
+weight: 1.91
+color: "#235C48"
+description: |
+  **Dorfromantik: Sakura** je samostatná kooperativní hra, ve které společně
+  skládáte japonskou krajinu ze šestihranných destiček. Propojujete rýžová pole,
+  vesnice a rozkvetlé třešně, budujete cesty a řeky a plníte úkoly určující
+  velikost jednotlivých oblastí.
+
+  Cílem je získat co nejvyšší společné skóre. Body přinášejí splněné úkoly,
+  uzavřená území s vlajkami i nejdelší cesta a řeka. Výsledky jednotlivých partií
+  posouvají kampaň, ve které postupně odemykáte nové herní prvky a další výzvy.
+  Původní Dorfromantik ke hraní nepotřebujete.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/Dorfromantik_Sakura_cz-web.pdf
+  - type: video
+    title: Představení hry a rozdílů oproti původnímu Dorfromantiku (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=4SCM8lDwsdw
+  - type: video
+    title: Základní pravidla a ukázková partie (EN, Game4LifeBG)
+    url: https://www.youtube.com/watch?v=x4z2LozJ0sc
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/dorfromantik-sakura/

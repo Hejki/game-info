@@ -13,6 +13,19 @@ description: |
   At the start of your turn, summon a squirrel in a space adjacent to Squirrel Girl.
   Squirrels are small fighters. Do not start with any squirrels on the board.
 
-  * [BGG: Teen Spirit](https://boardgamegeek.com/boardgame/326936)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/squirrel-girl)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/squirrel-girl)
+links:
+  - type: rules
+    title: Pravidla Teen Spirit (EN, BGG – ke stažení)
+    url: https://boardgamegeek.com/filepage/255775/unmatched-marvel-teen-spirit-rulebook-english-v1
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Teen Spirit"
+    url: https://boardgamegeek.com/boardgame/326936
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/squirrel-girl
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/squirrel-girl

@@ -6,6 +6,13 @@ playtime: "10"
 age: 7+
 weight: 1.20
 color: "#aa3080"
+links:
+  - type: rules
+    title: Oficiální česká pravidla REXhry (Zatrolené hry)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/fuk-15401/k-stazeni/oficialni-pravidla-rexhry-16201
+  - type: video
+    title: Ukázková partie (CZ, Planeta her)
+    url: https://www.youtube.com/watch?v=1uW72-ZwzcM
 description: |
   Hru **FUK** tvoří pět sad karet s hodnotami od 0 do 9. Během hry hráči vynášejí karty z ruky, a to tak,
   aby získali karty z řady karet vyložených uprostřed stolu. Na konci každého kola hráči získají,

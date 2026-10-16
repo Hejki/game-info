@@ -6,6 +6,13 @@ playtime: "10-20"
 age: 8+
 weight: 1.0
 color: "#E46526"
+links:
+  - type: rules
+    title: Česká pravidla Yogi Guru (PDF, ALBI)
+    url: https://albi.cz/data/files/products/36725/albi-yogi-guru-pravidla-hry-8299.pdf
+  - type: video
+    title: Představení Yogi Guru na SPIEL 2019 (EN, BGG Express)
+    url: https://www.youtube.com/watch?v=u-fKgatpyw4
 description: |
   _„Twister už je příliš ohraný? Zkuste Yogi Guru! Zábava při které využite všemožné jogínské pozice.“_
 

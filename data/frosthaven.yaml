@@ -6,6 +6,16 @@ playtime: "90-180"
 age: 14+
 weight: 4.41
 color: "#7FBBF7"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/40588/1739517011-albi-frosthaven-pravidla-hry.pdf
+  - type: video
+    title: Oficiální videonávod – úvod a scénář (EN, Gaming Rules!)
+    url: https://www.youtube.com/watch?v=XPMMLexERvs
+  - type: video
+    title: Oficiální videonávod – fáze základny (EN, Gaming Rules!)
+    url: https://www.youtube.com/watch?v=RMNr6Na9s0o
 description: |
   **Frosthaven** je kooperativní fantasy hra, která vychází z prostřední a herních principů Gloomhavenu - nejlépe
   hodnocené deskové hry světa (podle uživatelů serveru Boardgamegeek).

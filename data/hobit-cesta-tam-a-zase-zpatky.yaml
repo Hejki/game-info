@@ -6,6 +6,13 @@ playtime: "30"
 age: 10+
 weight: 1.83
 color: "#3F012D"
+links:
+  - type: rules
+    title: Česká pravidla Asmodee CZ (Zatrolené hry)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/hobit-cesta-tam-a-zase-zpatky-18081/k-stazeni/pravidla-asmodee-cz-18003/
+  - type: video
+    title: Jak se hraje, představení a dojmy (CZ, Lazy-Cat-BG)
+    url: https://www.youtube.com/watch?v=COG2XSpV2ZU
 description: |
   **Hobit: Cesta tam a zase zpátky** je kompetitivní zakreslovací hra inspirovaná knihou Hobit od J. R. R. Tolkiena.
   Hráči se vydávají na cestu z poklidného Dna pytle až k Osamělé hoře, přičemž každá partie představuje jedno z osmi

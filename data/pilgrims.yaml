@@ -14,5 +14,10 @@ description: |
   Tyto karty lze také využít k plnění karet dobrodružství, které hráčům při nášejí nejen cenné body,
   ale mohou je odměnit i užitečnými vylepšeními nebo žetony čtyřlístků.
 
-  * [Pravidla](https://albi.cz/data/files/products/61328/1778492544-albi-pilgrims-pravidla-hry.pdf)
-  * [Video návod](https://play.albi.cz/pilgrims/)
+links:
+  - type: rules
+    title: Pravidla
+    url: https://albi.cz/data/files/products/61328/1778492544-albi-pilgrims-pravidla-hry.pdf
+  - type: video
+    title: Video návod
+    url: https://play.albi.cz/pilgrims/

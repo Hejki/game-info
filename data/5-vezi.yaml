@@ -6,6 +6,13 @@ playtime: "15-30"
 age: 7+
 weight: 1.25
 color: "#3f6b8c"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/5vezi-pravidla-web.pdf
+  - type: video
+    title: Představení a vysvětlení hry (CZ, POD VÍKEM)
+    url: https://www.youtube.com/watch?v=Jl9yptCQDIs
 description: |
   **5 věží** je karetní hra, ve které se hráči stávají architekty soupeřící ve stavbě co nejvyšších věží.
   Každý z nich staví pětici různých věží – lesní, šrotovou, pískovou, strašidelnou a dortovou.

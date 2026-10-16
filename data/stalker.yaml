@@ -6,6 +6,13 @@ playtime: "120-180"
 age: 14+
 weight: 3.8
 color: "#543618"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/59356/1764243392-albi-stalker-pravidla-hry.pdf
+  - type: video
+    title: Videonávod a pravidla (CZ, Game On)
+    url: https://www.youtube.com/watch?v=CDh6Zg50Xog
 description: |
   **S.T.A.L.K.E.R.: Desková hra** je plně kooperativní příběhová hra určená 1–4 hráčům, založená na postupném prozkoumávání herního plánu.
   V průběhu kampaně hráči opakují dvě oddělené části hry: Průzkum Zóny a Mise.

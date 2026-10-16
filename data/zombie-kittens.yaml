@@ -6,6 +6,13 @@ playtime: "15"
 age: 7+
 weight: 1.19
 color: "#ADBA50"
+links:
+  - type: rules
+    title: Oficiální pravidla (EN, Exploding Kittens)
+    url: https://www.explodingkittens.com/pages/how-to-play-zombie-kittens
+  - type: video
+    title: Videonávod (CZ, Asmodee)
+    url: https://www.youtube.com/watch?v=ohhxWzkPO1M
 description: |
   _Karetní hra, ve které vybuchnete, oživnete, a pak možná vybuchnete znovu_
 

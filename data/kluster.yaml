@@ -6,6 +6,13 @@ playtime: "10-20"
 age: 14+
 weight: 1.01
 color: "#E35303"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/kluster_-_pravidal_web.pdf
+  - type: video
+    title: Ukázková partie (CZ, Planeta her)
+    url: https://www.youtube.com/watch?v=dQYbDD2xdb8
 description: |
   **Kluster** je svižná hra, při které se hráči střídají v pokládání magnetických kamenů do herní plochy,
   která je vymezena provázkem. Musíte si ale dávat pozor, protože magnetické síly jsou nevyzpytatelné,

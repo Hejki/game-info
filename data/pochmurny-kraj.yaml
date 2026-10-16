@@ -6,6 +6,13 @@ playtime: "45-90"
 age: 12+
 weight: 3.71
 color: "#9e3f24"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_Harrow_County_Rulebook.pdf
+  - type: video
+    title: Ukázková partie (CZ, Bartyx a VikTok)
+    url: https://www.youtube.com/watch?v=2w4qgmff7xA
 description: |
   Hra **Pochmurný kraj** nabízí pět frakcí, které se spolu mohou střetnout.
   _Ochránci_ usilují o záchranu obyvatel tohoto děsivého kraje, _Rodina_ jej chce naopak zničit,

@@ -6,6 +6,13 @@ playtime: "30-60"
 age: 10+
 weight: 1.86
 color: "#324E69"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/klub_sberatelu-pravidla.pdf
+  - type: video
+    title: Přehled pravidel a ukázková partie (CZ, Planeta her)
+    url: https://www.youtube.com/watch?v=Hd5-TuJahtA
 description: |
   _Každý správný sběratel umění tráví hodně času na aukcích. Hledá tam ta nejlepší umělecká díla a snaží se je získat do svých sbírek.
   Škoda jen, že mu to komplikují jeho konkurenti a také muzea. Když se ale zadaří a úchvatné dílo vydraží pro svou sbírku...

@@ -15,6 +15,19 @@ description: |
   Když je Alenka **VELKÁ**, přičítej 2 k hodnotě jejích útočných karet.<br>
   Když je Alenka **MALÁ**, přičítej 1 k hodnotě jejích obranných karet.
 
-  * [BGG: Battle of Legends, Volume One](https://boardgamegeek.com/boardgame/274637)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/alice)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/alice)
+links:
+  - type: rules
+    title: Česká pravidla Souboje legend (PDF, ALBI)
+    url: https://albi.cz/data/files/products/40136/1612428609-albi-unmatched-souboj-legend-pravidla-hry.pdf
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Battle of Legends, Volume One"
+    url: https://boardgamegeek.com/boardgame/274637
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/alice
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/alice

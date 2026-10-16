@@ -6,6 +6,13 @@ playtime: "10-15"
 age: 8+
 weight: 1.35
 color: "#347860"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01JT8HQ9WQ5PCS4BHGEEYNMMY1.pdf
+  - type: video
+    title: Ukázková partie (CZ, Planeta her)
+    url: https://www.youtube.com/watch?v=dUBE8UVwLQ8
 description: |
   _Vítejte v Oakfieldu! Zdejší Špionská ulice je něčím víc než jen poklidnou ulicí – jedná se o tajné dějiště špionáže.
   Dva agenti, žijící jako sousedé, neznají skutečnou identitu toho druhého; začínají však vidět známky toho, že to nejsou

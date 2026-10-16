@@ -6,6 +6,13 @@ playtime: "20-40"
 age: 8+
 weight: 2.05
 color: "#008EEB"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/shelfie-stacker-cz-web.pdf
+  - type: video
+    title: Představení a vysvětlení hry (CZ, POD VÍKEM)
+    url: https://www.youtube.com/watch?v=_qVklvc5ooA
 description: |
   _Další nová deskovka, co? Teď teprve začíná ta pravá hra – kam s ní? Tvá unikátně systematická, barevně odlišená,
   abecedně setříděná kolekce deskových her musí pojmout nový kousek. Skutečně na tom záleží?

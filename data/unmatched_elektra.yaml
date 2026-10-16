@@ -17,6 +17,19 @@ description: |
   Place Elektra and all Hand back onto the board with each fighter in a different zone.
   (You must resolve effects with the RESURRECTED symbol.)
 
-  * [BGG: Hell's Kitchen](https://boardgamegeek.com/boardgame/326934)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/elektra)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/elektra)
+links:
+  - type: rules
+    title: Pravidla Hell's Kitchen (EN, BGG – ke stažení)
+    url: https://boardgamegeek.com/filepage/240150/unmatched-marvel-hells-kitchen-rulebook-en-v1
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Hell's Kitchen"
+    url: https://boardgamegeek.com/boardgame/326934
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/elektra
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/elektra

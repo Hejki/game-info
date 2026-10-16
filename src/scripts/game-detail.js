@@ -98,12 +98,54 @@ function setInfoColor(container, color) {
 }
 
 function fillLinks(game) {
-    const trollLink = game.zh ? `<li class="list-inline-item ms-3"><img src="https://www.zatrolene-hry.cz/graphics/favicon.cz.svg" class="me-1"/><a href="https://www.zatrolene-hry.cz/spolecenska-hra/${game.zh}" target="_blank">Zatrolené hry</a></li>` : ''
+    const links = []
+    if (game.bgg) links.push({ type: 'bgg', title: 'BGG', url: `https://boardgamegeek.com/boardgame/${game.bgg}` })
+    if (game.zh) links.push({ type: 'zh', title: 'Zatrolené hry', url: `https://www.zatrolene-hry.cz/spolecenska-hra/${game.zh}` })
+    links.push(...(game.links || []))
 
-    id("game-links").innerHTML = `<ul class="list-unstyled">
-        <li class="list-inline-item"><img src="https://cf.geekdo-static.com/icons/favicon2.ico" class="me-1"/><a href="https://boardgamegeek.com/boardgame/${game.bgg}" target="_blank">BGG</a></li>
-        ${trollLink}
-    </ul>`
+    const icons = { video: 'play-btn-fill', rules: 'journal-bookmark-fill' }
+    const favicons = {
+        bgg: 'https://cf.geekdo-static.com/icons/favicon2.ico',
+        zh: 'https://www.zatrolene-hry.cz/graphics/favicon.cz.svg',
+    }
+    const list = document.createElement('ul')
+    list.className = 'list-unstyled d-flex flex-column gap-3 mt-5'
+
+    for (const link of links) {
+        if (!link || typeof link.title !== 'string' || !link.title.trim()) continue
+        let url
+        try {
+            url = new URL(link.url)
+        } catch {
+            continue
+        }
+        if (!['http:', 'https:'].includes(url.protocol)) continue
+
+        const item = document.createElement('li')
+        const anchor = document.createElement('a')
+        anchor.className = 'd-inline-flex align-items-center gap-3'
+        anchor.href = url.href
+        anchor.target = '_blank'
+        anchor.rel = 'noopener noreferrer'
+
+        const favicon = Object.hasOwn(favicons, link.type) ? favicons[link.type] : null
+        const icon = document.createElement(favicon ? 'img' : 'i')
+        if (favicon) {
+            icon.src = favicon
+            icon.alt = ''
+        } else {
+            const iconName = Object.hasOwn(icons, link.type) ? icons[link.type] : 'link-45deg'
+            icon.className = `bi bi-${iconName}`
+            icon.setAttribute('aria-hidden', 'true')
+        }
+        const title = document.createElement('span')
+        title.textContent = link.title
+        anchor.appendChild(icon)
+        anchor.appendChild(title)
+        item.appendChild(anchor)
+        list.appendChild(item)
+    }
+    id('game-links').replaceChildren(list)
 }
 
 function id(elementId) {

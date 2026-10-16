@@ -14,6 +14,19 @@ description: |
   Na začátku svého tahu můžeš uštědřit 1 zranění libovolnému bojovníkovi sousedícímu s Drákulou.
   Pokud tak učiníš, táhni kartu.
 
-  * [BGG: Cobble & Fog](https://boardgamegeek.com/boardgame/294484)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/dracula)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/dracula)
+links:
+  - type: rules
+    title: Česká pravidla Souboje v mlze (PDF, ALBI)
+    url: https://albi.cz/data/files/products/41813/1642498731-albi-unmatched-souboj-v-mlze-pravidla-hry.pdf
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Cobble & Fog"
+    url: https://boardgamegeek.com/boardgame/294484
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/dracula
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/dracula

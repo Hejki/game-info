@@ -6,6 +6,13 @@ playtime: "60-90"
 age: 14+
 weight: 2.81
 color: "#413f5a"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CoD_rules_CZ.pdf
+  - type: video
+    title: Ukázková partie (CZ, Fox in the Box)
+    url: https://www.youtube.com/watch?v=aOA3KR3-f9E
 description: |
   _V roce 1804 si prezident Jefferson předvolá vojáky a průzkumníky Lewise a Clarka. Ti mají za úkol nejen prozkoumat nově
   zakoupené oblasti Spojených států, ale také zbavit zemi mnoha ďábelských invazivních monster, která se zde objevila._

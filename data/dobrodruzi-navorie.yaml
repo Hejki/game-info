@@ -6,6 +6,13 @@ playtime: "40-80"
 age: 12+
 weight: 2.26
 color: "#665553"
+links:
+  - type: rules
+    title: Česká pravidla základní hry (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/navoria-pravidla-cz.pdf
+  - type: video
+    title: Představení základní hry (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=fCs_n3tv0Ks
 description: |
   V kouzelné zemi **Navoria** se z moře vynořily nové a podivné kontinenty. Rada Navorie rozhodla, že nové kontinenty musí být prozkoumány, a ty a hrstka dalších neohrožených dobrodruhů jste na výzvu odpověděli. Vše je připraveno na dobrodružství života!
 

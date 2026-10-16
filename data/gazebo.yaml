@@ -6,6 +6,13 @@ playtime: "30"
 age: 8+
 weight: 2.00
 color: "#b4582b"
+links:
+  - type: rules
+    title: Oficiální pravidla (EN, BGG – ke stažení)
+    url: https://boardgamegeek.com/filepage/300677/gazebo-official-english-rulebook
+  - type: video
+    title: Videonávod (EN, Bitewing Games)
+    url: https://www.youtube.com/watch?v=5uXnEVpJQtI
 description: |
   Fill the botanical gardens with fragrant flowers, lush foliage, and soothing waters as you erect your gazebos among
   the tranquil features and atop prized patios.

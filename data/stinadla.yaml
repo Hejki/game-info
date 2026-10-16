@@ -6,6 +6,13 @@ playtime: "90"
 age: 12+
 weight: 2.29
 color: "#36342a"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/59378/1759299494-albi-stinadla-pravidla-hry.pdf
+  - type: video
+    title: Videonávod (CZ, ALBI / Nithrania)
+    url: https://www.youtube.com/watch?v=oN4-ig3CmT8
 description: |
   Vstupte do tajemného světa **Stínadel** a staňte se členy slavného **klubu Rychlých šípů**!
 

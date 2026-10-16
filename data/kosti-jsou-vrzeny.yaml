@@ -6,6 +6,13 @@ playtime: "60-120"
 age: 12+
 weight: 3.86
 color: "#343533"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/TMB%20Rulebook%202.2_CZ.pdf
+  - type: video
+    title: Jak se to hraje (CZ, Anathreius)
+    url: https://www.youtube.com/watch?v=nnU2snrwZkA
 description: |
   _Nastal čas, aby s nimi někdo zatočil. Řeč je o padouších, kteří tyranizují okolí již dlouhou řadu let.
   Jenže: Jak je najít? Kde po nich pátrat? V teple domova to nezjistíme, proto hurá na cestu, verglové!_

@@ -16,6 +16,19 @@ description: |
   ### Special ability - REFRACTION
   After you attack, if Dagger dealt at least 2 combat damage, gain 1 action.
 
-  * [BGG: Teen Spirit](https://boardgamegeek.com/boardgame/326936)
-  * [Unmatched Club](https://www.the-unmatched.club/heroes/cloak-dagger)
-  * [Unmatched Database](https://unmatched.cards/umdb/decks/cloak-dagger)
+links:
+  - type: rules
+    title: Pravidla Teen Spirit (EN, BGG – ke stažení)
+    url: https://boardgamegeek.com/filepage/255775/unmatched-marvel-teen-spirit-rulebook-english-v1
+  - type: video
+    title: Základní videonávod série Unmatched (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=GyzdMFy25Cg
+  - type: other
+    title: "BGG: Teen Spirit"
+    url: https://boardgamegeek.com/boardgame/326936
+  - type: other
+    title: Unmatched Club
+    url: https://www.the-unmatched.club/heroes/cloak-dagger
+  - type: other
+    title: Unmatched Database
+    url: https://unmatched.cards/umdb/decks/cloak-dagger

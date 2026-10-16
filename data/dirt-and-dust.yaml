@@ -6,6 +6,13 @@ playtime: "60-90"
 age: 14+
 weight: 3.25
 color: "#F9EA13"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/58191/1753796261-albi-dirt-and-dust-pravidla-hry.pdf
+  - type: video
+    title: Videonávod (SK, ALBI)
+    url: https://www.youtube.com/watch?v=uxl4C6GSGFA
 description: |
   **Rallye závody** nejsou jen o rychlosti – klíčem k vítězství je **strategie**,
   přesnost a týmová spolupráce! Každá zatáčka a terénní výzva prověří vaše nastavení vozu, navigaci i odvahu za volantem.

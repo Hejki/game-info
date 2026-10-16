@@ -6,6 +6,13 @@ playtime: "15-30"
 age: 8+
 weight: 1.33
 color: "#D6A342"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01JT8M705TB3J0YNJS6700H6HB.pdf
+  - type: video
+    title: Videonávod (CZ, Erzebeth)
+    url: https://www.youtube.com/watch?v=iL0H1bCj1_A
 description: |
   Ve hře **Nálepkáři** se hráči snaží nasbírat co nejpočetnější sady od jednotlivých typů karet: za každý druh získají body
   dva hráči, kteří mají od příslušného druhu nejvíce karet. Vzácnost jednotlivých druhů, jíž je určena jejich bodová hodnota,

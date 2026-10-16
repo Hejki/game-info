@@ -65,3 +65,10 @@ table th[align="center"] {
 #game-links img {
     height: 1.2rem;
 }
+
+#game-links img,
+#game-links .bi {
+    inline-size: 1.2rem;
+    flex-shrink: 0;
+    text-align: center;
+}

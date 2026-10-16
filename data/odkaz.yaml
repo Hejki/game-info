@@ -6,6 +6,13 @@ playtime: "120-180"
 age: 14+
 weight: 2.47
 color: "#5e2f2d"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01KG1SPPXNVYK3FF0CCKC4WX4G.pdf
+  - type: video
+    title: Ukázková partie (CZ, ODEHRÁNO)
+    url: https://www.youtube.com/watch?v=H6ybX2wOejo
 description: |
   **Odkaz: Kniha přežití** je kooperativní příběhová desková hra zasazená do postapokalyptického světa,
   inspirovaná tituly jako _Mad Max_ či _The Last of Us_.

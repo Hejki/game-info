@@ -23,6 +23,8 @@ function element() {
             contains: name => classes.has(name),
         },
         appendChild(child) { this.children.push(child) },
+        replaceChildren(...children) { this.children = children },
+        setAttribute(name, value) { this[name] = value },
         addEventListener(event, callback) { listeners.set(event, callback) },
         dispatchEvent(event) { listeners.get(event.type)?.(event) },
     }
@@ -43,7 +45,7 @@ function page(url, fetch) {
     location.replace = target => { redirect = target }
     return {
         context: vm.createContext({
-            window: { location }, document, fetch, URLSearchParams,
+            window: { location }, document, fetch, URLSearchParams, URL,
             marked: { parse: text => `<p>${text}</p>` }, console: { error() {} },
         }),
         get: id => document.getElementById(id),
@@ -146,6 +148,83 @@ test('detail loads the requested game, its metadata and BGStats link', async () 
     assert.equal(app.context.document.title, `${game.name} · Game Index`)
     assert.equal(app.get('game-detail').hidden, false)
     assert.equal(app.get('game-status').hidden, true)
+})
+
+test('game links render BGG and ZH first, then typed links with icons and safe labels', async () => {
+    const game = {
+        name: 'Test', players: '1-4', playtime: '45', weight: 2, description: '',
+        bgg: 424774, zh: 'dorfromantik-sakura-16621',
+        links: [
+            { type: 'video', title: 'Ukázková partie (EN)', url: 'https://www.youtube.com/watch?v=test' },
+            { type: 'rules', title: 'Pravidla', url: 'https://example.org/rules.pdf' },
+            { type: 'other', title: '<b>Vydavatel & zdroj</b>', url: 'https://example.org/game' },
+        ],
+    }
+    const app = page('https://bg.hejki.org/game.html?id=test', async () => ({ ok: true, json: async () => game }))
+    await vm.runInContext(detailSource, app.context)
+    const list = app.get('game-links').children[0]
+    assert.ok(list.className.includes('list-unstyled'))
+    const anchors = list.children.map(item => item.children[0])
+    assert.deepEqual(anchors.map(anchor => anchor.children[1].textContent), [
+        'BGG', 'Zatrolené hry', 'Ukázková partie (EN)', 'Pravidla', '<b>Vydavatel & zdroj</b>',
+    ])
+    assert.equal(anchors[0].href, 'https://boardgamegeek.com/boardgame/424774')
+    assert.equal(anchors[1].href, 'https://www.zatrolene-hry.cz/spolecenska-hra/dorfromantik-sakura-16621')
+    assert.equal(anchors[0].children[0].src, 'https://cf.geekdo-static.com/icons/favicon2.ico')
+    assert.equal(anchors[1].children[0].src, 'https://www.zatrolene-hry.cz/graphics/favicon.cz.svg')
+    assert.equal(anchors[0].children[0].alt, '')
+    assert.equal(anchors[2].children[0].className, 'bi bi-play-btn-fill')
+    assert.equal(anchors[3].children[0].className, 'bi bi-journal-bookmark-fill')
+    assert.equal(anchors[4].children[0].className, 'bi bi-link-45deg')
+    assert.equal(anchors[2].children[0]['aria-hidden'], 'true')
+    for (const anchor of anchors) {
+        assert.equal(anchor.target, '_blank')
+        assert.equal(anchor.rel, 'noopener noreferrer')
+    }
+    app.context.fillLinks(game)
+    assert.equal(app.get('game-links').children.length, 1, 'Re-render replaces the previous list')
+})
+
+test('game links tolerate absent optional fields and skip unsafe or invalid URLs', async () => {
+    const game = { name: 'Test', players: '2', playtime: '10', weight: 1, description: '', bgg: 1 }
+    const app = page('https://bg.hejki.org/game.html?id=test', async () => ({ ok: true, json: async () => game }))
+    await vm.runInContext(detailSource, app.context)
+    assert.equal(app.get('game-links').children[0].children.length, 1)
+    app.context.fillLinks({ links: [
+        null,
+        { type: 'other', title: 'Script', url: 'javascript:alert(1)' },
+        { type: 'other', title: 'Data', url: 'data:text/html,hello' },
+        { type: 'other', title: 'Relative', url: '/rules.pdf' },
+        { type: 'other', title: 'Invalid', url: 'not a URL' },
+        { type: 'other', title: '', url: 'https://example.org/' },
+        { type: 'constructor', title: 'Unknown type', url: 'https://example.org/' },
+    ] })
+    const items = app.get('game-links').children[0].children
+    assert.equal(items.length, 1)
+    assert.equal(items[0].children[0].children[0].className, 'bi bi-link-45deg')
+    app.context.fillLinks({})
+    assert.equal(app.get('game-links').children[0].children.length, 0)
+})
+
+test('catalogue links follow the documented schema and are separate from descriptions', async () => {
+    const files = await fs.readdir(new URL('../data/', import.meta.url))
+    for (const file of files.filter(file => file.endsWith('.yaml'))) {
+        const game = YAML.parse(await read(`data/${file}`))
+        assert.doesNotMatch(game.description, /^\s*[-*] \[.+\]\(https?:\/\/.+\)\s*$/m, file)
+        if (game.links === undefined) continue
+        assert.ok(Array.isArray(game.links), file)
+        for (const link of game.links) {
+            assert.ok(['rules', 'video', 'other'].includes(link.type), file)
+            assert.equal(typeof link.title, 'string', file)
+            assert.ok(link.title.trim(), file)
+            assert.equal(typeof link.url, 'string', file)
+            assert.ok(['http:', 'https:'].includes(new URL(link.url).protocol), file)
+        }
+    }
+    const adventures = YAML.parse(await read('data/unmatched_adventures.yaml'))
+    for (const name of ['Annie Christmas', 'Jill Trent', 'Nikola Tesla', 'Zlatý netopýr']) {
+        assert.equal(adventures.links.filter(link => link.title.endsWith(`– ${name}`)).length, 2)
+    }
 })
 
 test('missing ID returns to the index; invalid IDs and unavailable data show an error', async () => {

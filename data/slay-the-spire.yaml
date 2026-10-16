@@ -6,6 +6,13 @@ playtime: "30-150"
 age: 12+
 weight: 2.91
 color: "#6c3933"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, MINDOK)
+    url: https://d2nh83hfsroc1i.cloudfront.net/wp-content/uploads/2025/07/16092654/SlayTheSpire-pravidla-web.pdf
+  - type: video
+    title: Videonávod na deskovou hru (CZ, JOUOBCAST)
+    url: https://www.youtube.com/watch?v=30OCO0qYaXk
 description: |
   Ponořte se do kooperativního dobrodružství ve hře **Slay the Spire**, deskové adaptaci oceňované videohry,
   která spojuje prvky karetního deckbuildingu a rogue-like RPG. Sestavte si unikátní balíček karet,
