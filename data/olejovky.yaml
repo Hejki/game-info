@@ -1,0 +1,36 @@
+# Česká základní hra Conservas (2024), Scott Almes.
+# Parametry, obal a pravidla: https://foxinthebox.cz/index.php?route=product/product&product_id=203
+# Použit věk 12+ a doba 20 minut českého vydavatele; BGG/ZH uvádějí 10+ a 25-40/40 minut.
+# BGG ID ověřeno indexovanou stránkou; přímý přístup HTTP 403, BGG MCP není dostupné.
+# Obtížnost 2.05 převzata jako údaj BGG citovaný v recenzi z 2025-04-27:
+# https://mr-boardgames.com/en/reviews/conservas-the-art-of-canning-and-preservation
+# Ověřeno 2026-10-17, nejde o živý údaj z API a může být zastaralý.
+# Obrázek Fox in the Box, práva náleží držitelům práv.
+name: Olejovky
+bgg: 402024
+zh: olejovky-16648
+players: "1"
+playtime: "20"
+age: 12+
+weight: 2.05
+color: "#2F6474"
+description: |
+  **Olejovky** jsou sólová hra o vedení malé konzervárny na španělském
+  pobřeží. Začínáte s jedinou lodí a trochou peněz a staráte se o celý
+  provoz: od výlovu přes vylepšování flotily až po prodej rybích konzerv.
+
+  Moře představuje sáček žetonů ryb a vody. Při každém výlovu volíte,
+  co si ponecháte na zpracování a co pustíte zpět, aby se ryby mohly
+  rozmnožovat. Zisk sám nestačí: pokud moře vylovíte, podnik neuspěje.
+  Dvanáct měsíčních scénářů přináší různé trhy a cíle, které prověří
+  rovnováhu mezi rozvojem firmy a udržitelným hospodařením.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_Conservas-Rules.pdf
+  - type: video
+    title: Ukázková partie (CZ, Fox in the Box)
+    url: https://www.youtube.com/watch?v=m21lZvc5Ihg
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/index.php?route=product/product&product_id=203

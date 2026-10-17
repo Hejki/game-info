@@ -1,0 +1,35 @@
+# Anglická základní hra (Connor Reid, 2017), nikoli 5minutovka: One Piece.
+# Parametry ověřeny na ZH a u Wiggles 3D. Pět minut je limit jednoho dungeonu;
+# série několika bossů trvá déle. Česká pravidla ani české vydání nebyly dohledány.
+# Aktuální oficiální anglická příručka zahrnuje i obsah rozšíření pro šestého hráče.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/207830/5-minute-dungeon
+# Dynamická obtížnost není živý údaj z API. Obrázek Wiggles 3D, práva náleží držitelům práv.
+name: 5-Minute Dungeon
+bgg: 207830
+zh: 5-minute-dungeon-7918
+players: "2-5"
+playtime: "5"
+age: 8+
+weight: 1.13
+color: "#563044"
+description: |
+  **5-Minute Dungeon** je kooperativní karetní hra v reálném čase.
+  Každý si vybere hrdinu s vlastním balíčkem a zvláštní schopností
+  a společně vyrazíte do podzemí plného příšer, překážek a padouchů.
+
+  Nečekáte na tah: všichni současně vykládáte karty se symboly,
+  které vyžaduje právě odhalená výzva. Musíte rychle komunikovat,
+  šetřit správné karty a využívat schopnosti hrdinů. Na zdolání
+  jednoho dungeonu včetně závěrečného bosse máte pouhých pět minut.
+  Po vítězství se můžete pustit do dalšího, obtížnějšího podzemí.
+links:
+  - type: rules
+    title: Anglická pravidla včetně rozšíření (PDF, Wiggles 3D)
+    url: https://wiggles3d.com/wp-content/uploads/5MD-EN.pdf
+  - type: video
+    title: Videonávod (EN, Game Point)
+    url: https://www.youtube.com/watch?v=f0u9gmvcB9U
+  - type: other
+    title: Stránka původního vydavatele
+    url: https://wiggles3d.com/product/5-minute-dungeon/

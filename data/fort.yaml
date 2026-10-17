@@ -1,0 +1,32 @@
+# Parametry, obal a pravidla: https://foxinthebox.cz/fort; Grant Rodiek, 2020.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/296912/fort
+# Dynamická obtížnost není živý údaj z API. Obrázek Fox in the Box, práva náleží držitelům práv.
+name: Fort
+bgg: 296912
+zh: fort-10534
+players: "2-4"
+playtime: "20-40"
+age: 10+
+weight: 2.44
+color: "#79513E"
+description: |
+  **Fort** je karetní hra o dětské partě a budování nejlepšího bunkru.
+  Nabíráte kamarády do svého balíčku, sháníte pizzu a hračky a využíváte
+  je k rozvoji pevnosti i získávání vítězných bodů.
+
+  Zahrané karty nabízejí vlastní akci a veřejnou akci, kterou mohou
+  následovat také ostatní hráči. Kamarádi, které ve svém tahu nevyužijete,
+  ale zůstanou na dvorku a mohou se přidat k soupeřově partě.
+  Musíte tedy rozvíjet svůj balíček a zároveň se starat o jeho členy.
+  O vítězi rozhodne výsledné skóre, včetně postaveného bunkru a zvláštních cílů.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_Fort_Rulebook.pdf
+  - type: video
+    title: Videonávod (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=3pG_M5o7kgU
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/fort

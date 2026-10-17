@@ -1,0 +1,42 @@
+# Česká základní hra The Elder Scrolls: Betrayal of the Second Era (2025).
+# Parametry, obal a pravidla: https://foxinthebox.cz/tes-botse
+# Herní doba 120-240 minut podle BGG pro jedno sezení, nikoli celou třísezenovou výpravu;
+# český vydavatel uvádí 120 minut. Autoři zahrnují Joshe J. Carlsona a Michaela Gernese.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/356080/the-elder-scrolls-betrayal-of-the-second-era
+# Nejde o živý údaj z API. Obrázek Fox in the Box, práva náleží držitelům práv.
+name: "The Elder Scrolls: Zrada v druhém věku"
+bgg: 356080
+zh: the-elder-scrolls-zrada-v-druhem-veku-14152
+players: "1-4"
+playtime: "120-240"
+age: 14+
+weight: 4.08
+color: "#353A35"
+description: |
+  **The Elder Scrolls: Zrada v druhém věku** je kooperativní dobrodružná
+  hra z Tamrielu. Vytvoříte si vlastního hrdinu kombinací rasy, povolání
+  a dovedností a společně se vydáte prozkoumávat provincie, plnit úkoly
+  a překazit nebezpečné spiknutí.
+
+  Průzkum střídají taktické souboje na hexových plánech. Kostky dovedností,
+  vybavení a rychlý rozvoj postavy vám umožňují zkoušet různé bojové styly
+  a vzájemně se doplňovat. Jedna výprava se skládá ze tří herních sezení,
+  mezi nimiž si uchováváte pokrok. Proměnlivé úkoly a sestavy postav
+  podporují opakované hraní bez nutnosti dlouhé souvislé kampaně.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_TES_Rulebook_web.pdf
+  - type: rules
+    title: Český výukový průvodce (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_TES_Tutorial_web.pdf
+  - type: video
+    title: Pravidla 1/2 – příprava, postavy a putování (CZ, Pizin, TTS)
+    url: https://www.youtube.com/watch?v=-uKk01ciJuE
+  - type: video
+    title: Pravidla 2/2 – bitvy, katakomby a hlubiny (CZ, Pizin, TTS)
+    url: https://www.youtube.com/watch?v=MAjUrri7x0Q
+  - type: other
+    title: Stránka českého vydavatele, přehledy a opravy pravidel
+    url: https://foxinthebox.cz/tes-botse

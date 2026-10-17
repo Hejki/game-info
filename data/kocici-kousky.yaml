@@ -1,0 +1,35 @@
+# Parametry a obrázek: https://albi.cz/kocici-kousky/
+# BGG (435760): obtížnost 1.00 z indexovaného výsledku, ověřeno 2026-10-17.
+# Přímý přístup na BGG vrací HTTP 403; nejde o živý údaj z API.
+# Herní doba 20 minut podle BGG a ZH; český obal uvádí 20+ minut.
+# Obrázek: přidáno uživatelem
+name: Kočičí kousky
+bgg: 435760
+zh: kocici-kousky-20530
+players: "2-4"
+playtime: "20"
+age: 8+
+weight: 1.00
+color: "#53346F"
+description: |
+  **Kočičí kousky** jsou svižná karetní hra, ve které se kočky vměstnávají
+  do nejrůznějších nádob. Před sebou máte dvě řady částečně skrytých karet
+  a snažíte se jejich výslednou hodnotu snížit na minimum.
+
+  V tazích dobíráte karty, vyměňujete je za své, odhalujete skryté hodnoty
+  nebo zakrýváte karty do součtu jedenáct. Shodné hodnoty v jednom sloupci
+  můžete odložit stranou, čímž si ještě vylepšíte skóre. Musíte přitom
+  odhadnout, kdy riskovat a kdy se blíží konec kola.
+
+  Hráč s nejnižším skóre získá žeton lahve. Kdo jako první nasbírá dva,
+  vyhrává celou hru.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Albi)
+    url: https://albi.cz/data/files/products/61185/1776084203-albi-kocici-kousky-pravidla-hry.pdf
+  - type: video
+    title: Videonávod (CZ, Albi)
+    url: https://www.youtube.com/watch?v=hlBLQjIZZ34
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/kocici-kousky/

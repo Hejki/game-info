@@ -1,0 +1,34 @@
+# Česká základní hra TTGames; Side Effects, Jade Shames a Kat Thek.
+# Parametry a obal: https://www.planetaher.cz/nezadouci-ucinky/; pravidla TTGames níže.
+# Doba 10-30 minut a věk 14+ podle ZH; obchod uvádí dobu 30 minut.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/230765/side-effects/ratings
+# Dynamická obtížnost není živý údaj z API. Obrázek Planeta her, práva náleží držitelům práv.
+name: Nežádoucí účinky
+bgg: 230765
+zh: nezadouci-ucinky-8429
+players: "2-8"
+playtime: "10-30"
+age: 14+
+weight: 1.12
+color: "#4D4033"
+description: |
+  **Nežádoucí účinky** jsou škodolibá karetní hra s černým humorem
+  a tématem duševních poruch. Začínáte s několika kartami potíží
+  a pomocí léků či terapie se jich snažíte zbavit dříve než soupeři.
+
+  Léčba ale otevírá nové možnosti útoku: vedlejší účinky léků mohou
+  soupeři využít k přidání dalších poruch a záchvaty vám komplikují tahy.
+  Rozhodujete se proto mezi vlastní léčbou a narušováním cizích plánů.
+  Vyhrává ten, kdo se jako první zbaví všech svých poruch.
+  Hra pracuje s citlivými tématy nadsazeně a není zdravotním doporučením.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TTGames)
+    url: https://www.ttgames.cz/download/Pravidla/Nezadouci-ucinky-pravidla.pdf
+  - type: video
+    title: Představení hry (CZ, Planeta her)
+    url: https://www.youtube.com/watch?v=9gfhHpAsaio
+  - type: other
+    title: Popis hry a obal (Planeta her)
+    url: https://www.planetaher.cz/nezadouci-ucinky/

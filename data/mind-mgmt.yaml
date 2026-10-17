@@ -1,0 +1,36 @@
+# Česká základní hra; Jay Cormier a Sen-Foong Lim, 2021.
+# Pravidla, popis a obal: https://foxinthebox.cz/mind-mgmt
+# Parametry 1-5 hráčů, 47 minut a 13+ podle ZH; sólo vyžaduje doprovodnou aplikaci.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/284653/mind-mgmt-the-psychic-espionage-game
+# Dynamická obtížnost není živý údaj z API. Obrázek Fox in the Box, práva náleží držitelům práv.
+name: MIND MGMT
+bgg: 284653
+zh: mind-mgmt-hra-o-psychicke-spionazi-12192
+players: "1-5"
+playtime: "47"
+age: 13+
+weight: 2.89
+color: "#5A4C3C"
+description: |
+  **MIND MGMT** je dedukční hra se skrytým pohybem ze světa psychické
+  špionáže. Jeden hráč představuje Náboráře tajné organizace, který se
+  nepozorovaně pohybuje městem a získává nové rekruty. Ostatní jako
+  Odpadlí agenti spolupracují, aby jeho trasu odhalili a dopadli ho včas.
+
+  Pomocí otázek, stop a poznámek postupně omezujete místa, kde se může
+  Náborář nacházet. Obě strany mají zvláštní schopnosti a po partiích
+  mohou přidávat další herní prvky vyrovnávající jejich síly.
+  Náborář vyhraje, pokud získá dost rekrutů nebo unikne do vypršení času;
+  agenti zvítězí jeho zajetím. Doprovodná aplikace umožňuje také sólo
+  či kooperativní hru proti automatickému protivníkovi.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_RULEBOOK_MIND_MGMT.pdf
+  - type: video
+    title: Představení hry (CZ, Deskárna)
+    url: https://www.youtube.com/watch?v=56RDtLkimK8
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/mind-mgmt

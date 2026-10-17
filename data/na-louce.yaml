@@ -1,0 +1,36 @@
+# Česká základní hra Meadow (2021), Klemens Kalicki; distributor Asmodee.
+# Parametry a obal: stránka distributora v links.
+# Pravidla na ZH: ověřena česká jazyková metadata; stažení vyžaduje přihlášení,
+# obsah samotného PDF nebyl ověřen. Video je trailer s českými titulky, nikoli návod.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/314491/meadow/ratings?comment=1&rated=1
+# Nejde o živý údaj z API. Obrázek Asmodee, práva náleží držitelům práv.
+name: Na louce
+bgg: 314491
+zh: na-louce-11216
+players: "1-4"
+playtime: "60-90"
+age: 10+
+weight: 2.26
+color: "#3C6249"
+description: |
+  **Na louce** je karetní hra o pozorování přírody, ve které vytváříte
+  vlastní sbírku rostlin, zvířat, krajin a nalezených předmětů. Každá
+  karta s akvarelovou ilustrací přináší body a symboly potřebné pro
+  další objevy.
+
+  Pomocí žetonů cest vybíráte karty ze společné nabídky nebo využíváte
+  akce u táboráku. K vyložení nových druhů potřebujete vhodné prostředí
+  a další viditelné symboly; překrytím starších karet však část těchto
+  možností ztratíte. Cílem je vytvořit co nejhodnotnější propojenou
+  sbírku a splnit společné cíle. Hra obsahuje také sólový režim.
+links:
+  - type: rules
+    title: Česká pravidla (Zatrolené hry, stažení vyžaduje přihlášení)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/na-louce-11216/k-stazeni/pravidla-cz-13219/
+  - type: video
+    title: Trailer s českými titulky (Asmodee)
+    url: https://www.youtube.com/watch?v=5fvo8Uhe0XU
+  - type: other
+    title: Stránka českého distributora
+    url: https://b2b.asmodee.cz/rebel/deskove-hry/na-louce?p=Product&id=100511585&cid=2024839

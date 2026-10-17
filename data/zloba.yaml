@@ -1,0 +1,40 @@
+# Česká základní hra Wroth, Manny Trembley (2025); bez rozšíření Paldeynové a Vennové.
+# Parametry, obal a pravidla: https://foxinthebox.cz/zloba
+# Věk 10+ podle českého vydavatele; BGG a ZH uvádějí 13+.
+# České PDF ověřeno obsahově, verze 1.1 s opravami.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, přímý přístup HTTP 403):
+# https://boardgamegeek.com/boardgame/414117/wroth
+# Nejde o živý údaj z API. Obrázek Fox in the Box, oříznuté bílé okolí;
+# práva náleží držitelům práv.
+name: Zloba
+bgg: 414117
+zh: zloba-16014
+players: "1-4"
+playtime: "60"
+age: 10+
+weight: 2.25
+color: "#963355"
+description: |
+  **Zloba** je převahová strategická hra, ve které soupeřící frakce
+  bojují o území poloostrova Dřidál. Vybíráte si akční kostky a jejich
+  prostřednictvím získáváte suroviny, nasazujete a přesouváte jednotky
+  nebo útočíte na protivníky.
+
+  Každá frakce má vlastní elitní jednotky a schopnosti, takže vyžaduje
+  jiný přístup k boji. Klíčem k úspěchu je ovládání oblastí, chytré
+  rozmístění armády a správné načasování silných jednorázových efektů.
+  V běžné hře získáváte body za ovládaná území a partie končí po kole,
+  ve kterém některá frakce dosáhne třiceti bodů.
+
+  Vedle soupeření dvou až čtyř hráčů nabízí hra také sólovou
+  a kooperativní variantu se scénáři proti automatizovanému protivníkovi.
+links:
+  - type: rules
+    title: Česká pravidla s opravami (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_Wroth_Rulebook.pdf
+  - type: video
+    title: Videonávod (CZ, Pizin, Tabletop Simulator)
+    url: https://www.youtube.com/watch?v=5H9PiwFf8A4
+  - type: other
+    title: Stránka českého vydavatele a přehledy frakcí
+    url: https://foxinthebox.cz/zloba

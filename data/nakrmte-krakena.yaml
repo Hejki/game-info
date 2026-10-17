@@ -1,0 +1,34 @@
+# Parametry a obal: https://www.old-dawg.cz/nakrmte-krakena/ a česká pravidla.
+# Feed the Kraken, 2022; Hans Joachim Höh, Maikel Cheney a Tobias Immich.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/271601/feed-the-kraken/ratings?comment=1
+# Dynamická obtížnost není živý údaj z API. Obrázek Old Dawg, práva náleží držitelům práv.
+name: Nakrmte Krakena
+bgg: 271601
+zh: nakrmte-krakena-10955
+players: "5-11"
+playtime: "45-90"
+age: 12+
+weight: 2.17
+color: "#284A59"
+description: |
+  **Nakrmte Krakena** je hra se skrytými rolemi, v níž se celá posádka
+  plaví na stejné lodi, ale každý sleduje jiné cíle. Námořníci chtějí
+  bezpečně doplout do přístavu, piráti loď odklonit a vůdce kultu
+  usiluje o setkání s děsivým Krakenem.
+
+  Volíte velení, hlasujete o jeho důvěryhodnosti a prostřednictvím
+  navigačních karet ovlivňujete směr plavby. Z jednotlivých rozhodnutí
+  zkoušíte odhalit spojence i zrádce, zatímco ostatní přesvědčujete
+  o vlastní nevině. Vyhraje frakce, které se podaří prosadit svůj cíl;
+  důvěra na palubě přitom mizí rychleji než pevnina za obzorem.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg)
+    url: https://www.old-dawg.cz/user/related_files/nakrmte-krakena-pravidla-cz-web.pdf
+  - type: video
+    title: Videonávod (CZ, Erzebeth)
+    url: https://www.youtube.com/watch?v=6h5HqLiRyZ4
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/nakrmte-krakena/

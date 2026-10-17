@@ -1,0 +1,54 @@
+# Česká základní hra (2018), Cole Wehrle; bez rozšíření, 2-4 hráči.
+# Parametry, obal a pravidla: https://foxinthebox.cz/root
+# Věk 10+ podle českého vydavatele a ZH; BGG uvádí 14+.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/237182/root/credits
+# Nejde o živý údaj z API. Obrázek Fox in the Box, práva náleží držitelům práv.
+name: Root
+bgg: 237182
+zh: root-8261
+players: "2-4"
+playtime: "60-90"
+age: 10+
+weight: 3.84
+color: "#655239"
+description: |
+  **Root** je asymetrická strategická hra o boji lesních zvířat za vládu
+  nad Lesní říší. Každá ze čtyř frakcí používá vlastní pravidla,
+  hospodaření i způsob získávání bodů, a proto musí dobře rozumět
+  nejen sobě, ale také plánům soupeřů.
+
+  Markýza z Kocourova staví budovy a rozvíjí průmysl, Orlí hnízdo
+  rozšiřuje svou dynastii plněním stále náročnějšího výnosu a Lesní
+  aliance šíří sympatie a připravuje povstání. Samostatný Tulák putuje
+  mezi frakcemi, plní úkoly a používá své vybavení. Pohyb, výroba,
+  souboje a proměnlivá spojenectví rozhodnou, kdo první získá dost
+  vítězných bodů nebo splní zvláštní podmínku dominance.
+links:
+  - type: rules
+    title: Zákon hry – aktualizovaná pravidla (CZ, PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_Law_of_Root_2023.pdf
+  - type: rules
+    title: Průvodce základní hrou (CZ, PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/ROOT-Pruvodce-CZ.pdf
+  - type: video
+    title: Základní pravidla (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=us668E_lp9A
+  - type: video
+    title: Pravidla frakce Markýza z Kocourova (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=AGSGXwKBgvs
+  - type: video
+    title: Pravidla frakce Orlí hnízdo (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=x6tYXZdggmo
+  - type: video
+    title: Pravidla frakce Lesní aliance (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=eHYucMfc8wc
+  - type: video
+    title: Pravidla frakce Tulák (SK, Nithrania)
+    url: https://www.youtube.com/watch?v=3LqWzsS0wiA
+  - type: video
+    title: Ukázková partie (CZ, Deskofobie)
+    url: https://www.youtube.com/watch?v=Dnr0YEfMIO4
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/root

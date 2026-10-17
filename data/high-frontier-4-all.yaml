@@ -1,0 +1,40 @@
+# Uživatelem potvrzena čtvrtá edice (High Frontier 4 All); Phil Eklund a spoluautoři, 2020.
+# Česká krabice Fox in the Box zahrnuje základ a moduly 1 a 2; BGG ID a obtížnost jsou pro základ.
+# Parametry a obal: https://foxinthebox.cz/high-frontier-4edice
+# Doba 60-180 minut dle vydavatele; ZH uvádí 240, délka silně závisí na variantě.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/281655/high-frontier-4-all/ratings?rated=1&comment=1
+# Dynamická obtížnost není živý údaj z API. Obrázek vydavatele, práva náleží držitelům práv.
+name: High Frontier (4. edice)
+bgg: 281655
+zh: high-frontier-4-10576
+players: "1-5"
+playtime: "60-180"
+age: 14+
+weight: 4.82
+color: "#23394C"
+description: |
+  **High Frontier (4. edice)** neboli **High Frontier 4 All** je náročná
+  strategická hra o průzkumu a průmyslovém využití Sluneční soustavy.
+  Řídíte kosmickou organizaci, dražíte technologické patenty a z pohonů,
+  robonautů a rafinerií sestavujete vlastní kosmické výpravy.
+
+  Při plánování letů musíte počítat s hmotností lodě, zásobami paliva
+  i vlastnostmi pohonu. Průzkum planetek a měsíců vám umožní získávat
+  suroviny, budovat továrny a vyrábět pokročilejší technologie.
+  Cílem je získat nejvíce bodů za rozvoj mimozemské infrastruktury
+  a další úspěchy. Různé výukové a pokročilé varianty umožňují postupně
+  pronikat do tohoto podrobného modelu kosmického podnikání.
+links:
+  - type: rules
+    title: Čtěte jako první (CZ, PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/HF4_Read_Me_First_CZ.pdf
+  - type: rules
+    title: Základní pravidla (CZ, PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/HF4_Core%20Rules_CZ.pdf
+  - type: video
+    title: Výuková partie (CZ, Deskofobie a Fox in the Box)
+    url: https://www.youtube.com/watch?v=J15-XyoJIpY
+  - type: other
+    title: Stránka českého vydavatele a další příručky
+    url: https://foxinthebox.cz/high-frontier-4edice

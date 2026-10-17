@@ -1,0 +1,30 @@
+# Parametry a obal: Asmodee, stránka v links; autoři André Zatz a Sérgio Halaban, 2023.
+# České PDF nebylo dohledáno. Video je recenze, nikoli úplný návod.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/396607/disney-robin-hood-sheriff-of-nottingham-game/ratings?rated=1&comment=1
+# Dynamická obtížnost není živý údaj z API. Obrázek Asmodee, práva náleží držitelům práv.
+name: "Disney Robin Hood: Šerif z Nottinghamu"
+bgg: 396607
+zh: robin-hood-serif-z-nottinghamu-17463
+players: "3-5"
+playtime: "45"
+age: 10+
+weight: 1.83
+color: "#385B49"
+description: |
+  **Disney Robin Hood: Šerif z Nottinghamu** je blafovací hra, ve které
+  převážíte zboží pro utiskované vesničany a střídáte se v roli šerifa.
+  Jako Robin Hood či některý z jeho přátel tajně naplníte kupecký vak
+  kartami a oznámíte, co v něm nesete. Ne vždy přitom musíte říkat pravdu.
+
+  Šerif rozhoduje, které vaky prohledá. Odhalená lež znamená pokutu,
+  ale za neprávem podezřívaného poctivce musí zaplatit sám. Přesvědčování,
+  odhad soupeřů a správně načasovaný risk vám pomohou získat největší
+  bohatství a stát se nejúspěšnějším dobrodincem.
+links:
+  - type: video
+    title: Recenze a dojmy (CZ, Kubrt vs Anet)
+    url: https://www.youtube.com/watch?v=S9svaH8e1O8
+  - type: other
+    title: Stránka českého distributora (Asmodee)
+    url: https://b2b.asmodee.cz/cool-mini-or-not/deskove-hry/disney-robin-hood-serif-z-nottinghamu?p=Product&id=100511054&cid=2024839

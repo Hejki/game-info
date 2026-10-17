@@ -1,0 +1,32 @@
+# Parametry, obal a pravidla: https://albi.cz/noc-v-zoo/; Tomáš Holek, 2026.
+# Doba 30-60 minut dle ZH; český vydavatel uvádí 30+ minut.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/457412/night-at-the-zoo
+# Dynamická obtížnost není živý údaj z API. Obrázek Albi, práva náleží držitelům práv.
+name: Noc v zoo
+bgg: 457412
+zh: noc-v-zoo-20401
+players: "1-4"
+playtime: "30-60"
+age: 10+
+weight: 2.14
+color: "#39315E"
+description: |
+  **Noc v zoo** je rodinná taktická hra, ve které vracíte zvířata
+  z nočních výletů zpátky do výběhů. Vybíráte dílky ze společné nabídky
+  a přikládáte je na svou desku, čímž vytváříte cesty a spouštíte akce.
+
+  Každý druh zvířete se pohybuje jinak a přináší body za jiné podmínky.
+  Musíte proto promýšlet pořadí přesunů a uspořádání krajiny, aby se
+  zvířata vzájemně neblokovala a stihla se bezpečně vrátit.
+  Po třech kolech vítězí hráč s nejvíce body; hra obsahuje také sólový režim.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Albi)
+    url: https://albi.cz/data/files/products/61334/1778492592-albi-noc-v-zoo-pravidla-hty.pdf
+  - type: video
+    title: Videonávod (CZ, Albi)
+    url: https://www.youtube.com/watch?v=qqn21H21NHM
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/noc-v-zoo/

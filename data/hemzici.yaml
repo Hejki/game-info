@@ -1,0 +1,32 @@
+# Zdroje parametrů a obalu: https://www.old-dawg.cz/hemzici/ a česká pravidla níže.
+# Pravidla uvádějí 30 minut, stránka vydavatele 25-40; použita hodnota z pravidel.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, BGG blokuje HTTP 403):
+# https://boardgamegeek.com/boardgame/436751/under-the-leaves
+# Dynamická obtížnost není živý údaj z API. Obrázek vydavatele, práva náleží držitelům práv.
+name: Hemžíci
+bgg: 436751
+zh: hemzici-19676
+players: "2-4"
+playtime: "30"
+age: 8+
+weight: 2.00
+color: "#345D3C"
+description: |
+  **Hemžíci** jsou rodinná hra o vytváření pestré zahrady. Z nabídky vybíráte
+  dílky, přikládáte je ke své zahrádce a skládáte barevné oblasti s květinami,
+  houbami a loužemi, které lákají drobné obyvatele.
+
+  Opylené oblasti přivádějí včely, celé opylené dílky zase kolibříky.
+  Tajemné hemžíky získáte za splnění různých prostorových podmínek.
+  Po dvanácti kolech vítězí zahrada s největším počtem přilákaných tvorů;
+  jejich proměnlivá nabídka pokaždé vybízí k jinému uspořádání dílků.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg)
+    url: https://www.old-dawg.cz/user/related_files/hemzici-pravidla-cz-web.pdf
+  - type: video
+    title: Videonávod (CZ, Erzebeth)
+    url: https://www.youtube.com/watch?v=Q9SW7X1d4BI
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/hemzici/

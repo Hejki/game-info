@@ -1,0 +1,34 @@
+# Česká základní hra, Jeffrey CCH, 2023; nikoli rozšíření či Terrorscape 2.
+# Parametry, obal a pravidla: https://www.old-dawg.cz/terrorscape--dum-hruzy/
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/371433/terrorscape
+# Dynamická obtížnost není živý údaj z API. Obrázek Old Dawg, práva náleží držitelům práv.
+name: "Terrorscape: Dům hrůzy"
+bgg: 371433
+zh: terrorscape-dum-hruzy-16076
+players: "2-4"
+playtime: "30-45"
+age: 14+
+weight: 2.27
+color: "#4C292F"
+description: |
+  **Terrorscape: Dům hrůzy** je asymetrická hororová hra jednoho proti
+  ostatním. Skupina přeživších hledá únikovou cestu z opuštěného sídla,
+  zatímco další hráč ovládá vraha, který je chce dostihnout.
+  Oddělující clona skrývá pohyb přeživších před jejich pronásledovatelem.
+
+  Přeživší prohledávají místnosti, sbírají klíče, staví barikády
+  a opravují vysílačku. Musí si pomáhat, ale také hlídat hluk,
+  který prozrazuje jejich polohu. Vrah využívá vlastní schopnosti
+  a stopy, aby někoho dopadl dřív, než se skupině podaří uniknout
+  nebo přivolat pomoc.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg a MINDOK)
+    url: https://www.old-dawg.cz/user/related_files/ter_core_rulebook_20241029_cz_(2)-komprimovan___(1).pdf
+  - type: video
+    title: Ukázková partie (CZ, Old Dawg)
+    url: https://www.youtube.com/watch?v=v2ytJDPBxqs
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/terrorscape--dum-hruzy/

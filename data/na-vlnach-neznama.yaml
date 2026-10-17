@@ -1,0 +1,38 @@
+# Parametry a obal: https://mindok.cz/hra/na-vlnach-neznama/; Forgotten Waters, 2020.
+# Herní doba 180 minut dle českého vydavatele (ZH uvádí 240); scénář lze uložit.
+# Základní počet hráčů 3-7; pravidla odkazují pro 1-2 hráče na variantu v aplikaci.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/302723/forgotten-waters
+# Dynamická obtížnost není živý údaj z API. Obrázek MINDOK, práva náleží držitelům práv.
+name: Na vlnách neznáma
+bgg: 302723
+zh: na-vlnach-neznama-10190
+players: "3-7"
+playtime: "180"
+age: 14+
+weight: 2.09
+color: "#254B65"
+description: |
+  **Na vlnách neznáma** jsou příběhové pirátské dobrodružství, ve kterém
+  tvoříte posádku jedné lodi. Společně prozkoumáváte moře a ostrovy,
+  zásobujete loď, bojujete a plníte kapitánovy úkoly. Každý pirát zároveň
+  rozvíjí vlastní příběh a usiluje o osobní slávu.
+
+  V časově omezeném plánování si rozdělujete akce, které pak postupně
+  vyhodnocujete pomocí kostek a příběhových událostí. Bezplatná webová
+  aplikace řídí scénáře a odhaluje následky vašich rozhodnutí.
+  Musíte přežít jako posádka, ale i splnit dostatek vlastních cílů,
+  aby se z vašeho piráta stala legenda. Rozehraný scénář lze uložit.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, MINDOK)
+    url: https://d2nh83hfsroc1i.cloudfront.net/wp-content/uploads/2021/02/05093245/na-vlnach-neznama-pravidla-web.pdf
+  - type: video
+    title: Videonávod (CZ, Desko Deník)
+    url: https://www.youtube.com/watch?v=81JPFH0xSXQ
+  - type: other
+    title: Webová aplikace ke hře
+    url: https://fwcrossroads.plaidhatgames.com/
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/na-vlnach-neznama/

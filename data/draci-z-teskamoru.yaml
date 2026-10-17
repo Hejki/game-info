@@ -1,0 +1,39 @@
+# Česká edice základní hry: https://foxinthebox.cz/dragons-of-etchinstone
+# Autor Joe Klipfel; původní hra 2022, česká edice Chip Theory Games / Fox in the Box.
+# Věk 14+ a doba 30 minut podle českého obalu a vydavatele; ZH uvádí 8+ a 20-30 minut.
+# BGG weight 2.40 z indexovaného výsledku ověřeného 2026-10-17:
+# https://boardgamegeek.com/boardgame/367086/dragons-of-etchinstone/ratings
+# BGG MCP není dostupné, přímý přístup vrací HTTP 403; obtížnost není živý údaj z API.
+# Obrázek ze Zatrolenych her
+name: Draci z Teskamoru
+bgg: 367086
+zh: draci-z-teskamoru-16887
+players: "1"
+playtime: "30"
+age: 14+
+weight: 2.40
+color: "#403A35"
+description: |
+  **Draci z Teskamoru** jsou sólové karetní dobrodružství, které odehrajete
+  celé v rukou, bez potřeby stolu. Jako učedník magie putujete čtyřmi
+  nebezpečnými oblastmi a připravujete se na závěrečné střetnutí s drakem.
+
+  Pomocí šestnácti karet mága překonáváte nástrahy cest a bojujete
+  s nepřáteli. Rozhodujete, které karty využít k akci a které obětovat
+  k jejímu posílení. Za úspěchy získáváte zkušenosti a vylepšujete své
+  karty jejich otáčením; zranění je naopak oslabují a ztracený čas vás
+  může přinutit čelit drakovi dřív, než jste připraveni.
+
+  Cílem je projít všemi oblastmi, zvládnout závěrečnou cestu a porazit
+  dračího protivníka. Malý balíček tak skrývá taktickou výzvu, v níž
+  záleží na každé kartě a správném hospodaření se silami.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/CZ_DOE_Rulebook.pdf
+  - type: video
+    title: Videonávod (EN, Chip Theory Games)
+    url: https://www.youtube.com/watch?v=Xwtl-U-hvIE
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/dragons-of-etchinstone

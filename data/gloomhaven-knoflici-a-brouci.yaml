@@ -1,0 +1,37 @@
+# Česká samostatná sólová hra Gloomhaven: Buttons & Bugs (2024), Joe Klipfel a Nikki Valens.
+# Parametry, obal a pravidla: https://albi.cz/gloomhaven-knoflici-a-brouci/
+# Věk 10+ a doba 20 minut podle Albi a BGG; ZH uvádí 14+ a 30 minut.
+# Doba označuje jeden scénář, nikoli celou kampaň.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/393672/gloomhaven-buttons-and-bugs
+# Nejde o živý údaj z API. Obrázek Albi, práva náleží držitelům práv.
+name: "Gloomhaven: Knoflíci a brouci"
+bgg: 393672
+zh: gloomhaven-knoflici-a-brouci-15912
+players: "1"
+playtime: "20"
+age: 10+
+weight: 3.32
+color: "#75462F"
+description: |
+  **Gloomhaven: Knoflíci a brouci** je samostatné sólové dobrodružství
+  v malé krabičce. Váš hrdina byl zmenšen kouzlem a musí se probojovat
+  nebezpečným světem, aby našel cestu zpět ke své původní velikosti.
+  Základní Gloomhaven ke hraní nepotřebujete.
+
+  V každém scénáři plánujete pohyb a souboje pomocí dvojic karet
+  schopností. Kombinujete horní a dolní akce, hlídáte iniciativu
+  a omezenou zásobu karet, zatímco nestvůry řídí herní pravidla.
+  Postupem příběhovou kampaní získáváte vybavení a rozvíjíte schopnosti
+  zvoleného žoldnéře. Malé herní plány přitom vyžadují důsledné taktické
+  plánování a správné načasování útoků i odpočinku.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Albi)
+    url: https://albi.cz/data/files/products/59839/1763645279-albi-gloomhaven-knoflici-a-brouci-pravidla-cz.pdf
+  - type: video
+    title: Pravidla a ukázková partie (CZ, Připravit, pozor, hrajem!)
+    url: https://www.youtube.com/watch?v=pKWG_V6_uoQ
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/gloomhaven-knoflici-a-brouci/

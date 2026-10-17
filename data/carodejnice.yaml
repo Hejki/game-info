@@ -1,0 +1,34 @@
+# Česká základní hra Witchcraft! (2023), David Thompson, Roger Tankersley a Trevor Benjamin.
+# Parametry, obal a pravidla: https://foxinthebox.cz/witchcraft
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, přímý přístup HTTP 403):
+# https://boardgamegeek.com/boardgame/383499/witchcraft
+# Nejde o živý údaj z API. Obrázek vydavatele, práva náleží držitelům práv.
+name: Čarodějnice!
+bgg: 383499
+zh: carodejnice-15170
+players: "1"
+playtime: "20-40"
+age: 10+
+weight: 2.44
+color: "#343F60"
+description: |
+  **Čarodějnice!** jsou sólová karetní hra, ve které vedete sabat žen
+  chránících městečko Wildegrens před skutečnými nestvůrami. Obyvatelé
+  však jejich magii podezírají a vy musíte nejen odvracet nebezpečí,
+  ale také přesvědčit porotu, že vaše čarodějnice nejsou hrozbou.
+
+  Při plnění misí rozhodujete, zda čarodějnice zůstane skrytá a použije
+  slabší schopnost, nebo se odhalí a uvolní svou plnou moc. Odhalením
+  ovšem riskujete její ztrátu pro další průběh partie. Chytrým využitím
+  omezeného balíčku musíte zvládnout výzvy a získat přízeň porotců.
+  Vedle samostatných partií nabízí hra také příběhovou kampaň.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Fox in the Box)
+    url: https://foxinthebox.cz/image/catalog/ke-stazeni/Witchcraft_rulebook_CZ.pdf
+  - type: video
+    title: Ukázková partie (CZ, Xzone)
+    url: https://www.youtube.com/watch?v=l8-__UNg0tg
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://foxinthebox.cz/witchcraft

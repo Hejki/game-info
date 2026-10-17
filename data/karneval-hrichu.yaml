@@ -1,0 +1,32 @@
+# Parametry a obal: https://www.old-dawg.cz/karneval-hrichu/; Alex Nogués, 2025.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/447379/carnival-of-sins/ratings
+# Dynamická obtížnost není živý údaj z API. Obrázek Old Dawg, práva náleží držitelům práv.
+name: Karneval hříchů
+bgg: 447379
+zh: karneval-hrichu-19461
+players: "2-5"
+playtime: "10-20"
+age: 10+
+weight: 1.33
+color: "#234B46"
+description: |
+  **Karneval hříchů** je krátká blafovací hra s kostkami a tajným výběrem
+  karet. Během sedmi kol se účastníte karnevalu v New Orleans a pomocí
+  sedmi smrtelných hříchů usilujete o co nejcennější kořist.
+
+  Po hodu kostkami každý skrytě zvolí jeden dosud nepoužitý hřích.
+  Odhalené karty se vyhodnotí v daném pořadí a rozhodnou, kdo získá
+  které kostky a jak zasáhne soupeře. Musíte odhadovat jejich úmysly
+  a správně načasovat vlastní schopnosti. Nejvyšší celkový bodový zisk
+  vám na konci přinese titul krále karnevalu.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg)
+    url: https://www.old-dawg.cz/user/related_files/karneval-hrichu-pravidla-cz-web.pdf
+  - type: video
+    title: Ukázková partie (CZ, Old Dawg)
+    url: https://www.youtube.com/watch?v=cBcxeS3mHP8
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/karneval-hrichu/

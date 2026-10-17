@@ -1,0 +1,30 @@
+# Parametry a obal: https://albi.cz/gang/; The Gang, John Cooper a Kory Heath, 2024.
+# České PDF nebylo dohledáno; připojen je oficiální český videonávod.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/411567/the-gang
+# Dynamická obtížnost není živý údaj z API. Obrázek Albi, práva náleží držitelům práv.
+name: Gang
+bgg: 411567
+zh: gang-18411
+players: "3-6"
+playtime: "20"
+age: 10+
+weight: 1.59
+color: "#722C25"
+description: |
+  **Gang** je kooperativní pokerová hra o sehraném týmu lupičů.
+  Každý zná pouze své vlastní karty a bez sdělování jejich hodnot
+  se snažíte společně odhadnout, kdo má nejslabší a kdo nejsilnější
+  kombinaci. Své odhady vyjadřujete výběrem žetonů.
+
+  Jak na stůl přibývají společné karty, mění se síla vašich kombinací
+  i pořadí celého týmu. Pokud se na konci správně seřadíte, otevřete
+  trezor; chyba spustí alarm. K vítězství potřebujete vyloupit tři
+  trezory dřív, než alarm zazní potřetí. Pokerové zkušenosti nejsou nutné.
+links:
+  - type: video
+    title: Videonávod (CZ, Albi)
+    url: https://www.youtube.com/watch?v=OMxtx4xqX0Y
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/gang/

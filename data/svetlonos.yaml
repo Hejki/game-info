@@ -1,0 +1,37 @@
+# Česká základní hra Glow (2021), Cédrick Chaboussit; vydal Blackfire / Bombyx.
+# Parametry a popis: ZH a https://studiobombyx.com/en/jeu/glow
+# Obal: https://www.zatrolene-hry.cz/galerie/11466/main_cz.large.jpg?fe03e5bbaac36d83bc042889b44f20d4
+# Pravidla na ZH: ověřena česká jazyková metadata a autor Michal-Asmodee;
+# stažení vyžaduje přihlášení, obsah samotného PDF nebyl ověřen.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/275044/glow
+# Nejde o živý údaj z API. Práva k obrázku náleží držitelům práv.
+name: Světlonoš
+bgg: 275044
+zh: svetlonos-11466
+players: "2-4"
+playtime: "45"
+age: 10+
+weight: 2.08
+color: "#393C42"
+description: |
+  **Světlonoš** je hra o putování světem, který pohltila tma. Jako
+  dobrodruh získáváte společníky, sestavujete jejich schopnosti do
+  výhodných kombinací a shromažďujete záblesky světla, abyste do krajiny
+  vrátili barvy.
+
+  Každé kolo najmete nového společníka a získáte příslušné kostky.
+  Jejich výsledky pak aktivují příznivé i nepříznivé efekty vaší družiny
+  a pomáhají vám postupovat po mapě. Oboustranný plán nabízí dvě odlišné
+  výpravy. Po osmi dnech vítězí hráč, který získá nejvíce světla za
+  společníky, svou cestu a další nasbírané odměny.
+links:
+  - type: rules
+    title: Česká pravidla (Zatrolené hry, stažení vyžaduje přihlášení)
+    url: https://www.zatrolene-hry.cz/spolecenska-hra/svetlonos-11466/k-stazeni/pravidla-12395/
+  - type: video
+    title: Představení hry (SK, iHRYsko)
+    url: https://www.youtube.com/watch?v=bdlcLLMBcec
+  - type: other
+    title: Stránka původního vydavatele (EN)
+    url: https://studiobombyx.com/en/jeu/glow

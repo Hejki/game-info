@@ -1,0 +1,33 @@
+# Parametry a obal: https://mindok.cz/hra/hradni-devatero/ a česká pravidla.
+# Autoři Grégory Grard a Mathieu Roussel; Castle Combo, 2024.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/416851/castle-combo
+# Dynamická obtížnost není živý údaj z API. Obrázek MINDOK, práva náleží držitelům práv.
+name: Hradní devatero
+bgg: 416851
+zh: hradni-devatero-16925
+players: "2-5"
+playtime: "25"
+age: 10+
+weight: 1.73
+color: "#315E7A"
+description: |
+  **Hradní devatero** je svižná karetní hra, ve které najímáte postavy
+  z hradu i podhradí a skládáte z nich mřížku tři krát tři karty.
+  Každá postava má okamžitý efekt a vlastní podmínku závěrečného bodování,
+  takže záleží nejen na tom, koho vyberete, ale i kam jej umístíte.
+
+  Zlaťáky platíte za nové karty a klíči ovlivňujete nabídku či polohu
+  herolda, který určuje dostupnou lokaci. Po devíti tazích máte své
+  devatero hotové a porovnáte body. Vyhraje ten, kdo nejlépe propojí
+  schopnosti postav, jejich erby a vzájemné umístění.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, MINDOK)
+    url: https://d2nh83hfsroc1i.cloudfront.net/wp-content/uploads/2025/09/10115922/Hradni-devatero-pravidlaweb.pdf
+  - type: video
+    title: Představení hry (CZ, Hry MINDOK)
+    url: https://www.youtube.com/watch?v=HZQrHi0qvC8
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/hradni-devatero/

@@ -1,0 +1,29 @@
+# Parametry, popis a obal: https://mindok.cz/hra/namky/ (Jules Messaud, Miams).
+# České PDF nebylo dohledáno; video je let's play, nikoli samostatný úplný návod.
+# BGG obtížnost z indexované stránky, ověřeno 2026-10-17 (bez MCP, HTTP 403):
+# https://boardgamegeek.com/boardgame/446519/miams
+# Dynamická obtížnost není živý údaj z API. Obrázek MINDOK, práva náleží držitelům práv.
+name: Ňamky
+bgg: 446519
+zh: namky-20474
+players: "1-5"
+playtime: "30"
+age: 10+
+weight: 1.50
+color: "#326848"
+description: |
+  **Ňamky** jsou kostková zakreslovací hra plná ovocných špízů. Házíte
+  kostkami, sestavujete ovocné kombinace a zaškrtáváte srdíčka a bonusy
+  na svém herním listu. Za získané hvězdičky si pořizujete karty, které
+  mění výsledky hodů, přinášejí další možnosti a vytvářejí silné kombinace.
+
+  Ani během tahů soupeřů nezůstáváte stranou: některé jejich výsledky
+  přinesou bonus i vám. Cílem je zaplnit svou stupnici srdíček rychleji
+  než ostatní. V sólovém režimu se místo soupeřů utkáte s virtuálním BOTem.
+links:
+  - type: video
+    title: Ukázková partie (CZ, Hry MINDOK)
+    url: https://www.youtube.com/watch?v=HUoMZ37ldWY
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/namky/

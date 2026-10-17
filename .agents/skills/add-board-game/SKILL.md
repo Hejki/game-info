@@ -118,6 +118,10 @@ uživatelskou práci a nemaž ostatní hry.
 - Obrázek si prohlédni. Preferuj obal/artwork, bez cizího watermarku, reklam
   nebo zbytečných bílých okrajů. Nezvětšuj malou miniaturu jen kvůli rozlišení.
   Případný ořez neodstraňuje kredit, watermark ani ochranné informace.
+- Při výběru obalu preferuj čelní, plochý pohled na přední stranu krabice
+  před perspektivním či 3D vyobrazením celé krabice. 3D pohled použij až tehdy,
+  pokud vhodný čelní obrázek není dostupný. Tuto preferenci uplatňuj při příštím
+  přidávání her; existující obrázky bez výslovného zadání neměň.
 
 ### Optimalizace nového obrázku přes ImageOptim
 
@@ -165,6 +169,11 @@ Globální nastavení aplikace svévolně neměň a neslibuj bezeztrátovost.
   `game.html?id=<id>`. Pokud prohlížeč není dostupný, nepředstírej vizuální test.
 - Do závěru dej ID/detail, nalezená pravidla a typ/jazyk videí, výsledek kontrol
   a případné omezení MCP. Bez zadání nic necommituj ani nepushuj.
+- Na konci přidání hry zkopíruj její veřejnou URL do schránky pomocí `pbcopy`
+  a vypiš ji jako poslední řádek závěrečné odpovědi ve formátu
+  `bg.hejki.org/#<id>` (např. `bg.hejki.org/#kocici-kousky`). Použij skutečné ID
+  přidané hry. Pokud kopírování selže nebo schránka není dostupná, přiznej to
+  a URL přesto vypiš; netvrď, že byla zkopírována.
 
 ## Ověřený příklad
 
