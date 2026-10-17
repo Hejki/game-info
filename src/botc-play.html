@@ -10,9 +10,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-<nav class="navbar bg-1 border-bottom px-3 py-3" aria-label="Hlavní navigace">
-  <a href="game.html?id=krvava-hodina" class="btn-text"><i class="bi bi-chevron-left" aria-hidden="true"></i> Zpět na hru</a>
-  <div class="ms-auto">
+<nav class="navbar d-flex flex-nowrap bg-1 border-bottom px-3 py-3" aria-label="Hlavní navigace">
+  <div class="col-3">
+    <a href="game.html?id=krvava-hodina" class="btn-text" aria-label="Zpět na hru"><i class="bi bi-chevron-left" aria-hidden="true"></i><span class="d-none md:d-inline"> Zpět na hru</span></a>
+  </div>
+  <h1 class="col-6 text-center fs-lg mb-0">Krvavá hodina odbyla</h1>
+  <div class="col-3 d-flex justify-content-end">
     <button id="color-mode-toggle" type="button" class="btn-text" data-bs-toggle="menu"
         data-bs-placement="bottom-end" aria-expanded="false" aria-controls="color-mode-menu"
         aria-label="Barevný režim: Podle systému">
@@ -36,17 +39,16 @@
   </div>
 </nav>
 
-<header class="container text-center py-10">
-  <span class="d-block fs-4xl mb-3" aria-hidden="true">🕰️</span>
-  <h1 class="fs-3xl">Krvavá hodina odbyla</h1>
-  <p class="fg-3 mb-0">Záznam partie pro BGStats</p>
-</header>
-
-<main class="container pb-12 d-flex flex-column gap-7">
+<main class="container pb-12 d-flex flex-column gap-7 mt-7">
 
   <!-- METADATA -->
   <section class="card" aria-labelledby="metadata-title">
-    <h2 id="metadata-title" class="card-header fs-lg mb-0">📜 Údaje o partii</h2>
+    <div class="card-header d-flex flex-row flex-nowrap align-items-center gap-3">
+      <h2 id="metadata-title" class="fs-lg mb-0">📜 Údaje o partii</h2>
+      <button type="button" class="btn-text ms-auto" data-bs-toggle="dialog" data-bs-target="#import-dialog" aria-controls="import-dialog" aria-haspopup="dialog" aria-label="Načíst partii z BGStats" title="Načíst partii z BGStats">
+        <i class="bi bi-upload" aria-hidden="true"></i>
+      </button>
+    </div>
     <div class="card-body">
       <div class="row g-5">
         <div class="col-6 md:col-3">
@@ -55,7 +57,7 @@
         </div>
         <div class="col-6 md:col-3">
           <label for="play-start" class="d-block mb-3">Začátek</label>
-          <input class="form-control" type="time" id="play-start" oninput="calcDuration()">
+          <input class="form-control" type="time" id="play-start" oninput="setDefaultEndTime()">
         </div>
         <div class="col-6 md:col-3">
           <label for="play-end" class="d-block mb-3">Konec</label>
@@ -66,61 +68,17 @@
           <output class="form-control bg-1" id="duration-display" for="play-start play-end" aria-live="polite">—</output>
         </div>
         <div class="col-12 md:col-6">
-          <label for="play-location" class="d-block mb-3">Místo</label>
-          <input class="form-control" type="text" id="play-location" placeholder="Doma, hospoda…">
+          <p id="script-label">Skript</p>
+          <div id="script-buttons" class="d-flex flex-wrap gap-3" role="group" aria-labelledby="script-label"></div>
         </div>
-        <div class="col-12">
-          <label for="play-comment" class="d-block mb-3">Poznámky</label>
-          <textarea class="form-control" id="play-comment" rows="3" placeholder="Zvláštní momenty, zajímavé tahy…"></textarea>
+        <div class="col-12 md:col-3">
+          <label for="play-location" class="d-block mb-3">Lokace</label>
+          <select id="play-location" class="form-control"></select>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORYTELLER -->
-  <section class="card" aria-labelledby="storyteller-title">
-    <h2 id="storyteller-title" class="card-header fs-lg mb-0">🎭 Vypravěč</h2>
-    <div class="card-body">
-      <p id="storyteller-label">Kdo vedl hru jako Vypravěč?</p>
-      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="storyteller-label">
-        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="Hejki" data-uuid="88649452-76BB-4912-8271-25C1CF6C8B21" onclick="selectST(this)">Hejki</button>
-        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="Amos" data-uuid="03A51045-50EC-4B7F-9C16-E4D11C81138B" onclick="selectST(this)">Amos</button>
-        <button type="button" class="st-pill btn-outline theme-primary" aria-pressed="false" data-name="" data-uuid="" onclick="selectST(this)">Jiný…</button>
-      </div>
-      <div id="st-other-wrap" hidden>
-        <label for="st-other-name" class="d-block mb-3">Jméno vypravěče</label>
-        <input class="form-control" type="text" id="st-other-name" placeholder="Jméno…" oninput="storyteller.name=this.value.trim()">
-      </div>
-    </div>
-  </section>
-
-  <!-- SCRIPT -->
-  <section class="card" aria-labelledby="script-title">
-    <h2 id="script-title" class="card-header fs-lg mb-0">📖 Skript</h2>
-    <div class="card-body">
-      <p id="script-label">Vyber skript — určí dostupné role</p>
-      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="script-label">
-        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="trouble-brewing" onclick="selectScript(this)">Trouble Brewing</button>
-        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="sects-violets" onclick="selectScript(this)">Sects &amp; Violets</button>
-        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="bad-moon-rising" onclick="selectScript(this)">Bad Moon Rising</button>
-        <button type="button" class="script-pill btn-outline theme-primary" aria-pressed="false" data-script="custom" onclick="selectScript(this)">Vlastní / mix</button>
-      </div>
-      <p id="script-hint" class="fs-sm fg-3" role="status"></p>
-    </div>
-  </section>
-
-  <!-- WINNER -->
-  <section class="card" aria-labelledby="winner-title">
-    <h2 id="winner-title" class="card-header fs-lg mb-0">⚔️ Vítězný tým</h2>
-    <div class="card-body">
-      <p id="winner-label">Kdo zvítězil v Ravenswood Bluff?</p>
-      <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="winner-label">
-        <button type="button" class="btn-outline theme-info flex-fill py-5" id="btn-good" aria-pressed="false" onclick="setWinner('good')">
-          ☀️ Dobří zvítězili
-        </button>
-        <button type="button" class="btn-outline theme-danger flex-fill py-5" id="btn-evil" aria-pressed="false" onclick="setWinner('evil')">
-          🩸 Zlo triumfovalo
-        </button>
+        <div class="col-12 md:col-3">
+          <label for="play-game-copy" class="d-block mb-3">Kopie hry</label>
+          <select id="play-game-copy" class="form-control"></select>
+        </div>
       </div>
     </div>
   </section>
@@ -128,388 +86,54 @@
   <!-- PLAYERS -->
   <section class="card" aria-labelledby="players-title">
     <h2 id="players-title" class="card-header fs-lg mb-0">👥 Hráči</h2>
-    <div id="summary-bar" class="d-flex flex-wrap gap-3 p-5 bg-1 border-bottom fs-sm" role="status">
-      Celkem: <span id="sum-total">0</span> &nbsp;·&nbsp;
-      Dobří: <span id="sum-good">0</span> &nbsp;·&nbsp;
-      Zlí: <span id="sum-evil">0</span>
-    </div>
     <div class="card-body">
-      <div id="players-list" class="d-flex flex-column gap-5"></div>
-      <div>
-        <button type="button" class="btn-outline theme-secondary" onclick="addPlayer()">＋ Přidat hráče</button>
+      <div id="players-list" class="d-flex flex-column gap-5">
+        <div id="storyteller-row" class="row g-3 align-items-center border rounded-5 p-3 mx-0">
+          <label for="storyteller-name" class="player-num col-12 md:col-1 text-center fg-3 text-break">Vypravěč</label>
+          <div class="col-12 md:col-4">
+            <input class="form-control" type="text" id="storyteller-name" list="known-players" placeholder="Jméno vypravěče…" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <datalist id="known-players"></datalist>
+    </div>
+    <div class="card-footer d-flex flex-wrap gap-3 p-5 bg-1 border-bottom fs-sm">
+      <button type="button" class="btn-outline theme-secondary" onclick="addPlayer(true)">＋ Přidat hráče</button>
+      <div id="summary-bar" class="d-flex align-items-center" role="status">
+        0: 0/0/0/0
+      </div>
+      <div class="d-flex align-items-center gap-3 ms-auto" role="group" aria-labelledby="winner-label">
+        <span id="winner-label">Vítězný tým</span>
+        <button type="button" class="btn-outline theme-info" id="btn-good" aria-label="Dobří" title="Dobří" aria-pressed="false" onclick="setWinner('good')">👍</button>
+        <button type="button" class="btn-outline theme-danger" id="btn-evil" aria-label="Zlí" title="Zlí" aria-pressed="false" onclick="setWinner('evil')">👎</button>
       </div>
     </div>
   </section>
 
-  <div class="d-flex">
-    <button type="button" class="btn-solid theme-primary flex-fill" onclick="generate()">⚙️ &nbsp;Vygenerovat soubor</button>
+  <div class="d-flex flex-wrap gap-3">
+    <button type="button" class="btn-subtle theme-secondary flex-fill" onclick="downloadBgsplay()">⬇️ Stáhnout</button>
+    <button type="button" class="btn-subtle theme-primary flex-fill" onclick="openInApp()">📱 BG Stats Import</button>
   </div>
-
-  <!-- OUTPUT -->
-  <section id="output-section" class="card" aria-labelledby="output-title" hidden>
-    <h2 id="output-title" class="card-header fs-lg mb-0">💾 Výstup — připraveno k importu</h2>
-    <pre class="overflow-auto p-5 bg-1 fs-sm mb-0" id="json-preview"></pre>
-    <div class="card-footer d-flex flex-wrap align-items-center gap-3">
-      <button type="button" class="btn-solid theme-primary" onclick="downloadBgsplay()">⬇️ &nbsp;Stáhnout .bgsplay</button>
-      <button type="button" class="btn-outline theme-primary" onclick="openInApp()">📱 &nbsp;Otevřít v BGStats</button>
-      <div class="fs-sm fg-3">
-        Import: Nastavení → Import v BGStats.<br>
-        Tlačítko "Otevřít" zkusí spustit appku přímo.
-      </div>
-    </div>
-  </section>
+  <p id="export-status" class="fs-sm fg-3 mb-0" role="status" hidden></p>
 </main>
 
-<script>
-const KNOWN_PLAYERS = [
-  { name: 'Anonym',  uuid: "38A09A80-5355-4C4B-BCBB-73CE62E6C780" },
-  { name: 'Amos',    uuid: '03A51045-50EC-4B7F-9C16-E4D11C81138B' },
-  { name: 'Carlos',  uuid: '1583F0FD-4E59-4B0B-8C4A-4C77F6255131' },
-  { name: 'Daniela', uuid: '176545AE-2C9D-4B6B-919C-43F32022BEA7' },
-  { name: 'Hejki',   uuid: '88649452-76BB-4912-8271-25C1CF6C8B21' },
-  { name: 'Honza',   uuid: '3599F903-5175-4B6D-AA52-F1DCACA8486D' },
-  { name: 'Jonas',   uuid: '4FF8B82A-5D1A-46F6-A5EB-B9BF52CBC9DC' },
-  { name: 'Pavel',   uuid: 'F377CE5C-8264-4074-BE60-C8C3ED1B1406' },
-];
+<dialog id="import-dialog" class="dialog" aria-labelledby="import-dialog-title" aria-describedby="import-dialog-description">
+  <div class="dialog-header">
+    <h2 id="import-dialog-title" class="dialog-title">Načíst partii z BGStats</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Zavřít"></button>
+  </div>
+  <div class="dialog-body">
+    <p id="import-dialog-description">Vyber soubor s jednou partií Krvavé hodiny. Načtení nahradí aktuální údaje ve formuláři.</p>
+    <label for="import-play" class="d-block mb-3">Soubor z BGStats (.bgsplay)</label>
+    <input class="form-control" type="file" id="import-play" accept=".bgsplay,application/json" onchange="importBgsplayFile(this)">
+    <p id="import-status" class="fs-sm mt-3 mb-0" role="status" hidden></p>
+  </div>
+  <div class="dialog-footer">
+    <button type="button" class="btn-outline theme-secondary" data-bs-dismiss="dialog">Zavřít</button>
+  </div>
+</dialog>
 
-const ROLES = {
-  'trouble-brewing': {
-    townsfolk: ['Empat','Hrobník','Knihovník','Kuchař','Mnich','Panna','Pradlena','Starosta','Strážkyně krkavců','Vědma','Voják','Vyšetřovatel','Zabiják'],
-    outsider: ['Sluha','Opilec','Samotář','Světec'],
-    minion: ['Travič','Špeh','Šarlatová žena','Baron'],
-    demon: ['Čert']
-  },
-  'sects-violets': {
-    townsfolk: ['Filosof','Hodinář','Kejklíř','Květinářka','Matematik','Městský vyvolávač','Mudrc','Snílek','Švadlena','Učenec','Umělec','Věštec','Zaklínač hadů'],
-    outsider: ['Mutant','Zlatíčko','Holič','Nešika'],
-    minion: ['Zlé dvojče','Čarodějnice','Cerenovus','Ježibaba'],
-    demon: ['Fang Gu','Vigormortis','No Dashii','Vortox']
-  },
-  'bad-moon-rising': {
-    townsfolk: ['Babička','Čajová dáma','Drbna','Exorcista','Gambler','Hostinský','Komorná','Lichotník','Námořník','Pacifista','Pěvec','Profesor','Šašek'],
-    outsider: ['Blázen','Dítě měsíce','Dráteník','Hňup'],
-    minion: ['Nájemný vrah','Ďáblův advokát','Kmotr','Strůjce'],
-    demon: ['Shabaloth','Pó','Zombuul','Pukka']
-  },
-  'custom': { townsfolk:[], outsider:[], minion:[], demon:[] }
-};
-
-const ROLE_LABELS = {
-  townsfolk: '⚔️ Townsfolk (Dobří)',
-  outsider:  '🌫️ Outsider (Dobří)',
-  minion:    '🗡️ Minion (Zlí)',
-  demon:     '👁️ Démon (Zlí)'
-};
-
-let currentScript = null;
-let winnerTeam = null;
-let players = [];
-let playerIdCounter = 0;
-let generatedData = null;
-let storyteller = { name: '', uuid: '' };
-let computedDurationMin = null;
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('play-date').value = new Date().toISOString().split('T')[0];
-  for (let i = 0; i < 5; i++) addPlayer();
-});
-
-// ── DURATION ──
-function calcDuration() {
-  const s = document.getElementById('play-start').value;
-  const e = document.getElementById('play-end').value;
-  const d = document.getElementById('duration-display');
-  if (!s || !e) { d.textContent = '—'; computedDurationMin = null; return; }
-  const [sh, sm] = s.split(':').map(Number);
-  const [eh, em] = e.split(':').map(Number);
-  let mins = (eh * 60 + em) - (sh * 60 + sm);
-  if (mins < 0) mins += 1440;
-  computedDurationMin = mins;
-  const h = Math.floor(mins / 60), m = mins % 60;
-  d.textContent = h > 0 ? `${h} h ${m} min` : `${m} min`;
-}
-
-// ── STORYTELLER ──
-function selectST(btn) {
-  document.querySelectorAll('.st-pill').forEach(p => {
-    p.classList.toggle('active', p === btn);
-    p.setAttribute('aria-pressed', String(p === btn));
-  });
-  const isOther = btn.dataset.name === '';
-  document.getElementById('st-other-wrap').hidden = !isOther;
-  if (!isOther) {
-    storyteller = { name: btn.dataset.name, uuid: btn.dataset.uuid };
-    document.getElementById('st-other-name').value = '';
-  } else {
-    storyteller = { name: 'Anonym', uuid: '' };
-  }
-}
-
-// ── SCRIPT ──
-function selectScript(el) {
-  document.querySelectorAll('.script-pill').forEach(p => {
-    p.classList.toggle('active', p === el);
-    p.setAttribute('aria-pressed', String(p === el));
-  });
-  currentScript = el.dataset.script;
-  const hints = {
-    'trouble-brewing': 'Začátečnický skript — 13 Townsfolk, 4 Outsider, 4 Minion, 1 Démon (Imp).',
-    'sects-violets':   'Pokročilý skript — komplexní schopnosti, falešné informace.',
-    'bad-moon-rising': 'Alternativní démon-hunt — důraz na schopnosti po smrti.',
-    'custom':          'Vlastní mix — roli zadávej ručně textově.'
-  };
-  document.getElementById('script-hint').textContent = hints[currentScript] || '';
-  players.forEach(p => rebuildRoleCell(p.id));
-}
-
-function getRoleOptions(key) {
-  if (!key || key === 'custom') return '';
-  const s = ROLES[key]; if (!s) return '';
-  let html = '<option value="">— bez role —</option>';
-  for (const [type, roles] of Object.entries(s)) {
-    if (!roles.length) continue;
-    html += `<optgroup label="${ROLE_LABELS[type]}">`;
-    roles.forEach(r => { html += `<option value="${r}">${r}</option>`; });
-    html += '</optgroup>';
-  }
-  return html;
-}
-
-function rebuildRoleCell(pid) {
-  const row = document.getElementById(`player-${pid}`);
-  if (!row) return;
-  const cell = row.querySelector('.player-role-cell');
-  if (!cell) return;
-  if (currentScript === 'custom') {
-    cell.innerHTML = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
-  } else if (currentScript) {
-    cell.innerHTML = `<select class="form-control" aria-label="Role hráče">${getRoleOptions(currentScript)}</select>`;
-  } else {
-    cell.innerHTML = `<input class="form-control" type="text" placeholder="Vyber skript…" aria-label="Role hráče" disabled>`;
-  }
-}
-
-// ── WINNER ──
-function setWinner(team) {
-  winnerTeam = team;
-  for (const value of ['good', 'evil']) {
-    const button = document.getElementById(`btn-${value}`);
-    button.classList.toggle('active', team === value);
-    button.setAttribute('aria-pressed', String(team === value));
-  }
-  updateSummary();
-}
-
-// ── PLAYERS ──
-function playerOptionsHTML() {
-  return KNOWN_PLAYERS.map(p =>
-    `<option value="${p.uuid || ''}">${p.name}</option>`
-  ).join('');
-}
-
-function addPlayer() {
-  const id = ++playerIdCounter;
-  players.push({ id });
-  const row = document.createElement('div');
-  row.className = 'player-row row g-3 align-items-center border rounded-5 p-3 mx-0';
-  row.id = `player-${id}`;
-
-  let roleCell;
-  if (!currentScript) {
-    roleCell = `<input class="form-control" type="text" placeholder="Vyber skript…" aria-label="Role hráče" disabled>`;
-  } else if (currentScript === 'custom') {
-    roleCell = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
-  } else {
-    roleCell = `<select class="form-control" aria-label="Role hráče">${getRoleOptions(currentScript)}</select>`;
-  }
-
-  row.innerHTML = `
-    <div class="player-num col-1 text-center fg-3">${players.length}</div>
-    <div class="col-11 md:col-4">
-      <select class="player-name-sel form-control" aria-label="Hráč">${playerOptionsHTML()}</select>
-    </div>
-    <div class="player-role-cell col-12 md:col-3">${roleCell}</div>
-    <div class="col-10 md:col-3 d-flex gap-3" role="group" aria-label="Tým hráče">
-      <button type="button" class="team-btn btn-outline btn-sm theme-info flex-fill" onclick="setPlayerTeam(${id},'good',this)" aria-label="Dobří" aria-pressed="false" title="Dobří">☀️</button>
-      <button type="button" class="team-btn btn-outline btn-sm theme-danger flex-fill" onclick="setPlayerTeam(${id},'evil',this)" aria-label="Zlí" aria-pressed="false" title="Zlí">🩸</button>
-    </div>
-    <div class="col-2 md:col-1 text-center">
-      <button type="button" class="btn-text btn-sm theme-danger" onclick="removePlayer(${id})" aria-label="Odebrat hráče" title="Odebrat">✕</button>
-    </div>
-  `;
-  document.getElementById('players-list').appendChild(row);
-  updateNumbers();
-  updateSummary();
-}
-
-function removePlayer(id) {
-  players = players.filter(p => p.id !== id);
-  document.getElementById(`player-${id}`)?.remove();
-  updateNumbers(); updateSummary();
-}
-
-function setPlayerTeam(id, team, btn) {
-  const row = document.getElementById(`player-${id}`);
-  row.classList.remove('is-good','is-evil','border-info','border-danger');
-  row.classList.add(team === 'good' ? 'is-good' : 'is-evil');
-  row.classList.add(team === 'good' ? 'border-info' : 'border-danger');
-  row.querySelectorAll('.team-btn').forEach(b => {
-    b.classList.toggle('active', b === btn);
-    b.setAttribute('aria-pressed', String(b === btn));
-  });
-  updateSummary();
-}
-
-function updateNumbers() {
-  document.querySelectorAll('.player-row').forEach((r, i) => {
-    r.querySelector('.player-num').textContent = i + 1;
-  });
-}
-
-function updateSummary() {
-  const rows = document.querySelectorAll('.player-row');
-  let g = 0, e = 0;
-  rows.forEach(r => { if (r.classList.contains('is-good')) g++; else if (r.classList.contains('is-evil')) e++; });
-  document.getElementById('sum-total').textContent = rows.length;
-  document.getElementById('sum-good').textContent = g;
-  document.getElementById('sum-evil').textContent = e;
-}
-
-// ── GENERATE ──
-function getPlayerData() {
-  return [{
-    idx: 0,
-    name: storyteller.name,
-    uuid: storyteller.uuid == '' ? null : storyteller.uuid,
-    isAnon: storyteller.uuid == '',
-    role: 'Vypravěč',
-    team: "0",
-    winner: false,
-    metaData: "{\"isNpc\":1}",
-  }].concat([...document.querySelectorAll('.player-row')].map((row, i) => {
-    const sel  = row.querySelector('.player-name-sel');
-    const name = sel.options[sel.selectedIndex]?.text || 'Anonym';
-    const uuid = sel.value || null;
-    const isAnon = name === 'Anonym';
-
-    const roleEl = row.querySelector('.player-role-cell select') || row.querySelector('.player-role-cell input');
-    const teamRole = roleEl?.value?.trim() || '';
-
-    const isGood = row.classList.contains('is-good');
-    const isEvil = row.classList.contains('is-evil');
-    const role = isGood ? 'Dobro' : (isEvil ? 'Zlo' : '');
-    const team = isGood ? '1' : (isEvil ? '2' : '0');
-    const winner = (winnerTeam === 'good' && isGood) || (winnerTeam === 'evil' && isEvil);
-
-    return { idx: i+2, name: isAnon ? `Anonymní hráč` : name, uuid, isAnon, role, team, teamRole, winner };
-  }));
-}
-
-function generate() {
-  if (!winnerTeam) { alert('Vyber vítězný tým před generováním.'); return; }
-  if (!players.length) { alert('Přidej alespoň jednoho hráče.'); return; }
-
-  const date     = document.getElementById('play-date').value || new Date().toISOString().split('T')[0];
-  const location = document.getElementById('play-location').value.trim();
-  const comment  = document.getElementById('play-comment').value.trim();
-  const start    = document.getElementById('play-start').value || '20:00';
-  const playDate = `${date} ${start}:00`;
-
-  const scriptName = currentScript
-    ? { 'trouble-brewing':'Trouble Brewing','sects-violets':'Sects & Violets','bad-moon-rising':'Bad Moon Rising','custom':'Vlastní skript' }[currentScript]
-    : '';
-
-  const pd = getPlayerData();
-
-  const bgsPlayers = pd.map((p, i) => ({
-    id: i+1,
-    uuid: p.uuid || generateUUID(),
-    name: p.name,
-    isAnonymous: p.isAnon
-  }));
-
-  const comments = [
-    scriptName ? `Skript: ${scriptName}` : '',
-    `Vítěz: ${winnerTeam === 'good' ? 'Dobří' : 'Zlí'}`,
-    storyteller.name ? `Vypravěč: ${storyteller.name}` : '',
-    comment
-  ].filter(Boolean).join('\n');
-
-  const bgsplay = {
-    games: [{ id:1, uuid:'botc-bgg-240980', name:'Blood on the Clocktower', bggId:240980, noPoints:true, highestWins:false, cooperative:false }],
-    players: bgsPlayers,
-    locations: location ? [{ id:1, uuid:generateUUID(), name:location }] : [],
-    plays: [{
-      id:1, uuid:generateUUID(), gameRefId:1,
-      locationRefId: location ? 1 : null,
-      playDate, durationMin: computedDurationMin || null,
-      comments,
-      usesTeams : true,
-      playerScores: pd.map((p, i) => ({
-        playerRefId: i+1, 
-        winner: p.winner,
-        role: p.role || null,
-        team: p.team,
-        teamRole: p.teamRole,
-        startPlayer: false,
-        metaData: p.metaData,
-      }))
-    }]
-  };
-
-  const createPlay = {
-    game: { bggId:240980, name:'Blood on the Clocktower', noPoints:true, highestWins:false },
-    playDate, durationMin: computedDurationMin || undefined,
-    location: location || undefined,
-    board: scriptName || undefined,
-    players: pd.map(p => ({
-      name: p.name, winner: p.winner,
-      role: p.role || undefined,
-      score: null,
-      ...(p.uuid ? { sourcePlayerId: p.uuid } : {})
-    })),
-    sourceName: 'BotC Recorder'
-  };
-
-  generatedData = { ...bgsplay, _createPlay: createPlay };
-
-  const preview = JSON.stringify(bgsplay, null, 2);
-  document.getElementById('json-preview').textContent =
-    preview.length > 3000 ? preview.slice(0, 3000) + '\n… (zkráceno)' : preview;
-
-  const out = document.getElementById('output-section');
-  out.hidden = false;
-  out.scrollIntoView({ behavior:'smooth', block:'start' });
-}
-
-function downloadBgsplay() {
-  if (!generatedData) return;
-  const { _createPlay, ...clean } = generatedData;
-  const json = JSON.stringify(clean, null, 2);
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([json], { type:'application/json' }));
-  a.download = `botc-${document.getElementById('play-date').value || 'partie'}.bgsplay`;
-  a.click();
-}
-
-function openInApp() {
-  if (!generatedData) return;
-  const enc = encodeURIComponent(JSON.stringify(generatedData._createPlay));
-  window.location.href = `bgstats://app.bgstatsapp.com/createPlay.html?data=${enc}`;
-  setTimeout(() => {
-    if (confirm('BGStats se neotevřela automaticky?\n\nChceš zkusit webový odkaz?')) {
-      window.open(`https://app.bgstatsapp.com/createPlay.html?data=${enc}`, '_blank');
-    }
-  }, 1500);
-}
-
-function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-    const r = Math.random() * 16 | 0;
-    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-  });
-}
-</script>
+<script src="scripts/botc-play.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
     crossorigin="anonymous"></script>

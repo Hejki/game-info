@@ -1,0 +1,430 @@
+{
+  "about" : "This is a Play file that can be read by Board Game Stats. If you see this text, try to use a share, export or open-in function to open it with Board Game Stats.",
+  "games" : [
+    {
+      "bggId" : 240980,
+      "bggName" : "Blood on the Clocktower",
+      "bggYear" : 2022,
+      "cooperative" : false,
+      "designers" : "Steven Medway",
+      "highestWins" : true,
+      "id" : 1,
+      "isBaseGame" : 1,
+      "isExpansion" : 0,
+      "maxPlayerCount" : 21,
+      "maxPlayTime" : 120,
+      "minAge" : 15,
+      "minPlayerCount" : 6,
+      "minPlayTime" : 30,
+      "modificationDate" : "2026-10-17 13:18:08",
+      "name" : "Krvavá Hodina Odbila",
+      "noPoints" : true,
+      "rating" : 83,
+      "urlImage" : "https:\/\/cf.geekdo-images.com\/HINb2nkFn5IiZxAlzQIs4g__original\/img\/e7izEwSmnBPiErsIF6hlWbgybBE=\/0x0\/filters:format(jpeg)\/pic7009391.jpg",
+      "urlThumb" : "https:\/\/cf.geekdo-images.com\/HINb2nkFn5IiZxAlzQIs4g__thumb\/img\/cRCX-PIROiSFG5aLvwkn2O7tHsg=\/fit-in\/200x150\/filters:strip_icc()\/pic7009391.jpg",
+      "usesTeams" : true,
+      "uuid" : "F0358CDF-9515-4083-9C90-ABF7B207581A"
+    }
+  ],
+  "locations" : [
+
+  ],
+  "players" : [
+    {
+      "id" : 1,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0}",
+      "modificationDate" : "2026-10-17 12:47:19",
+      "name" : "Honza",
+      "uuid" : "3599F903-5175-4B6D-AA52-F1DCACA8486D"
+    },
+    {
+      "id" : 2,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_06.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Míra",
+      "uuid" : "CEBCD0B8-0549-4709-9411-1A2668E9AEBC"
+    },
+    {
+      "id" : 3,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_05.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Barča",
+      "uuid" : "23975BAC-C0D7-43D1-895B-18AF88A5E209"
+    },
+    {
+      "id" : 4,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0}",
+      "modificationDate" : "2026-10-17 12:47:43",
+      "name" : "Lili",
+      "uuid" : "8E244412-D54E-4E75-B310-140AE15C4CB9"
+    },
+    {
+      "id" : 5,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0}",
+      "modificationDate" : "2026-10-17 12:47:43",
+      "name" : "Hejki",
+      "uuid" : "88649452-76BB-4912-8271-25C1CF6C8B21"
+    },
+    {
+      "id" : 6,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_06.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Tondy",
+      "uuid" : "2982F95C-7092-4122-BB6D-B7E9AABD5D66"
+    },
+    {
+      "id" : 7,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_06.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Meki",
+      "uuid" : "2C10A6D8-1CEE-4C41-B587-B0FB8331D900"
+    },
+    {
+      "id" : 8,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"LukasSiegmon_Robin.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Ondra",
+      "uuid" : "A06493F6-C907-4883-A2A8-4FB2D7841F8F"
+    },
+    {
+      "id" : 9,
+      "isAnonymous" : true,
+      "modificationDate" : "2024-02-08 17:43:24",
+      "name" : "Anonymní hráč",
+      "uuid" : "38A09A80-5355-4C4B-BCBB-73CE62E6C780"
+    },
+    {
+      "id" : 10,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"LukasSiegmon_Rabbit.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Verča",
+      "uuid" : "56DE1331-053E-4466-9875-5182E21C4EA5"
+    },
+    {
+      "id" : 11,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"LukasSiegmon_Owl.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227374]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Amos",
+      "uuid" : "03A51045-50EC-4B7F-9C16-E4D11C81138B"
+    },
+    {
+      "id" : 12,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_06.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227385]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Jonáš",
+      "uuid" : "6B9AC275-CF65-4AE8-A578-F05B03DB526D"
+    },
+    {
+      "id" : 13,
+      "isAnonymous" : false,
+      "metaData" : "{\"isNpc\":0,\"playerAvatar\":{\"image\":\"cge_codenames_06.webp\",\"shape\":[0.80000000000000004,0.80000000000000004,0.80000000000000004,0.80000000000000004],\"color\":[0,0,0.18350341907227385]}}",
+      "modificationDate" : "2026-10-17 12:45:53",
+      "name" : "Matouš",
+      "uuid" : "E86F0B01-38F4-4180-AB4C-F8ED3991756E"
+    }
+  ],
+  "plays" : [
+    {
+      "board" : "Potíže přicházejí",
+      "durationMin" : 131,
+      "entryDate" : "2026-10-17 13:21:59",
+      "expansionPlays" : [
+
+      ],
+      "gameRefId" : 1,
+      "ignored" : false,
+      "manualWinner" : true,
+      "metaData" : "{\"playGameBggVersion\":{\"gameName\":\"Krvavá Hodina Odbila\",\"versionName\":\"Czech\\\/Slovak edition\",\"yearPublished\":2025,\"languages\":\"Czech, Slovak\",\"publishers\":\"Old Dawg, The Pandemonium Institute\",\"versionId\":766507,\"name\":\"Krvavá Hodina Odbila (Czech\\\/Slovak edition)\"},\"playerRefId\":11,\"playUsedGameCopy\":2}",
+      "modificationDate" : "2026-10-17 13:23:39",
+      "playDate" : "2026-10-17 13:21:59",
+      "playDateYmd" : 20261017,
+      "playerScores" : [
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Zlo",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "2",
+          "teamRole" : "Baron",
+          "winner" : false
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 4,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Kuchař",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 2,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "startPosition" : "",
+          "team" : "1",
+          "teamRole" : "Světec",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 1,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Pradlena",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 12,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Opilec",
+          "winner" : true
+        },
+        {
+          "metaData" : "{\"isNpc\":1}",
+          "newPlayer" : false,
+          "playerRefId" : 11,
+          "rank" : 0,
+          "role" : "Vypravěč",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "0",
+          "winner" : false
+        },
+        {
+          "anonymousName" : "Emička",
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Zlo",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "2",
+          "teamRole" : "Čert",
+          "winner" : false
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 10,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Knihovník",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 6,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Vyšetřovatel",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Zlo",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "2",
+          "teamRole" : "Travič",
+          "winner" : false
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "startPosition" : "",
+          "team" : "1",
+          "teamRole" : "Sluha",
+          "winner" : true
+        },
+        {
+          "anonymousName" : "Tom",
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Vědma",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 5,
+          "rank" : 0,
+          "role" : "Zlo",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "2",
+          "teamRole" : "Žebrák",
+          "winner" : false
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 13,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "startPosition" : "",
+          "team" : "1",
+          "teamRole" : "Strážkyně krkavců",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Starosta",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 7,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "startPosition" : "Tom",
+          "team" : "1",
+          "teamRole" : "Mnich",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 3,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Samotář",
+          "winner" : true
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Zlo",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "2",
+          "teamRole" : "Šarlatová žena",
+          "winner" : false
+        },
+        {
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 8,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "team" : "1",
+          "teamRole" : "Byrokrat",
+          "winner" : true
+        },
+        {
+          "anonymousName" : "",
+          "metaData" : "{}",
+          "newPlayer" : false,
+          "playerRefId" : 9,
+          "rank" : 0,
+          "role" : "Dobro",
+          "score" : "",
+          "seatOrder" : 0,
+          "startPlayer" : false,
+          "startPosition" : "",
+          "team" : "1",
+          "teamRole" : "Hrobník",
+          "winner" : true
+        }
+      ],
+      "rounds" : 0,
+      "scoringSetting" : 3,
+      "usesTeams" : true,
+      "uuid" : "56C66050-B81E-49FF-B34E-2CC1EF955374"
+    }
+  ],
+  "userInfo" : {
+    "meRefId" : 5
+  }
+}
