@@ -1,0 +1,27 @@
+# Kopie: CZ, rozšířené vydání. Parametry a obtížnost: BGG export (2026-10-17).
+name: "Velkoměsto: Rozšířené vydání"
+bgg: 251658
+zh: velkomesto-rozsirene-vydani-14366
+age: 8+
+players: "1-4"
+playtime: "15-20"
+weight: 1.79
+color: "#4E5958"
+links:
+  - type: rules
+    title: Česká pravidla rozšířeného vydání (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/sprawlopolis-rules_cz_web.pdf
+  - type: video
+    title: Představení rozšířeného vydání (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=G3X9DufeDC8
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/velkomesto-rozsirene-vydani
+description: |
+  **Velkoměsto: Rozšířené vydání** je kooperativní karetní hra
+  o stavbě města. Společně přikládáte a překrýváte karty městských bloků,
+  propojujete oblasti stejného typu a snažíte se omezit počet silnic.
+
+  Každou partii určují tři náhodně zvolené bodovací podmínky.
+  Abyste vyhráli, musíte společným skóre dosáhnout předepsaného cíle.
+language: cs

@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Gwint: Legendární karetní hra"
+bgg: 434222
+zh: gwint-legendarni-karetni-hra-17713
+age: 12+
+players: "1-5"
+playtime: "20"
+weight: 1.88
+color: "#201E14"
+description: |
+  **Gwint: Legendární karetní hra** převádí karetní souboje ze Zaklínače
+  na herní stůl. Velíte jedné z frakcí, vykládáte jednotky do bojových řad
+  a využíváte hrdiny, speciální schopnosti i počasí.
+
+  K vítězství potřebujete vyhrát dvě kola. Protože si musíte vystačit
+  s omezenou zásobou karet, důležité je i rozhodnutí, kdy kolo vzdát.
+language: cs

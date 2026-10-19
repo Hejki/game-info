@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Karak Goblin
+bgg: 345918
+zh: karak-goblin-12167
+age: 8+
+players: "2-4"
+playtime: "30-90"
+weight: 1.92
+color: "#282330"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/41450/1662127808-albi-karak-goblin-pravidla-hry-cz.pdf
+  - type: video
+    title: Český videonávod (ALBI)
+    url: https://www.youtube.com/watch?v=OspNcLYpp8k
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/karak-goblin/
+description: |
+  **Karak Goblin** je samostatná karetní hra ze světa Karaku.
+  Vypravujete se do gobliního světa, porážíte nepřátele a z odměn
+  si vylepšujete balíček pro další souboje.
+
+  Síla hrdiny roste s nově získanými kartami. Cílem je připravit se
+  na střet s vládcem goblinů a porazit ho dříve než soupeři.
+language: cs

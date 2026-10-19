@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Čarostíny
+bgg: 359502
+zh: carostiny-13313
+age: 12+
+players: "2-4"
+playtime: "30-60"
+weight: 2.26
+color: "#2A1825"
+description: |
+  **Čarostíny** jsou fantasy hra o soubojích čarodějů. Sbíráte barevné
+  krystaly, učíte se kouzla a spojujete jejich účinky do kombinací,
+  kterými zasahujete soupeře nebo posilujete vlastní postavu.
+
+  S postupem hry rozvíjíte svou moc a snažíte se překonat ostatní čaroděje
+  dříve, než jejich kouzla připraví o život vás.
+language: cs

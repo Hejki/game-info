@@ -98,6 +98,23 @@ test('index renders links to the separate detail page and keeps tool links', asy
     assert.equal(app.get('game-index-status').hidden, true)
 })
 
+test('index shows a flag after non-Czech game names only, before tool links', async () => {
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [
+        { id: 'czech', name: 'Česká hra', language: 'cs' },
+        { id: 'english', name: 'English game', language: 'en', tools: [{ link: '/tool.html', icon: 'bi bi-dice' }] },
+        { id: 'unknown', name: 'Unknown game' },
+    ] }))
+    await vm.runInContext(indexSource, app.context)
+    const [czech, english, unknown] = app.get('game-index').children.map(row => row.children[0])
+    assert.equal(czech.children.length, 1)
+    assert.equal(unknown.children.length, 1)
+    assert.equal(english.children[0].textContent, 'English game')
+    assert.equal(english.children[2].textContent, '🇬🇧')
+    assert.equal(english.children[2].role, 'img')
+    assert.equal(english.children[2]['aria-label'], 'Hra není v češtině')
+    assert.equal(english.children[4].href, '/tool.html')
+})
+
 test('search filters names without case or accents and handles empty results and clearing', async () => {
     let requests = 0
     const app = page('https://bg.hejki.org/', async () => {

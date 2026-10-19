@@ -1,0 +1,24 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Zvrať osud: Trosečník"
+bgg: 401493
+zh: trosecnik-16604
+age: 10+
+players: "1"
+playtime: "35"
+weight: 1.3
+color: "#605E59"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, Old Dawg)
+    url: https://www.old-dawg.cz/user/related_files/zvrat-osud-trosecnik-pravidla-cz-web.pdf
+  - type: other
+    title: Stránka českého vydavatele s pravidly
+    url: https://www.old-dawg.cz/trosecnik/
+description: |
+  **Zvrať osud: Trosečník** je sólová příběhová karetní hra.
+  Jako trosečník čelíte rozhodnutím a nebezpečným situacím,
+  které prověřují vaši schopnost přežít s omezenými prostředky.
+
+  Volbou dalších kroků měníte průběh dobrodružství
+  a snažíte se nalézt cestu k záchraně.
+language: cs

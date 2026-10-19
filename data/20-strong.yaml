@@ -1,0 +1,24 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: 20 Strong
+bgg: 373167
+zh: 20-strong-solar-sentinels-14488
+age: 14+
+players: "1"
+playtime: "30-45"
+weight: 2.38
+color: "#363532"
+links:
+  - type: rules
+    title: Pravidla balíčku Solar Sentinels (EN, PDF, Chip Theory Games)
+    url: https://www.dropbox.com/scl/fi/zd6pcu0ugycglcy9z37ee/20S-SS_Rulebook.pdf?rlkey=qqpv7dmpv6tg1ltuxstjow88z&dl=0
+  - type: other
+    title: Solar Sentinels – balíček původní základní krabice (vydavatel)
+    url: https://chiptheorygames.com/products/20-strong-solar-sentinels-deck
+description: |
+  **20 Strong** je sólová kostková hra, ve které se s omezenou zásobou kostek
+  probíjíte balíčkem výzev. Rozhodujete, kolik kostek nasadíte, které přehodíte
+  a kdy si dopřejete odpočinek, abyste měli dost sil na závěrečného protivníka.
+
+  Jednotlivé tematické balíčky využívají společný základ, ale přidávají vlastní
+  nepřátele, schopnosti a cíle. Kopie hry je v angličtině.
+language: en

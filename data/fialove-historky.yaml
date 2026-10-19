@@ -1,0 +1,17 @@
+# Kopie: CZ. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Fialové historky
+bgg: 168659
+zh: fialove-historky-10543
+age: 8+
+players: "2-15"
+playtime: "20"
+weight: 1.0
+color: "#513C48"
+description: |
+  **Fialové historky** jsou vyprávěcí hádanky s tajemnými a nadpřirozenými
+  náměty. Vypravěč přečte krátkou situaci a ostatní se pomocí otázek
+  snaží odhalit, co jí předcházelo a jak ji vysvětlit.
+
+  Vypravěč zná řešení a odpovídá ano nebo ne. Hráči nesoutěží o rychlost,
+  ale společně hledají správné souvislosti.
+language: cs

@@ -39,3 +39,4 @@ description: |
   
   ### Konec hry:
   Hra končí poté, co některý z hráčů dosáhne počtu bodů, který byl před začátkem hry stanoven jako cílový. Hráč s největším počtem získaných bodů se stává vítězem.
+language: cs

@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Plyšová hlídka
+bgg: 233312
+zh: plysova-hlidka-7487
+age: 7+
+players: "2-4"
+playtime: "60-90"
+weight: 2.45
+color: "#29323B"
+description: |
+  **Plyšová hlídka** je kooperativní příběhová hra o plyšových hračkách,
+  které v noci chrání svou holčičku. Stránky knihy tvoří zároveň příběh
+  i herní plán, na němž prozkoumáváte prostředí a čelíte nočním můrám.
+
+  Barevné kostky používáte na pohyb, útoky a další zkoušky.
+  Rozhodnutí družiny mění průběh dobrodružství a jeho zakončení.
+language: cs

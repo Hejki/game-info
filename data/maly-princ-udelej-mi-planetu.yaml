@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Malý princ: Udělej mi planetu!"
+bgg: 134453
+zh: maly-princ-udelej-mi-planetu-3539
+age: 8+
+players: "2-5"
+playtime: "25"
+weight: 1.58
+color: "#374354"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/maly-princ-pravidla-cze-web.pdf
+  - type: video
+    title: Představení hry (SK, iHRYsko)
+    url: https://www.youtube.com/watch?v=3t4t0bPfdpk
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/maly-princ-udelej-mi-planetu
+description: |
+  **Malý princ: Udělej mi planetu!** je rodinná hra se skládáním planet
+  z obrázkových dílků. Vybíráte krajinu, zvířata i postavy, které určují,
+  za co se bude vaše planeta na konci bodovat.
+
+  Při volbě dílku současně ovlivňujete pořadí dalších hráčů.
+  Pozor na příliš mnoho baobabů a sopek, které mohou připravit planetu o body.
+language: cs

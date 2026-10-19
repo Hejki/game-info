@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Detektiv: Město andělů"
+bgg: 218074
+zh: detektiv-mesto-andelu-7625
+age: 14+
+players: "1-5"
+playtime: "30-150"
+weight: 2.35
+color: "#38322F"
+description: |
+  **Detektiv: Město andělů** vás zavede do poválečného Los Angeles.
+  Vyšetřovatelé procházejí městem, hledají důkazy a vyslýchají podezřelé,
+  jejichž odpovědi nemusejí být pravdivé.
+
+  V hlavním režimu jeden hráč řídí případ a snaží se ostatní svést ze stopy.
+  Detektivové musí pečlivě porovnávat výpovědi a včas určit pachatele.
+language: cs

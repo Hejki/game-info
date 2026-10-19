@@ -1,0 +1,17 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "GOSU 2: Tactics"
+bgg: 123536
+zh: gosu-2-tactics-3103
+age: 10+
+players: "2-4"
+playtime: "45"
+weight: 2.41
+color: "#45423C"
+description: |
+  **GOSU 2: Tactics** je karetní hra o budování gobliní armády.
+  Vykládáte bojovníky do řad, využíváte jejich schopnosti a připravujete
+  kombinace, které vám dají převahu v jednotlivých bitvách.
+
+  Záleží na pořadí vykládání, propojení klanů i správném načasování akcí.
+  Kopie hry je v angličtině.
+language: en

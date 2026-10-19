@@ -1,0 +1,23 @@
+# Kopie: EN. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Neon Reign
+bgg: 417106
+players: "1-2"
+playtime: "10-15"
+age: 14+
+weight: 1.86
+color: "#552C60"
+description: |
+  **Neon Reign** je karetní bojovka inspirovaná arkádovými videohrami.
+  Vyberete si hrdinu, skládáte kombinace úderů a kopů a hledáte
+  správný okamžik pro obranu i využití zvláštní síly.
+
+  Cílem je vyčerpat soupeřovy životy. Kromě souboje dvou hráčů
+  nabízí hra také sólového protivníka. Kopie je v angličtině.
+links:
+  - type: rules
+    title: Anglická pravidla (PDF, Neon Knight Games; Dropbox)
+    url: https://www.dropbox.com/scl/fi/wavjpny02sjfyxpz4v16a/NK-NR_Rulebook.pdf?rlkey=5d8fl0918do9b5xlnwj55wp0i&dl=0
+  - type: other
+    title: Stránka vydavatele (Deluxe Edition)
+    url: https://chiptheorygames.com/products/neon-reign-deluxe
+language: en

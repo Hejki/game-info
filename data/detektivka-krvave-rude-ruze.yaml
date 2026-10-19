@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Detektivka: Krvavě rudé růže"
+bgg: 286827
+zh: detektivka-krvave-rude-ruze-10334
+age: 12+
+players: "1-6"
+playtime: "60"
+weight: 1.17
+color: "#4E4641"
+description: |
+  **Detektivka: Krvavě rudé růže** je příběhová vyšetřovací karetní hra.
+  Získáváte informace od postav, odhalujete nové stopy a skládáte
+  dohromady okolnosti zločinu.
+
+  K úspěchu vede pozorné čtení, propojování souvislostí a společná diskuse.
+  Případ je určený k jednorázovému vyřešení, bez prozrazení rozuzlení předem.
+language: cs

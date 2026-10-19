@@ -1,0 +1,17 @@
+# Kopie: CZ. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Zelené historky
+bgg: 43043
+zh: zelene-historky-2378
+age: 8+
+players: "2-15"
+playtime: "15"
+weight: 1.33
+color: "#53592B"
+description: |
+  **Zelené historky** jsou soubor hádanek s přírodou a zvířaty.
+  Jeden hráč zná řešení podivného příběhu a ostatní se k němu
+  postupně dostávají otázkami, na které lze odpovědět ano nebo ne.
+
+  Cílem je společně rekonstruovat okolnosti příběhu.
+  Důležitější než znalosti jsou představivost, logika a správné otázky.
+language: cs

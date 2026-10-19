@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "MikroMakro: Junior – Bláznivý park"
+bgg: 437261
+zh: mikromakro-junior-blaznivy-park-18470
+age: 6+
+players: "1-4"
+playtime: "15-45"
+weight: 1.0
+color: "#53613A"
+description: |
+  **MikroMakro: Junior – Bláznivý park** je kooperativní pátrání
+  v rozlehlé obrázkové mapě určené mladším detektivům. Postavy na ní
+  vidíte na několika místech a v různých okamžicích jejich příběhu.
+
+  Společně sledujete jejich cestu, hledáte drobné detaily
+  a odpovídáte na otázky jednotlivých případů.
+language: cs

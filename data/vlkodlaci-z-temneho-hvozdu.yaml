@@ -1,0 +1,18 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Vlkodlaci z Temného hvozdu
+bgg: 25821
+zh: vlkodlaci-z-temneho-hvozdu-1147
+age: 10+
+players: "8-18"
+playtime: "30"
+weight: 1.31
+color: "#432924"
+description: |
+  **Vlkodlaci z Temného hvozdu** jsou společenská hra se skrytými rolemi.
+  Ve vesnici se mezi obyčejnými obyvateli ukrývají vlkodlaci,
+  kteří v noci napadají své oběti. Ve dne všichni diskutují
+  a hlasují o vyřazení podezřelého.
+
+  Vesničané se snaží odhalit všechny vlkodlaky, zatímco vlkodlaci
+  předstírají nevinu. Hru vede vypravěč a zvláštní role mění její průběh.
+language: cs

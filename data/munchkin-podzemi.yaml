@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Munchkin: Podzemí"
+bgg: 257001
+zh: munchkin-podzemi-9011
+age: 14+
+players: "2-5"
+playtime: "60-90"
+weight: 2.24
+color: "#3F3029"
+description: |
+  **Munchkin: Podzemí** je samostatná desková hra o hrdinech,
+  kteří pro slávu a kořist neváhají podrazit své spoluhráče.
+  Prozkoumáváte podzemí, porážíte nestvůry a získáváte lepší vybavení.
+
+  Před nebezpečím můžete couvnout, ale odvážnější postup slibuje větší odměnu.
+  Karty pomáhají vlastní postavě i komplikují život soupeřům.
+language: cs

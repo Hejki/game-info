@@ -1,0 +1,17 @@
+# Kopie: CZ, vydání pro 2–6 hráčů. Parametry a obtížnost: BGG export (2026-10-17).
+name: Milostný dopis
+bgg: 277085
+zh: milostny-dopis-edice-2019-9545
+age: 10+
+players: "2-6"
+playtime: "20"
+weight: 1.13
+color: "#463B26"
+description: |
+  **Milostný dopis** je krátká karetní hra s dedukcí a blafováním.
+  V tahu si k jediné kartě v ruce doberete druhou a jednu z nich
+  zahrajete. Schopnosti postav pomáhají odhalovat a vyřazovat soupeře.
+
+  Kolo vyhraje poslední zbývající hráč nebo držitel nejsilnější karty.
+  Cílem je získat potřebný počet přízně a doručit svůj dopis princezně.
+language: cs

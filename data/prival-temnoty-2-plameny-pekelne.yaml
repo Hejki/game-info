@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Příval temnoty 2: Plameny pekelné"
+bgg: 315610
+zh: prival-temnoty-2-plameny-pekelne-11845
+age: 14+
+players: "1-6"
+playtime: "60"
+weight: 2.78
+color: "#352E26"
+description: |
+  **Příval temnoty 2: Plameny pekelné** je kooperativní hra
+  o boji hrdinů proti hordám nestvůr. Procházíte podzemím,
+  sbíráte kořist a využíváte stínů i schopností svých povolání.
+
+  Jednotlivé třídy mají výrazně odlišné mechanismy.
+  Spoluprací a zlepšováním výbavy se snažíte splnit cíl zvoleného scénáře.
+language: cs

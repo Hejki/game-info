@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Cthulhu: I smrt může zemřít"
+bgg: 253344
+zh: cthulhu-i-smrt-muze-zemrit-8221
+age: 14+
+players: "1-5"
+playtime: "90-120"
+weight: 2.49
+color: "#101111"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/dmd-rulebook-web-cze.pdf
+  - type: video
+    title: Představení hry (CZ, Anathreius)
+    url: https://www.youtube.com/watch?v=DtIl1iUTJZo
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/cthulhu-i-smrt-muze-zemrit
+description: |
+  **Cthulhu: I smrt může zemřít** je kooperativní hororová hra se scénáři.
+  Jako vyšetřovatelé pronikáte do míst ovládaných kultisty, plníte úkoly
+  epizody a snažíte se narušit rituál vyvolávající Prastarého.
+
+  Šílenství vás posiluje, ale zároveň přibližuje záhubě. Musíte proto
+  spolupracovat a včas připravit podmínky k závěrečnému střetu s monstrem.
+language: cs

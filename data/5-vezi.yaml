@@ -57,3 +57,4 @@ description: |
   (je-li tedy nejvyšší věž zastřešena kartou č. 0, hráči získají po třech bodech za každou kartu v ní).
   Poté si odečtou body za zbouraná patra věží: za jednu kartu ztratí 1 bod, každá další karta potom stojí vždy
   o jeden trestný bod více. Hráč s nejvyšším celkovým počtem bodů se stává vítězem.
+language: cs

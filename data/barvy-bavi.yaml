@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Barvy baví
+bgg: 302520
+zh: barvy-bavi-10346
+age: 8+
+players: "3-10"
+playtime: "30"
+weight: 1.06
+color: "#3F372E"
+description: |
+  **Barvy baví** jsou párty hra o hledání správného barevného odstínu.
+  Napovídající si vybere jeden ze čtverečků na velké barevné škále
+  a slovními asociacemi se snaží ostatní dovést co nejblíže k němu.
+
+  Hádající umisťují své figurky na odhadovaná políčka.
+  Za přesné a blízké tipy získávají body oni i napovídající.
+language: cs

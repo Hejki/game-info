@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Mini Rogue
+bgg: 311715
+zh: mini-rogue-9167
+age: 14+
+players: "1-2"
+playtime: "30-45"
+weight: 2.02
+color: "#1F1E1B"
+description: |
+  **Mini Rogue** je kompaktní výprava do podzemí pro jednoho nebo dva hráče.
+  V jednotlivých patrech vybíráte cestu mezi místnostmi, bojujete
+  s nestvůrami, získáváte vybavení a hlídáte zdraví i zásoby jídla.
+
+  Kostky rozhodují o výsledcích střetů, ale volba cesty a hospodaření
+  se zdroji určují, zda se dostanete až k cíli v hlubinách.
+language: cs

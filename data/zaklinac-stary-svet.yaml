@@ -1,0 +1,17 @@
+# Kopie: CZ, Deluxe. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Zaklínač: Starý svět"
+bgg: 331106
+zh: zaklinac-stary-svet-11379
+age: 14+
+players: "1-5"
+playtime: "90-150"
+weight: 2.88
+color: "#2C2F31"
+description: |
+  **Zaklínač: Starý svět** je dobrodružná hra z doby před Geraltovými příběhy.
+  Jako zaklínač jedné ze škol cestujete po Kontinentu, trénujete,
+  získáváte vybavení a rozšiřujete balíček bojových karet.
+
+  V soubojích řetězíte karty do kombinací proti nestvůrám
+  i ostatním zaklínačům. Cílem je proslavit svou školu získáním trofejí.
+language: cs

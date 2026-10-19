@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Critical: Svatyně"
+bgg: 377506
+zh: critical-svatyne-15840
+age: 14+
+players: "2-5"
+playtime: "30"
+weight: 2.0
+color: "#2A2822"
+description: |
+  **Critical: Svatyně** je přístupné vyprávěcí RPG ve fantasy světě.
+  Jeden hráč vede dobrodružství jako vypravěč a ostatní představují hrdiny,
+  kteří společně prozkoumávají prostředí, rozhodují se a překonávají překážky.
+
+  Příběh je rozdělený do krátkých epizod a pravidla se představují postupně.
+  Úspěch nezávisí na soupeření mezi hráči, ale na jejich nápadech a spolupráci.
+language: cs

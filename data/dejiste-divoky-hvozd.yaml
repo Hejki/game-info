@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Dějiště: Divoký hvozd"
+bgg: 425505
+zh: dejiste-divoky-hvozd-17298
+age: 13+
+players: "1"
+playtime: "30-60"
+weight: 2.17
+color: "#132224"
+description: |
+  **Dějiště: Divoký hvozd** je sólová příběhová výprava dívky Lumy
+  a medvěda Broma do lesa pohlcovaného stínem. Kniha příběhů zároveň
+  slouží jako herní plán, na kterém léčíte nakažené tvory a překonáváte překážky.
+
+  Vybíráte akce z pohyblivé nabídky a přidělujete jim kostky.
+  Cílem je splnit úkol kapitoly dříve, než vás stín připraví o čas.
+language: cs

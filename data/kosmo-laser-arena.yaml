@@ -1,0 +1,21 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Kosmo Laser Aréna
+bgg: 400498
+zh: kosmo-laser-arena-19601
+age: 8+
+players: "1-4"
+playtime: "5-15"
+weight: 1.12
+color: "#402E47"
+links:
+  - type: other
+    title: Český popis hry a požadavku na aplikaci
+    url: https://www.tlamagames.com/deskove-hry/kosmo-laser-arena/
+description: |
+  **Kosmo Laser Aréna** je vesmírná bitva probíhající v reálném čase.
+  Během krátkého odpočtu všichni současně rozmísťujete a natáčíte
+  své lodě tak, aby jejich lasery mířily na soupeře a chránily vlastní flotilu.
+
+  **Ke hře potřebujete mobilní aplikaci:** po rozmístění vyfotíte arénu
+  a aplikace vyhodnotí průběh střelby i výsledné skóre.
+language: cs

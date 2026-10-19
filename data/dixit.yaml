@@ -1,0 +1,18 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Dixit
+bgg: 39856
+zh: dixit-856
+age: 8+
+# Vlastněná edice Libellud 2012 je pro 3–6, nikoli nové vydání pro 3–8.
+players: "3-6"
+playtime: "30"
+weight: 1.19
+color: "#4D3124"
+description: |
+  **Dixit** je hra s obrazovými asociacemi. Vypravěč vybere kartu
+  a naznačí její obsah slovem, větou nebo zvukem. Ostatní přidají své
+  obrázky, které nápovědě odpovídají, a pak hledají původní kartu.
+
+  Nápověda nesmí být příliš snadná ani úplně neprůhledná: vypravěč
+  nejlépe boduje, když jeho kartu pozná jen část spoluhráčů.
+language: cs

@@ -1,0 +1,28 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Poslední holka: Přehrávač"
+bgg: 277659
+zh: posledni-holka-prehravac-12803
+age: 14+
+players: "1"
+playtime: "20-60"
+weight: 2.76
+color: "#111111"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry a Fox in the Box)
+    url: https://www.rexhry.cz/storage/instructions/01KZ93FH5N356GTESK3N04E9X1.pdf
+  - type: video
+    title: Ukázka hry (CZ, Xzone)
+    url: https://www.youtube.com/watch?v=sF0ZDsBQKCE
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/posledni-holka-prehravac
+description: |
+  **Poslední holka: Přehrávač** je základní krabice sólové hororové hry.
+  Jako poslední přeživší zachraňujete oběti, prohledáváte prostředí
+  a připravujete se na střet s vrahem, jehož chování řídí herní karty.
+
+  Akční karty a hody kostkami určují, co během kola zvládnete.
+  **Přehrávač není samostatně hratelný:** potřebujete také alespoň
+  jednu krabici celovečerního filmu s vrahem, lokací a hrdinkami.
+language: cs

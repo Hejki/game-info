@@ -1,0 +1,25 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Dragon Eclipse
+bgg: 381247
+zh: dragon-eclipse-14384
+age: 14+
+players: "1-2"
+# ZH uvádí 90–180 minut; český vydavatel ALBI 90+.
+playtime: "90-180"
+weight: 2.7
+color: "#2F2834"
+links:
+  - type: video
+    title: Český videonávod (ALBI)
+    url: https://www.youtube.com/watch?v=Lsk5QMHxzn0
+  - type: other
+    title: Stránka českého vydavatele s pravidly a průvodcem první hrou
+    url: https://albi.cz/dragon-eclipse/
+description: |
+  **Dragon Eclipse** je příběhová fantasy výprava s tvory zvanými mystlingové.
+  Prozkoumáváte svět, navazujete s nimi pouta a sestavujete družinu,
+  jejíž schopnosti využíváte v taktických karetních soubojích.
+
+  Během kampaně rozvíjíte balíček, vyvíjíte své společníky
+  a rozhodnutími ovlivňujete další průběh dobrodružství.
+language: cs

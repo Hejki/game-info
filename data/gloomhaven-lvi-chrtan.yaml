@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Gloomhaven: Lví chřtán"
+bgg: 291457
+zh: gloomhaven-lvi-chrtan-10327
+age: 14+
+players: "1-4"
+playtime: "30-120"
+weight: 3.64
+color: "#3B2B21"
+links:
+  - type: rules
+    title: Český tutoriál prvních pěti scénářů (PDF, ALBI)
+    url: https://albi.cz/data/files/products/40134/1627864504-albi-gloomhaven-lvi-chrtan-tutorial.pdf
+  - type: rules
+    title: Český glosář pravidel (PDF, ALBI)
+    url: https://albi.cz/data/files/products/40134/1627864484-albi-gloomhaven-lvi-chrtan-glosar.pdf
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/gloomhaven-lvi-chrtan/
+description: |
+  **Gloomhaven: Lví chřtán** je samostatná kooperativní kampaň
+  pro čtveřici žoldnéřů. Procházíte příběhovými scénáři a v soubojích
+  vybíráte dvojice karet, jejichž akce určují pohyb, útoky i podporu družiny.
+
+  Úvodní scénáře postupně vysvětlují pravidla a mapy jsou přímo v knihách
+  scénářů. Původní Gloomhaven ke hraní nepotřebujete.
+language: cs

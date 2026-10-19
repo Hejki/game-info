@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Detektiv: Po stopách zločinu"
+bgg: 223321
+zh: detektiv-po-stopach-zlocinu-8124
+age: 16+
+players: "1-5"
+playtime: "120-180"
+weight: 2.74
+color: "#1D2831"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/det.rulebook.cze_.web_.pdf
+  - type: video
+    title: Videorecenze (CZ, GamesczTV)
+    url: https://www.youtube.com/watch?v=SfE1tfkZm4s
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/detektiv-po-stopach-zlocinu
+description: |
+  **Detektiv: Po stopách zločinu** je kooperativní vyšetřovací hra.
+  Jako tým pracujete na propojených případech, sledujete stopy, vyslýcháte
+  svědky a porovnáváte důkazy v internetové databázi Antares.
+
+  Každý úkon spotřebovává čas, takže nelze prověřit všechno.
+  Musíte společně vybrat nejslibnější směr a na závěr obhájit své závěry.
+language: cs

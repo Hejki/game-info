@@ -1,0 +1,26 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Excalibur
+bgg: 434172
+zh: excalibur-20569
+age: 14+
+players: "2-8"
+playtime: "15-25"
+weight: 1.28
+color: "#464746"
+links:
+  - type: rules
+    title: Anglická pravidla a přehled schopností (PDF, Roxley)
+    url: https://cdn.shopify.com/s/files/1/0246/2190/8043/files/Excalibur_Rulebook.pdf?v=1769616674
+  - type: other
+    title: Stránka vydavatele (Collector's Edition)
+    url: https://roxley.com/products/excalibur
+description: |
+  **Excalibur** je párty hra s blafováním, pamětí a skrytým přesouváním žetonů.
+  Z oblastí Avalonu současně dobíráte žetony postav, odhalujete je
+  a využíváte jejich účinky k hledání a udržení legendárního meče.
+
+  Partie končí vyčerpáním jedné z oblastí. Vyhrát může jen držitel
+  Excaliburu; pokud jej nemá nikdo, prohrají všichni.
+
+  Kopie hry je v angličtině.
+language: en

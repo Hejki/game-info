@@ -1,0 +1,22 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Rodozář: Pohrdova pevnost"
+bgg: 404538
+zh: rodozar-pohrdova-pevnost-16699
+age: 14+
+players: "1-2"
+playtime: "60"
+weight: 2.13
+color: "#1F1920"
+links:
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/rodozar-pohrdova-pevnost/
+description: |
+  **Rodozář: Pohrdova pevnost** je samostatná kooperativní karetní výprava
+  za Pánem magické Studny. Zahráváním dovedností, podporou spoluhráče
+  a hody kostkami plníte výzvy a probojováváte se k závěrečnému střetu.
+
+  Sada představuje barda Feyna a orčí taktičku Naz.
+  Musíte hospodařit se společným zdravím i kartami v rukách;
+  propojením s další sadou Rodozáře lze hrát až ve čtyřech.
+language: cs

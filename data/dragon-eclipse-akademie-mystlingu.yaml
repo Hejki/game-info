@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Dragon Eclipse: Akademie mystlingů – Peare vs Arboro"
+bgg: 446426
+zh: dragon-eclipse-akademie-mystlingu-20645
+age: 14+
+players: "1-2"
+playtime: "30"
+weight: 2.0
+color: "#42392C"
+links:
+  - type: rules
+    title: Český průvodce první hrou (PDF, ALBI)
+    url: https://albi.cz/data/files/products/60848/1773991174-albi-dragon-eclipse_akademie-mystlingu-pruvodce-hrou.pdf
+  - type: video
+    title: Český videonávod (ALBI)
+    url: https://www.youtube.com/watch?v=-GjHIQERYcs
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/dragon-eclipse-akademie-mystlingu/
+description: |
+  **Dragon Eclipse: Akademie mystlingů – Peare vs Arboro** je samostatná
+  karetní hra ze světa Dragon Eclipse. V souboji využíváte schopnosti
+  mystlingů a kombinace karet, kterými útočíte, bráníte se a chystáte další tahy.
+
+  Tato sada představuje dvojici Peare a Arboro. Základní kampaňovou hru
+  Dragon Eclipse ke hraní nepotřebujete.
+language: cs

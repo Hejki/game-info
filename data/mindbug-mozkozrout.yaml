@@ -1,0 +1,28 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Mindbug: Mozkožrout"
+bgg: 345584
+zh: mozkozrout-12630
+age: 8+
+players: "2"
+playtime: "15-25"
+weight: 1.93
+color: "#474239"
+links:
+  - type: rules
+    title: Společná česká pravidla Mindbug (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/mb.rulebook.v3.cze_.web_.pdf
+  - type: video
+    title: Představení hry (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=dhFjs7URWwo
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/mozkozrout
+description: |
+  **Mindbug: Mozkožrout** je karetní souboj bizarních tvorů.
+  Vykládáte nestvůry s různými schopnostmi a útočíte na soupeře,
+  ale kterýkoli nový tvor může být převzat nepřátelským mozkožroutem.
+
+  Každý hráč může tuto možnost použít jen omezeně.
+  Důležité je soupeře vyprovokovat, správně načasovat nejsilnější karty
+  a jako první připravit protivníka o všechny životy.
+language: cs

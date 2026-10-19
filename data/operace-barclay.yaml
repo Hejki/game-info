@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Operace Barclay
+bgg: 404923
+zh: operace-barclay-17632
+age: 14+
+players: "2"
+playtime: "25-40"
+weight: 2.14
+color: "#533922"
+description: |
+  **Operace Barclay** je asymetrický duel zpravodajských služeb
+  za druhé světové války. Jedna strana se snaží prosadit klamnou operaci,
+  druhá oddělit falešné informace od skutečných plánů.
+
+  Pomocí karet budujete důvěryhodnost zpráv, odhadujete soupeřovy úmysly
+  a rozhodujete, kterým stopám věnovat omezenou pozornost.
+language: cs

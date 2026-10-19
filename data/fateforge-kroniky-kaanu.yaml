@@ -1,0 +1,27 @@
+# Kopie: CZ. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Fateforge: Kroniky Kaanu"
+bgg: 363625
+zh: fateforge-kroniky-kaanu-17136
+players: "1-4"
+playtime: "60"
+age: 14+
+weight: 2.77
+color: "#3C5142"
+description: |
+  **Fateforge: Kroniky Kaanu** je kooperativní fantasy kampaň řízená aplikací.
+  Jako družina hrdinů prozkoumáváte město Easafir, rozhodujete o dalším
+  směřování příběhu a střetáváte se s nepřáteli na modulární mapě.
+
+  V soubojích kombinujete výsledky kostek se schopnostmi postav.
+  Mezi výpravami se učíte nové dovednosti a získáváte vybavení.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01KJ3M2V2FVPV9JF9WVJTJR4CA.pdf
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/fateforge-kroniky-kaanu
+  - type: video
+    title: Představení příběhové hry (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=NqrvBWWm3Ew
+language: cs

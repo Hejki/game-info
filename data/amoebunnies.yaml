@@ -1,0 +1,370 @@
+# Kopie: EN. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Amoebunnies
+bgg: 386219
+players: "2-6"
+playtime: "45-60"
+age: 10+
+weight: 2.2
+color: "#553C69"
+# Český přehled pravidel a postav podle PDF dodaného uživatelem (2026-10-18).
+description: |
+  **Amoebunnies** jsou soutěživá hra s barevnými králičími měňavkami.
+  Každá postava má vlastní schopnosti a odlišný cíl, takže při plánování
+  musíte sledovat nejen svůj postup, ale i záměry soupeřů.
+
+  Vyhrává hráč, který jako první splní úkol své postavy. Kopie je v angličtině.
+
+  ## Obecná pravidla
+
+  ### Příprava hry
+
+  1. Umístěte herní desku doprostřed stolu.
+  2. Odděleně zamíchejte balíček barevných karet a balíček karet míst.
+  3. Žetony želé dejte do společné zásoby uprostřed desky.
+  4. Každý hráč si dobere **3 barevné karty** a počáteční želé podle tabulky.
+  5. Dokončete přípravu podle pravidel své postavy.
+
+  | Pořadí hráče | 2 hráči | 3 hráči | 4 hráči | 5 hráčů | 6 hráčů |
+  | --- | --- | --- | --- | --- | --- |
+  | 1. | 1 | 1 | 1 | 0 | 0 |
+  | 2. | 2 | 1 | 1 | 1 | 0 |
+  | 3. | — | 2 | 2 | 1 | 1 |
+  | 4. | — | — | 2 | 2 | 1 |
+  | 5. | — | — | — | 2 | 2 |
+  | 6. | — | — | — | — | 2 |
+
+  ### Průběh tahu
+
+  - Akce prováděj pouze ve svém tahu.
+  - Počet akcí není omezený, pokud pravidla postavy neurčují jinak.
+  - Akce můžeš libovolně střídat s pohybem, s výjimkou výslovně uvedených omezení.
+  - Na konci tahu si dober **1 barevnou kartu**, pokud postava neurčuje jinak.
+  - Pravidla postavy mají při rozporu **přednost před obecnými pravidly**.
+
+  ### Barevné karty a karty míst
+
+  **Barevné karty** jsou hlavním zdrojem hráčů. Každá má dvě barevné poloviny,
+  které odpovídají barvám polí nebo cest na desce. Počet karet v ruce není omezený.
+  Když dobírací balíček dojde, zamíchejte odhozené karty a vytvořte nový.
+
+  **Karty míst (Location Cards)** náhodně určují konkrétní pole na desce.
+  Používají se při přípravě i při vyhodnocování některých schopností.
+
+  ### Želé a pohyb
+
+  Každá postava má vlastní pravidla pohybu. Všichni navíc mohou utratit
+  **1 želé za pohyb o 1 sousední pole libovolným směrem**. Tento krok
+  se nezapočítává do pohybového limitu postavy.
+
+  Želé může také zastoupit **libovolnou barvu**. Nelze jím však nahradit
+  předání karty z ruky, pokud je karta výslovně požadována — například
+  za Camův Blok, otevření dárku Sarı nebo použití tunelu Violet.
+  Další výjimky uvádějí pravidla postav.
+
+  **Jak získat želé:**
+
+  - Zahraj kartu s ikonou želé.
+  - Zahraj karty obsahující dohromady **3 výskyty stejné barvy**;
+    mohou to být dvě nebo tři karty.
+
+  Počet želé není omezený. Pokud společná zásoba dojde, použijte náhradní žetony.
+
+  ### Barvy a zóny
+
+  | Barva | Symbol pole | Zóna | Postava |
+  | --- | --- | --- | --- |
+  | Červená | Květ | Flower Field | Roy |
+  | Oranžová | Mrkev | Carrot Farm | Cam |
+  | Žlutá | Plástev | Honeycomb Hill | Sarı |
+  | Zelená | List | Leaf Forest | Midori |
+  | Modrá | Mušle | Shell Lake | Sunil |
+  | Fialová | Kámen | Rock Mountain | Violet |
+
+  ## Postavy základní hry
+
+  Hvězdičky označují obtížnost jednotlivých postav podle dodaného přehledu,
+  nikoli celkovou obtížnost hry na BGG. Každá postava začíná se 3 barevnými
+  kartami a želé podle obecné tabulky; další příprava je uvedena níže.
+
+  ### Cam — ★☆☆☆☆
+
+  **Cíl:** Spoj všech 12 svých figurek do jediného stohu na jednom poli.
+
+  **Příprava:** Rozmísti 12 figurek po jedné na označená pole. Na desku postavy
+  připrav 4 žetony fleků a ukazatel velikosti nastav na pohyb 2.
+
+  **Pohyb:** Na začátku tahu urči pohybový limit podle svého největšího stohu.
+  Pohyby můžeš rozdělit mezi více stohů a pohybovat se libovolným směrem.
+
+  | Největší stoh | 1 | 2–3 | 4–5 | 6–7 | 8 a více |
+  | --- | --- | --- | --- | --- | --- |
+  | Pohybové body | 2 | 3 | 4 | 5 | 6 |
+
+  **Sloučení:** Vstup na pole s jiným vlastním stohem stojí 1 pohybový bod
+  a kartu odpovídající barvě cesty mezi stohy. Sloučený stoh už nelze rozdělit.
+
+  **Schopnosti:**
+
+  - **Blok:** Pole se stohem alespoň 4 figurek blokuje ostatní hráče.
+    Pro vstup ti musí dát barevnou kartu z ruky. Pokud ji nedají,
+    vrátí se na předchozí pole a pohybový bod je spotřebován.
+  - **Flek:** Jednou za tah, bezprostředně po sloučení, polož flek na libovolnou
+    cestu stejné barvy jako cesta použitá ke sloučení. Kdykoli po ní přejde
+    jiný hráč, dober si barevnou kartu. Na jedné cestě smí být jen jeden flek.
+    Pokud už nemáš volný žeton, přemísti některý z desky.
+
+  ### Roy — ★★★☆☆
+
+  **Cíl:** Najdi 6 květin a každou doruč odpovídajícímu zvířeti.
+
+  **Příprava:** Počáteční pole figurky urči kartou místa. Na označená pole
+  rozmísti 12 žetonů květin lícem dolů.
+
+  **Pohyb:** Až 5 polí za tah libovolným směrem; po získání Rychlého doručení 6.
+
+  **Akce:** Na svém poli odhal žeton zahráním karty barvy pole.
+  Můžeš zvednout nalezený posilující žeton, vzít květinu nebo ji položit.
+  Najednou smíš přenášet **nejvýše jednu květinu**. Doruč ji na pole
+  odpovídajícího zvířete.
+
+  **Schopnosti:**
+
+  - **Síť:** Za 1 pohybový bod se přesuň z pole ptáka, včely nebo motýla
+    na druhé pole stejného zvířete na opačné straně desky. Dostupné od začátku.
+  - **Rychlé doručení:** Po nalezení příslušného žetonu zvyš pohybový limit
+    na 6. Vyšší limit můžeš využít už v tahu, kdy žeton získáš.
+  - **Nahlédnutí:** Po nalezení příslušného žetonu se jednou za tah podívej
+    na skrytou stranu libovolného svého žetonu květiny. Veřejně jej neodhaluj.
+  - **Vyjednávání:** Po nalezení příslušného žetonu můžeš jednou za tah na poli
+    s jiným hráčem předat tomuto hráči kartu a vzít si od něj želé.
+    Pokud žádné nemá, vezmi si je ze zásoby.
+
+  ### Midori — ★★★★☆
+
+  **Cíl:** Procházením všech šesti barev cest postupně odhal a seber všechny 3 duhy.
+
+  **Příprava:** Figurku a 3 žetony duh rozmísti pomocí karet míst; duhy polož
+  barevnou stranou dolů. Na desku postavy připrav 6 žetonů cest vybledlou
+  stranou nahoru a 3 žetony zarůstání.
+
+  **Pohyb:** Zahraj barevnou kartu a přejdi cestu odpovídající jedné z jejích
+  barev, případně dvě navazující cesty odpovídající oběma barvám.
+  Mezi těmito dvěma kroky nesmíš provádět jiné akce.
+
+  Při přechodu cesty otoč odpovídající žeton cesty na barevnou stranu.
+  Jakmile máš všech 6 barev, obarvi libovolnou dosud vybledlou duhu na desce
+  a své žetony cest vrať na vybledlou stranu. Obarvenou duhu seber,
+  když stojíš na jejím poli; kartu k tomu nepotřebuješ.
+
+  **Schopnosti:**
+
+  - **Zarůstání:** Jednou za tah zahraj kartu a polož žeton zarůstání
+    na neobsazenou cestu odpovídající barvy. K jednomu poli smí vést nejvýše
+    jedna zarostlá cesta. Ty ji používat můžeš, ostatní ne. Sousedící hráč
+    ji může vyčistit předáním želé; žeton zarůstání se ti vrátí.
+  - **Obnova:** Jednou za tah, pokud nemáš žádnou barevnou kartu,
+    dober 2 barevné karty.
+  - **Let:** Utrať želé a přesuň se na libovolné pole. Při letu se žetony cest neotáčejí.
+  - **Zlatý klam:** Jednou za tah můžeš místo požadované karty z ruky
+    předat jinému hráči vrchní kartu barevného balíčku.
+
+  ### Sarı — ★★☆☆☆
+
+  **Cíl:** Umísti všech 14 dárků ze své desky na herní desku.
+
+  **Příprava:** Počáteční pole figurky a místa pro 4 úkryty urči kartami míst.
+  Na desku postavy připrav 14 dárků a vedle ní zamíchaný balíček dárků.
+
+  **Pohyb:** Za barevnou kartu přejdi na sousední pole, jehož barva nebo
+  barva vedoucí cesty odpovídá kartě. Každá karta umožňuje právě jeden krok;
+  počet zahraných karet není omezený.
+
+  **Dárky:** Na poli s úkrytem polož dárek bez placení kartou.
+  Poté úkryt přesuň podle karty místa; pokud je určené místo obsazené,
+  táhni další kartu. Jiný hráč na poli s dárkem ti může předat barevnou kartu,
+  dárek otevřít a dobrat si kartu z balíčku dárků.
+
+  **Schopnosti:**
+
+  - **Kámoši:** Jednou za tah se ze sousedního pole jiného hráče přesuň
+    přímo na jeho pole bez placení kartou nebo želé.
+  - **Schovej a hledej:** Zahraj dvě karty stejné barvy a přesuň se přímo
+    na pole této barvy u centrálního bazénu želé. Podle dodaného přehledu
+    se dvojbarevná karta při této schopnosti počítá jako dvě.
+  - **Odměň se:** Když položením dárku odkryješ na desce postavy ikonu dárku,
+    dober si kartu z balíčku dárků.
+  - **Předtucha:** Na konci tahu dober 2 barevné karty místo obvyklé jedné.
+
+  ### Sunil — ★★★★★
+
+  **Cíl:** Odhal všech 6 pigmentů a umísti je na svou paletu.
+
+  **Příprava:** Figurku a 9 žetonů palety rozmísti kartami míst; žetony polož
+  barevnou stranou dolů. Na desku postavy připrav 2 provázky a žeton Zaměř se.
+  Doprostřed herní desky umísti Umělecké vedení stranou štětce nahoru.
+
+  **Pohyb:** Až dvakrát za tah hoď pohybovou kostkou a ihned vyhodnoť výsledek.
+  Pokud barva odpovídá sousední cestě, přejdi ji; pokud taková cesta není,
+  dober kartu. Duha nebo barva cesty s provázkem umožňuje krok libovolným směrem.
+  Dodatečný pohyb z karet či želé se do těchto dvou hodů nepočítá.
+
+  Po každém přechodu cesty na ni polož provázek ze své desky.
+  Pokud už na desce žádný není, přemísti nejvzdálenější provázek.
+  Při přímém přesunu bez cesty, například tunelem Violet nebo schopností
+  Zaměř se, vrať oba provázky na desku postavy.
+
+  **Odhalení pigmentu:** Na poli s žetonem palety zahraj kartu barvy pole a žeton odhal.
+
+  **Schopnosti:**
+
+  - **Vzpomeň si:** Přejdi cestu s provázkem jako volný pohyb a vrať provázek
+    na desku postavy. Lze opakovat, ale ne v tahu, kdy použiješ Plánování dopředu.
+  - **Plánování dopředu:** Máš-li oba provázky na desce postavy, polož jeden
+    na sousední cestu. Její barva se při hodu považuje za divoký výsledek.
+    V tomto tahu už nesmíš použít Vzpomeň si.
+  - **Zaměř se:** Jednou za hru vyhlaš zónu a hoď kostkou navíc.
+    Přesuň se na pole hozené barvy v této zóně; duha dovoluje libovolné pole v ní.
+    Žeton poté vyřaď.
+  - **Umělecké vedení:** Je-li nahoře štětec, jiný hráč ti může dát kartu
+    a použít ji jako jinou barvu; žeton otoč na ukazatel. Ve svém tahu pak
+    můžeš využít ukazatel k jednomu volnému kroku a otočit jej zpět na štětec.
+
+  ### Violet — ★★★★☆
+
+  **Cíl:** Sesbírej všech 6 vzorků a proveď alespoň 6 měření detektorem částic.
+
+  **Příprava:** Figurku a částici rozmísti kartami míst. Na desku postavy
+  připrav 6 vzorků barevnou stranou dolů, 4 tunely a detektor na hodnotě 0.
+
+  **Pohyb:** Na začátku tahu hoď pohybovou kostkou. Můžeš se přesunout až
+  o hozený počet polí libovolným směrem. Průchod tunelem pohybové body nestojí.
+
+  **Odběr vzorku:** Na poli s částicí zahraj kartu barvy pole.
+  Otoč a odhoď vrchní barevnou kartu a obarvi odpovídající vzorky na své desce.
+  Posuň detektor o 1, nejvýše na 6. I po dosažení šestky dál dobíráš kartu
+  a odhaluješ vzorky. Nakonec přesuň částici podle nové karty místa.
+  Vyhráváš, jakmile máš všech 6 vzorků a detektor na 6.
+
+  **Schopnosti:**
+
+  - **Tunel:** Zahraj kartu barvy svého pole a umísti tunel na své pole
+    a na jiné pole stejné barvy. Na poli smí být jen jeden tunel a nelze jej
+    přemísťovat. Mezi libovolnými tunely mohou cestovat všichni;
+    ostatní hráči ti za použití musí dát kartu z ruky.
+  - **Syntéza:** Utrať 2 pohybové body z hodu kostkou a vezmi si želé ze zásoby.
+  - **Magnetizace:** Ze sousedního pole částice utrať 2 pohybové body z hodu
+    a přitáhni částici na své pole. Funguje i přes zarostlou cestu Midori.
+
+  ## Postavy rozšíření Bunny Buddies
+
+  Následující tři postavy pocházejí z rozšíření. Jejich přehled je součástí
+  dodaného PDF; nejsou tím přidávány do obsahu základní krabice.
+
+  ### Melaina a odpadlíci — ★★★★☆
+
+  **Cíl:** Rozmísti 12 plakátů a pak shromáždi všechny 4 členy kapely
+  na polích kolem centrálního bazénu želé.
+
+  **Příprava:** Čtyři figurky kapely umísti na žlutá a fialová pole druhého kruhu.
+  Na desku postavy připrav 12 plakátů, 12 žetonů fanoušků a 6 aktivních
+  pohybových žetonů.
+
+  **Pohyb:** Na začátku tahu obnov všech 6 pohybových žetonů.
+  Otočením jednoho na použitou stranu přesuň libovolného člena kapely
+  přes cestu dané barvy. Pohyby můžeš libovolně rozdělit mezi členy.
+
+  **Plakáty:** Zahraj kartu odpovídající barvě pole i zóny, kde člen kapely stojí;
+  želé zde použít nelze. Na poli smí být nejvýše 1 plakát a v každé zóně
+  musíš umístit přesně 2. Když jiný hráč projde polem s neporušeným plakátem,
+  získá fanouška a plakát otočí na potrhanou stranu.
+
+  **Schopnosti:**
+
+  - **Fanoušek č. 1:** Jednou za tah dej kartu hráči s nejvíce fanoušky.
+    Ten všechny své fanoušky zahodí a ty získáš želé ze zásoby.
+    Při shodě si hráče vybereš.
+  - **Bedňáci:** Otoč 3 nepoužité pohybové žetony na použitou stranu a dober kartu.
+  - **Úspěšný singl:** Utrať želé a dober kartu.
+  - **Přídavek:** Otoč nepoužitý pohybový žeton a zahraj kartu jeho barvy;
+    poté dober kartu.
+  - **Džemování:** Na konci tahu dober do 3 barevných karet.
+    Máš-li už alespoň 3, nedobírej ani přebytečné karty neodhazuj.
+
+  ### Bruno — ★★★☆☆
+
+  **Cíl:** Poraz všech 5 vetřelců z Duhových mlh.
+
+  **Příprava:** Figurku i 5 zdravých brouků rozmísti kartami míst.
+  Na desku postavy připrav 4 akční žetony a 3 plné žetony zdraví.
+
+  **Akce:** Na začátku tahu rozděl akční žetony mezi **pohyb, boj a léčení**.
+  Utracené žetony už nelze přesunout jinam.
+
+  - **Pohyb:** Za pohybový žeton přejdi na sousední pole nebo na pole
+    stejné barvy v sousední zóně.
+  - **Boj:** Na poli s broukem utrať bojový žeton a hoď oběma kostkami.
+    Bruno používá hnědou, brouk zelenou. Nejprve brouk zraní Bruna za své
+    zásahy snížené o Brunovy bloky; potom Bruno zraní brouka za své zásahy
+    snížené o broukovy bloky. Zdravý brouk po jednom zranění otočí žeton
+    a uteče podle karty místa. Zraněný brouk nebo brouk zasažený za 2 je poražen.
+  - **Léčení:** Za léčebný žeton obnov 1 zdraví.
+
+  Pokud nemáš žádné zdraví, **ustup**: přesuň se podle karty místa,
+  obnov všechno zdraví a okamžitě ukonči tah.
+
+  **Schopnosti:**
+
+  - **Všestrannost:** Zahraná barevná karta poskytne efekt podle barvy:
+
+    | Barva | Efekt |
+    | --- | --- |
+    | Červená | Získej bojový žeton. |
+    | Žlutá | Získej léčebný žeton. |
+    | Zelená | Získej pohybový žeton. |
+    | Modrá | Přesuň nevyužitý akční žeton do jiné oblasti. |
+    | Oranžová | Neguj 1 blok brouka při hodu. |
+    | Fialová | Ustup: přesuň se podle karty místa a obnov všechno zdraví. |
+
+  - **Trénink:** Jednou za tah na poli s jiným hráčem oba hoďte kostkami.
+    Hráč s více zásahy si dobere barevnou kartu; při shodě nikdo.
+    Bojový žeton není potřeba.
+  - **Past:** Po tažení karty místa pro prchajícího brouka můžeš utratit
+    želé, přesun zrušit a nechat brouka na místě.
+
+  ### Jin — ★★★☆☆
+
+  **Cíl:** Plně nabij světlušku postupem přes všechna pole sledovače nabití.
+
+  **Příprava:** Figurku a světlušku rozmísti kartami míst. Připrav 4 aktivní
+  žetony schopností a oba ukazatele — energie i nabití — nastav na 0.
+
+  **Pohyb:** Až 2 pole za tah libovolným směrem; další přesuny umožňují schopnosti.
+
+  **Energie:** Zahraj kartu barvy svého pole a získej 1 energii, nejvýše 2.
+  Na stejném poli můžeš energii získat jen jednou za tah.
+
+  **Vybíjení:** Na poli se světluškou přenes všechnu energii.
+  Za každou jednotku táhni kartu místa a posuň nabití na další pole dané barvy.
+  Poté nastav energii na 0 a přesuň světlušku podle nové karty místa.
+
+  **Schopnosti:** Za tah použij nejvýše 2 schopnosti. Použitý žeton otoč;
+  na začátku svého tahu obnov všechny žetony, které máš pod kontrolou.
+
+  - **Rozvětvený blesk:** Otoč a odhoď vrchní barevnou kartu a přesuň se na pole,
+    jehož barva a barva zóny odpovídají jejím dvěma barvám.
+    Při výsledku želé se přesuň na libovolné pole.
+  - **Zapletená dvojice:** Vyměň si místo s jiným hráčem a dej mu žeton schopnosti.
+    Ten jej může ve svém tahu vrátit a znovu si s tebou vyměnit místo,
+    nebo si žeton ponechat.
+  - **Přelet:** Přesuň světlušku o 1 pole libovolným směrem.
+    Světluška ignoruje všechny žetony i překážky.
+  - **Zpětná vazba:** Bezprostředně po vybíjení dober 1 barevnou kartu,
+    bez ohledu na množství přenesené energie.
+links:
+  - type: rules
+    title: Anglická pravidla (PDF, Wrong Cauldron)
+    url: https://www.amoebunnies.com/files/RuleProofs/amo_book.pdf
+  - type: other
+    title: Oficiální stránka hry
+    url: https://www.amoebunnies.com/
+language: en

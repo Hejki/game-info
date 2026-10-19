@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Kočkombat
+bgg: 402126
+zh: kockombat-16404
+age: 8+
+players: "2"
+playtime: "15"
+weight: 1.52
+color: "#514E52"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/pocket-cats-web.pdf
+  - type: video
+    title: Představení hry (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=s8LYAbB59Qw
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/kockombat/
+description: |
+  **Kočkombat** je taktická hra dvou kočičích klanů na mřížce destiček.
+  Ve svém tahu odhalíte destičku a vyměníte ji s jinou podle jejího typu.
+  Tím přesouváte kočky, kořist i psy a postupně měníte situaci na plánu.
+
+  Na konci psi zaženou ohrožené kočky a zbývající klany si rozdělí
+  body za sousedící kořist. Vyhrává nejúspěšnější lovec.
+language: cs

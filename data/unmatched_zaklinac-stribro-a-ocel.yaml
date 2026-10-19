@@ -1,0 +1,28 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Unmatched: Zaklínač – Stříbro a ocel"
+bgg: 411860
+zh: unmatched-zaklinac-stribro-a-ocel-17415
+# Věk podle českého vydavatele ALBI (ZH uvádí 9+).
+age: 10+
+players: "2-3"
+playtime: "20-40"
+weight: 2.29
+color: "#313634"
+links:
+  - type: rules
+    title: Základní česká pravidla Unmatched (PDF, ALBI)
+    url: https://albi.cz/data/files/products/58426/1753164677-albi-unmatched-zakladni-pravidla-hry.pdf
+  - type: rules
+    title: Speciální pravidla sady Stříbro a ocel (CZ, PDF, ALBI)
+    url: https://albi.cz/data/files/products/58426/1753164682-albi-unmatched-zaklinac_stribro-a-ocel-pravidla-hry.pdf
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/unmatched-zaklinac-stribro-a-ocel/
+description: |
+  **Unmatched: Zaklínač – Stříbro a ocel** přivádí do karetních soubojů
+  Geralta, Ciri a Prastarého Lešije. Každý má vlastní balíček a schopnosti,
+  které určují jeho pohyb, styl útoku a práci s pomocníky.
+
+  Rozhoduje správná pozice na mapě i odhad soupeřových karet.
+  Jde o samostatnou sadu kombinovatelnou s dalšími hrami Unmatched.
+language: cs

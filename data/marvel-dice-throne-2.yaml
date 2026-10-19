@@ -1,0 +1,26 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Marvel Dice Throne: Sada 2"
+bgg: 418801
+age: 8+
+players: "2-4"
+playtime: "20-40"
+weight: 2.63
+color: "#4A314C"
+links:
+  - type: rules
+    title: Společná česká pravidla Marvel Dice Throne (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/marvel_dice_throne_rulebook_-_v1.1_-_2022.07.22_cz.pdf
+  - type: video
+    title: Představení Marvel Dice Throne (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=u0tGWpzQc40
+  - type: other
+    title: Stránka českého vydavatele – Sada 2
+    url: https://www.rexhry.cz/produkt/marvel-dice-throne-sada-2
+description: |
+  **Marvel Dice Throne** je souboj superhrdinů s kostkami a kartami.
+  Přehazováním kostek sestavujete kombinace pro útoky a schopnosti,
+  zatímco kartami vylepšujete svého hrdinu a upravujete průběh souboje.
+
+  Tato samostatná sada obsahuje Captain Marvel, Black Panthera,
+  Doctora Strange a Black Widow, každého s vlastními herními mechanismy.
+language: cs

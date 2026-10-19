@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Mindbug: Za hranice evoluce"
+bgg: 390173
+zh: mozkozrout-za-hranice-evoluce-15038
+age: 8+
+players: "2"
+playtime: "15-25"
+weight: 2.06
+color: "#2C353A"
+links:
+  - type: rules
+    title: Společná česká pravidla Mindbug (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/mb.rulebook.v3.cze_.web_.pdf
+  - type: video
+    title: Představení sady Za hranice evoluce (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=nbJ-riFq-uk
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/mozkozrout-za-hranice-evoluce
+description: |
+  **Mindbug: Za hranice evoluce** je samostatná sada karetního duelu.
+  Nová stvoření se mohou vyvíjet do silnějších podob a aktivní schopnosti
+  otevírají další možnosti přípravy útoku.
+
+  Nad každým vyložením stále visí hrozba převzetí nepřátelským mozkožroutem.
+  Sadu lze hrát samostatně nebo kombinovat s dalšími hrami Mindbug.
+language: cs

@@ -1,0 +1,22 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Rodozář: Marnivostina síň"
+bgg: 391795
+zh: rodozar-marnivostina-sin-16700
+age: 14+
+players: "1-2"
+playtime: "60"
+weight: 2.14
+color: "#181F20"
+links:
+  - type: other
+    title: Stránka českého vydavatele s videonávodem
+    url: https://www.old-dawg.cz/rodozar-marnivostina-sin/
+description: |
+  **Rodozář: Marnivostina síň** je kooperativní karetní hra,
+  ve které zdoláváte výzvy magické Studny. Karty dovedností doplňujete
+  hody kostkami a spoluhráč může váš pokus podpořit vlastními kartami.
+
+  Cílem je projít balíčkem Studny a porazit její paní Marnivost.
+  Sada obsahuje lupičku Ashu a obrněného Khora a funguje samostatně;
+  ve spojení s další sadou podporuje až čtyři hráče.
+language: cs

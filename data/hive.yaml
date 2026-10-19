@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Hive
+bgg: 2655
+zh: hive-191
+age: 9+
+players: "2"
+playtime: "20"
+weight: 2.31
+color: "#615F5A"
+description: |
+  **Hive** je abstraktní souboj dvou hmyzích rojů bez herního plánu.
+  Přikládáte šestihranné kameny a pohybujete jimi podle schopností
+  jednotlivých druhů hmyzu. Všechny kameny musí zůstat propojené v jednom roji.
+
+  Cílem je ze všech stran obklíčit soupeřovu královnu
+  a současně zabránit obklíčení té vlastní.
+language: cs

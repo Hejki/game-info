@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Zachraňte příšerky!
+bgg: 282131
+zh: zachrante-priserky-9559
+age: 8+
+players: "2-5"
+playtime: "20-40"
+weight: 1.5
+color: "#403F3B"
+description: |
+  **Zachraňte příšerky!** jsou rodinná hra o péči o opuštěné příšerčí mládě.
+  Každý hráč se stará o vlastní příšerku a vybírá pro ni dílky,
+  které zlepšují její zdraví, spokojenost a životní podmínky.
+
+  Za dílky platíte časem: silnější odměna může znamenat delší čekání
+  na další tah. Vyhrává chovatel, jehož příšerce se na konci daří nejlépe.
+language: cs

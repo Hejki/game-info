@@ -1,0 +1,19 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Pekelná jízda: Vendeta – Maximální chróm"
+bgg: 355997
+zh: pekelna-jizda-vendeta-maximalni-chrom-14545
+age: 10+
+# Souborná edice Maximální chróm obsahuje i rozšíření pro šestého hráče.
+players: "2-6"
+playtime: "45-75"
+weight: 2.32
+color: "#302024"
+description: |
+  **Pekelná jízda: Vendeta – Maximální chróm** je zběsilý závod
+  ozbrojených vozidel v postapokalyptické pustině.
+  Kostkami řídíte pohyb, střílíte po soupeřích a snažíte se přežít
+  nárazy, nebezpečný terén i provoz na silnici.
+
+  Každý hráč ovládá několik vozidel s odlišnými vlastnostmi.
+  Cílem je dostat alespoň jedno z nich přes cílovou čáru jako první.
+language: cs

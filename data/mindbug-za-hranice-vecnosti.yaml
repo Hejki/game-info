@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Mindbug: Za hranice věčnosti"
+bgg: 392513
+zh: mozkozrout-za-hranice-vecnosti-15054
+age: 8+
+players: "2"
+playtime: "15-25"
+weight: 2.17
+color: "#3D3439"
+links:
+  - type: rules
+    title: Společná česká pravidla Mindbug (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/mb.rulebook.v3.cze_.web_.pdf
+  - type: video
+    title: Představení sad Za hranice evoluce a věčnosti (CZ, Kubrt vs Anet)
+    url: https://www.youtube.com/watch?v=02o3beVQWls
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/mozkozrout-za-hranice-vecnosti
+description: |
+  **Mindbug: Za hranice věčnosti** je samostatná sada karetní hry
+  s přebíráním soupeřových stvoření. Tentokrát dokážete využívat
+  i karty v odhazovacím balíčku a proměňovat je v další zdroje síly.
+
+  Volba správného okamžiku pro útok i převzetí nestvůry rozhoduje o výhře.
+  Sada funguje samostatně i v kombinaci s dalšími hrami Mindbug.
+language: cs

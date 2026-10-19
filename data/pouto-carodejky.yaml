@@ -1,0 +1,28 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Pouto čarodějky
+bgg: 364544
+zh: pouto-carodejky-14597
+age: 14+
+players: "1-2"
+playtime: "90"
+weight: 1.42
+color: "#4F4852"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/Witchbound-Rulebook-cz-web.pdf
+  - type: video
+    title: Představení / preview (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=nL1TdEIZlYg
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/pouto-carodejky/
+description: |
+  **Pouto čarodějky** je příběhová dobrodružná hra o dívce Reni,
+  která na Čarostrově nečekaně probudí své magické schopnosti.
+  V ilustrovaných scénách prozkoumáváte místa, mluvíte s postavami,
+  získáváte předměty a pomocí odkazů pokračujete v knize příběhů.
+
+  Učíte se kouzla, připravujete lektvary a rozhodnutími měníte průběh kampaně.
+  Hrát lze sólo nebo společně; uvedený čas patří jednomu hernímu sezení.
+language: cs

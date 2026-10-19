@@ -1,0 +1,29 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Unmatched: Zaklínač – Pád říší"
+bgg: 411861
+zh: unmatched-zaklinac-pad-risi-17416
+# Věk podle českého vydavatele ALBI (ZH uvádí 9+).
+age: 10+
+players: "2-3"
+playtime: "20-40"
+weight: 2.38
+color: "#312D30"
+links:
+  - type: rules
+    title: Základní česká pravidla Unmatched (PDF, ALBI)
+    url: https://albi.cz/data/files/products/58425/1753164464-albi-unmatched-zakladni-pravidla-hry.pdf
+  - type: rules
+    title: Speciální pravidla sady Pád říší (CZ, PDF, ALBI)
+    url: https://albi.cz/data/files/products/58425/1753164465-albi-unmatched-zaklinac_pad-risi-pravidla-hry.pdf
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/unmatched-zaklinac-pad-risi/
+description: |
+  **Unmatched: Zaklínač – Pád říší** je samostatná sada taktických soubojů
+  s Eredinem, Filippou Eilhart a dvojicí Yennefer s Triss.
+  Pohybujete bojovníky po mapě a pomocí unikátních balíčků útočíte,
+  bráníte se a využíváte schopnosti jednotlivých postav.
+
+  K vítězství vede vyřazení soupeřova hrdiny.
+  Sadu lze kombinovat s dalšími postavami systému Unmatched.
+language: cs

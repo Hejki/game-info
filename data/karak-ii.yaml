@@ -1,0 +1,27 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Karak II
+bgg: 393530
+zh: karak-2-15014
+age: 10+
+players: "2-5"
+playtime: "45-90"
+weight: 2.04
+color: "#413F3F"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/52578/1689582773-albi-karak-2-pravidla-hry.pdf
+  - type: video
+    title: Představení hry (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=jHDAoUKtZuo
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://albi.cz/karak-2/
+description: |
+  **Karak II** je samostatné pokračování rodinné dobrodružné hry.
+  Hrdinové opouštějí podzemí, prozkoumávají okolní krajinu, získávají
+  suroviny, budují města a verbují vojsko pro boj s nestvůrami.
+
+  Vítězství přinášejí kameny duše získané od poražených nepřátel.
+  Zvláštní schopnosti hrdinů nabízejí různé cesty k úspěchu.
+language: cs

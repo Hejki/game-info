@@ -1,0 +1,22 @@
+# Kopie: CZ. Obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Černé historky: Zločin a sex"
+bgg: 127648
+zh: cerne-historky-zlocin-a-sex-3058
+# Věk, hráči a čas podle českého vydavatele MINDOK; ZH uvádí jiný věk.
+age: 15+
+players: "2-20"
+playtime: "15"
+weight: 1.43
+color: "#60111E"
+links:
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/cerne-historky-zlocin-a-sex/
+description: |
+  **Černé historky: Zločin a sex** jsou soubor temných hádanek pro dospělé.
+  Jeden hráč zná celé vysvětlení příběhu, ostatní slyší jen jeho neobvyklé
+  rozuzlení a pomocí otázek zjišťují, co se skutečně stalo.
+
+  Vypravěč odpovídá především ano nebo ne. Společným cílem je postupně
+  odhalit souvislosti a zrekonstruovat celý příběh.
+language: cs

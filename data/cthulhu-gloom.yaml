@@ -1,0 +1,25 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Cthulhu Gloom
+bgg: 95234
+zh: cthulhu-gloom-2030
+# Anglická pravidla uvádějí 2–5 hráčů a 13+; produktová stránka Atlas Games 2–4 a 14+.
+age: 13+
+players: "2-5"
+playtime: "60"
+weight: 1.79
+color: "#372F1F"
+links:
+  - type: rules
+    title: Anglická pravidla (PDF, Atlas Games)
+    url: https://www.atlas-games.com/atlas-cms/resources/pdfs/cthulhu-gloom-rules-with-qr.pdf
+  - type: other
+    title: Stránka vydavatele
+    url: https://www.atlas-games.com/cthulhugloom
+description: |
+  **Cthulhu Gloom** je černohumorná karetní hra s průhlednými kartami.
+  Své postavy vystavujete co největším útrapám a pak jim dopřejete nešťastný
+  konec, zatímco soupeřům škodíte nečekanými příjemnými událostmi.
+
+  Překrýváním karet měníte osudy postav i jejich bodovou hodnotu.
+  Součástí zábavy je vyprávění společného příběhu. Kopie je v angličtině.
+language: en

@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Mlsné kočky
+bgg: 328536
+zh: mlsne-kocky-15001
+age: 5+
+players: "2-6"
+playtime: "20-30"
+weight: 1.0
+color: "#445455"
+description: |
+  **Mlsné kočky** jsou rodinná hra o lovení ryb na tržišti.
+  S kočičí tlapkou na prstu si všichni současně vyberete jednu z rybích karet.
+  Pokud na stejnou rybu ukáže více hráčů, nezíská ji nikdo.
+
+  Sbíráte sady různých druhů ryb a snažíte se odhadnout,
+  které dobroty nechají soupeři bez povšimnutí.
+language: cs

@@ -19,6 +19,16 @@ async function loadGameIndex() {
             link.textContent = game.name
             name.appendChild(link)
 
+            if (game.language && game.language !== 'cs') {
+                name.appendChild(document.createTextNode(' '))
+                const flag = document.createElement('span')
+                flag.textContent = '🇬🇧'
+                flag.setAttribute('role', 'img')
+                flag.setAttribute('aria-label', 'Hra není v češtině')
+                flag.title = 'Hra není v češtině'
+                name.appendChild(flag)
+            }
+
             for (const tool of game.tools || []) {
                 name.appendChild(document.createTextNode(' '))
                 const toolLink = document.createElement('a')

@@ -38,3 +38,4 @@ description: |
 
   ### Konec hry
   Partie hry končí v okamžiku, kdy některý z hráčů splní podmínky pro konec dobrodružství (specifické pro každý scénář, resp. dobrodružství). Nicméně vítězem se pak stane hráč, který při hře získal nejvíce vítězných bodů. Jejich zisk se také liší dobrodružství od dobrodružství.
+language: cs

@@ -1,0 +1,26 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Marvel Dice Throne: Sada 1"
+bgg: 360153
+age: 8+
+players: "2-4"
+playtime: "20-40"
+weight: 2.43
+color: "#4C3038"
+links:
+  - type: rules
+    title: Společná česká pravidla Marvel Dice Throne (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/marvel_dice_throne_rulebook_-_v1.1_-_2022.07.22_cz.pdf
+  - type: video
+    title: Představení Marvel Dice Throne (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=u0tGWpzQc40
+  - type: other
+    title: Stránka českého vydavatele – Sada 1
+    url: https://www.rexhry.cz/produkt/marvel-dice-throne-sada-1
+description: |
+  **Marvel Dice Throne** propojuje kostkové souboje s taktickým hraním karet.
+  Snažíte se naházet vhodné kombinace, využívat zvláštní schopnosti
+  a připravit soupeře o všechny životy.
+
+  Tato samostatná sada obsahuje Scarlet Witch, Thora, Lokiho a Spider-Mana.
+  Jejich odlišné schopnosti mění způsob útoku, obrany i práce s kartami.
+language: cs

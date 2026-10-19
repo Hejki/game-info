@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Panství hrůzy: Druhá edice"
+bgg: 205059
+zh: panstvi-hruzy-druha-edice-6057
+age: 14+
+players: "1-5"
+playtime: "120-180"
+weight: 2.69
+color: "#2F262A"
+description: |
+  **Panství hrůzy: Druhá edice** je kooperativní hororová hra řízená aplikací.
+  Vyšetřovatelé prozkoumávají nebezpečné lokace, vyslýchají postavy,
+  řeší hádanky a brání se nestvůrám i postupující ztrátě příčetnosti.
+
+  Aplikace odkrývá mapu a vyhodnocuje události i chování nepřátel.
+  Společně musíte odhalit podstatu záhady a splnit cíl scénáře.
+language: cs

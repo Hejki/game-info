@@ -32,6 +32,7 @@ async function processDataFile(filePath) {
     gamesIndex.push({
         id: gameId,
         name: gameData.name,
+        language: gameData.language,
         p: gameData.players,
         t: gameData.playtime,
         w: gameData.weight,

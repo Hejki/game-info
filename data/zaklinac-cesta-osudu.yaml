@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Zaklínač: Cesta osudu"
+bgg: 401325
+zh: zaklinac-cesta-osudu-15293
+age: 14+
+players: "1-5"
+playtime: "45-90"
+weight: 2.1
+color: "#504A45"
+description: |
+  **Zaklínač: Cesta osudu** je příběhová karetní hra ze světa Geralta z Rivie.
+  Pomocí vykládaných karet získáváte symboly a ovlivňujete,
+  jak se budou vyvíjet známé zaklínačské příběhy.
+
+  O body soutěžíte napříč jednotlivými kapitolami,
+  přičemž vaše rozhodnutí společně určují další směřování vyprávění.
+language: cs

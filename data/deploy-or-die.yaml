@@ -1,0 +1,18 @@
+# Kopie: CZ. Parametry: BGG export collection-2.csv (2026-10-17).
+# Weight je vlastní odhad, schválený uživatelem; v exportu BGG není vyplněný.
+name: Deploy or Die
+bgg: 330712
+zh: deploy-or-die-9879
+age: 12+
+players: "2-4"
+playtime: "10-25"
+weight: 1.5
+color: "#141315"
+description: |
+  **Deploy or Die** je karetní hra z prostředí vývoje softwaru.
+  Snažíte se připravit a úspěšně nasadit svůj projekt, zatímco soupeři
+  vám do práce zasahují chybami a dalšími komplikacemi.
+
+  Pomocí karet řešíte problémy, narušujete plány ostatních a hledáte
+  správný okamžik k nasazení. Obtížnost v katalogu je vlastní odhad.
+language: cs

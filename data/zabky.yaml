@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Žabky
+bgg: 261165
+zh: zabky-11081
+age: 6+
+players: "2-4"
+playtime: "15"
+weight: 1.1
+color: "#374522"
+description: |
+  **Žabky** jsou rodinná taktická hra s tajnými barvami hráčů.
+  Přikládáte destičky žabek na společný plán a šipkami na novém dílku
+  obracíte sousední destičky. Hadi navíc dokážou některé žabky zahnat.
+
+  Teprve na konci odhalíte svou barvu. Vyhrává hráč,
+  jehož odkrytých žabek zůstalo na plánu nejvíce.
+language: cs

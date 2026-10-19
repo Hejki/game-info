@@ -1,0 +1,25 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Jump Masters!
+bgg: 463836
+age: 14+
+players: "2-4"
+playtime: "20-30"
+weight: 1.67
+color: "#48245E"
+links:
+  - type: rules
+    title: Anglická pravidla (PDF, Neon Knight Games; Dropbox)
+    url: https://www.dropbox.com/scl/fi/i9ny6tmjg7vwcpw5u3n8j/Jump-Masters_Rulebook.pdf?rlkey=73z2g15s5kkznld5fvnd507d5&dl=0
+  - type: other
+    title: Stránka vydavatele (Deluxe Version)
+    url: https://chiptheorygames.com/products/jump-masters-deluxe-version
+description: |
+  **Jump Masters!** jsou taktická týmová bitva inspirovaná čínskou dámou.
+  Na společné mapě přeskakujete překážky i další bojovníky a kombinujete
+  pohyb se schopnostmi hrdinů, kartami a kostkovými útoky.
+
+  Terén a rozmístění postav určují, kde vzniknou příležitosti
+  k dalším skokům a výhodným střetům.
+
+  Kopie hry je v angličtině.
+language: en

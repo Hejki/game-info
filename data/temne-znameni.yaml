@@ -1,0 +1,17 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Temné znamení
+bgg: 100423
+zh: temne-znameni-2162
+age: 12+
+players: "1-8"
+playtime: "90"
+weight: 2.34
+color: "#292522"
+description: |
+  **Temné znamení** je kooperativní kostková hra z lovecraftovského světa.
+  Vyšetřovatelé se v muzeu pokoušejí plnit úkoly na kartách dobrodružství
+  sestavováním požadovaných symbolů z hodů kostkami.
+
+  Za úspěchy získáváte vybavení a temná znamení potřebná k uzavření brány.
+  Musíte jich shromáždit dost dříve, než se probudí Prastarý.
+language: cs

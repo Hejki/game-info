@@ -1,0 +1,22 @@
+# Kopie: CZ. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: "Rodozář: Bezcitova laboratoř"
+bgg: 406174
+zh: rodozar-bezcitova-laborator-17055
+age: 14+
+players: "1-2"
+playtime: "60"
+weight: 2.21
+color: "#16261F"
+links:
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.old-dawg.cz/rodozar-bezcitova-laborator/
+description: |
+  **Rodozář: Bezcitova laboratoř** je kooperativní karetní výprava
+  do magické Studny plné zvrácených experimentů. Pomocí karet dovedností,
+  podpory spoluhráče a hodů kostkami překonáváte výzvy a ztenčujete její balíček.
+
+  Společně musíte přežít až na dno a porazit Bezcita.
+  Tato samostatná sada obsahuje lučištnici Valoru a učence Rolanda;
+  spojením s další sadou lze hrát až ve čtyřech.
+language: cs

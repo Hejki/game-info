@@ -1,0 +1,31 @@
+# Kopie: CZ. Parametry: BGG export collection-2.csv (2026-10-17).
+# Weight je vlastní odhad, schválený uživatelem; v exportu BGG není vyplněný.
+name: Vlaky na trati
+bgg: 422057
+zh: vlaky-na-trati-16920
+age: 8+
+players: "2-3"
+playtime: "15-30"
+weight: 1.5
+color: "#5F5B60"
+links:
+  - type: rules
+    title: Česká pravidla (PDF, ALBI)
+    url: https://albi.cz/data/files/products/55592/1729848089-albi-vlaky-na-trati-pravidla-hry.pdf
+  - type: video
+    title: Představení hry (CZ, ALBI)
+    url: https://www.youtube.com/watch?v=LQgWJQPJE0M
+  - type: other
+    title: Stránka českého vydavatele s dalšími záznamovými archy
+    url: https://albi.cz/vlaky-na-trati/
+description: |
+  **Vlaky na trati** jsou kompaktní karetní zakreslovací hra.
+  Přikládáte karty tří souběžných tratí, po kterých všichni posouvají
+  své lokomotivy. Symboly navštívených stanic si zaznamenáváte do archu
+  a skládáte z nich co nejvýhodnější bodovací kombinace.
+
+  Mince vám umožní další akce, například posun pomalejšího vlaku.
+  Vyhrává hráč s nejvyšším skóre po dokončení společné tratě.
+
+  Obtížnost v katalogu je vlastní odhad, nikoli hodnocení BGG.
+language: cs

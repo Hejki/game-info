@@ -1,0 +1,28 @@
+# Kopie: EN. Parametry a obtížnost: BGG export collection-2.csv (2026-10-17), nikoli živé API.
+name: Cthulhu Fluxx
+bgg: 122159
+zh: cthulhu-fluxx-3412
+# Věk podle Looney Labs, nikoli nižší doporučení komunity na BGG/ZH.
+age: 13+
+players: "2-6"
+playtime: "10-40"
+weight: 1.43
+color: "#21271D"
+links:
+  - type: rules
+    title: Anglická pravidla (PDF, Looney Labs)
+    url: https://www.looneylabs.com/sites/default/files/literature/CthulhuFluxxRulesheet.pdf
+  - type: video
+    title: Ukázková partie (EN, Looney Labs)
+    url: https://www.youtube.com/watch?v=VHepwTTg5Jc
+  - type: other
+    title: Stránka vydavatele
+    url: https://www.looneylabs.com/games/cthulhu-fluxx
+description: |
+  **Cthulhu Fluxx** je karetní hra, v níž se pravidla i podmínky vítězství
+  mění přímo během partie. Vykládáte nové zákony, cíle a postavy či předměty
+  z lovecraftovského světa a snažíte se sestavit právě požadovanou kombinaci.
+
+  Plány komplikují nebezpečné karty a hrozba společné zkázy.
+  Kopie hry je v angličtině.
+language: en
