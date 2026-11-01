@@ -30,7 +30,7 @@ Testy navigace, kompatibility odkazů a vývojového serveru: `npm test`.
 
 `bgg` a volitelné `zh` zůstávají identifikátory hlavních katalogových stránek.
 Detail z nich vždy vytvoří nejprve odkaz na BGG a poté na Zatrolené hry,
-obojí s původní faviconou. Další odkazy ukládej do `links`, nikoli do popisu:
+obojí s původní faviconou. Obecné odkazy ke hře ukládej do `links`:
 
 ```yaml
 links:
@@ -48,8 +48,9 @@ links:
 Každý odkaz má `type`, `title` a absolutní HTTP(S) `url`. Typy `rules`, `video`
 a `other` dostanou ikony `journal-bookmark-fill`, `play-btn-fill` a `link-45deg`.
 Odkazy se vykreslují bez odrážek a v pořadí z YAML, až za BGG a Zatrolenými hrami.
-Tyto dva hlavní odkazy proto v `links` neopakuj. Text `description` obsahuje jen
-popis hry; v odkazech pro jednotlivé postavy nebo edice upřesni jejich jména.
+Tyto dva hlavní odkazy proto v `links` neopakuj. Kontextové odkazy ke konkrétním
+postavám mohou zůstat přímo v jejich sekcích v `description`, jako u Unmatched
+Dobrodružství. Pokud je uvádíš v `links`, upřesni v titulcích jména postav či edic.
 
 ## Přidávání her s asistentem
 

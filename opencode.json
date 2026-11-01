@@ -4,7 +4,7 @@
     "servers": {
       "bgg": {
         "type": "local",
-        "disabled": true,
+        "disabled": false,
         "cwd": ".",
         "command": [
           "./tools/bgg-mcp",
@@ -12,7 +12,8 @@
           "stdio"
         ],
         "environment": {
-          "BGG_API_KEY": "{env:BGG_API_KEY}"
+          "BGG_API_KEY": "{env:BGG_API_KEY}",
+          "BGG_USERNAME": "Hejki"
         }
       }
     }

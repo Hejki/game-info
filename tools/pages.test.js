@@ -223,11 +223,10 @@ test('game links tolerate absent optional fields and skip unsafe or invalid URLs
     assert.equal(app.get('game-links').children[0].children.length, 0)
 })
 
-test('catalogue links follow the documented schema and are separate from descriptions', async () => {
+test('catalogue links follow the documented schema', async () => {
     const files = await fs.readdir(new URL('../data/', import.meta.url))
     for (const file of files.filter(file => file.endsWith('.yaml'))) {
         const game = YAML.parse(await read(`data/${file}`))
-        assert.doesNotMatch(game.description, /^\s*[-*] \[.+\]\(https?:\/\/.+\)\s*$/m, file)
         if (game.links === undefined) continue
         assert.ok(Array.isArray(game.links), file)
         for (const link of game.links) {
@@ -238,9 +237,15 @@ test('catalogue links follow the documented schema and are separate from descrip
             assert.ok(['http:', 'https:'].includes(new URL(link.url).protocol), file)
         }
     }
+})
+
+test('Unmatched Adventures keeps character links within their description sections', async () => {
     const adventures = YAML.parse(await read('data/unmatched_adventures.yaml'))
-    for (const name of ['Annie Christmas', 'Jill Trent', 'Nikola Tesla', 'Zlatý netopýr']) {
-        assert.equal(adventures.links.filter(link => link.title.endsWith(`– ${name}`)).length, 2)
+    for (const [name, slug] of [['Annie Christmas', 'annie-christmas'], ['Jill Trent', 'dr-jill-trent'], ['Nikola Tesla', 'nikola-tesla'], ['Zlatý netopýr', 'golden-bat']]) {
+        const section = adventures.description.split(`## ${name}\n`)[1]?.split('\n## ')[0]
+        assert.ok(section, name)
+        assert.ok(section.includes(`https://www.the-unmatched.club/heroes/${slug}`), name)
+        assert.ok(section.includes(`https://unmatched.cards/umdb/decks/${slug}`), name)
     }
 })
 

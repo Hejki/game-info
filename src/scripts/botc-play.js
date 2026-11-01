@@ -33,40 +33,42 @@ const SCRIPTS = [
   {
     id: 'trouble-brewing',
     name: 'Potíže přicházejí',
-    roles: {
-    townsfolk: ['Empat','Hrobník','Knihovník','Kuchař','Mnich','Panna','Pradlena','Starosta','Strážkyně krkavců','Vědma','Voják','Vyšetřovatel','Zabiják'],
-    outsider: ['Sluha','Opilec','Samotář','Světec'],
-    minion: ['Travič','Špeh','Šarlatová žena','Baron'],
-    demon: ['Čert'],
-    traveller: ['Byrokrat', 'Obětní beránek', 'Pistolník', 'Zloděj', 'Žebrák'],
-    },
+    roles: [
+      'empath', 'undertaker', 'librarian', 'chef', 'monk', 'virgin', 'washerwoman',
+      'mayor', 'ravenkeeper', 'fortuneteller', 'soldier', 'investigator', 'slayer',
+      'butler', 'drunk', 'recluse', 'saint',
+      'poisoner', 'spy', 'scarletwoman', 'baron', 'imp',
+      'bureaucrat', 'scapegoat', 'gunslinger', 'thief', 'beggar',
+    ],
   },
   {
     id: 'sects-violets',
     name: 'Sekty a fialky',
-    roles: {
-    townsfolk: ['Filosof','Hodinář','Kejklíř','Květinářka','Matematik','Městský vyvolávač','Mudrc','Snílek','Švadlena','Učenec','Umělec','Věštec','Zaklínač hadů'],
-    outsider: ['Mutant','Zlatíčko','Holič','Nešika'],
-    minion: ['Zlé dvojče','Čarodějnice','Cerenovus','Ježibaba'],
-    demon: ['Fang Gu','Vigormortis','No Dashii','Vortox'],
-    traveller: ['Deviant', 'Kavárník', 'Nevěstka', 'Řezník', 'Sběratel kostí'],
-    },
+    roles: [
+      'philosopher', 'clockmaker', 'juggler', 'flowergirl', 'mathematician', 'towncrier',
+      'sage', 'dreamer', 'seamstress', 'savant', 'artist', 'oracle', 'snakecharmer',
+      'mutant', 'sweetheart', 'barber', 'klutz',
+      'eviltwin', 'witch', 'cerenovus', 'pithag',
+      'fanggu', 'vigormortis', 'nodashii', 'vortox',
+      'deviant', 'barista', 'harlot', 'butcher', 'bonecollector',
+    ],
   },
   {
     id: 'bad-moon-rising',
     name: 'Čas krvavého měsíce',
-    roles: {
-    townsfolk: ['Babička','Čajová dáma','Drbna','Exorcista','Gambler','Hostinský','Komorná','Lichotník','Námořník','Pacifista','Pěvec','Profesor','Šašek'],
-    outsider: ['Blázen','Dítě měsíce','Dráteník','Hňup'],
-    minion: ['Nájemný vrah','Ďáblův advokát','Kmotr','Strůjce'],
-    demon: ['Shabaloth','Pó','Zombuul','Pukka'],
-    traveller: ['Biskup', 'Matrona', 'Soudce', 'Učedník', 'Vudun'],
-    },
+    roles: [
+      'grandmother', 'tealady', 'gossip', 'exorcist', 'gambler', 'innkeeper', 'chambermaid',
+      'courtier', 'sailor', 'pacifist', 'minstrel', 'professor', 'fool',
+      'lunatic', 'moonchild', 'tinker', 'goon',
+      'assassin', 'devilsadvocate', 'godfather', 'mastermind',
+      'shabaloth', 'po', 'zombuul', 'pukka',
+      'bishop', 'matron', 'judge', 'apprentice', 'voudon',
+    ],
   },
   {
     id: 'custom',
     name: 'Custom',
-    roles: { townsfolk:[], outsider:[], minion:[], demon:[], traveller:[] },
+    roles: [],
   },
 ];
 
@@ -75,7 +77,9 @@ const ROLE_LABELS = {
   outsider:  'Podivíni',
   minion:    'Přisluhovači',
   demon:     'Démon',
-  traveller: 'Pocestní'
+  traveller: 'Pocestní',
+  fabled: 'Legendy',
+  loric: 'Loric',
 };
 
 let currentScript = null;
@@ -85,7 +89,12 @@ let playerIdCounter = 0;
 let generatedData = null;
 let computedDurationMin = null;
 let importedBoard = '';
+let customScript = null;
+let customScriptJson = '';
 const importedIdentities = new WeakMap();
+const DRAFT_STORAGE_KEY = 'botc-play-draft-v1';
+let draftReady = false;
+let applyingDraft = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('play-date').value = new Date().toISOString().split('T')[0];
@@ -93,8 +102,161 @@ document.addEventListener('DOMContentLoaded', () => {
   renderScripts();
   renderLocations();
   renderGameCopies();
-  for (let i = 0; i < 8; i++) addPlayer();
+  if (!restoreDraft()) {
+    for (let i = 0; i < 8; i++) addPlayer();
+  }
+  draftReady = true;
 });
+
+for (const event of ['input', 'change']) {
+  document.addEventListener(event, event => {
+    if (event.target.matches('input:not([type="file"]), select')) saveDraft();
+  });
+}
+
+function clearRecorder() {
+  if (!confirm('Vyčistit celou rozepsanou partii?')) return;
+  applyingDraft = true;
+  try {
+    [...players].forEach(player => removePlayer(player.id));
+    playerIdCounter = 0;
+    currentScript = null;
+    importedBoard = '';
+    customScript = null;
+    customScriptJson = '';
+    updateCustomScriptButton();
+    document.getElementById('custom-script-json').value = '';
+    generatedData = null;
+    computedDurationMin = null;
+    document.querySelectorAll('.script-pill').forEach(button => {
+      button.classList.remove('active');
+      button.setAttribute('aria-pressed', 'false');
+    });
+    const storyteller = document.getElementById('storyteller-name');
+    storyteller.value = '';
+    importedIdentities.delete(storyteller);
+    document.getElementById('play-date').value = new Date().toISOString().split('T')[0];
+    document.getElementById('play-start').value = '';
+    document.getElementById('play-end').value = '';
+    document.getElementById('duration-display').textContent = '—';
+    renderLocations();
+    renderGameCopies();
+    document.getElementById('import-play').value = '';
+    for (const id of ['import-status', 'export-status', 'custom-script-status']) {
+      document.getElementById(id).textContent = '';
+      document.getElementById(id).hidden = true;
+    }
+    setWinner(null);
+    for (let i = 0; i < 8; i++) addPlayer();
+  } finally {
+    applyingDraft = false;
+  }
+  saveDraft();
+}
+
+function saveDraft() {
+  if (!draftReady || applyingDraft) return;
+  try {
+    const location = document.getElementById('play-location');
+    const storyteller = document.getElementById('storyteller-name');
+    const state = {
+      version: 1,
+      date: document.getElementById('play-date').value,
+      start: document.getElementById('play-start').value,
+      end: document.getElementById('play-end').value,
+      duration: computedDurationMin,
+      script: currentScript,
+      board: importedBoard,
+      customScriptJson,
+      location: location.value,
+      locationUuid: [...location.options].find(option => option.value === location.value)?.dataset.uuid || '',
+      gameCopy: document.getElementById('play-game-copy').value,
+      winner: winnerTeam,
+      storyteller: { name: storyteller.value, identity: importedIdentities.get(storyteller) || null },
+      players: [...document.querySelectorAll('.player-row')].map(row => {
+        const name = row.querySelector('.player-name-input');
+        const role = row.querySelector('.player-role-cell select') || row.querySelector('.player-role-cell input');
+        return {
+          name: name.value,
+          identity: importedIdentities.get(name) || null,
+          role: role.value,
+          team: row.classList.contains('is-good') ? 'good' : row.classList.contains('is-evil') ? 'evil' : null,
+        };
+      }),
+    };
+    localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // Storage may be blocked or full. The form must remain usable.
+  }
+}
+
+function restoreDraft() {
+  let state;
+  let restoredCustomScript = null;
+  try {
+    state = JSON.parse(localStorage.getItem(DRAFT_STORAGE_KEY));
+    const validIdentity = value => value == null || (typeof value.name === 'string'
+      && (value.uuid === null || typeof value.uuid === 'string') && typeof value.isAnon === 'boolean');
+    const validPlayer = player => player && typeof player.name === 'string' && validIdentity(player.identity);
+    if (!state || state.version !== 1 || !['date', 'start', 'end', 'board', 'location', 'locationUuid', 'gameCopy'].every(key => typeof state[key] === 'string')
+      || !(state.duration === null || Number.isFinite(state.duration) && state.duration >= 0)
+      || ![null, 'good', 'evil'].includes(state.winner)
+      || !(state.script === null || SCRIPTS.some(script => script.id === state.script))
+      || !GAME_COPY.some(copy => String(copy.playUsedGameCopy) === state.gameCopy)
+      || !validPlayer(state.storyteller) || !Array.isArray(state.players)
+      || !state.players.every(player => validPlayer(player) && typeof player.role === 'string' && [null, 'good', 'evil'].includes(player.team))) return false;
+    if (state.customScriptJson) restoredCustomScript = parseCustomScript(state.customScriptJson);
+  } catch {
+    return false;
+  }
+  applyingDraft = true;
+  try {
+    customScript = restoredCustomScript;
+    customScriptJson = state.customScriptJson || '';
+    updateCustomScriptButton();
+    if (state.script !== null) selectScript(document.querySelectorAll('.script-pill')[SCRIPTS.findIndex(script => script.id === state.script)]);
+    importedBoard = state.board;
+    const location = document.getElementById('play-location');
+    if (state.location) {
+      let option = [...location.options].find(option => option.value === state.location);
+      if (!option) {
+        option = document.createElement('option');
+        option.value = state.location;
+        option.textContent = state.location;
+        location.appendChild(option);
+      }
+      option.dataset.uuid = state.locationUuid;
+    }
+    location.value = state.location;
+    document.getElementById('play-game-copy').value = state.gameCopy;
+    const storyteller = document.getElementById('storyteller-name');
+    storyteller.value = state.storyteller.name;
+    if (state.storyteller.identity) importedIdentities.set(storyteller, state.storyteller.identity);
+    state.players.forEach(player => {
+      addPlayer();
+      const id = players[players.length - 1].id;
+      const row = document.getElementById(`player-${id}`);
+      const name = row.querySelector('.player-name-input');
+      name.value = player.name;
+      if (player.identity) importedIdentities.set(name, player.identity);
+      const role = row.querySelector('.player-role-cell select') || row.querySelector('.player-role-cell input');
+      role.value = player.role;
+      updatePlayerRoleStyle(row, player.role);
+      if (player.team) setPlayerTeam(id, player.team, [...row.querySelectorAll('.team-btn')].find(button => button.dataset.team === player.team));
+    });
+    setWinner(state.winner);
+    document.getElementById('play-date').value = state.date;
+    document.getElementById('play-start').value = state.start;
+    document.getElementById('play-end').value = state.end;
+    computedDurationMin = state.duration;
+    const duration = state.duration;
+    document.getElementById('duration-display').textContent = duration === null ? '—' : duration < 60 ? `${duration} min` : `${Math.floor(duration / 60)} h ${duration % 60} min`;
+    updateSummary();
+    return true;
+  } finally {
+    applyingDraft = false;
+  }
+}
 
 // ── DURATION ──
 function setDefaultEndTime() {
@@ -205,12 +367,18 @@ function importBgsplay(data) {
   const playMetaData = play.metaData ? JSON.parse(play.metaData) : {};
   const gameCopy = GAME_COPY.find(copy => copy.playUsedGameCopy === (playMetaData?.playUsedGameCopy ?? 0));
   if (!gameCopy) throw new Error('Neznámá kopie hry.');
-  const script = SCRIPTS.find(script => script.id !== 'custom' && script.name === board
+  const script = [...SCRIPTS.filter(script => script.id !== 'custom').map(script => getScript(script.id)), ...(customScript ? [customScript] : [])].find(script => (script.name === board || script.id === 'custom' && `Custom: ${script.name}` === board)
     && importedPlayers.every(player => !player.role || Object.values(script.roles).some(roles => roles.includes(player.role))))
     || SCRIPTS.find(script => script.id === 'custom');
 
+  applyingDraft = true;
+  if (script.id === 'custom' && script !== customScript) {
+    customScript = null;
+    customScriptJson = '';
+    updateCustomScriptButton();
+  }
   [...players].forEach(player => removePlayer(player.id));
-  selectScript(document.querySelectorAll('.script-pill')[SCRIPTS.indexOf(script)]);
+  selectScript(document.querySelectorAll('.script-pill')[SCRIPTS.findIndex(candidate => candidate.id === script.id)]);
   importedBoard = script.id === 'custom' ? board : '';
   const locationInput = document.getElementById('play-location');
   if (location) {
@@ -251,6 +419,7 @@ function importBgsplay(data) {
   computedDurationMin = duration;
   document.getElementById('duration-display').textContent = duration === null ? '—' : `${Math.floor(duration / 60)} h ${duration % 60} min`;
   generatedData = null;
+  applyingDraft = false;
   updateSummary();
 }
 
@@ -280,6 +449,71 @@ function renderLocations() {
 }
 
 // ── SCRIPT ──
+function getScript(id) {
+  if (id === 'custom' && customScript) return customScript;
+  const script = SCRIPTS.find(script => script.id === id);
+  return script ? { ...script, roles: groupRoleIds(script.roles) } : undefined;
+}
+
+function groupRoleIds(ids) {
+  const roles = Object.fromEntries(Object.keys(ROLE_LABELS).map(type => [type, []]));
+  const unknown = [];
+  for (const id of ids) {
+    if (typeof id !== 'string' || !Object.hasOwn(SCRIPT_ROLES, id)) {
+      unknown.push(typeof id === 'string' ? id : '(neplatná položka)');
+      continue;
+    }
+    const role = SCRIPT_ROLES[id];
+    if (!roles[role.t].includes(role.n)) roles[role.t].push(role.n);
+  }
+  if (unknown.length) throw new Error(`Neznámá ID rolí: ${unknown.join(', ')}`);
+  return roles;
+}
+
+function parseCustomScript(text) {
+  let entries;
+  try { entries = JSON.parse(text); } catch { throw new Error('Neplatný JSON.'); }
+  if (!Array.isArray(entries)) throw new Error('Skript musí být JSON pole.');
+  const metadata = entries.filter(entry => entry && typeof entry === 'object' && entry.id === '_meta');
+  if (metadata.length !== 1 || typeof metadata[0].name !== 'string' || !metadata[0].name.trim()) {
+    throw new Error('Skript musí mít jeden objekt _meta s vyplněným názvem name.');
+  }
+  const ids = entries.map(entry => typeof entry === 'string' ? entry : entry?.id).filter(id => id !== '_meta');
+  const roles = groupRoleIds(ids);
+  if (!Object.values(roles).some(names => names.length)) throw new Error('Skript neobsahuje žádné role.');
+  return { id: 'custom', name: metadata[0].name.trim(), roles };
+}
+
+function updateCustomScriptButton() {
+  const button = [...document.querySelectorAll('.script-pill')].find(button => button.dataset.script === 'custom');
+  if (button) button.textContent = customScript ? `Custom: ${customScript.name}` : 'Custom';
+}
+
+function prepareCustomScriptDialog() {
+  document.getElementById('custom-script-json').value = customScriptJson;
+  document.getElementById('custom-script-status').hidden = true;
+}
+
+function importCustomScript(text) {
+  const script = parseCustomScript(text);
+  customScript = script;
+  customScriptJson = text;
+  updateCustomScriptButton();
+  selectScript([...document.querySelectorAll('.script-pill')].find(button => button.dataset.script === 'custom'));
+}
+
+function importCustomScriptFromDialog() {
+  const status = document.getElementById('custom-script-status');
+  try {
+    importCustomScript(document.getElementById('custom-script-json').value);
+    status.hidden = true;
+    document.getElementById('custom-script-close').click();
+  } catch (error) {
+    status.textContent = error.message;
+    status.hidden = false;
+  }
+}
+
 function renderScripts() {
   const container = document.getElementById('script-buttons');
   for (const script of SCRIPTS) {
@@ -289,7 +523,15 @@ function renderScripts() {
     button.dataset.script = script.id;
     button.textContent = script.name;
     button.setAttribute('aria-pressed', 'false');
-    button.onclick = () => selectScript(button);
+    if (script.id === 'custom') {
+      button.setAttribute('data-bs-toggle', 'dialog');
+      button.setAttribute('data-bs-target', '#custom-script-dialog');
+      button.setAttribute('aria-haspopup', 'dialog');
+      button.setAttribute('aria-controls', 'custom-script-dialog');
+      button.onclick = prepareCustomScriptDialog;
+    } else {
+      button.onclick = () => selectScript(button);
+    }
     container.appendChild(button);
   }
 }
@@ -306,8 +548,8 @@ function selectScript(el) {
 }
 
 function getRoleOptions(key) {
-  if (!key || key === 'custom') return '';
-  const s = SCRIPTS.find(script => script.id === key)?.roles; if (!s) return '';
+  if (!key) return '';
+  const s = getScript(key)?.roles; if (!s) return '';
   let html = '<option value="">— bez role —</option>';
   for (const [type, roles] of Object.entries(s)) {
     if (!roles.length) continue;
@@ -324,7 +566,7 @@ function rebuildRoleCell(pid) {
   const cell = row.querySelector('.player-role-cell');
   if (!cell) return;
   updatePlayerRoleStyle(row, '');
-  if (currentScript === 'custom') {
+  if (currentScript === 'custom' && !customScript) {
     cell.innerHTML = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
   } else if (currentScript) {
     cell.innerHTML = `<select class="form-control" aria-label="Role hráče" onchange="autoSelectPlayerTeam(${pid},this.value)">${getRoleOptions(currentScript)}</select>`;
@@ -334,7 +576,7 @@ function rebuildRoleCell(pid) {
 }
 
 function updatePlayerRoleStyle(row, role) {
-  const roles = SCRIPTS.find(script => script.id === currentScript)?.roles;
+  const roles = getScript(currentScript)?.roles;
   const emphasized = Boolean(role && (roles?.townsfolk?.includes(role) || roles?.demon?.includes(role)));
   row.classList.toggle('bg-30', emphasized);
   row.classList.toggle('bg-10', !emphasized);
@@ -345,7 +587,7 @@ function autoSelectPlayerTeam(id, role) {
   const row = document.getElementById(`player-${id}`);
   if (!row) return;
   updatePlayerRoleStyle(row, role);
-  const roles = SCRIPTS.find(script => script.id === currentScript)?.roles;
+  const roles = getScript(currentScript)?.roles;
   if (!roles || !role) return;
   const type = Object.entries(roles).find(([, names]) => names.includes(role))?.[0];
   const team = { townsfolk: 'good', outsider: 'good', minion: 'evil', demon: 'evil' }[type];
@@ -382,7 +624,7 @@ function addPlayer(focusName = false) {
   let roleCell;
   if (!currentScript) {
     roleCell = `<input class="form-control" type="text" placeholder="Vyber skript…" aria-label="Role hráče" disabled>`;
-  } else if (currentScript === 'custom') {
+  } else if (currentScript === 'custom' && !customScript) {
     roleCell = `<input class="form-control" type="text" placeholder="Název role…" aria-label="Role hráče">`;
   } else {
     roleCell = `<select class="form-control" aria-label="Role hráče" onchange="autoSelectPlayerTeam(${id},this.value)">${getRoleOptions(currentScript)}</select>`;
@@ -432,7 +674,7 @@ function updateNumbers() {
 
 function updateSummary() {
   const rows = document.querySelectorAll('.player-row');
-  const roles = SCRIPTS.find(script => script.id === currentScript)?.roles;
+  const roles = getScript(currentScript)?.roles;
   const counts = { townsfolk: 0, outsider: 0, minion: 0, demon: 0 };
   rows.forEach(row => {
     const role = row.querySelector('.player-role-cell select')?.value;
@@ -444,6 +686,7 @@ function updateSummary() {
   const summary = document.getElementById('summary-bar');
   summary.textContent = `${rows.length}: ${counts.townsfolk}/${counts.outsider}/${counts.minion}/${counts.demon}`;
   summary.setAttribute('aria-label', `Celkem ${rows.length} hráčů: ${counts.townsfolk} měšťanů, ${counts.outsider} podivínů, ${counts.minion} přisluhovačů, ${counts.demon} démonů`);
+  saveDraft();
 }
 
 // ── GENERATE ──
@@ -494,7 +737,9 @@ function generate() {
     playerRefId: playUsedGameCopy == 0 ? undefined : 1
   };
 
-  const scriptName = importedBoard || SCRIPTS.find(script => script.id === currentScript)?.name || '';
+  const rawScriptName = importedBoard || getScript(currentScript)?.name || '';
+  const scriptName = currentScript === 'custom' && !rawScriptName.startsWith('Custom: ')
+    ? `Custom: ${rawScriptName}` : rawScriptName;
 
   const pd = getPlayerData();
   const storyteller = pd[0];

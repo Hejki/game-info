@@ -5,7 +5,9 @@ import test from 'node:test'
 
 const html = await fs.readFile(new URL('../src/botc-play.html', import.meta.url), 'utf8')
 const source = await fs.readFile(new URL('../src/scripts/botc-play.js', import.meta.url), 'utf8')
+const roleSource = await fs.readFile(new URL('../src/scripts/botc-roles.js', import.meta.url), 'utf8')
 const playExample = JSON.parse(await fs.readFile(new URL('./play-example.bgsplay', import.meta.url), 'utf8'))
+const customScriptExample = await fs.readFile(new URL('./botc-custom-script.json', import.meta.url), 'utf8')
 
 test('BotC loads recorder logic from an external classic script before DOMContentLoaded', () => {
     assert.match(html, /<script src="scripts\/botc-play\.js"><\/script>/)
@@ -24,10 +26,11 @@ function element(className = '') {
     }
     el.setAttribute = (name, value) => { el.attributes[name] = value }
     el.scrollIntoView = () => {}
+    el.click = () => { el.clicked = true }
     return el
 }
 
-function recorder() {
+function recorder(storage = new Map()) {
     const elements = new Map()
     const rows = []
     const scripts = []
@@ -50,9 +53,13 @@ function recorder() {
     get('play-game-copy').replaceChildren = () => { get('play-game-copy').options = [] }
     get('play-game-copy').appendChild = option => { get('play-game-copy').options.push(option) }
     let initialize
+    const listeners = new Map()
     const context = vm.createContext({
         document: {
-            addEventListener: (event, callback) => { initialize = callback },
+            addEventListener: (event, callback) => {
+                if (event === 'DOMContentLoaded') initialize = callback
+                else listeners.set(event, callback)
+            },
             getElementById: get,
             querySelectorAll: selector => selector === '.player-row' ? rows : scripts,
             createElement(tag) {
@@ -80,15 +87,18 @@ function recorder() {
             },
         },
         alert: message => { throw new Error(message) },
+        confirm: () => true,
         Blob,
         File,
         navigator,
+        localStorage: { getItem: key => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value) },
         URL: { createObjectURL: blob => { blobs.push(blob); return `blob:test-${blobs.length}` } },
         window,
         setTimeout() {},
     })
-    vm.runInContext(source, context)
-    return { context, get, rows, scripts, initialize, downloads, blobs, window, navigator, shares }
+    vm.runInContext(`${roleSource}\n${source}`, context)
+    const edit = () => listeners.get('input')({ target: { matches: () => true } })
+    return { context, get, rows, scripts, initialize, downloads, blobs, window, navigator, shares, storage, edit }
 }
 
 test('all named players from the BGStats example are known with their original UUIDs', () => {
@@ -212,7 +222,7 @@ test('import preserves unknown UUIDs, anonymous names matching known players and
     anonymousScore.teamRole = 'Vlastní role'
     app.context.importBgsplay(data)
     const exported = app.context.generate()
-    assert.equal(exported.plays[0].board, 'Můj vlastní skript')
+    assert.equal(exported.plays[0].board, 'Custom: Můj vlastní skript')
     assert.equal(exported.players[0].uuid, 'external-amos-uuid')
     const index = exported.plays[0].playerScores.findIndex(score => score.teamRole === 'Vlastní role')
     assert.equal(exported.players[index].name, 'Hejki')
@@ -258,7 +268,9 @@ test('import is opened by an accessible icon in the metadata header and uses a B
     const metadata = html.match(/<section[^>]*aria-labelledby="metadata-title"[\s\S]*?<\/section>/)[0]
     const header = metadata.match(/<div class="card-header[\s\S]*?<\/div>/)[0]
     assert.match(header, /card-header d-flex flex-row flex-nowrap align-items-center/)
-    assert.match(header, /class="btn-text ms-auto" data-bs-toggle="dialog" data-bs-target="#import-dialog"/)
+    assert.match(header, /class="btn-text" data-bs-toggle="dialog" data-bs-target="#import-dialog"/)
+    assert.match(header, /class="btn-text btn-sm theme-danger ms-auto" onclick="clearRecorder\(\)"/)
+    assert.ok(header.indexOf('onclick="clearRecorder()"') < header.indexOf('data-bs-target="#import-dialog"'))
     assert.match(header, /aria-label="Načíst partii z BGStats"/)
     assert.match(header, /bi bi-upload/)
     assert.doesNotMatch(metadata, /type="file"/)
@@ -268,6 +280,223 @@ test('import is opened by an accessible icon in the metadata header and uses a B
     assert.match(dialog, /id="import-status"/)
     assert.match(dialog, /data-bs-dismiss="dialog" aria-label="Zavřít"/)
     assert.equal((html.match(/id="import-play"/g) || []).length, 1)
+})
+
+test('unfinished draft survives reload with raw inputs, roles, manual teams and metadata', () => {
+    const storage = new Map()
+    const app = recorder(storage)
+    app.initialize()
+    app.scripts[0].onclick()
+    app.get('play-date').value = '2026-10-17'
+    app.get('play-start').value = '23:40'
+    app.get('play-end').value = '01:10'
+    app.context.calcDuration()
+    app.get('storyteller-name').value = '  Amos  '
+    app.rows[0].name.value = '  Hejki '
+    app.rows[0].role.value = 'Empat'
+    app.context.setPlayerTeam(1, 'evil', app.rows[0].buttons[1])
+    app.rows[1].name.value = 'Nový hráč'
+    app.get('play-location').value = 'TeepCo'
+    app.get('play-game-copy').value = '2'
+    app.context.addPlayer(true)
+    app.edit()
+    const restored = recorder(storage)
+    restored.initialize()
+    assert.equal(restored.rows.length, 9)
+    assert.equal(restored.rows[0].name.value, '  Hejki ')
+    assert.equal(restored.rows[0].role.value, 'Empat')
+    assert.ok(restored.rows[0].classList.contains('is-evil'))
+    assert.ok(restored.rows[0].classList.contains('bg-30'))
+    assert.equal(restored.rows[1].name.value, 'Nový hráč')
+    assert.equal(restored.get('storyteller-name').value, '  Amos  ')
+    assert.equal(restored.get('play-date').value, '2026-10-17')
+    assert.equal(restored.get('play-start').value, '23:40')
+    assert.equal(restored.get('play-end').value, '01:10')
+    assert.equal(restored.get('duration-display').textContent, '1 h 30 min')
+    assert.equal(restored.get('play-location').value, 'TeepCo')
+    assert.equal(restored.get('play-game-copy').value, '2')
+    assert.equal(vm.runInContext('winnerTeam', restored.context), null)
+    assert.equal(vm.runInContext('currentScript', restored.context), 'trouble-brewing')
+    assert.ok(restored.rows.every(row => !row.name.focused))
+    restored.context.removePlayer(1)
+    restored.context.setWinner('good')
+    const again = recorder(storage)
+    again.initialize()
+    assert.equal(again.rows.length, 8)
+    assert.equal(vm.runInContext('winnerTeam', again.context), 'good')
+})
+
+test('imported identities, custom scripts and location UUIDs survive reload', () => {
+    const storage = new Map()
+    const app = recorder(storage)
+    app.initialize()
+    const example = structuredClone(playExample)
+    example.plays[0].board = 'Importovaný skript'
+    example.players.find(player => player.name === 'Amos').uuid = 'imported-amos-uuid'
+    example.locations = [{ id: 99, name: 'Importované místo', uuid: 'imported-location-uuid' }]
+    example.plays[0].locationRefId = 99
+    app.context.importBgsplay(example)
+    const reloaded = recorder(storage)
+    reloaded.initialize()
+    const data = reloaded.context.generate()
+    assert.equal(data.players[0].uuid, 'imported-amos-uuid')
+    assert.equal(data.plays[0].board, 'Custom: Importovaný skript')
+    assert.equal(data.locations[0].uuid, 'imported-location-uuid')
+    assert.equal(data.locations[0].name, 'Importované místo')
+    assert.equal(reloaded.rows.length, 19)
+})
+
+test('empty drafts restore and inaccessible or corrupt storage does not break initialization', () => {
+    const storage = new Map()
+    const app = recorder(storage)
+    app.initialize()
+    for (const row of [...app.rows]) app.context.removePlayer(Number(row.id.slice(7)))
+    const empty = recorder(storage)
+    empty.initialize()
+    assert.equal(empty.rows.length, 0)
+    assert.equal(vm.runInContext('currentScript', empty.context), null)
+    for (const value of ['not json', '{}', '{"version":999}', '{"version":1,"players":[null]}']) {
+        storage.set('botc-play-draft-v1', value)
+        const fresh = recorder(storage)
+        fresh.initialize()
+        assert.equal(fresh.rows.length, 8)
+    }
+    const blocked = recorder({ get() { throw new Error('Blocked') }, set() { throw new Error('Full') } })
+    assert.doesNotThrow(() => blocked.initialize())
+    assert.doesNotThrow(() => blocked.edit())
+    assert.doesNotThrow(() => blocked.context.addPlayer())
+})
+
+test('clear button resets the form and stored draft only after confirmation', () => {
+    const app = recorder()
+    app.initialize()
+    app.context.importBgsplay(playExample)
+    app.get('play-location').value = 'TeepCo'
+    app.edit()
+    const saved = app.storage.get('botc-play-draft-v1')
+    app.context.confirm = () => false
+    app.context.clearRecorder()
+    assert.equal(app.rows.length, 19)
+    assert.equal(app.storage.get('botc-play-draft-v1'), saved)
+    app.context.confirm = () => true
+    app.context.clearRecorder()
+    assert.equal(app.rows.length, 8)
+    assert.ok(app.rows.every(row => row.name.value === '' && row.role.value === ''))
+    assert.equal(app.get('storyteller-name').value, '')
+    assert.equal(app.get('play-start').value, '')
+    assert.equal(app.get('play-end').value, '')
+    assert.equal(app.get('duration-display').textContent, '—')
+    assert.equal(app.get('play-location').value, '')
+    assert.equal(app.get('play-game-copy').value, '0')
+    assert.equal(vm.runInContext('currentScript', app.context), null)
+    assert.equal(vm.runInContext('winnerTeam', app.context), null)
+    assert.equal(vm.runInContext('generatedData', app.context), null)
+    assert.equal(app.get('summary-bar').textContent, '8: 0/0/0/0')
+    const reloaded = recorder(app.storage)
+    reloaded.initialize()
+    assert.equal(reloaded.rows.length, 8)
+    assert.equal(reloaded.get('storyteller-name').value, '')
+    assert.equal(vm.runInContext('currentScript', reloaded.context), null)
+    assert.ok(html.indexOf('onclick="clearRecorder()"') < html.indexOf('onclick="downloadBgsplay()"'))
+    assert.match(html, /onclick="clearRecorder\(\)" aria-label="Vyčistit formulář"/)
+})
+
+test('Custom opens a dialog and imports translated Script Tool roles and script name', () => {
+    const app = recorder()
+    app.initialize()
+    app.scripts[0].onclick()
+    app.scripts[3].onclick()
+    assert.equal(vm.runInContext('currentScript', app.context), 'trouble-brewing')
+    assert.equal(app.scripts[3].attributes['data-bs-target'], '#custom-script-dialog')
+    assert.match(html, /href="https:\/\/script.bloodontheclocktower.com"[^>]*rel="noopener noreferrer"/)
+    assert.match(html, /<textarea id="custom-script-json"/)
+    assert.ok(html.indexOf('scripts/botc-roles.js') < html.indexOf('scripts/botc-play.js'))
+    app.get('custom-script-json').value = customScriptExample
+    app.context.importCustomScriptFromDialog()
+    assert.equal(app.get('custom-script-status').hidden, true)
+    assert.equal(app.get('custom-script-close').clicked, true)
+    assert.equal(app.scripts[3].textContent, 'Custom: Na počátku cesty')
+    assert.equal(app.scripts[3].attributes['aria-pressed'], 'true')
+    const script = app.context.getScript('custom')
+    assert.equal(script.name, 'Na počátku cesty')
+    assert.deepEqual(Array.from(script.roles.townsfolk), ['Šlechtic', 'Babička', 'Knihovník', 'Empat', 'Vesnický pobuda', 'Vědma', 'Městský vyvolávač', 'Hrobník', 'Mnich', 'Hazardní hráč', 'Učenec', 'Umělec', 'Zabiják', 'Strážkyně krkavců'])
+    assert.deepEqual(Array.from(script.roles.outsider), ['Opilec', 'Zlatíčko', 'Morový doktor', 'Nešika'])
+    assert.deepEqual(Array.from(script.roles.minion), ['Mezefeles', 'Kmotr', 'Vdova', 'Šarlatová žena'])
+    assert.deepEqual(Array.from(script.roles.demon), ['Pukka', 'No Dashii', 'Kazali', 'Vigormortis'])
+    assert.deepEqual(Array.from(script.roles.traveller), ['Byrokrat', 'Gangster', 'Vudun'])
+    assert.match(app.rows[0].roleCell.innerHTML, /<select/)
+    for (const roles of Object.values(script.roles)) {
+        for (const role of roles) assert.ok(app.rows[0].roleCell.innerHTML.includes(`<option value="${role}">${role}</option>`))
+    }
+    const selections = ['Šlechtic', 'Opilec', 'Vdova', 'Kazali', 'Gangster']
+    selections.forEach((role, index) => {
+        app.rows[index].role.value = role
+        app.context.autoSelectPlayerTeam(index + 1, role)
+    })
+    assert.ok(app.rows[0].classList.contains('is-good'))
+    assert.ok(app.rows[0].classList.contains('bg-30'))
+    assert.ok(app.rows[1].classList.contains('is-good'))
+    assert.ok(app.rows[1].classList.contains('bg-10'))
+    assert.ok(app.rows[2].classList.contains('is-evil'))
+    assert.ok(app.rows[3].classList.contains('is-evil'))
+    assert.ok(app.rows[3].classList.contains('bg-30'))
+    assert.ok(!app.rows[4].classList.contains('is-good') && !app.rows[4].classList.contains('is-evil'))
+    assert.equal(app.get('summary-bar').textContent, '8: 1/1/1/1')
+    app.context.setWinner('good')
+    assert.equal(app.context.generate().plays[0].board, 'Custom: Na počátku cesty')
+    app.context.addPlayer()
+    assert.match(app.rows.at(-1).innerHTML, /<select/)
+    assert.ok(app.rows.at(-1).innerHTML.includes('Kazali'))
+})
+
+test('custom script definitions survive reload and reset removes them', () => {
+    const app = recorder()
+    app.initialize()
+    app.context.importCustomScript(customScriptExample)
+    app.rows[0].role.value = 'Šlechtic'
+    app.context.autoSelectPlayerTeam(1, 'Šlechtic')
+    const reloaded = recorder(app.storage)
+    reloaded.initialize()
+    assert.equal(reloaded.context.getScript('custom').name, 'Na počátku cesty')
+    assert.equal(reloaded.rows[0].role.value, 'Šlechtic')
+    assert.ok(reloaded.rows[0].innerHTML.includes('Vdova'))
+    assert.equal(reloaded.scripts[3].textContent, 'Custom: Na počátku cesty')
+    reloaded.scripts[0].onclick()
+    reloaded.scripts[3].onclick()
+    assert.equal(reloaded.get('custom-script-json').value, customScriptExample)
+    assert.equal(vm.runInContext('currentScript', reloaded.context), 'trouble-brewing')
+    reloaded.context.importCustomScriptFromDialog()
+    reloaded.context.setWinner('good')
+    const exported = JSON.parse(JSON.stringify(reloaded.context.generate()))
+    reloaded.context.importBgsplay(exported)
+    assert.ok(reloaded.rows[0].innerHTML.includes('Vdova'))
+    assert.equal(reloaded.context.generate().plays[0].board, 'Custom: Na počátku cesty')
+    reloaded.context.clearRecorder()
+    assert.equal(vm.runInContext('customScript', reloaded.context), null)
+    assert.equal(reloaded.scripts[3].textContent, 'Custom')
+    assert.equal(reloaded.get('custom-script-json').value, '')
+})
+
+test('custom script validation is atomic, supports object IDs and safely handles names', () => {
+    const app = recorder()
+    app.initialize()
+    app.context.importCustomScript(customScriptExample)
+    const before = JSON.stringify(app.context.getScript('custom'))
+    for (const text of ['not json', '{}', '[]', '["empath"]', '[{"id":"_meta","name":" "},"imp"]', '[{"id":"_meta","name":"Test"}]', '[{"id":"_meta","name":"Test"},"unknown-role"]', '[{"id":"_meta","name":"Test"},"__proto__"]', '[{"id":"_meta","name":"Test"},null]']) {
+        assert.throws(() => app.context.importCustomScript(text))
+        assert.equal(JSON.stringify(app.context.getScript('custom')), before)
+    }
+    app.get('custom-script-json').value = '[{"id":"_meta","name":"Test"},"unknown-role"]'
+    app.context.importCustomScriptFromDialog()
+    assert.equal(app.get('custom-script-status').hidden, false)
+    assert.ok(app.get('custom-script-status').textContent.includes('unknown-role'))
+    app.context.importCustomScript(JSON.stringify([{ id: '_meta', name: '<img src=x onerror=alert(1)>' }, { id: 'empath' }, 'empath', 'djinn', 'bootlegger']))
+    const script = app.context.getScript('custom')
+    assert.deepEqual(Array.from(script.roles.townsfolk), ['Empat'])
+    assert.deepEqual(Array.from(script.roles.fabled), ['Djinn'])
+    assert.deepEqual(Array.from(script.roles.loric), ['Bootlegger'])
+    assert.equal(app.scripts[3].textContent, 'Custom: <img src=x onerror=alert(1)>')
+    assert.ok(!app.rows[0].roleCell.innerHTML.includes('<img'))
 })
 
 test('game title is centered in the navbar', () => {
@@ -287,22 +516,46 @@ test('BotC uses Bootstrap components without custom CSS or inline styles', () =>
     assert.doesNotMatch(source, /getElementById\('play-comment'\)/)
 })
 
+test('known scripts contain only role IDs and use the same translation as custom scripts', () => {
+    const app = recorder()
+    app.initialize()
+    const scripts = vm.runInContext('SCRIPTS', app.context)
+    for (const script of scripts) {
+        assert.ok(Array.isArray(script.roles))
+        assert.ok(script.roles.every(id => typeof id === 'string'))
+        if (script.id === 'custom') continue
+        const grouped = app.context.getScript(script.id)
+        const expectedCounts = script.id === 'trouble-brewing' ? [13, 4, 4, 1, 5] : [13, 4, 4, 4, 5]
+        assert.deepEqual(['townsfolk', 'outsider', 'minion', 'demon', 'traveller'].map(type => grouped.roles[type].length), expectedCounts)
+        const imported = app.context.parseCustomScript(JSON.stringify([{ id: '_meta', name: script.name }, ...script.roles]))
+        assert.deepEqual(JSON.parse(JSON.stringify(grouped.roles)), JSON.parse(JSON.stringify(imported.roles)))
+    }
+    assert.equal(app.context.getScript('sects-violets').roles.townsfolk[0], 'Filozof')
+    assert.equal(app.context.getScript('missing'), undefined)
+})
+
 test('script buttons, role options and export names come from SCRIPTS', () => {
     const app = recorder()
-    vm.runInContext(`SCRIPTS.push({ id: 'test-script', name: 'Testovací skript', roles: { townsfolk: ['Testovací role'] } })`, app.context)
+    vm.runInContext(`SCRIPTS.push({ id: 'test-script', name: 'Testovací skript', roles: ['empath'] })`, app.context)
     app.initialize()
     assert.doesNotMatch(html, /data-script=/)
     const metadata = html.match(/<section[^>]*aria-labelledby="metadata-title"[\s\S]*?<\/section>/)[0]
     assert.match(metadata, /id="script-buttons"/)
     assert.doesNotMatch(html, /id="script-title"/)
-    const definitions = vm.runInContext('SCRIPTS', app.context)
+    const definitions = vm.runInContext('SCRIPTS.map(script => getScript(script.id))', app.context)
     assert.equal(app.scripts.length, definitions.length)
     app.context.setWinner('good')
     definitions.forEach((script, index) => {
         const button = app.scripts[index]
         assert.equal(button.dataset.script, script.id)
         assert.equal(button.textContent, script.name)
-        button.onclick()
+        if (script.id === 'custom') {
+            assert.equal(button.attributes['data-bs-toggle'], 'dialog')
+            assert.equal(button.attributes['data-bs-target'], '#custom-script-dialog')
+            app.context.selectScript(button)
+        } else {
+            button.onclick()
+        }
         assert.equal(button.attributes['aria-pressed'], 'true')
         if (script.id === 'custom') {
             assert.match(app.rows[0].roleCell.innerHTML, /type="text"/)
@@ -313,8 +566,9 @@ test('script buttons, role options and export names come from SCRIPTS', () => {
         }
         app.context.generate()
         const exported = vm.runInContext('generatedData', app.context)
-        assert.equal(exported._createPlay.board, script.name)
-        assert.equal(exported.plays[0].board, script.name)
+        const board = script.id === 'custom' ? `Custom: ${script.name}` : script.name
+        assert.equal(exported._createPlay.board, board)
+        assert.equal(exported.plays[0].board, board)
         assert.ok(!exported.plays[0].comments?.includes('Skript:'))
     })
 })
@@ -351,7 +605,7 @@ test('player rows and role fields keep Bootstrap styling through script and team
 test('role selection always updates teams except for travellers', () => {
     const app = recorder()
     app.initialize()
-    const definitions = vm.runInContext('SCRIPTS', app.context)
+    const definitions = vm.runInContext('SCRIPTS.map(script => getScript(script.id))', app.context)
     for (const script of definitions.filter(script => script.id !== 'custom')) {
         app.context.selectScript(app.scripts.find(button => button.dataset.script === script.id))
         assert.match(app.rows[0].roleCell.innerHTML, /onchange="autoSelectPlayerTeam\(1,this.value\)"/)
@@ -390,7 +644,7 @@ test('townsfolk and demons use bg-30; other roles use bg-10 regardless of team',
     app.initialize()
     const row = app.rows[0]
     assert.ok(row.classList.contains('bg-10'))
-    const definitions = vm.runInContext('SCRIPTS', app.context)
+    const definitions = vm.runInContext('SCRIPTS.map(script => getScript(script.id))', app.context)
     for (const script of definitions.filter(script => script.id !== 'custom')) {
         app.context.selectScript(app.scripts.find(button => button.dataset.script === script.id))
         for (const [type, names] of Object.entries(script.roles)) {
@@ -418,7 +672,7 @@ test('summary counts selected role types, not teams, and includes travellers onl
     app.initialize()
     assert.equal(app.get('summary-bar').textContent, '8: 0/0/0/0')
     app.context.selectScript(app.scripts[0])
-    const roles = vm.runInContext('SCRIPTS[0].roles', app.context)
+    const roles = app.context.getScript('trouble-brewing').roles
     Object.values(roles).forEach((names, index) => {
         app.rows[index].role.value = names[0]
         app.context.autoSelectPlayerTeam(index + 1, names[0])

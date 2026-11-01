@@ -109,7 +109,10 @@ uživatelskou práci a nemaž ostatní hry.
   BGG a ZH odkazy frontend vytvoří z identifikátorů automaticky jako první dva;
   do `links` je neduplikuj. Ostatní odkazy zůstanou v pořadí z YAML. Dodatečnou
   BGG stránku jiné hry/edice můžeš přidat jako `other` s jednoznačným názvem.
-  Obsahuje-li záznam více postav, uveď jejich jména také v titulcích odkazů.
+  Kontextové odkazy ke konkrétním postavám mohou zůstat přímo u jejich popisů
+  v `description`, jako u `data/unmatched_adventures.yaml`. Nepřesouvej je
+  automaticky do společného seznamu. Pokud je uvádíš v `links`, upřesni
+  v titulcích jména postav.
 - Obrázek hledej u vydavatele/BGG pro vybranou hru. Respektuj práva a podmínky,
   poznamenej zdroj a nepředpokládej, že dostupnost znamená volnou licenci.
 - Stažený soubor musí být **skutečný JPEG**, ne přejmenovaný WebP/PNG či HTML.
