@@ -93,6 +93,7 @@ let customScript = null;
 let customScriptJson = '';
 const importedIdentities = new WeakMap();
 const DRAFT_STORAGE_KEY = 'botc-play-draft-v1';
+const DEFAULT_PLAYER_COUNT = 8;
 let draftReady = false;
 let applyingDraft = false;
 
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLocations();
   renderGameCopies();
   if (!restoreDraft()) {
-    for (let i = 0; i < 8; i++) addPlayer();
+    for (let i = 0; i < DEFAULT_PLAYER_COUNT; i++) addPlayer();
   }
   draftReady = true;
 });
@@ -112,6 +113,46 @@ for (const event of ['input', 'change']) {
   document.addEventListener(event, event => {
     if (event.target.matches('input:not([type="file"]), select')) saveDraft();
   });
+}
+
+function clearPlayerRoles() {
+  if (!confirm('Vymazat role, týmy a vítěze? Jména hráčů zůstanou zachovaná.')) return;
+  applyingDraft = true;
+  try {
+    document.querySelectorAll('.player-row').forEach(row => {
+      const role = row.querySelector('.player-role-cell select') || row.querySelector('.player-role-cell input');
+      role.value = '';
+      row.classList.remove('is-good', 'is-evil', 'bg-info', 'bg-danger');
+      updatePlayerRoleStyle(row, '');
+      row.querySelectorAll('.team-btn').forEach(button => {
+        button.classList.remove('active');
+        button.setAttribute('aria-pressed', 'false');
+      });
+    });
+    generatedData = null;
+    setWinner(null);
+  } finally {
+    applyingDraft = false;
+  }
+  saveDraft();
+}
+
+function clearPlayers() {
+  if (!confirm('Vymazat hráče, vypravěče a role a obnovit výchozí počet hráčů?')) return;
+  applyingDraft = true;
+  try {
+    [...players].forEach(player => removePlayer(player.id));
+    playerIdCounter = 0;
+    const storyteller = document.getElementById('storyteller-name');
+    storyteller.value = '';
+    importedIdentities.delete(storyteller);
+    generatedData = null;
+    setWinner(null);
+    for (let i = 0; i < DEFAULT_PLAYER_COUNT; i++) addPlayer();
+  } finally {
+    applyingDraft = false;
+  }
+  saveDraft();
 }
 
 function clearRecorder() {
@@ -147,7 +188,7 @@ function clearRecorder() {
       document.getElementById(id).hidden = true;
     }
     setWinner(null);
-    for (let i = 0; i < 8; i++) addPlayer();
+    for (let i = 0; i < DEFAULT_PLAYER_COUNT; i++) addPlayer();
   } finally {
     applyingDraft = false;
   }
@@ -636,7 +677,9 @@ function addPlayer(focusName = false) {
       <input class="player-name-input form-control" type="text" list="known-players" aria-label="Hráč" placeholder="Jméno hráče…" autocomplete="off">
     </div>
     <div class="player-role-cell col-12 md:col">${roleCell}</div>
-    <div class="col-auto d-flex flex-nowrap flex-shrink-0 gap-1 ms-auto" role="group" aria-label="Tým hráče">
+    <div class="col-auto d-flex flex-nowrap flex-shrink-0 gap-1 ms-auto" role="group" aria-label="Akce hráče">
+      <button type="button" class="move-player-up btn-text btn-sm" onclick="movePlayer(${id},-1)" aria-label="Posunout hráče nahoru" title="Posunout nahoru"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+      <button type="button" class="move-player-down btn-text btn-sm" onclick="movePlayer(${id},1)" aria-label="Posunout hráče dolů" title="Posunout dolů"><i class="bi bi-arrow-down" aria-hidden="true"></i></button>
       <button type="button" class="team-btn btn-subtle btn-sm theme-info" data-team="good" onclick="setPlayerTeam(${id},'good',this)" aria-label="Dobří" aria-pressed="false" title="Dobří">👍</button>
       <button type="button" class="team-btn btn-subtle btn-sm theme-danger" data-team="evil" onclick="setPlayerTeam(${id},'evil',this)" aria-label="Zlí" aria-pressed="false" title="Zlí">👎</button>
       <button type="button" class="btn-text btn-sm theme-danger" onclick="removePlayer(${id})" aria-label="Odebrat hráče" title="Odebrat">✕</button>
@@ -646,6 +689,19 @@ function addPlayer(focusName = false) {
   updateNumbers();
   updateSummary();
   if (focusName) row.querySelector('.player-name-input').focus();
+}
+
+function movePlayer(id, direction) {
+  if (direction !== -1 && direction !== 1) return;
+  const rows = [...document.querySelectorAll('.player-row')];
+  const index = rows.findIndex(row => row.id === `player-${id}`);
+  const adjacent = rows[index + direction];
+  if (index === -1 || !adjacent) return;
+  const row = rows[index];
+  document.getElementById('players-list').insertBefore(direction === -1 ? row : adjacent, direction === -1 ? adjacent : row);
+  [players[index], players[index + direction]] = [players[index + direction], players[index]];
+  updateNumbers();
+  updateSummary();
 }
 
 function removePlayer(id) {
@@ -667,8 +723,11 @@ function setPlayerTeam(id, team, btn) {
 }
 
 function updateNumbers() {
-  document.querySelectorAll('.player-row').forEach((r, i) => {
+  const rows = document.querySelectorAll('.player-row');
+  rows.forEach((r, i) => {
     r.querySelector('.player-num').textContent = i + 1;
+    r.querySelector('.move-player-up').disabled = i === 0;
+    r.querySelector('.move-player-down').disabled = i === rows.length - 1;
   });
 }
 

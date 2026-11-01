@@ -86,7 +86,11 @@
 
   <!-- PLAYERS -->
   <section class="card" aria-labelledby="players-title">
-    <h2 id="players-title" class="card-header fs-lg mb-0">👥 Hráči</h2>
+    <div class="card-header d-flex flex-row flex-nowrap align-items-center gap-3">
+      <h2 id="players-title" class="fs-lg mb-0">👥 Hráči</h2>
+      <button type="button" class="btn-text btn-sm ms-auto" onclick="clearPlayerRoles()" aria-label="Vymazat role hráčů" title="Vymazat role hráčů"><i class="bi bi-eraser" aria-hidden="true"></i></button>
+      <button type="button" class="btn-text btn-sm theme-danger" onclick="clearPlayers()" aria-label="Vymazat hráče a role" title="Vymazat hráče a role"><i class="bi bi-person-x" aria-hidden="true"></i></button>
+    </div>
     <div class="card-body">
       <div id="players-list" class="d-flex flex-column gap-5">
         <div id="storyteller-row" class="row g-3 align-items-center border rounded-5 p-3 mx-0">

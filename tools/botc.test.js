@@ -45,6 +45,10 @@ function recorder(storage = new Map()) {
     }
     for (const team of ['good', 'evil']) get(`btn-${team}`).className = `btn-outline theme-${team === 'good' ? 'info' : 'danger'}`
     get('players-list').appendChild = row => { rows.push(row); elements.set(row.id, row) }
+    get('players-list').insertBefore = (row, reference) => {
+        rows.splice(rows.indexOf(row), 1)
+        rows.splice(rows.indexOf(reference), 0, row)
+    }
     get('script-buttons').appendChild = button => { scripts.push(button) }
     get('play-location').options = []
     get('play-location').replaceChildren = () => { get('play-location').options = [] }
@@ -74,11 +78,15 @@ function recorder(storage = new Map()) {
                 row.role = { value: '' }
                 row.roleCell = element()
                 row.number = element()
+                row.moveUp = element()
+                row.moveDown = element()
                 row.buttons = ['good', 'evil'].map(team => Object.assign(element('team-btn btn-subtle'), { dataset: { team } }))
                 row.querySelector = selector => {
                     if (selector === '.player-name-input') return row.name
                     if (selector === '.player-role-cell') return row.roleCell
                     if (selector === '.player-num') return row.number
+                    if (selector === '.move-player-up') return row.moveUp
+                    if (selector === '.move-player-down') return row.moveDown
                     return row.role
                 }
                 row.querySelectorAll = () => row.buttons
@@ -497,6 +505,121 @@ test('custom script validation is atomic, supports object IDs and safely handles
     assert.deepEqual(Array.from(script.roles.loric), ['Bootlegger'])
     assert.equal(app.scripts[3].textContent, 'Custom: <img src=x onerror=alert(1)>')
     assert.ok(!app.rows[0].roleCell.innerHTML.includes('<img'))
+})
+
+test('player header actions clear roles or reset players without changing game metadata', () => {
+    const app = recorder()
+    app.initialize()
+    app.context.importBgsplay(playExample)
+    app.get('play-location').value = 'TeepCo'
+    app.edit()
+    const names = app.rows.map(row => row.name.value)
+    const storyteller = app.get('storyteller-name').value
+    const checkMetadata = () => {
+        assert.equal(app.get('play-date').value, '2026-10-17')
+        assert.equal(app.get('play-start').value, '13:21')
+        assert.equal(app.get('play-end').value, '15:32')
+        assert.equal(app.get('play-location').value, 'TeepCo')
+        assert.equal(app.get('play-game-copy').value, '2')
+        assert.equal(vm.runInContext('currentScript', app.context), 'trouble-brewing')
+    }
+    const saved = app.storage.get('botc-play-draft-v1')
+    app.context.confirm = () => false
+    app.context.clearPlayerRoles()
+    app.context.clearPlayers()
+    assert.equal(app.storage.get('botc-play-draft-v1'), saved)
+    app.context.confirm = () => true
+    app.context.clearPlayerRoles()
+    assert.deepEqual(app.rows.map(row => row.name.value), names)
+    assert.equal(app.get('storyteller-name').value, storyteller)
+    assert.equal(app.rows.length, 19)
+    for (const row of app.rows) {
+        assert.equal(row.role.value, '')
+        assert.ok(!row.classList.contains('is-good') && !row.classList.contains('is-evil'))
+        assert.ok(!row.classList.contains('bg-info') && !row.classList.contains('bg-danger'))
+        assert.ok(row.classList.contains('bg-10'))
+        assert.ok(row.buttons.every(button => button.attributes['aria-pressed'] === 'false'))
+    }
+    assert.equal(vm.runInContext('winnerTeam', app.context), null)
+    checkMetadata()
+    const afterRoles = recorder(app.storage)
+    afterRoles.initialize()
+    assert.equal(afterRoles.rows.length, 19)
+    assert.deepEqual(afterRoles.rows.map(row => row.name.value), names)
+    assert.ok(afterRoles.rows.every(row => row.role.value === ''))
+    app.context.addPlayer()
+    app.context.clearPlayers()
+    assert.equal(app.rows.length, 8)
+    assert.equal(app.get('storyteller-name').value, '')
+    assert.ok(app.rows.every(row => row.name.value === '' && row.role.value === ''))
+    assert.equal(vm.runInContext('winnerTeam', app.context), null)
+    checkMetadata()
+    const afterPlayers = recorder(app.storage)
+    afterPlayers.initialize()
+    assert.equal(afterPlayers.rows.length, 8)
+    assert.equal(afterPlayers.get('storyteller-name').value, '')
+    assert.ok(afterPlayers.rows.every(row => row.name.value === '' && row.role.value === ''))
+    const header = html.match(/<section[^>]*aria-labelledby="players-title"[\s\S]*?<div class="card-body">/)[0]
+    assert.match(header, /card-header d-flex flex-row flex-nowrap/)
+    assert.match(header, /ms-auto" onclick="clearPlayerRoles\(\)" aria-label="Vymazat role hráčů"/)
+    assert.match(header, /onclick="clearPlayers\(\)" aria-label="Vymazat hráče a role"/)
+})
+
+test('move buttons swap whole player rows, update boundaries and persist export order', () => {
+    const app = recorder()
+    app.initialize()
+    app.scripts[0].onclick()
+    const first = app.rows[0]
+    const second = app.rows[1]
+    first.name.value = 'Hejki'
+    first.role.value = 'Empat'
+    second.name.value = 'Amos'
+    second.role.value = 'Opilec'
+    app.context.setPlayerTeam(1, 'evil', first.buttons[1])
+    app.context.setPlayerTeam(2, 'good', second.buttons[0])
+    assert.equal(first.moveUp.disabled, true)
+    assert.equal(app.rows.at(-1).moveDown.disabled, true)
+    assert.ok(first.innerHTML.indexOf('move-player-up') < first.innerHTML.indexOf('team-btn'))
+    assert.ok(first.innerHTML.indexOf('move-player-down') < first.innerHTML.indexOf('team-btn'))
+    app.context.movePlayer(1, 1)
+    assert.equal(app.rows[0], second)
+    assert.equal(app.rows[1], first)
+    assert.equal(second.number.textContent, 1)
+    assert.equal(first.number.textContent, 2)
+    assert.equal(second.moveUp.disabled, true)
+    assert.equal(first.moveUp.disabled, false)
+    assert.equal(first.role.value, 'Empat')
+    assert.ok(first.classList.contains('is-evil'))
+    assert.equal(second.role.value, 'Opilec')
+    assert.ok(second.classList.contains('is-good'))
+    app.context.movePlayer(1, -1)
+    assert.equal(app.rows[0], first)
+    app.context.movePlayer(1, -1)
+    app.context.movePlayer(8, 1)
+    app.context.movePlayer(999, 1)
+    assert.equal(app.rows[0], first)
+    assert.equal(app.rows.at(-1).id, 'player-8')
+    app.context.movePlayer(2, -1)
+    app.context.setWinner('good')
+    const exported = app.context.generate()
+    assert.equal(exported.players[1].name, 'Amos')
+    assert.equal(exported.players[2].name, 'Hejki')
+    assert.equal(exported.plays[0].playerScores[1].teamRole, 'Opilec')
+    assert.equal(exported.plays[0].playerScores[1].winner, true)
+    assert.equal(exported.plays[0].playerScores[2].teamRole, 'Empat')
+    assert.equal(exported.plays[0].playerScores[2].team, '2')
+    assert.deepEqual(Array.from(vm.runInContext('players.map(player => player.id)', app.context)), [2, 1, 3, 4, 5, 6, 7, 8])
+    const reloaded = recorder(app.storage)
+    reloaded.initialize()
+    assert.equal(reloaded.rows[0].name.value, 'Amos')
+    assert.equal(reloaded.rows[1].name.value, 'Hejki')
+    assert.equal(reloaded.rows[1].role.value, 'Empat')
+    assert.ok(reloaded.rows[1].classList.contains('is-evil'))
+    app.context.removePlayer(2)
+    assert.equal(first.moveUp.disabled, true)
+    app.context.addPlayer()
+    assert.equal(app.rows.at(-2).moveDown.disabled, false)
+    assert.equal(app.rows.at(-1).moveDown.disabled, true)
 })
 
 test('game title is centered in the navbar', () => {
