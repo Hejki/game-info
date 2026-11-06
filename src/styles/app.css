@@ -14,6 +14,30 @@ table th[align="center"] {
     text-align: center;
 }
 
+.index-navbar {
+    z-index: 1030;
+}
+
+.index-search {
+    min-inline-size: 0;
+}
+
+.index-settings {
+    flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+    .index-settings {
+        flex-basis: auto;
+    }
+
+    .index-settings.collapse:not(.show) {
+        display: block;
+        block-size: auto;
+        overflow: visible;
+    }
+}
+
 .navbar-overlay {
     position: absolute;
     inset-block-start: 0;
@@ -71,4 +95,74 @@ table th[align="center"] {
     inline-size: 1.2rem;
     flex-shrink: 0;
     text-align: center;
+}
+
+.game-grid-card .card-body {
+    color: white;
+    background: linear-gradient(rgb(0 0 0 / 65%), rgb(0 0 0 / 90%));
+    text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+}
+
+.game-grid-card .card-body a {
+    color: inherit;
+}
+
+.game-grid-tools {
+    position: absolute;
+    inset-block-start: .5rem;
+    inset-inline-end: .5rem;
+    z-index: 1;
+}
+
+.game-grid-tools a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+}
+
+.game-group-toggle {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--bs-link-color);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+}
+
+.game-group-toggle:hover {
+    color: var(--bs-link-hover-color);
+    text-decoration: underline;
+}
+
+.game-group-toggle:disabled {
+    cursor: default;
+}
+
+.game-group-toggle > .bi {
+    font-size: .75em;
+}
+
+.game-group-member > th {
+    position: relative;
+    padding-inline-start: 2.5rem;
+}
+
+.game-group-member > th::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 1rem;
+    border-inline-start: 2px solid var(--bs-border-color);
+}
+
+.game-group-member > th::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 1rem;
+    inline-size: .75rem;
+    border-block-start: 2px solid var(--bs-border-color);
 }

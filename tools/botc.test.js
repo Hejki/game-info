@@ -629,6 +629,12 @@ test('game title is centered in the navbar', () => {
     assert.equal((html.match(/<h1\b/g) || []).length, 1)
 })
 
+test('recorder close icon returns directly to the index', () => {
+    const navbar = html.match(/<nav\b[\s\S]*?<\/nav>/)[0]
+    assert.match(navbar, /<a href="\.\/" class="btn-text" aria-label="Zavřít nástroj a vrátit se na seznam her"[^>]*><i class="bi bi-x-lg" aria-hidden="true"><\/i><\/a>/)
+    assert.doesNotMatch(navbar, /chevron-left|Zpět na hru|game\.html/)
+})
+
 test('BotC uses Bootstrap components without custom CSS or inline styles', () => {
     assert.match(html, /bootstrap@6\.0\.0-alpha\.1/)
     assert.match(html, /type="module" src="[^"]+bootstrap\.bundle\.min\.js"/)

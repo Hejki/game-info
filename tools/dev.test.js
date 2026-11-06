@@ -34,8 +34,11 @@ test('dev server serves fresh JavaScript after rebuilding, including conditional
         await fs.symlink(path.join(projectDir, 'node_modules'), path.join(root, 'node_modules'), 'dir')
         await fs.writeFile(path.join(root, 'package.json'), '{"type":"module"}')
         await fs.writeFile(path.join(root, 'src/index.html'), '<script src="scripts/game-loader.js"></script>')
-        await fs.writeFile(path.join(root, 'data/test.yaml'), 'name: Test\n')
-        await fs.writeFile(path.join(root, 'data/test.jpg'), '')
+        await fs.mkdir(path.join(root, 'data/test'))
+        await fs.writeFile(path.join(root, 'data/test/test.yaml'), 'name: Test\n')
+        await fs.writeFile(path.join(root, 'data/_groups.yaml'), 'test: Before\n')
+        await fs.writeFile(path.join(root, 'data/test/_cover.jpg'), '')
+        await fs.writeFile(path.join(root, 'data/test/test.jpg'), '')
         const scriptPath = path.join(root, 'src/scripts/game-loader.js')
         await fs.writeFile(scriptPath, 'document.body.dataset.version = "before"')
 
@@ -45,9 +48,15 @@ test('dev server serves fresh JavaScript after rebuilding, including conditional
         })
         child.stdout.on('data', data => { logs += data })
         child.stderr.on('data', data => { logs += data })
-        await waitFor(() => /http:\/\/127\.0\.0\.1:\d+\//.test(logs))
-        const base = logs.match(/http:\/\/127\.0\.0\.1:\d+\//)[0]
+        await waitFor(() => /http:\/\/(?:localhost|127\.0\.0\.1):\d+\//.test(logs))
+        const base = logs.match(/http:\/\/(?:localhost|127\.0\.0\.1):\d+\//)[0].replace('localhost', '127.0.0.1')
         await fetch(base)
+        const address = Object.values(os.networkInterfaces()).flat().find(address => address.family === 'IPv4' && !address.internal)
+        if (address) {
+            const networkUrl = new URL(base)
+            networkUrl.hostname = address.address
+            assert.equal((await fetch(networkUrl)).status, 200, 'Dev server must accept connections on its LAN interface')
+        }
         const url = `${base}scripts/game-loader.js`
         const initial = await fetch(url)
         assert.match(await initial.text(), /"before"/)
@@ -65,6 +74,11 @@ test('dev server serves fresh JavaScript after rebuilding, including conditional
             etag = response.headers.get('etag')
             assert.match(await (await fetch(url)).text(), new RegExp(`"${version}"`))
         }
+        logs = ''
+        await fs.writeFile(path.join(root, 'data/_groups.yaml'), 'test: Updated group\n')
+        await waitFor(() => logs.includes('prohlížeč obnoven'))
+        const index = await (await fetch(`${base}games/index.json`)).json()
+        assert.equal(index[0].groupName, 'Updated group')
     } finally {
         if (child && child.exitCode === null) {
             const exited = once(child, 'exit')

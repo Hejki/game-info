@@ -12,7 +12,7 @@ Komunikuj s uživatelem česky.
 ## 1. Zkontroluj projekt a identitu hry
 
 - Přečti `tools/build.js`, `src/scripts/game-detail.js` a několik současných
-  `data/*.yaml`. Skutečný formát projektu má přednost před touto dokumentací.
+  `data/**/*.yaml` (kromě `_groups.yaml`). Skutečný formát projektu má přednost před touto dokumentací.
 - Zkontroluj `git status` a existující názvy, slugy i BGG ID. Některé záznamy
   sdílejí BGG ID záměrně (např. postavy Unmatched), samotná shoda tedy není
   důvod ke smazání nebo sloučení.
@@ -83,6 +83,15 @@ Výstup je `data/<id>.yaml` a `data/<id>.jpg`. Před zápisem ověř, že soubor
 neexistují. Existující záznam upravuj jen na výslovné zadání; nepřepisuj
 uživatelskou práci a nemaž ostatní hry.
 
+- Hry ve skupině patří do `data/<group>/<id>.yaml` a sousedního `<id>.jpg`.
+  Názvy skupin jsou v `data/_groups.yaml` jako mapa ID adresáře na název.
+  Každá skupina má vlastní obrázek `_cover.jpg`.
+  Pole `group` se u her nezapisuje, build je odvodí z adresáře. Zkontroluj
+  existující ID rekurzivně v celém `data/`; přesun do skupiny ID nemění.
+  Skupiny jsou jednoúrovňové. `_groups.yaml` není hra a nesmí se započítávat
+  mezi herní záznamy. Příkaz ImageOptim níže používej se skutečnou cestou,
+  u nové hry ve skupině tedy `data/<group>/<id>.jpg`.
+
 ### Současné schéma
 
 | Pole | Formát / pravidlo |
@@ -110,7 +119,7 @@ uživatelskou práci a nemaž ostatní hry.
   do `links` je neduplikuj. Ostatní odkazy zůstanou v pořadí z YAML. Dodatečnou
   BGG stránku jiné hry/edice můžeš přidat jako `other` s jednoznačným názvem.
   Kontextové odkazy ke konkrétním postavám mohou zůstat přímo u jejich popisů
-  v `description`, jako u `data/unmatched_adventures.yaml`. Nepřesouvej je
+  v `description`, jako u `data/unmatched/unmatched_adventures.yaml`. Nepřesouvej je
   automaticky do společného seznamu. Pokud je uvádíš v `links`, upřesni
   v titulcích jména postav.
 - Obrázek hledej u vydavatele/BGG pro vybranou hru. Respektuj práva a podmínky,

@@ -10,7 +10,12 @@ npm install
 npm run dev
 ```
 
-Otevři adresu vypsanou v terminálu (standardně http://127.0.0.1:5173).
+Otevři adresu vypsanou v terminálu (standardně http://localhost:5173).
+Server poslouchá na `0.0.0.0`, takže je dostupný také z lokální sítě.
+Na jiném zařízení ve stejné síti otevři adresu `Network` z terminálu,
+například `http://192.168.1.10:5173`. Pokud připojení blokuje firewall macOS,
+povol příchozí spojení pro Node.js. Vývojový server používej jen v důvěryhodné síti.
+Sdílení souborů do BGStats v mobilním prohlížeči nadále vyžaduje HTTPS.
 Vývojový server Vite vystavuje sestavený adresář `dist/`. Sleduje změny
 v `src/`, `data/` a `tools/build.js`, automaticky spouští build a po úspěšném
 dokončení obnoví prohlížeč. Sleduje i přidání a smazání souborů.
@@ -25,6 +30,41 @@ Staré odkazy jako `https://bg.hejki.org/#deskovkari` (i `index.html#deskovkari`
 se automaticky přesměrují na nový detail bez přidání kroku do historie.
 
 Testy navigace, kompatibility odkazů a vývojového serveru: `npm test`.
+
+### Skupiny her
+
+Skupina je podadresář v `data/`. Obsahuje vlastní obrázek `_cover.jpg`
+a jednotlivé YAML/JPG dvojice her. Názvy skupin jsou v `data/_groups.yaml`:
+
+```text
+data/
+  _groups.yaml
+  deskovkari.yaml
+  deskovkari.jpg
+  unmatched/
+    _cover.jpg
+    unmatched_alenka.yaml
+    unmatched_alenka.jpg
+```
+
+Soubor `data/_groups.yaml` je mapa ID skupin na jejich zobrazované názvy:
+
+```yaml
+cerne-historky: Historky
+micro-macro: MikroMakro
+unmatched: Unmatched
+```
+
+ID skupiny se odvozuje z názvu adresáře. U jednotlivých her se pole `group`
+nevyplňuje. Skupiny jsou jednoúrovňové; názvy souborů her musí být jedinečné
+napříč celým katalogem, protože nadále tvoří jejich veřejná ID.
+V seznamu se skupina rozbaluje, v gridu má jednu kartu vedoucí na
+`index.html?group=unmatched`. Při hledání se zobrazují jednotlivé odpovídající
+hry; hledat lze i název skupiny. Počítadlo zahrnuje jednotlivé hry, nikoli karty
+skupin. Parametry hráčů, času a obtížnosti zůstávají pouze u jednotlivých her.
+Jejich ID a odkazy na detaily se při přesunu do skupiny nemění. Hry přímo
+v `data/` se zobrazují samostatně. Build odmítne chybějící definici či obrázek
+skupiny a duplicitní ID her. `_groups.yaml` není položka katalogu.
 
 ### Odkazy ke hře
 

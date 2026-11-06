@@ -34,7 +34,7 @@ if (!await build()) {
         root: path.resolve(projectDir, 'dist'),
         publicDir: false,
         server: {
-            host: '127.0.0.1',
+            host: '0.0.0.0',
             port: 5173,
             watch: {
                 ignored: ['**/dist/**'],

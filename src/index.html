@@ -15,43 +15,75 @@
 </head>
 
 <body>
-    <nav class="navbar bg-1 border-bottom px-7 py-3" aria-label="Hlavní navigace">
-        <a href="./" class="navbar-brand">Game Index</a>
-        <div class="ms-auto">
-            <button id="color-mode-toggle" type="button" class="btn-text" data-bs-toggle="menu"
-                data-bs-placement="bottom-end" aria-expanded="false" aria-controls="color-mode-menu"
-                aria-label="Barevný režim: Podle systému">
-                <i id="color-mode-icon" class="bi bi-circle-half" aria-hidden="true"></i>
-                <i class="bi bi-chevron-expand" aria-hidden="true"></i>
+    <nav class="navbar index-navbar sticky-top bg-1 border-bottom justify-content-end gap-3 px-3 md:px-7 py-3" aria-label="Hlavní navigace">
+        <div class="me-auto d-none md:d-block">
+            <button id="index-tools-toggle" type="button" class="navbar-brand btn-text" data-bs-toggle="menu"
+                aria-expanded="false" aria-controls="index-tools-menu" aria-label="Game Index – nástroje" disabled>
+                Game Index <i class="bi bi-chevron-down" aria-hidden="true"></i>
             </button>
-            <div id="color-mode-menu" class="menu" aria-labelledby="color-mode-toggle">
-                <button type="button" class="menu-item" data-bs-theme-value="light" aria-pressed="false">
-                    <i class="bi bi-sun-fill" aria-hidden="true"></i> Světlý
-                    <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
-                </button>
-                <button type="button" class="menu-item" data-bs-theme-value="dark" aria-pressed="false">
-                    <i class="bi bi-moon-stars-fill" aria-hidden="true"></i> Tmavý
-                    <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
-                </button>
-                <button type="button" class="menu-item active" data-bs-theme-value="auto" aria-pressed="true">
-                    <i class="bi bi-circle-half" aria-hidden="true"></i> Podle systému
-                    <i class="bi bi-check2 ms-auto" data-theme-check aria-hidden="true"></i>
-                </button>
+            <div id="index-tools-menu" class="menu" aria-labelledby="index-tools-toggle"></div>
+        </div>
+        <div class="index-search flex-fill md:flex-grow-0">
+            <label for="game-search" class="visually-hidden">Vyhledat hru podle názvu</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+                <input id="game-search" type="search" class="form-control" placeholder="Vyhledat hru…"
+                    aria-controls="game-index-table game-index-grid" autocomplete="off" disabled>
+            </div>
+        </div>
+        <button type="button" class="btn-text md:d-none" data-bs-toggle="collapse" data-bs-target="#index-settings" aria-expanded="false" aria-controls="index-settings" aria-label="Nastavení zobrazení">
+            <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+        <div id="index-settings" class="collapse index-settings">
+            <div class="d-flex align-items-center justify-content-end gap-3">
+                <div class="md:d-none">
+                    <button id="index-tools-mobile-toggle" type="button" class="btn-outline theme-secondary" data-bs-toggle="menu"
+                        aria-expanded="false" aria-controls="index-tools-mobile-menu" disabled>
+                        Nástroje <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div id="index-tools-mobile-menu" class="menu" aria-labelledby="index-tools-mobile-toggle"></div>
+                </div>
+                <div class="btn-group" role="group" aria-label="Zobrazení her">
+                    <button id="game-view-list" type="button" class="theme-secondary btn-outline active" aria-label="Zobrazit seznam" title="Seznam" aria-pressed="true" aria-controls="game-index-table" disabled><i class="bi bi-list-ul" aria-hidden="true"></i></button>
+                    <button id="game-view-grid" type="button" class="theme-secondary btn-outline" aria-label="Zobrazit mřížku" title="Mřížka" aria-pressed="false" aria-controls="game-index-grid" disabled><i class="bi bi-grid" aria-hidden="true"></i></button>
+                </div>
+                <div>
+                    <button id="color-mode-toggle" type="button" class="btn-outline theme-secondary" data-bs-toggle="menu"
+                        data-bs-placement="bottom-end" aria-expanded="false" aria-controls="color-mode-menu"
+                        aria-label="Barevný režim: Podle systému">
+                        <i id="color-mode-icon" class="bi bi-circle-half" aria-hidden="true"></i>
+                        <i class="bi bi-chevron-expand" aria-hidden="true"></i>
+                    </button>
+                    <div id="color-mode-menu" class="menu" aria-labelledby="color-mode-toggle">
+                        <button type="button" class="menu-item" data-bs-theme-value="light" aria-pressed="false">
+                            <i class="bi bi-sun-fill" aria-hidden="true"></i> Světlý
+                            <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-item" data-bs-theme-value="dark" aria-pressed="false">
+                            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i> Tmavý
+                            <i class="bi bi-check2 ms-auto d-none" data-theme-check aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-item active" data-bs-theme-value="auto" aria-pressed="true">
+                            <i class="bi bi-circle-half" aria-hidden="true"></i> Podle systému
+                            <i class="bi bi-check2 ms-auto" data-theme-check aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-    <main id="game-index-view" aria-label="Seznam her" class="container">
-        <div class="p-5">
-            <label for="game-search" class="visually-hidden">Vyhledat hru podle názvu</label>
-            <input id="game-search" type="search" class="form-control" placeholder="Vyhledat hru…"
-                aria-controls="game-index-table" autocomplete="off" disabled>
-            <p id="game-search-count" class="fg-3 mt-3 mb-0" role="status"></p>
+    <main id="game-index-view" aria-label="Seznam her" class="container-fluid">
+        <div id="game-group-header" hidden>
+            <div class="d-flex flex-wrap align-items-center gap-5 p-5">
+                <a href="./" class="btn-text"><i class="bi bi-chevron-left" aria-hidden="true"></i> Všechny hry</a>
+                <h1 id="game-group-title" class="fs-2xl mb-0"></h1>
+            </div>
         </div>
         <p id="game-index-status" class="p-5" role="status">Načítám seznam her…</p>
         <p id="game-search-empty" class="p-5" hidden>Žádná hra neodpovídá hledání.</p>
         <div id="game-index-table" class="mx-auto table-responsive" hidden>
             <table class="table">
-                <thead>
+                <thead class="sticky-top">
                     <tr>
                         <th scope="col"><span class="visually-hidden">Hra</span></th>
                         <th scope="col" class="text-center"><i class="bi bi-person-standing" aria-hidden="true"></i><span class="visually-hidden">Počet hráčů</span></th>
@@ -62,6 +94,10 @@
                 <tbody id="game-index"></tbody>
             </table>
         </div>
+        <div id="game-index-grid" hidden>
+            <div id="game-grid" class="row g-5 py-5"></div>
+        </div>
+        <p id="game-search-count" class="fg-3 px-5 py-5 mb-0" role="status"></p>
     </main>
     <script src="scripts/game-index.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"

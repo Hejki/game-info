@@ -3,11 +3,13 @@ import fs from 'node:fs/promises'
 import vm from 'node:vm'
 import test from 'node:test'
 import YAML from 'yaml'
+import path from 'node:path'
 
 const read = file => fs.readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const legacySource = await read('src/scripts/legacy-links.js')
 const indexSource = await read('src/scripts/game-index.js')
 const detailSource = await read('src/scripts/game-detail.js')
+const gameFiles = async () => (await Array.fromAsync(fs.glob('data/**/*.yaml'))).filter(file => !['_group.yaml', '_groups.yaml'].includes(path.basename(file)))
 
 function element() {
     const classes = new Set()
@@ -30,7 +32,7 @@ function element() {
     }
 }
 
-function page(url, fetch) {
+function page(url, fetch, storage = new Map()) {
     const elements = new Map()
     const document = {
         getElementById(id) {
@@ -46,6 +48,7 @@ function page(url, fetch) {
     return {
         context: vm.createContext({
             window: { location }, document, fetch, URLSearchParams, URL,
+            localStorage: { getItem: key => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value) },
             marked: { parse: text => `<p>${text}</p>` }, console: { error() {} },
         }),
         get: id => document.getElementById(id),
@@ -54,8 +57,7 @@ function page(url, fetch) {
 }
 
 test('legacy links redirect to the same game without adding a history entry', async () => {
-    const files = await fs.readdir(new URL('../data/', import.meta.url))
-    const ids = files.filter(file => file.endsWith('.yaml')).map(file => file.slice(0, -5))
+    const ids = (await gameFiles()).map(file => path.basename(file, '.yaml'))
     for (const id of ids) {
         let redirect
         vm.runInNewContext(legacySource, {
@@ -150,6 +152,244 @@ test('search filters names without case or accents and handles empty results and
     assert.equal(requests, 1, 'Filtering must not fetch data again')
 })
 
+test('grid cards show lazy-loaded cover images, game links, flags, tools and metadata', async () => {
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [
+        { id: 'english-game', name: 'English game', language: 'en', p: '2-4', t: '45', w: 2.5, tools: [{ link: '/tool.html', icon: 'bi bi-dice' }] },
+    ] }))
+    await vm.runInContext(indexSource, app.context)
+    const column = app.get('game-grid').children[0]
+    assert.equal(column.className, 'col-6 md:col-4 lg:col-3 xl:col-2')
+    const card = column.children[0]
+    assert.equal(card.className, 'card h-100 overflow-hidden game-grid-card')
+    const imageLink = card.children[0]
+    assert.equal(imageLink.className, 'card-img-overlay p-0')
+    assert.equal(imageLink.href, 'game.html?id=english-game')
+    const image = imageLink.children[0]
+    assert.equal(image.src, 'games/english-game/title.jpg')
+    assert.equal(image.alt, 'English game')
+    assert.equal(image.loading, 'lazy')
+    assert.equal(image.className, 'd-block w-100 h-100 object-fit-cover')
+    const css = await read('src/styles/app.css')
+    assert.doesNotMatch(css, /\.game-grid-(?:card|art|cover)\s*\{/)
+    assert.equal(card.children[1].className, 'ratio-4x3 flex-shrink-0 pe-none')
+    assert.equal(card.children[2].className, 'card-body position-relative flex-shrink-0 mt-auto')
+    const [title, metadata] = card.children[2].children
+    assert.ok(title.className.includes('text-break'))
+    assert.equal(title.children[0].textContent, 'English game')
+    assert.equal(title.children[0].href, undefined)
+    assert.equal(title.children[2].textContent, '🇬🇧')
+    assert.equal(title.children.length, 3, 'Tool links must not remain beside the grid title')
+    const tools = card.children[3]
+    assert.equal(tools.className, 'game-grid-tools d-flex gap-2')
+    assert.equal(tools.children[0].href, '/tool.html')
+    assert.equal(tools.children[0].className, 'btn-solid theme-info')
+    assert.equal(tools.children[0]['aria-label'], 'Spustit nástroj: English game')
+    assert.equal(tools.children[0].children[0]['aria-hidden'], 'true')
+    assert.match(css, /\.game-grid-tools\s*\{[^}]*position: absolute;[^}]*inset-block-start: \.5rem;[^}]*inset-inline-end: \.5rem;/)
+    assert.deepEqual(metadata.children.map(item => item.children[2].textContent), [' 2-4', ' 45 min', ' 2.5'])
+})
+
+test('Blood on the Clocktower launches its tool from a separate grid overlay while keeping its list link', async () => {
+    const game = YAML.parse(await read('data/krvava-hodina.yaml'))
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [{ ...game, id: 'krvava-hodina' }] }))
+    await vm.runInContext(indexSource, app.context)
+    const card = app.get('game-grid').children[0].children[0]
+    assert.equal(card.children[0].href, 'game.html?id=krvava-hodina')
+    assert.equal(card.children[0].children.length, 1, 'Do not nest tool links in the image link')
+    assert.equal(card.children[2].children[0].children.length, 1)
+    assert.equal(card.children[3].children[0].href, '/botc-play.html')
+    assert.equal(app.get('game-index').children[0].children[0].children[2].href, '/botc-play.html')
+})
+
+test('view icons switch list and grid, preserve filtering, and remember the choice on reload', async () => {
+    const storage = new Map()
+    let requests = 0
+    const fetch = async () => {
+        requests++
+        return { ok: true, json: async () => [{ id: 'one', name: 'První hra' }, { id: 'two', name: 'Druhá hra' }] }
+    }
+    const app = page('https://bg.hejki.org/', fetch, storage)
+    await vm.runInContext(indexSource, app.context)
+    assert.equal(app.get('game-view-list')['aria-pressed'], 'true')
+    assert.equal(app.get('game-index-table').hidden, false)
+    assert.equal(app.get('game-index-grid').hidden, true)
+    const search = app.get('game-search')
+    search.value = 'DRUHA'
+    search.dispatchEvent({ type: 'input' })
+    app.get('game-view-grid').dispatchEvent({ type: 'click' })
+    assert.equal(app.get('game-index-table').hidden, true)
+    assert.equal(app.get('game-index-grid').hidden, false)
+    assert.equal(app.get('game-view-grid')['aria-pressed'], 'true')
+    assert.ok(app.get('game-view-grid').classList.contains('active'))
+    assert.equal(app.get('game-view-list')['aria-pressed'], 'false')
+    assert.deepEqual(app.get('game-grid').children.map(card => card.hidden), [true, false])
+    assert.equal(app.get('game-search-count').textContent, 'Zobrazeno 1 z 2 her')
+    assert.equal(storage.get('game-index-view'), 'grid')
+    search.value = 'nenalezeno'
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(app.get('game-index-table').hidden, true)
+    assert.equal(app.get('game-index-grid').hidden, true)
+    assert.equal(app.get('game-search-empty').hidden, false)
+    search.value = ''
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(app.get('game-index-grid').hidden, false)
+    assert.equal(requests, 1)
+    const reloaded = page('https://bg.hejki.org/', fetch, storage)
+    await vm.runInContext(indexSource, reloaded.context)
+    assert.equal(reloaded.get('game-index-grid').hidden, false)
+    assert.equal(reloaded.get('game-view-grid')['aria-pressed'], 'true')
+    reloaded.get('game-view-list').dispatchEvent({ type: 'click' })
+    assert.equal(storage.get('game-index-view'), 'list')
+    assert.equal(reloaded.get('game-index-grid').hidden, true)
+    assert.equal(reloaded.get('game-index-table').hidden, false)
+    const html = await read('src/index.html')
+    const navbar = html.match(/<nav\b[\s\S]*?<\/nav>/)[0]
+    assert.match(navbar, /navbar[^"\n]*bg-1 border-bottom justify-content-end/)
+    assert.match(navbar, /class="me-auto d-none md:d-block"/)
+    assert.match(navbar, /class="navbar-brand btn-text" data-bs-toggle="menu"/)
+    for (const mode of ['list', 'grid']) assert.ok(navbar.includes(`id="game-view-${mode}"`))
+})
+
+test('view switching works when storage is blocked and ignores invalid saved modes', async () => {
+    const fetch = async () => ({ ok: true, json: async () => [{ id: 'one', name: 'Hra' }] })
+    for (const storage of [
+        new Map([['game-index-view', 'invalid']]),
+        { get() { throw new Error('Blocked') }, set() { throw new Error('Full') } },
+    ]) {
+        const app = page('https://bg.hejki.org/', fetch, storage)
+        await vm.runInContext(indexSource, app.context)
+        assert.equal(app.get('game-index-table').hidden, false)
+        app.get('game-view-grid').dispatchEvent({ type: 'click' })
+        assert.equal(app.get('game-index-grid').hidden, false)
+        app.get('game-view-list').dispatchEvent({ type: 'click' })
+        assert.equal(app.get('game-index-table').hidden, false)
+    }
+})
+
+const groupedGames = [
+    { id: 'solo', name: 'Samostatná hra', p: '2', t: '20', w: 1 },
+    { id: 'unmatched_alenka', name: 'Alenka', group: 'unmatched', groupName: 'Unmatched', groupImage: 'groups/unmatched/_cover.jpg', p: '2-4' },
+    { id: 'another', name: 'Další hra' },
+    { id: 'unmatched_meduza', name: 'Medúza', group: 'unmatched', groupName: 'Unmatched', groupImage: 'groups/unmatched/_cover.jpg', p: '2-4' },
+]
+
+test('groups collapse in the list and have one grid card without aggregated game parameters', async () => {
+    let requests = 0
+    const app = page('https://bg.hejki.org/', async () => {
+        requests++
+        return { ok: true, json: async () => groupedGames }
+    })
+    await vm.runInContext(indexSource, app.context)
+    const [solo, header, alice, medusa, other] = app.get('game-index').children
+    const button = header.children[0].children[0]
+    assert.equal(header.children.length, 1)
+    assert.equal(header.children[0].colSpan, 4)
+    assert.equal(button['aria-expanded'], 'false')
+    assert.equal(header.className, 'game-group-header')
+    assert.equal(button.className, 'game-group-toggle d-flex align-items-center gap-3')
+    assert.equal(alice.className, 'game-group-member')
+    assert.equal(medusa.className, 'game-group-member')
+    assert.equal(solo.className, undefined)
+    assert.equal(other.className, undefined)
+    assert.equal(button.children[1].textContent, 'Unmatched (2)')
+    assert.equal(alice.hidden, true)
+    assert.equal(medusa.hidden, true)
+    assert.equal(solo.hidden, false)
+    assert.equal(other.hidden, false)
+    button.dispatchEvent({ type: 'click' })
+    assert.equal(alice.hidden, false)
+    assert.equal(medusa.hidden, false)
+    assert.equal(button['aria-expanded'], 'true')
+    assert.equal(alice.children[0].children[0].href, 'game.html?id=unmatched_alenka')
+    button.dispatchEvent({ type: 'click' })
+    assert.equal(alice.hidden, true)
+    app.get('game-view-grid').dispatchEvent({ type: 'click' })
+    const cards = app.get('game-grid').children
+    assert.equal(cards.filter(card => !card.hidden).length, 3)
+    const groupCard = cards[1].children[0]
+    assert.equal(groupCard.children[0].href, 'index.html?group=unmatched')
+    assert.equal(groupCard.children[0].children[0].src, 'groups/unmatched/_cover.jpg')
+    const caption = groupCard.children[2].children[1]
+    assert.equal(caption.textContent, '2 hry ve skupině')
+    assert.equal(caption.children.length, 0)
+    const search = app.get('game-search')
+    search.value = 'MEDUZA'
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(header.hidden, false)
+    assert.equal(button['aria-expanded'], 'true')
+    assert.equal(button.disabled, true)
+    assert.equal(alice.hidden, true)
+    assert.equal(medusa.hidden, false)
+    assert.deepEqual(cards.map(card => card.hidden), [true, true, true, false, true])
+    assert.equal(app.get('game-search-count').textContent, 'Zobrazeno 1 z 4 her')
+    search.value = 'unmatched'
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(alice.hidden, false)
+    assert.equal(medusa.hidden, false)
+    assert.equal(app.get('game-search-count').textContent, 'Zobrazeno 2 z 4 her')
+    search.value = 'nenalezeno'
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(header.hidden, true)
+    assert.equal(app.get('game-index-grid').hidden, true)
+    search.value = ''
+    search.dispatchEvent({ type: 'input' })
+    assert.equal(button.disabled, false)
+    assert.equal(button['aria-expanded'], 'false')
+    assert.equal(alice.hidden, true)
+    assert.equal(cards[1].hidden, false)
+    assert.equal(requests, 1)
+    const css = await read('src/styles/app.css')
+    assert.match(css, /\.game-group-toggle\s*\{[^}]*color: var\(--bs-link-color\);[^}]*font: inherit;/)
+    assert.match(css, /\.game-group-member > th\s*\{[^}]*padding-inline-start: 2\.5rem;/)
+    assert.match(css, /\.game-group-member > th::before\s*\{[^}]*border-inline-start: 2px solid var\(--bs-border-color\);/)
+})
+
+test('group game counts use Czech plural forms', async () => {
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [] }))
+    await vm.runInContext(indexSource, app.context)
+    for (const [count, expected] of [[0, '0 her'], [1, '1 hra'], [2, '2 hry'], [3, '3 hry'], [4, '4 hry'], [5, '5 her'], [11, '11 her'], [21, '21 her'], [22, '22 her']]) {
+        assert.equal(app.context.formatGameCount(count), expected)
+    }
+})
+
+test('group overview shows only its games with ordinary detail links in both views', async () => {
+    const app = page('https://bg.hejki.org/index.html?group=unmatched', async () => ({ ok: true, json: async () => groupedGames }), new Map([['game-index-view', 'grid']]))
+    await vm.runInContext(indexSource, app.context)
+    assert.equal(app.get('game-group-header').hidden, false)
+    assert.equal(app.get('game-group-title').textContent, 'Unmatched')
+    assert.equal(app.context.document.title, 'Unmatched · Game Index')
+    const rows = app.get('game-index').children
+    assert.equal(rows.length, 2)
+    assert.equal(rows[0].children[0].children[0].href, 'game.html?id=unmatched_alenka')
+    assert.equal(app.get('game-grid').children.length, 2)
+    assert.equal(app.get('game-search-count').textContent, 'Zobrazeno 2 z 2 her')
+    app.get('game-view-list').dispatchEvent({ type: 'click' })
+    assert.ok(rows.every(row => !row.hidden))
+    const missing = page('https://bg.hejki.org/?group=missing', async () => ({ ok: true, json: async () => groupedGames }))
+    await vm.runInContext(indexSource, missing.context)
+    assert.equal(missing.get('game-index-status').textContent, 'Skupina nebyla nalezena.')
+    assert.equal(missing.get('game-index').children.length, 0)
+})
+
+test('catalogue groups are directories with metadata and a dedicated JPEG, not fields on games', async () => {
+    const files = await gameFiles()
+    const unmatched = files.filter(file => file.startsWith('data/unmatched/'))
+    assert.ok(unmatched.length > 1)
+    const directories = await fs.readdir(new URL('../data/', import.meta.url), { withFileTypes: true })
+    const groupNames = YAML.parse(await read('data/_groups.yaml'))
+    for (const dir of directories.filter(entry => entry.isDirectory())) {
+        assert.ok(groupNames[dir.name]?.trim(), dir.name)
+        await fs.access(new URL(`../data/${dir.name}/_cover.jpg`, import.meta.url))
+    }
+    const ids = files.map(file => path.basename(file, '.yaml'))
+    assert.equal(new Set(ids).size, ids.length)
+    for (const file of files) {
+        const game = YAML.parse(await read(file))
+        assert.equal(game.group, undefined, file)
+        await fs.access(new URL(`../${file.slice(0, -5)}.jpg`, import.meta.url))
+    }
+})
+
 test('detail loads the requested game, its metadata and BGStats link', async () => {
     const game = YAML.parse(await read('data/deskovkari.yaml'))
     const app = page('https://bg.hejki.org/game.html?id=deskovkari', async url => {
@@ -224,9 +464,8 @@ test('game links tolerate absent optional fields and skip unsafe or invalid URLs
 })
 
 test('catalogue links follow the documented schema', async () => {
-    const files = await fs.readdir(new URL('../data/', import.meta.url))
-    for (const file of files.filter(file => file.endsWith('.yaml'))) {
-        const game = YAML.parse(await read(`data/${file}`))
+    for (const file of await gameFiles()) {
+        const game = YAML.parse(await read(file))
         if (game.links === undefined) continue
         assert.ok(Array.isArray(game.links), file)
         for (const link of game.links) {
@@ -240,7 +479,7 @@ test('catalogue links follow the documented schema', async () => {
 })
 
 test('Unmatched Adventures keeps character links within their description sections', async () => {
-    const adventures = YAML.parse(await read('data/unmatched_adventures.yaml'))
+    const adventures = YAML.parse(await read('data/unmatched/unmatched_adventures.yaml'))
     for (const [name, slug] of [['Annie Christmas', 'annie-christmas'], ['Jill Trent', 'dr-jill-trent'], ['Nikola Tesla', 'nikola-tesla'], ['Zlatý netopýr', 'golden-bat']]) {
         const section = adventures.description.split(`## ${name}\n`)[1]?.split('\n## ')[0]
         assert.ok(section, name)
@@ -264,6 +503,61 @@ test('missing ID returns to the index; invalid IDs and unavailable data show an 
     const index = page('https://bg.hejki.org/', async () => ({ ok: false }))
     await vm.runInContext(indexSource, index.context)
     assert.match(index.get('game-index-status').textContent, /nepodařilo načíst/)
+})
+
+test('navbar tools menus include all games even in a group and deduplicate shared tools', async () => {
+    const games = [
+        { id: 'member', name: 'Člen skupiny', group: 'collection', groupName: 'Skupina' },
+        { id: 'clocktower', name: 'Krvavá hodina odbila', tools: [{ link: '/botc-play.html', icon: 'bi bi-journal-bookmark' }] },
+        { id: 'duplicate', name: 'Další hra', tools: [{ link: '/botc-play.html', icon: 'bi bi-journal-bookmark' }] },
+        { id: 'other', name: 'Jiná hra', tools: [{ title: 'Další nástroj', link: '/other.html', icon: 'bi bi-dice' }] },
+    ]
+    const app = page('https://bg.hejki.org/?group=collection', async () => ({ ok: true, json: async () => games }))
+    await vm.runInContext(indexSource, app.context)
+    for (const prefix of ['index-tools', 'index-tools-mobile']) {
+        const menu = app.get(`${prefix}-menu`)
+        assert.equal(app.get(`${prefix}-toggle`).disabled, false)
+        assert.deepEqual(menu.children.map(link => link.href), ['/botc-play.html', '/other.html'])
+        assert.deepEqual(menu.children.map(link => link.children[1].textContent), [' Krvavá hodina odbila', ' Další nástroj'])
+        assert.ok(menu.children.every(link => link.className === 'menu-item'))
+    }
+    app.get('game-search').value = 'nenalezeno'
+    app.get('game-search').dispatchEvent({ type: 'input' })
+    assert.equal(app.get('index-tools-menu').children.length, 2)
+    const empty = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [] }))
+    await vm.runInContext(indexSource, empty.context)
+    assert.equal(empty.get('index-tools-toggle').disabled, true)
+    assert.equal(empty.get('index-tools-mobile-toggle').disabled, true)
+    const html = await read('src/index.html')
+    for (const prefix of ['index-tools', 'index-tools-mobile']) {
+        assert.match(html, new RegExp(`id="${prefix}-toggle"[^>]*data-bs-toggle="menu"[^>]*aria-expanded="false"[^>]*aria-controls="${prefix}-menu"`))
+        assert.match(html, new RegExp(`id="${prefix}-menu" class="menu" aria-labelledby="${prefix}-toggle"`))
+    }
+    assert.match(html, /Game Index <i class="bi bi-chevron-down"/)
+    const settings = html.slice(html.indexOf('<div id="index-settings"'))
+    assert.match(settings, /class="md:d-none"[\s\S]*id="index-tools-mobile-toggle"[\s\S]*Nástroje/)
+})
+
+test('navbar search has a search-icon input group without grid sizing and grouped view buttons', async () => {
+    const html = await read('src/index.html')
+    const navbar = html.match(/<nav\b[\s\S]*?<\/nav>/)[0]
+    assert.match(navbar, /class="navbar index-navbar sticky-top/)
+    const css = await read('src/styles/app.css')
+    assert.match(css, /\.index-navbar\s*\{\s*z-index: 1030;\s*\}/)
+    assert.match(navbar, /<div class="index-search flex-fill md:flex-grow-0">/)
+    assert.match(navbar, /class="input-group-text"><i class="bi bi-search" aria-hidden="true"/)
+    assert.match(navbar, /class="btn-group" role="group" aria-label="Zobrazení her"/)
+    assert.match(navbar, /class="btn-text md:d-none" data-bs-toggle="collapse" data-bs-target="#index-settings" aria-expanded="false" aria-controls="index-settings"/)
+    const settings = navbar.slice(navbar.indexOf('<div id="index-settings"'))
+    assert.match(settings, /class="collapse index-settings"/)
+    for (const id of ['game-view-list', 'game-view-grid', 'color-mode-toggle', 'color-mode-menu']) {
+        assert.ok(settings.includes(`id="${id}"`))
+        assert.equal((navbar.match(new RegExp(`id="${id}"`, 'g')) || []).length, 1)
+    }
+    assert.match(navbar, /<label for="game-search"/)
+    assert.match(navbar, /id="game-search" type="search"/)
+    assert.equal((html.match(/id="game-search"/g) || []).length, 1)
+    assert.doesNotMatch(html.match(/<main\b[\s\S]*?<\/main>/)[0], /id="game-search"/)
 })
 
 test('both pages have valid local assets and the appropriate navbar', async () => {
