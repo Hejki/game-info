@@ -1,0 +1,35 @@
+# Česká základní hra Got Five!, Yoann Levet (2026), MINDOK.
+# Parametry a obtížnost: BGG MCP, ověřeno 2026-11-06:
+# https://boardgamegeek.com/boardgame/453526
+# Popis, parametry české edice a video: https://mindok.cz/hra/mas-pet/
+# České PDF nebylo nalezeno; soubor Rules na ZH je anglický, proto není připojen.
+# Čelní český obal: https://d2nh83hfsroc1i.cloudfront.net/wp-content/uploads/2026/02/25103836/Mas-pet-titulka01.jpg
+# Práva k obrázku náleží držitelům práv.
+name: Máš pět?
+bgg: 453526
+zh: mas-pet-20053
+players: "2-4"
+playtime: "15"
+age: 8+
+weight: 1.31
+color: "#831B77"
+language: cs
+description: |
+  **Máš pět?** je rychlá deduktivní hra o odhalování pěti skrytých čísel.
+  Dílky ve vašem stojánku vidí všichni soupeři, ale vy sami ne.
+  Pomocí nápověd a postupného vylučování možností se snažíte svou
+  vzestupně seřazenou pětici určit dříve než ostatní.
+
+  V tahu odkrýváte další dílek ze zásoby a žádáte souseda o informaci.
+  Můžete zjistit, kam se známé číslo řadí mezi vaše skryté dílky,
+  nebo porovnat počty jejich teček. Poznatky si zaznamenáváte na
+  stíratelnou desku a využíváte také informace viditelné na stole.
+  Jakmile jste si jistí, oznámíte všech pět čísel. Správný odhad
+  znamená okamžité vítězství, chyba vás však vyřadí z boje o výhru.
+links:
+  - type: video
+    title: Představení hry a obsahu krabice (CZ, Hry MINDOK)
+    url: https://www.youtube.com/watch?v=v3xD2qXE2-M
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/mas-pet/

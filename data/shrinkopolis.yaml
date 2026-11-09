@@ -1,0 +1,39 @@
+# Česká základní hra, Ondra Sekanina (2025), TLAMA games.
+# Parametry a obtížnost: BGG MCP, ověřeno 2026-11-06:
+# https://boardgamegeek.com/boardgame/406529
+# Popis, české PDF a videa: https://www.tlamagames.com/deskove-hry/shrinkopolis-cz-en/
+# Čelní obal z BGG: https://cf.geekdo-images.com/uOxAV_6uyj8bTywxScpWeg__original/img/wlUo0wM_b1_XXRemZoE99TDkduk=/0x0/filters:format(jpeg)/pic8982815.jpg
+# Práva k obrázku náleží držitelům práv.
+name: Shrinkopolis
+bgg: 406529
+zh: shrinkopolis-18724
+players: "1-4"
+playtime: "15-45"
+age: 10+
+weight: 2.25
+color: "#73452C"
+language: cs
+description: |
+  **Shrinkopolis** je budovatelská karetní hra ze světa zmenšených lidí.
+  V obřím obývacím pokoji vytváříte vlastní čtvrť z nalezených předmětů
+  a snažíte se získat podporu obyvatel, abyste se stali starostou města.
+
+  Během pěti kol vybíráte dvojice sousedících karet ze společné nabídky.
+  Karty města připojujete ke své čtvrti a dokončováním spojů získáváte
+  zdroje nebo body. Zdroje pak utrácíte za karty odměn, které přidávají
+  zvířata, kulturu a užitečné nástroje. O vítězi rozhodne součet bodů
+  za vybudovanou čtvrť a splněné cíle. Hra nabízí také sólovou,
+  kooperativní a týmovou variantu i kampaňový modul.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/Shrinkopolis-pravidla-web.pdf
+  - type: video
+    title: Videonávod (CZ, Erzebeth)
+    url: https://www.youtube.com/watch?v=Qzxe7tI54p8
+  - type: video
+    title: Ukázková partie a dojmy (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=luhYA44C6vI
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/shrinkopolis-cz-en/

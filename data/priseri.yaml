@@ -1,0 +1,37 @@
+# Česká základní hra Keep the Heroes Out!, Luís Brueh (2022), MINDOK.
+# Parametry a obtížnost: BGG MCP, ověřeno 2026-11-06:
+# https://boardgamegeek.com/boardgame/333255
+# Popis a české PDF: https://mindok.cz/hra/priseri-hrdinum-vstup-zakazan/
+# Čelní český obal: https://www.zatrolene-hry.cz/galerie/13511/main_cz.large.jpg?05307eeba1f12f8c6d4cbe85e983c5d6
+# Práva k obrázku náleží držitelům práv.
+name: "Příšeří: Hrdinům vstup zakázán"
+bgg: 333255
+zh: priseri-hrdinum-vstup-zakazan-13511
+players: "1-4"
+playtime: "40"
+age: 10+
+weight: 2.5
+color: "#213C54"
+language: cs
+description: |
+  **Příšeří: Hrdinům vstup zakázán** je kooperativní hra, ve které
+  se ujímáte klanů příšer a bráníte své podzemí před hrabivými hrdiny.
+  Každý klan má vlastní schopnosti, počet figurek a balíček akčních
+  karet, takže se při obraně musíte dobře doplňovat.
+
+  Hraním karet nasazujete příšery, přesouváte je mezi místnostmi,
+  útočíte, připravujete pasti a otevíráte portály. Získaná kořist vám
+  umožňuje rozšiřovat balíčky o nové možnosti. Po vašich tazích vpadají
+  do podzemí další hrdinové řízení kartami. Pokud přečkáte dvě vlny
+  a uchráníte hlavní poklad, vyhráváte společně. Různé scénáře,
+  klany a úrovně obtížnosti mění podobu každé obrany.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, MINDOK)
+    url: https://d2nh83hfsroc1i.cloudfront.net/wp-content/uploads/2023/03/05092039/priseri-pravidla-web-cz.pdf
+  - type: video
+    title: Videonávod (CZ, JOUOBCAST)
+    url: https://www.youtube.com/watch?v=VUs2uDftLtU
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://mindok.cz/hra/priseri-hrdinum-vstup-zakazan/
