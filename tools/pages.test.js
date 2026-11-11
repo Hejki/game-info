@@ -201,6 +201,130 @@ test('Blood on the Clocktower launches its tool from a separate grid overlay whi
     assert.equal(app.get('game-index').children[0].children[0].children[2].href, '/botc-play.html')
 })
 
+test('parameter filters combine with search, handle ranges and reveal matching group members in both views', async () => {
+    const games = [
+        { id: 'short', name: 'Krátká hra', p: '2-4', t: '15-30', language: 'cs' },
+        { id: 'long', name: 'Dlouhá hra', p: '2–5', t: '30–60', language: 'en', group: 'set', groupName: 'Sada' },
+        { id: 'solo', name: 'Sólo hra', p: 1, t: 30, group: 'set', groupName: 'Sada' },
+        { id: 'unknown', name: 'Bez parametrů' },
+    ]
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => games }))
+    await vm.runInContext(indexSource, app.context)
+    const players = app.get('game-filter-players')
+    const duration = app.get('game-filter-duration')
+    const language = app.get('game-filter-language')
+    const clear = app.get('game-filter-clear')
+    const [short, header, long, solo, unknown] = app.get('game-index').children
+    const visible = () => [short, long, solo, unknown].map(row => !row.hidden)
+    assert.equal(players.disabled, false)
+    assert.equal(duration.disabled, false)
+    assert.equal(language.disabled, false)
+    assert.equal(clear.disabled, false)
+    assert.equal(app.get('game-filter-toggle').disabled, false)
+    assert.equal(app.get('game-filter-count').hidden, true)
+    assert.deepEqual(app.get('game-filter-language-menu').children.map(option => option.value), ['cs', 'en'])
+    players.value = '2'
+    players.dispatchEvent({ type: 'input' })
+    assert.deepEqual(visible(), [true, true, false, false])
+    assert.equal(header.children[0].children[0]['aria-expanded'], 'true')
+    duration.value = '30'
+    duration.dispatchEvent({ type: 'change.bs.combobox', value: '30' })
+    assert.deepEqual(visible(), [true, false, false, false])
+    assert.equal(header.hidden, true)
+    duration.value = '60'
+    duration.dispatchEvent({ type: 'change.bs.combobox', value: '60' })
+    language.value = 'en'
+    language.dispatchEvent({ type: 'change.bs.combobox', value: 'en' })
+    assert.deepEqual(visible(), [false, true, false, false])
+    assert.equal(app.get('game-filter-count').textContent, '3')
+    assert.equal(app.get('game-filter-count').hidden, false)
+    assert.ok(app.get('game-filter-toggle').classList.contains('active'))
+    assert.equal(header.children[0].children[0].children[1].textContent, 'Sada (1)')
+    app.get('game-view-grid').dispatchEvent({ type: 'click' })
+    assert.deepEqual(app.get('game-grid').children.map(card => !card.hidden), [false, false, true, false, false])
+    app.get('game-search').value = 'Krátká'
+    app.get('game-search').dispatchEvent({ type: 'input' })
+    assert.equal(app.get('game-search-empty').hidden, false)
+    assert.equal(app.get('game-search-count').textContent, 'Zobrazeno 0 z 4 her')
+    clear.dispatchEvent({ type: 'click' })
+    assert.equal(players.value, '')
+    assert.equal(duration.value, '')
+    assert.equal(language.value, '')
+    assert.equal(app.get('game-filter-count').hidden, true)
+    assert.equal(app.get('game-filter-toggle').classList.contains('active'), false)
+    assert.equal(app.get('game-search').value, '')
+    assert.equal(clear.disabled, false)
+    assert.deepEqual(visible(), [true, false, false, true])
+    assert.equal(header.children[0].children[0]['aria-expanded'], 'false')
+    language.value = 'cs'
+    language.dispatchEvent({ type: 'change.bs.combobox', value: 'cs' })
+    assert.deepEqual(visible(), [true, false, true, true], 'Missing language defaults to Czech, as in the existing flags')
+    players.value = '1.5'
+    players.dispatchEvent({ type: 'input' })
+    assert.deepEqual(visible(), [false, false, false, false])
+})
+
+test('filters live in an accessible Bootstrap dialog opened from the navbar at all screen sizes', async () => {
+    const html = await read('src/index.html')
+    const navbar = html.match(/<nav\b[\s\S]*?<\/nav>/)[0]
+    const dialog = html.match(/<dialog id="game-filter-dialog"[\s\S]*?<\/dialog>/)[0]
+    assert.match(navbar, /id="game-filter-toggle"[^>]*data-bs-toggle="dialog"[^>]*data-bs-target="#game-filter-dialog"[^>]*aria-haspopup="dialog"/)
+    assert.ok(navbar.indexOf('id="game-filter-toggle"') < navbar.indexOf('id="index-settings"'))
+    assert.match(dialog, /aria-labelledby="game-filter-title" aria-describedby="game-filter-description"/)
+    for (const id of ['game-filter-players', 'game-filter-duration', 'game-filter-language', 'game-filter-clear']) {
+        assert.ok(dialog.includes(`id="${id}"`))
+        assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) || []).length, 1)
+    }
+    assert.match(dialog, /data-bs-dismiss="dialog"[^>]*>Zobrazit hry/)
+    assert.match(dialog, /id="game-filter-clear"[^>]*data-bs-dismiss="dialog"/)
+    for (const id of ['game-filter-duration', 'game-filter-language']) {
+        assert.match(dialog, new RegExp(`<button id="${id}"[^>]*class="form-control combobox-toggle"[^>]*data-bs-toggle="combobox"`))
+        assert.match(dialog, new RegExp(`id="${id}-menu" class="menu" role="listbox"`))
+    }
+    assert.doesNotMatch(dialog, /form-select|<select\b/)
+    assert.doesNotMatch(html.match(/<main\b[\s\S]*?<\/main>/)[0], /id="game-filter-/)
+})
+
+test('reset clears combobox values, labels and selected menu items', async () => {
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [{ id: 'game', name: 'Hra', t: 30, language: 'en' }] }))
+    for (const id of ['game-filter-duration', 'game-filter-language']) {
+        const empty = element()
+        app.get(`${id}-menu`).appendChild(empty)
+    }
+    const durationOption = element()
+    durationOption.classList.add('selected')
+    durationOption.setAttribute('aria-selected', 'true')
+    app.get('game-filter-duration-menu').appendChild(durationOption)
+    await vm.runInContext(indexSource, app.context)
+    app.get('game-filter-duration').dispatchEvent({ type: 'change.bs.combobox', value: '30' })
+    app.get('game-filter-language').dispatchEvent({ type: 'change.bs.combobox', value: 'en' })
+    assert.equal(app.get('game-filter-duration').value, '30')
+    assert.equal(app.get('game-filter-language').value, 'en')
+    app.get('game-filter-clear').dispatchEvent({ type: 'click' })
+    for (const [id, label] of [['game-filter-duration', 'Libovolná'], ['game-filter-language', 'Libovolný']]) {
+        assert.equal(app.get(id).value, '')
+        assert.equal(app.get(`${id}-value`).textContent, label)
+        const [empty, selected] = app.get(`${id}-menu`).children
+        assert.equal(empty['aria-selected'], 'true')
+        assert.ok(empty.classList.contains('selected'))
+        assert.equal(selected['aria-selected'], 'false')
+        assert.equal(selected.classList.contains('selected'), false)
+    }
+})
+
+test('range parser accepts numbers and dash variants and rejects missing or malformed values', async () => {
+    const app = page('https://bg.hejki.org/', async () => ({ ok: true, json: async () => [] }))
+    await vm.runInContext(indexSource, app.context)
+    for (const value of [2, '2', ' 2-2 ', '2–2', '2 — 2']) {
+        const range = app.context.parseGameRange(value)
+        assert.equal(range.min, 2)
+        assert.equal(range.max, 2)
+    }
+    for (const value of [null, undefined, '', 'abc', '0', '4-2', '2-', '2 4', '1.5']) {
+        assert.equal(app.context.parseGameRange(value), null)
+    }
+})
+
 test('view icons switch list and grid, preserve filtering, and remember the choice on reload', async () => {
     const storage = new Map()
     let requests = 0

@@ -1,0 +1,46 @@
+# České rozšířené vydání Shallow Regrets, Judson Cowan; vývoj Mike Mullins.
+# Obsahuje Trvalé výčitky a Rybáře a Gloga; nejde o Hlubiny lítosti.
+# BGG MCP, identita a obtížnost základní hry ověřeny 2026-11-09:
+# https://boardgamegeek.com/boardgame/434870
+# České vydání má podle vydavatele 1-4 hráče; základní hra/PDF a BGG 2-3.
+# Rozsah 1-4 platí pro celé české balení včetně rozšíření a sólového režimu.
+# Popis, parametry, obal a videa: https://www.tlamagames.com/deskove-hry/melciny-litosti/
+# Připojené české PDF obsahuje jen základní pravidla, nikoli obě rozšíření.
+# Zdroj obrázku: https://cdn.myshoptet.com/usr/www.tlamagames.com/user/shop/orig/120034-2_melciny-litosti--rozsirene-vydani.png?6ad75d2b
+# Oříznuto bílé okolí, převedeno PNG na JPEG; práva náleží držitelům práv.
+name: "Mělčiny lítosti"
+bgg: 434870
+zh: melciny-litosti-19475
+players: "1-4"
+playtime: "15"
+age: 8+
+weight: 1.69
+color: "#284D44"
+language: cs
+description: |
+  **Mělčiny lítosti** jsou krátká karetní hra o lovu podivných mořských
+  tvorů. Z šesti lovišť vytahujete úlovky, které mají různou hodnotu,
+  obtížnost a znepokojivé schopnosti. Cílem je nasbírat nejhodnotnější
+  kořist a přitom si nenaložit příliš mnoho zrůdných exemplářů.
+
+  V tahu odhalíte dvě karty, jednu se pokusíte chytit a druhou vrátíte
+  do vody. Sílu pro další lov získáváte z již chycených úlovků a jejich
+  jednorázové schopnosti vám pomáhají měnit situaci nebo škodit soupeřům.
+  Na konci sečtete hodnotu své kořisti; největší sbírka zrůdných úlovků
+  však přináší bodovou ztrátu.
+
+  České rozšířené vydání obsahuje také **Trvalé výčitky** s trvalými
+  efekty a **Rybáře a Gloga**, díky němuž lze hrát i sólo.
+links:
+  - type: rules
+    title: Česká pravidla základní hry (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/melciny-listosti-pravidla-web.pdf
+  - type: video
+    title: Představení rozšířeného vydání (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=xEpkDFwI4J8
+  - type: video
+    title: Ukázková partie rozšířeného vydání (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=ybL6rg91ehM
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/melciny-litosti/

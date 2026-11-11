@@ -1,0 +1,40 @@
+# Česká samostatná hra Top Ten 18+, Aurélien Picolet (2021), REXhry.
+# BGG MCP, parametry a obtížnost ověřeny 2026-11-09:
+# https://boardgamegeek.com/boardgame/334137
+# Popis, české PDF, obal a videa: https://www.rexhry.cz/produkt/top-10-18
+# Český čelní obal se nepodařilo nalézt; použit 3D obal vydavatele s ořezem okolí.
+# Zdroj: https://www.rexhry.cz/storage/media/7f2b6a6b-28a2-48ef-adda-cd841e5f298d.png
+# Převedeno PNG na JPEG; práva k obrázku náleží držitelům práv.
+name: TOP 10 18+
+bgg: 334137
+zh: top-10-18-14890
+players: "4-9"
+playtime: "20-40"
+age: 18+
+weight: 1.08
+color: "#343039"
+language: cs
+description: |
+  **TOP 10 18+** je samostatná kooperativní párty hra s odvážnými
+  tématy pro dospělé. Pracuje se stejným principem jako původní TOP 10,
+  ale zadání míří k lechtivému humoru a otevřenějším odpovědím.
+  Základní hru ke hraní nepotřebujete.
+
+  Každý dostane tajnou kartu s číslem od jedné do deseti a vymyslí
+  odpověď odpovídající své pozici na zadané škále. Kapitán se pak snaží
+  odpovědi seřadit od nejnižšího čísla po nejvyšší, aniž by čísla znal.
+  Za chybné pořadí tým ztrácí životy. Pokud společně zvládnete pět kol
+  a alespoň jeden život vám zůstane, vyhráváte všichni.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01JY10Z90YVWK9V469R2YCHXMB.pdf
+  - type: video
+    title: Představení hry pro dospělé (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=d58-DByYZUs
+  - type: video
+    title: Ukázková partie TOP 10 / 18+ (CZ, ODEHRÁNO)
+    url: https://www.youtube.com/watch?v=b3C1XRjf4Pc
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/top-10-18

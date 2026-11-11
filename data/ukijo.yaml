@@ -1,0 +1,41 @@
+# Česká hra Ukiyo, Ian Walton (2020), TLAMA games; kooperativní česká edice.
+# BGG MCP, identita a obtížnost ověřeny 2026-11-09:
+# https://boardgamegeek.com/boardgame/316085
+# Parametry, popis, obal, české PDF a videa: https://www.tlamagames.com/deskove-hry/ukijo/
+# Doba 15 minut a kooperativní režim podle českého PDF; BGG uvádí 5-15 minut
+# a popisuje i odlišný původní režim pro více hráčů.
+# Zdroj čelní fotografie: https://cdn.myshoptet.com/usr/www.tlamagames.com/user/shop/orig/108997_2b.jpg?696a1573
+# Oříznuto bílé okolí a zmenšeno; práva k obrázku náleží držitelům práv.
+name: Ukijo
+bgg: 316085
+zh: ukijo-19465
+players: "1-4"
+playtime: "15"
+age: 8+
+weight: 1.47
+color: "#145653"
+language: cs
+description: |
+  **Ukijo** je kapesní logická hra, ve které sami nebo společně
+  vytváříte obraz krajiny ze symbolů přírody. Na začátku zvolíte výzvu
+  tvořenou několika podmínkami a pokoušíte se je všechny současně splnit.
+
+  V tazích přikládáte karty vodorovně či svisle do společného prostoru,
+  případně jimi překrýváte dříve položené karty. Výsledná krajina nesmí
+  přesáhnout rozměr šest krát šest symbolů. Můžete se domlouvat na
+  společném plánu, ale nesmíte popisovat kartu, kterou držíte v ruce.
+  Po zahrání všech karet ověříte, zda jste splnili celou výzvu.
+  Různé kombinace úkolů nabízejí několik úrovní obtížnosti.
+links:
+  - type: rules
+    title: Česká pravidla a výzvy (PDF, TLAMA games)
+    url: https://www.tlamagames.com/user/documents/upload/pravidla/ukijo-cz-web.pdf
+  - type: video
+    title: Rychlý videonávod (CZ, Krabicové Království)
+    url: https://www.youtube.com/watch?v=NbXCP2EJ5kQ
+  - type: video
+    title: Představení hry (CZ, TLAMA games)
+    url: https://www.youtube.com/watch?v=THNBOi6PfQE
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.tlamagames.com/deskove-hry/ukijo/

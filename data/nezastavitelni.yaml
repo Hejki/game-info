@@ -1,0 +1,41 @@
+# Česká základní hra Unstoppable, John D. Clair (2025), REXhry; bez Tyrančina pádu.
+# BGG MCP, obtížnost a identita ověřeny 2026-11-09:
+# https://boardgamegeek.com/boardgame/420498
+# Popis, české PDF a videa: https://www.rexhry.cz/produkt/nezastavitelni
+# Věk 14+ a doba 45-75 minut podle českého PDF; web vydavatele má 13+,
+# BGG uvádí 14+ a 30-90 minut. Přednost mají pravidla českého vydání.
+# Čelní český obal: https://www.zatrolene-hry.cz/galerie/18307/main_cz.large.webp?77f2d2c948bcba52cfc4c411f4b9c92b
+# Převedeno do JPEG a zmenšeno; práva k obrázku náleží držitelům práv.
+name: Nezastavitelní
+bgg: 420498
+zh: nezastavitelni-18307
+players: "1-2"
+playtime: "45-75"
+age: 14+
+weight: 2.99
+color: "#273A57"
+language: cs
+description: |
+  **Nezastavitelní** jsou sólová a kooperativní karetní hra ze sci-fi
+  světa, který ohrožují mocní nepřátelé. Vyberete si hrdinu a postupně
+  rozvíjíte jeho schopnosti, abyste se dokázali postavit závěrečnému bossovi.
+
+  Vedle získávání nových karet upravujete také samotné karty v balíčku:
+  vylepšení zasouváte do jejich obalů, čímž měníte jejich účinky.
+  Kombinujete schopnosti, udržujete přísun akcí a karet a zároveň
+  odrážíte menší hrozby. Musíte zesílit dostatečně rychle, protože
+  vyčerpání zdraví nebo příliš vysoké ohrožení znamená porážku.
+  Každý ze tří bossů přináší jinou výzvu pro jednoho hráče i dvojici.
+links:
+  - type: rules
+    title: Česká pravidla (PDF, REXhry)
+    url: https://www.rexhry.cz/storage/instructions/01KPX53R57K4V8D235JZ3MR4G6.pdf
+  - type: video
+    title: Představení hry (CZ, Planeta Her)
+    url: https://www.youtube.com/watch?v=w-EodHzSzak
+  - type: video
+    title: Ukázková partie (CZ, ZonyMasta a deskové hry)
+    url: https://www.youtube.com/watch?v=FFbeKf0koZc
+  - type: other
+    title: Stránka českého vydavatele
+    url: https://www.rexhry.cz/produkt/nezastavitelni

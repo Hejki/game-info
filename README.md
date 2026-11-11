@@ -31,6 +31,18 @@ se automaticky přesměrují na nový detail bez přidání kroku do historie.
 
 Testy navigace, kompatibility odkazů a vývojového serveru: `npm test`.
 
+### Filtrování her
+
+Tlačítko s ikonou filtru v horní liště otevře modální okno nastavení;
+počet aktivních filtrů se zobrazuje přímo na tlačítku. Změny se použijí ihned.
+Hledání lze kombinovat s konkrétním počtem hráčů, maximální délkou partie
+a jazykem. Počet hráčů musí spadat do uvedeného rozsahu; u délky se porovnává
+horní hranice (hra na 30–60 minut odpovídá až filtru „Do 60 minut“).
+Hry bez příslušného parametru aktivnímu číselnému filtru neodpovídají.
+Chybějící jazyk se stejně jako u vlaječek považuje za češtinu.
+Při filtrování se zobrazují jednotlivé odpovídající hry i uvnitř skupin,
+v seznamu i v gridu. „Zrušit filtry“ vymaže také text hledání.
+
 ### Skupiny her
 
 Skupina je podadresář v `data/`. Obsahuje vlastní obrázek `_cover.jpg`

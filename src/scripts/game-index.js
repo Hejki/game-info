@@ -7,6 +7,14 @@ function formatGameCount(count) {
     return `${count} ${noun}`
 }
 
+function parseGameRange(value) {
+    const match = String(value ?? '').trim().match(/^(\d+)(?:\s*[-–—]\s*(\d+))?$/)
+    if (!match) return null
+    const min = Number(match[1])
+    const max = Number(match[2] || match[1])
+    return min > 0 && max >= min ? { min, max } : null
+}
+
 function fillGameName(container, game, linked = true) {
     const link = document.createElement(linked ? 'a' : 'span')
     if (linked) link.href = `game.html?id=${encodeURIComponent(game.id)}`
@@ -186,7 +194,7 @@ async function loadGameIndex() {
             rows.appendChild(row)
             const card = createGameCard(game)
             grid.appendChild(card)
-            const entry = { row, card, group, name: normalizeSearch(`${game.name} ${game.groupName || ''}`) }
+            const entry = { row, card, group, language: game.language || 'cs', players: parseGameRange(game.p), duration: parseGameRange(game.t), name: normalizeSearch(`${game.name} ${game.groupName || ''}`) }
             searchableRows.push(entry)
             if (group) {
                 row.className = 'game-group-member'
@@ -196,25 +204,56 @@ async function loadGameIndex() {
             }
         }
         const search = document.getElementById('game-search')
+        const playersFilter = document.getElementById('game-filter-players')
+        const durationFilter = document.getElementById('game-filter-duration')
+        const languageFilter = document.getElementById('game-filter-language')
+        const languageNames = new Intl.DisplayNames(['cs'], { type: 'language' })
+        for (const language of [...new Set(games.map(game => game.language || 'cs'))].sort()) {
+            const option = document.createElement('button')
+            option.type = 'button'
+            option.className = 'menu-item'
+            option.value = language
+            option.setAttribute('data-bs-value', language)
+            option.setAttribute('role', 'option')
+            option.setAttribute('aria-selected', 'false')
+            option.textContent = languageNames.of(language)
+            document.getElementById('game-filter-language-menu').appendChild(option)
+        }
+        const clearFilters = document.getElementById('game-filter-clear')
+        const filterToggle = document.getElementById('game-filter-toggle')
+        const filterCount = document.getElementById('game-filter-count')
         function filterGames() {
             const words = normalizeSearch(search.value).trim().split(/\s+/).filter(Boolean)
+            const players = Number(playersFilter.value)
+            const duration = Number(durationFilter.value)
+            const filtering = words.length > 0 || playersFilter.value !== '' || durationFilter.value !== '' || languageFilter.value !== ''
+            clearFilters.disabled = false
+            const activeFilters = [playersFilter, durationFilter, languageFilter].filter(input => input.value !== '').length
+            filterCount.textContent = String(activeFilters)
+            filterCount.hidden = activeFilters === 0
+            filterToggle.setAttribute('aria-label', activeFilters ? `Filtry her: ${activeFilters} aktivní` : 'Filtry her')
+            if (activeFilters) filterToggle.classList.add('active')
+            else filterToggle.classList.remove('active')
             let count = 0
             for (const entry of searchableRows) {
                 entry.matches = words.every(word => entry.name.includes(word))
-                const open = !entry.group || entry.group.expanded || words.length > 0
+                    && (playersFilter.value === '' || (Number.isInteger(players) && entry.players && players >= entry.players.min && players <= entry.players.max))
+                    && (durationFilter.value === '' || (entry.duration && entry.duration.max <= duration))
+                    && (languageFilter.value === '' || entry.language === languageFilter.value)
+                const open = !entry.group || entry.group.expanded || filtering
                 entry.row.hidden = !entry.matches || !open
-                entry.card.hidden = !entry.matches || Boolean(entry.group && !words.length)
+                entry.card.hidden = !entry.matches || Boolean(entry.group && !filtering)
                 if (entry.matches) count++
             }
             for (const group of groups.values()) {
                 const matches = group.members.filter(member => member.matches).length
-                const open = group.expanded || words.length > 0
+                const open = group.expanded || filtering
                 group.header.hidden = matches === 0
-                group.card.hidden = matches === 0 || words.length > 0
+                group.card.hidden = matches === 0 || filtering
                 group.label.textContent = `${group.name} (${matches})`
                 group.icon.className = open ? 'bi bi-chevron-down' : 'bi bi-chevron-right'
                 group.button.setAttribute('aria-expanded', String(open))
-                group.button.disabled = words.length > 0
+                group.button.disabled = filtering
             }
             document.getElementById('game-search-count').textContent = `Zobrazeno ${count} z ${games.length} her`
             document.getElementById('game-search-empty').hidden = count !== 0
@@ -242,6 +281,26 @@ async function loadGameIndex() {
         updateViewButtons()
         search.addEventListener('input', filterGames)
         search.disabled = false
+        playersFilter.disabled = false
+        durationFilter.disabled = false
+        languageFilter.disabled = false
+        filterToggle.disabled = false
+        playersFilter.addEventListener('input', filterGames)
+        for (const combobox of [durationFilter, languageFilter]) {
+            combobox.addEventListener('change.bs.combobox', event => {
+                combobox.value = event.value
+                filterGames()
+            })
+        }
+        clearFilters.addEventListener('click', () => {
+            search.value = ''
+            playersFilter.value = ''
+            durationFilter.value = ''
+            languageFilter.value = ''
+            resetFilterCombobox('game-filter-duration', 'Libovolná')
+            resetFilterCombobox('game-filter-language', 'Libovolný')
+            filterGames()
+        })
         filterGames()
         document.getElementById('game-index-status').hidden = true
     } catch (error) {
@@ -265,6 +324,17 @@ function fillToolsMenus(games) {
             }
         }
         document.getElementById(`${prefix}-toggle`).disabled = seen.size === 0
+    }
+}
+
+function resetFilterCombobox(id, label) {
+    document.getElementById(`${id}-value`).textContent = label
+    const options = document.getElementById(`${id}-menu`).children
+    for (let index = 0; index < options.length; index++) {
+        const selected = index === 0
+        if (selected) options[index].classList.add('selected')
+        else options[index].classList.remove('selected')
+        options[index].setAttribute('aria-selected', String(selected))
     }
 }
 
